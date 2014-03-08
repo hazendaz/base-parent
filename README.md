@@ -8,11 +8,13 @@ Requires Maven 3.0.4 or better.
 
 After running `mvn clean install` against this project, simply add the parent to your pom.
 
+```
 <parent>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
     <version>1</version>
 </parent>
+```
 
 This project contains only testing dependencies beyond maven plugin configurations.  Simply run `mvn clean install`
 on your project and everything should build as expected.
@@ -38,11 +40,13 @@ Type:
 
 And add parent to your pom.
 
+```
 <parent>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
     <version>1</version>
 </parent>
+```
 
 Run `mvn clean install` against your own project
 
