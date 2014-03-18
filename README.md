@@ -55,7 +55,11 @@ Run `mvn clean install` against your own project
 `checks` - Runs checkstyles, pmd, findbugs, and jacoco.  Additionally, if you would like a sonar push when finished
 simply uncomment sonar within this profile.
 
-`compression` - Runs compression against all contained html, css, and javascript.
+`compression` - Runs compression against all contained html, css, and javascript.  Requires existance of compression.xml
+file to activate.
+
+`format` - Runs eclipse formatting using spaces rather than tabs and 120 rather than 80 character lines.  Requires
+existance of format.xml file to activate.
 
 `sort` - Runs a sort against your pom configuration helping to keep projects aligned.
 
