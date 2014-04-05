@@ -87,6 +87,8 @@
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
         <!-- Test dependencies are in provided scope as code checkers complain otherwise for missing classes -->
@@ -115,30 +117,6 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <id>central</id>
-            <url>http://central</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-              <id>central</id>
-            <url>http://central</url>
-        </pluginRepository>
-    </pluginRepositories>
     <build>
         <pluginManagement>
             <plugins>
@@ -185,6 +163,11 @@
                         </dependency>
                         <dependency>
                             <groupId>com.jcraft</groupId>
+                            <artifactId>jsch</artifactId>
+                            <version>0.1.51</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.jcraft</groupId>
                             <artifactId>jsch.agentproxy.connector-factory</artifactId>
                             <version>0.0.7</version>
                             <exclusions>
@@ -225,7 +208,7 @@
                         <dependency>
                             <groupId>org.tmatesoft.svnkit</groupId>
                             <artifactId>svnkit</artifactId>
-                            <version>1.8.4</version>
+                            <version>1.8.5</version>
                             <exclusions>
                                 <exclusion>
                                     <artifactId>jna</artifactId>
@@ -245,7 +228,7 @@
                         <dependency>
                             <groupId>org.antlr</groupId>
                             <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.1</version>
+                            <version>3.5.2</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -519,7 +502,7 @@
                         <dependency>
                             <groupId>org.antlr</groupId>
                             <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.1</version>
+                            <version>3.5.2</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
@@ -603,7 +586,7 @@
                         <dependency>
                             <groupId>org.antlr</groupId>
                             <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.1</version>
+                            <version>3.5.2</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
