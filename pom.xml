@@ -758,6 +758,14 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-jars</id>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -778,7 +786,6 @@
                             <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                         </manifestEntries>
                     </archive>
-                    <warSourceExcludes>WEB-INF/resources/**</warSourceExcludes>
                 </configuration>
             </plugin>
             <!-- Reporting Plugins -->
@@ -808,11 +815,6 @@
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>attach-test-javadocs</id>
-                        <goals>
                             <goal>test-jar</goal>
                         </goals>
                     </execution>
@@ -845,11 +847,6 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>attach-test-sources</id>
-                        <goals>
                             <goal>test-jar</goal>
                         </goals>
                     </execution>
