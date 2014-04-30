@@ -292,7 +292,7 @@
                         <dependency>
                             <groupId>net.sourceforge.pmd</groupId>
                             <artifactId>pmd</artifactId>
-                            <version>5.1.0</version>
+                            <version>5.1.1</version>
                             <exclusions>
                                 <exclusion>
                                     <artifactId>ant</artifactId>
@@ -757,6 +757,7 @@
                             <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                         </manifestEntries>
                     </archive>
+                    <skipIfEmpty>true</skipIfEmpty>
                 </configuration>
                 <executions>
                     <execution>
