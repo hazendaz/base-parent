@@ -7,15 +7,15 @@
     </prerequisites>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>2</version>
+    <version>3</version>
     <packaging>pom</packaging>
     <name>base-parent</name>
     <description>Base Maven Parent solving majority of Maven configurations</description>
-    <url>https://github.com/hazendaz</url>
+    <url>https://github.com/hazendaz/base-parent</url>
     <inceptionYear>2011</inceptionYear>
     <organization>
-        <name>com.hazendaz</name>
-        <url>https://github.com/hazendaz</url>
+        <name>hazendaz</name>
+        <url>https://github.com/hazendaz/</url>
     </organization>
     <developers>
         <developer>
@@ -68,10 +68,10 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:svn:http://localhost:3690/svn_repository/</connection>
-        <developerConnection>scm:svn:https://localhost:3690/svn_repository/</developerConnection>
+        <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <tag>HEAD</tag>
-        <url>http://localhost:3690/svn_repository/</url>
+        <url>https://github.com/hazendaz/base-parent</url>
     </scm>
     <distributionManagement>
         <repository>
@@ -84,6 +84,7 @@
         </snapshotRepository>
     </distributionManagement>
     <properties>
+        <github.global.server>github</github.global.server>
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
@@ -94,11 +95,10 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
-        <!-- Test dependencies are in provided scope as code checkers complain otherwise for missing classes -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
+         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.14.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -107,17 +107,24 @@
             <version>5.1.1.Final</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
             <version>1.8</version>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>1.9.5</version>
-            <scope>provided</scope>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <artifactId>objenesis</artifactId>
@@ -126,22 +133,16 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.14.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
             <version>1.5.5</version>
-            <scope>provided</scope>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
             <version>1.5.5</version>
-            <scope>provided</scope>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <artifactId>mockito-all</artifactId>
@@ -180,52 +181,9 @@
                     <version>2.6</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.skins</groupId>
-                            <artifactId>maven-fluido-skin</artifactId>
-                            <version>1.3.1</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>2.6</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.jcraft</groupId>
-                            <artifactId>jsch</artifactId>
-                            <version>0.1.51</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.jcraft</groupId>
-                            <artifactId>jsch.agentproxy.connector-factory</artifactId>
-                            <version>0.0.7</version>
-                            <exclusions>
-                                <exclusion>
-                                    <artifactId>platform</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.jcraft</groupId>
-                            <artifactId>jsch.agentproxy.jsch</artifactId>
-                            <version>0.0.7</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.java.dev.jna</groupId>
-                            <artifactId>jna-platform</artifactId>
-                            <version>4.1.0</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-utils</artifactId>
-                            <version>3.0.17</version>
-                        </dependency>
-                    </dependencies>
+                    <groupId>com.github.github</groupId>
+                    <artifactId>site-maven-plugin</artifactId>
+                    <version>0.9</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -234,36 +192,9 @@
                 </plugin>
                 <!-- Build Plugins -->
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>buildnumber-maven-plugin</artifactId>
-                    <version>1.3</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.tmatesoft.svnkit</groupId>
-                            <artifactId>svnkit</artifactId>
-                            <version>1.8.5</version>
-                            <exclusions>
-                                <exclusion>
-                                    <artifactId>jna</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                                <exclusion>
-                                    <artifactId>platform</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.java.dev.jna</groupId>
-                            <artifactId>jna-platform</artifactId>
-                            <version>4.1.0</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.antlr</groupId>
-                            <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.2</version>
-                        </dependency>
-                    </dependencies>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>2.1.10</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -555,39 +486,24 @@
                     <version>1.9</version>
                     <dependencies>
                         <dependency>
-                            <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
-                            <artifactId>maven-scm-provider-svnjava</artifactId>
-                            <version>2.1.1</version>
-                            <exclusions>
-                                <exclusion>
-                                    <artifactId>jna</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                                <exclusion>
-                                    <artifactId>platform</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                        <dependency>
-                            <groupId>commons-io</groupId>
-                            <artifactId>commons-io</artifactId>
-                            <version>2.4</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.java.dev.jna</groupId>
-                            <artifactId>jna-platform</artifactId>
-                            <version>4.1.0</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.antlr</groupId>
-                            <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.2</version>
-                        </dependency>
-                        <dependency>
                             <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-svn-commons</artifactId>
+                            <artifactId>maven-scm-provider-jgit</artifactId>
                             <version>1.9</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.googlecode.javaewah</groupId>
+                            <artifactId>JavaEWAH</artifactId>
+                            <version>0.8.6</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.jcraft</groupId>
+                            <artifactId>jsch</artifactId>
+                            <version>0.1.51</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.eclipse.jgit</groupId>
+                            <artifactId>org.eclipse.jgit</artifactId>
+                            <version>3.3.2.201404171909-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
@@ -600,7 +516,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>2.3</version>
+                    <version>2.3.1</version>
                 </plugin>
                 <!-- Wagon -->
                 <plugin>
@@ -695,25 +611,20 @@
             </plugin>
             <!-- Build Plugins -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <configuration>
+                    <dotGitDirectory>.git</dotGitDirectory>
+                </configuration>
                 <executions>
                     <execution>
-                        <phase>validate</phase>
+                        <id>git-commit-id</id>
                         <goals>
-                            <goal>create</goal>
+                            <goal>revision</goal>
                         </goals>
+                        <phase>validate</phase>
                     </execution>
                 </executions>
-                <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                    <getRivisionOnlyOnce>true</getRivisionOnlyOnce>
-                    <providerImplementations>
-                        <svn>javasvn</svn>
-                    </providerImplementations>
-                    <revisionOnScmFailure>Final</revisionOnScmFailure>
-                </configuration>
             </plugin>
             <!-- Packaging types / Tools -->
             <plugin>
@@ -831,84 +742,21 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- SVN -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
                 <configuration>
-                    <providerImplementations>
-                        <svn>javasvn</svn>
-                    </providerImplementations>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <configuration>
+                    <message>Creating site for ${project.version}</message>
                     <generateSitemap>true</generateSitemap>
-                    <!-- Maven 3.x Reporting (Hidden configuration due to http://jira.codehaus.org/browse/MSITE-484 issue) -->
-                    <!-- Using reporting this way will result in old reporting section to be skipped -->
-                    <reportPlugins>
-                        <!-- Doesn't work with pure java svn due to outstanding bug in plugin
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-changelog-plugin</artifactId>
-                            <configuration>
-                                <providerImplementations>
-                                    <svn>javasvn</svn>
-                                </providerImplementations>
-                            </configuration>
-                        </plugin>
-                        -->
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-checkstyle-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-jxr-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-pmd-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-project-info-reports-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-surefire-report-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>findbugs-maven-plugin</artifactId>
-                            <configuration>
-                                <skip>true</skip>
-                            </configuration>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.jacoco</groupId>
-                            <artifactId>jacoco-maven-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>versions-maven-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>taglist-maven-plugin</artifactId>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>jdepend-maven-plugin</artifactId>
-                        </plugin>
-                    </reportPlugins>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <extensions>
@@ -926,9 +774,9 @@
             </extension>
         </extensions>
     </build>
-    <!-- Maven 2.x Reporting (Disable when using new reporting)
     <reporting>
         <plugins>
+            <!-- Doesn't work with pure java svn due to outstanding bug in plugin
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changelog-plugin</artifactId>
@@ -938,6 +786,7 @@
                     </providerImplementations>
                 </configuration>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -984,7 +833,6 @@
             </plugin>
         </plugins>
     </reporting>
-    -->
     <profiles>
         <profile>
             <id>checks</id>
