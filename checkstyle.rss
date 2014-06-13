@@ -19,14 +19,14 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>fileUploadResources - Checkstyle report</title>
+    <title>fileUploadResourcesLite - Checkstyle report</title>
     <link>http://localhost:8080/fileupload/</link>
-    <description>fileUploadResources - Checkstyle report</description>
+    <description>fileUploadResourcesLite - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2009 - 2014 hazendaz</copyright>
     <item>
-      <title>File: 7,
-             Errors: 27,
+      <title>File: 6,
+             Errors: 15,
              Warnings: 0,
              Infos: 0
       </title>
@@ -84,20 +84,6 @@ under the License.
                 </td>
                 <td>
                   2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://localhost:8080/fileupload//checkstyle.html#com.hazendaz.junk.Bean.java">com/hazendaz/junk/Bean.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  12
                 </td>
               </tr>
                           <tr>
