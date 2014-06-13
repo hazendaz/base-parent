@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20140612" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>dependency-tracker - Dependency Updates Report</title>
+    <title>fileUploadResources - Dependency Updates Report</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -74,13 +74,27 @@
                       <li class="dropdown-submenu">
                                       <a href="project-reports.html"  title="Project Reports">Project Reports</a>
               <ul class="dropdown-menu">
+                                  <li>      <a href="checkstyle.html"  title="Checkstyle">Checkstyle</a>
+</li>
+                                  <li>      <a href="apidocs/index.html"  title="JavaDocs">JavaDocs</a>
+</li>
+                                  <li>      <a href="xref/index.html"  title="Source Xref">Source Xref</a>
+</li>
+                                  <li>      <a href="pmd.html"  title="PMD">PMD</a>
+</li>
                                   <li>      <a href="surefire-report.html"  title="Surefire Report">Surefire Report</a>
+</li>
+                                  <li>      <a href="findbugs.html"  title="FindBugs Report">FindBugs Report</a>
 </li>
                                   <li>      <a href="property-updates-report.html"  title="Property Updates Report">Property Updates Report</a>
 </li>
                                   <li>      <a href="plugin-updates-report.html"  title="Plugin Updates Report">Plugin Updates Report</a>
 </li>
                                   <li>      <a href="dependency-updates-report.html"  title="Dependency Updates Report">Dependency Updates Report</a>
+</li>
+                                  <li>      <a href="taglist.html"  title="Tag List">Tag List</a>
+</li>
+                                  <li>      <a href="jdepend-report.html"  title="JDepend">JDepend</a>
 </li>
                               </ul>
             </li>
@@ -127,7 +141,7 @@
                   <li id="publishDate">Last Published: 2014-06-12
                       <span class="divider">|</span>
                    </li>
-                  <li id="projectVersion">Version: 3
+                  <li id="projectVersion">Version: 1.0.0
                       </li>
                       
                 
@@ -151,7 +165,7 @@
           <i class="icon-chevron-right"></i>
         Project Information</a>
                   </li>
-                                                                                                                                  
+                                                                                                                                                                                                                                                                
       <li>
   
                           <a href="project-reports.html" title="Project Reports">
@@ -161,9 +175,44 @@
                     
       <li>
   
+                          <a href="checkstyle.html" title="Checkstyle">
+          <i class="none"></i>
+        Checkstyle</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="apidocs/index.html" title="JavaDocs">
+          <i class="none"></i>
+        JavaDocs</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="xref/index.html" title="Source Xref">
+          <i class="none"></i>
+        Source Xref</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="pmd.html" title="PMD">
+          <i class="none"></i>
+        PMD</a>
+            </li>
+                    
+      <li>
+  
                           <a href="surefire-report.html" title="Surefire Report">
           <i class="none"></i>
         Surefire Report</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="findbugs.html" title="FindBugs Report">
+          <i class="none"></i>
+        FindBugs Report</a>
             </li>
                     
       <li>
@@ -184,6 +233,20 @@
   
             <a href="#"><i class="none"></i>Dependency Updates Report</a>
           </li>
+                    
+      <li>
+  
+                          <a href="taglist.html" title="Tag List">
+          <i class="none"></i>
+        Tag List</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="jdepend-report.html" title="JDepend">
+          <i class="none"></i>
+        JDepend</a>
+            </li>
               </ul>
         </li>
             </ul>
@@ -214,11 +277,11 @@
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td># of dependencies using the latest version available</td>
-<td>44</td></tr>
+<td>12</td></tr>
 <tr class="b">
 <td><img src="images/icon_warning_sml.gif" alt="" /></td>
 <td># of dependencies where the next version available is smaller than an incremental version update</td>
-<td>0</td></tr>
+<td>1</td></tr>
 <tr class="a">
 <td><img src="images/icon_warning_sml.gif" alt="" /></td>
 <td># of dependencies where the next version available is an incremental version update</td>
@@ -226,7 +289,7 @@
 <tr class="b">
 <td><img src="images/icon_warning_sml.gif" alt="" /></td>
 <td># of dependencies where the next version available is a minor version update</td>
-<td>1</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><img src="images/icon_warning_sml.gif" alt="" /></td>
 <td># of dependencies where the next version available is a major version update</td>
@@ -251,9 +314,33 @@
 <th>Next Major</th></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>com.googlecode.maven-java-formatter-plugin</td>
-<td>maven-java-formatter-plugin</td>
-<td>0.4</td>
+<td>com.sun.faces</td>
+<td>jsf-api</td>
+<td>2.2.7</td>
+<td>compile</td>
+<td></td>
+<td>jar</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td></tr>
+<tr class="b">
+<td><img src="images/icon_warning_sml.gif" alt="" /></td>
+<td>com.sun.faces</td>
+<td>jsf-impl</td>
+<td>2.2.7</td>
+<td>compile</td>
+<td></td>
+<td>jar</td>
+<td><b>2.2.7-jbossorg-1</b></td>
+<td></td>
+<td></td>
+<td></td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>javax.inject</td>
+<td>javax.inject</td>
+<td>1</td>
 <td>compile</td>
 <td></td>
 <td>jar</td>
@@ -263,10 +350,10 @@
 <td></td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>com.tunyk.mvn.plugins.htmlcompressor</td>
-<td>htmlcompressor-maven-plugin</td>
-<td>1.3</td>
-<td>compile</td>
+<td>javax.servlet</td>
+<td>javax.servlet-api</td>
+<td>3.1.0</td>
+<td>provided</td>
 <td></td>
 <td>jar</td>
 <td></td>
@@ -287,402 +374,6 @@
 <td></td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>net.alchim31.maven</td>
-<td>yuicompressor-maven-plugin</td>
-<td>1.4.0</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-antrun-plugin</td>
-<td>1.7</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-assembly-plugin</td>
-<td>2.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-changelog-plugin</td>
-<td>2.3-SNAPSHOT</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-checkstyle-plugin</td>
-<td>2.12.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-clean-plugin</td>
-<td>2.5</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-compiler-plugin</td>
-<td>3.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-dependency-plugin</td>
-<td>2.8</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-deploy-plugin</td>
-<td>2.8.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-install-plugin</td>
-<td>2.5.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-jar-plugin</td>
-<td>2.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-javadoc-plugin</td>
-<td>2.9.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-jxr-plugin</td>
-<td>2.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-pmd-plugin</td>
-<td>3.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-project-info-reports-plugin</td>
-<td>2.7</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-release-plugin</td>
-<td>2.5</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-resources-plugin</td>
-<td>2.6</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-scm-plugin</td>
-<td>1.10-SNAPSHOT</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-site-plugin</td>
-<td>3.3</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-source-plugin</td>
-<td>2.2.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-surefire-plugin</td>
-<td>2.17</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-surefire-report-plugin</td>
-<td>2.17</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.maven.plugins</td>
-<td>maven-war-plugin</td>
-<td>2.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.apache.tomcat.maven</td>
-<td>tomcat7-maven-plugin</td>
-<td>2.2</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>build-helper-maven-plugin</td>
-<td>1.9</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>buildnumber-maven-plugin</td>
-<td>1.3</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>findbugs-maven-plugin</td>
-<td>2.5.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>jdepend-maven-plugin</td>
-<td>2.0</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_warning_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>sonar-maven-plugin</td>
-<td>2.2</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td><b>2.3</b></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>taglist-maven-plugin</td>
-<td>2.4</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>tidy-maven-plugin</td>
-<td>1.0-alpha-2</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>versions-maven-plugin</td>
-<td>2.1</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.codehaus.mojo</td>
-<td>wagon-maven-plugin</td>
-<td>1.0-beta-5</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>org.hibernate</td>
 <td>hibernate-validator-annotation-processor</td>
 <td>5.1.1.Final</td>
@@ -693,11 +384,23 @@
 <td></td>
 <td></td>
 <td></td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>org.hibernate</td>
+<td>hibernate-validator-cdi</td>
+<td>5.1.1.Final</td>
+<td>compile</td>
+<td></td>
+<td>jar</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.jacoco</td>
-<td>jacoco-maven-plugin</td>
-<td>0.7.1.201405082137</td>
+<td>org.jboss.logging</td>
+<td>jboss-logging</td>
+<td>3.2.0.Beta1</td>
 <td>compile</td>
 <td></td>
 <td>jar</td>
@@ -719,34 +422,10 @@
 <td></td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.jvnet.jax-ws-commons</td>
-<td>jaxws-maven-plugin</td>
-<td>2.3.1-b03</td>
-<td>compile</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="a">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td>org.mockito</td>
 <td>mockito-core</td>
 <td>1.9.5</td>
 <td>test</td>
-<td></td>
-<td>jar</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td></tr>
-<tr class="b">
-<td><img src="images/icon_success_sml.gif" alt="" /></td>
-<td>org.ow2.asm</td>
-<td>asm</td>
-<td>5.0.3</td>
-<td>compile</td>
 <td></td>
 <td>jar</td>
 <td></td>
@@ -805,20 +484,20 @@
 <h2>Dependency Updates<a name="Dependency_Updates"></a></h2>
 <p></p>
 <div class="section">
-<h3>com.googlecode.maven-java-formatter-plugin:maven-java-formatter-plugin<a name="com.googlecode.maven-java-formatter-plugin:maven-java-formatter-plugin"></a></h3>
+<h3>com.sun.faces:jsf-api<a name="com.sun.faces:jsf-api"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th width="80%">Status</th>
 <td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
 <tr class="b">
 <th width="80%">Group Id</th>
-<td>com.googlecode.maven-java-formatter-plugin</td></tr>
+<td>com.sun.faces</td></tr>
 <tr class="a">
 <th width="80%">Artifact Id</th>
-<td>maven-java-formatter-plugin</td></tr>
+<td>jsf-api</td></tr>
 <tr class="b">
 <th width="80%">Current Version</th>
-<td>0.4</td></tr>
+<td>2.2.7</td></tr>
 <tr class="a">
 <th width="80%">Scope</th>
 <td>compile</td></tr>
@@ -829,23 +508,74 @@
 <th width="80%">Type</th>
 <td>jar</td></tr></table></div>
 <div class="section">
-<h3>com.tunyk.mvn.plugins.htmlcompressor:htmlcompressor-maven-plugin<a name="com.tunyk.mvn.plugins.htmlcompressor:htmlcompressor-maven-plugin"></a></h3>
+<h3>com.sun.faces:jsf-impl<a name="com.sun.faces:jsf-impl"></a></h3>
+<table border="0" class="table table-striped">
+<tr class="a">
+<th width="80%">Status</th>
+<td><img src="images/icon_warning_sml.gif" alt="" />&#160;There is at least one newer version available.</td></tr>
+<tr class="b">
+<th width="80%">Group Id</th>
+<td>com.sun.faces</td></tr>
+<tr class="a">
+<th width="80%">Artifact Id</th>
+<td>jsf-impl</td></tr>
+<tr class="b">
+<th width="80%">Current Version</th>
+<td>2.2.7</td></tr>
+<tr class="a">
+<th width="80%">Scope</th>
+<td>compile</td></tr>
+<tr class="b">
+<th width="80%">Classifier</th>
+<td></td></tr>
+<tr class="a">
+<th width="80%">Type</th>
+<td>jar</td></tr>
+<tr class="b">
+<th width="80%">Newer versions</th>
+<td><b>2.2.7-jbossorg-1</b>&#160;<i>Next Version</i></td></tr></table></div>
+<div class="section">
+<h3>javax.inject:javax.inject<a name="javax.inject:javax.inject"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th width="80%">Status</th>
 <td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
 <tr class="b">
 <th width="80%">Group Id</th>
-<td>com.tunyk.mvn.plugins.htmlcompressor</td></tr>
+<td>javax.inject</td></tr>
 <tr class="a">
 <th width="80%">Artifact Id</th>
-<td>htmlcompressor-maven-plugin</td></tr>
+<td>javax.inject</td></tr>
 <tr class="b">
 <th width="80%">Current Version</th>
-<td>1.3</td></tr>
+<td>1</td></tr>
 <tr class="a">
 <th width="80%">Scope</th>
 <td>compile</td></tr>
+<tr class="b">
+<th width="80%">Classifier</th>
+<td></td></tr>
+<tr class="a">
+<th width="80%">Type</th>
+<td>jar</td></tr></table></div>
+<div class="section">
+<h3>javax.servlet:javax.servlet-api<a name="javax.servlet:javax.servlet-api"></a></h3>
+<table border="0" class="table table-striped">
+<tr class="a">
+<th width="80%">Status</th>
+<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
+<tr class="b">
+<th width="80%">Group Id</th>
+<td>javax.servlet</td></tr>
+<tr class="a">
+<th width="80%">Artifact Id</th>
+<td>javax.servlet-api</td></tr>
+<tr class="b">
+<th width="80%">Current Version</th>
+<td>3.1.0</td></tr>
+<tr class="a">
+<th width="80%">Scope</th>
+<td>provided</td></tr>
 <tr class="b">
 <th width="80%">Classifier</th>
 <td></td></tr>
@@ -877,801 +607,6 @@
 <th width="80%">Type</th>
 <td>jar</td></tr></table></div>
 <div class="section">
-<h3>net.alchim31.maven:yuicompressor-maven-plugin<a name="net.alchim31.maven:yuicompressor-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>net.alchim31.maven</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>yuicompressor-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.4.0</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-antrun-plugin<a name="org.apache.maven.plugins:maven-antrun-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-antrun-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.7</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-assembly-plugin<a name="org.apache.maven.plugins:maven-assembly-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-assembly-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-changelog-plugin<a name="org.apache.maven.plugins:maven-changelog-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-changelog-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.3-SNAPSHOT</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-checkstyle-plugin<a name="org.apache.maven.plugins:maven-checkstyle-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-checkstyle-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.12.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-clean-plugin<a name="org.apache.maven.plugins:maven-clean-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-clean-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.5</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-compiler-plugin<a name="org.apache.maven.plugins:maven-compiler-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-compiler-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>3.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-dependency-plugin<a name="org.apache.maven.plugins:maven-dependency-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-dependency-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.8</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-deploy-plugin<a name="org.apache.maven.plugins:maven-deploy-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-deploy-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.8.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-install-plugin<a name="org.apache.maven.plugins:maven-install-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-install-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.5.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-jar-plugin<a name="org.apache.maven.plugins:maven-jar-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-jar-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-javadoc-plugin<a name="org.apache.maven.plugins:maven-javadoc-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-javadoc-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.9.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-jxr-plugin<a name="org.apache.maven.plugins:maven-jxr-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-jxr-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-pmd-plugin<a name="org.apache.maven.plugins:maven-pmd-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-pmd-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>3.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-project-info-reports-plugin<a name="org.apache.maven.plugins:maven-project-info-reports-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-project-info-reports-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.7</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-release-plugin<a name="org.apache.maven.plugins:maven-release-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-release-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.5</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-resources-plugin<a name="org.apache.maven.plugins:maven-resources-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-resources-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.6</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-scm-plugin<a name="org.apache.maven.plugins:maven-scm-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-scm-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.10-SNAPSHOT</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-site-plugin<a name="org.apache.maven.plugins:maven-site-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-site-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>3.3</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-source-plugin<a name="org.apache.maven.plugins:maven-source-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-source-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.2.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-surefire-plugin<a name="org.apache.maven.plugins:maven-surefire-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-surefire-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.17</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-surefire-report-plugin<a name="org.apache.maven.plugins:maven-surefire-report-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-surefire-report-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.17</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.maven.plugins:maven-war-plugin<a name="org.apache.maven.plugins:maven-war-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.maven.plugins</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>maven-war-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.apache.tomcat.maven:tomcat7-maven-plugin<a name="org.apache.tomcat.maven:tomcat7-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.apache.tomcat.maven</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>tomcat7-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.2</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:build-helper-maven-plugin<a name="org.codehaus.mojo:build-helper-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>build-helper-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.9</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:buildnumber-maven-plugin<a name="org.codehaus.mojo:buildnumber-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>buildnumber-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.3</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:findbugs-maven-plugin<a name="org.codehaus.mojo:findbugs-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>findbugs-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.5.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:jdepend-maven-plugin<a name="org.codehaus.mojo:jdepend-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>jdepend-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.0</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:sonar-maven-plugin<a name="org.codehaus.mojo:sonar-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_warning_sml.gif" alt="" />&#160;There is at least one newer minor version available. Minor updates are sometimes passive.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>sonar-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.2</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr>
-<tr class="b">
-<th width="80%">Newer versions</th>
-<td><b>2.3</b>&#160;<i>Next Minor</i><br /><b>2.3.1</b>&#160;<i>Latest Minor</i></td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:taglist-maven-plugin<a name="org.codehaus.mojo:taglist-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>taglist-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.4</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:tidy-maven-plugin<a name="org.codehaus.mojo:tidy-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>tidy-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.0-alpha-2</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:versions-maven-plugin<a name="org.codehaus.mojo:versions-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>versions-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.1</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.codehaus.mojo:wagon-maven-plugin<a name="org.codehaus.mojo:wagon-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.codehaus.mojo</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>wagon-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>1.0-beta-5</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
 <h3>org.hibernate:hibernate-validator-annotation-processor<a name="org.hibernate:hibernate-validator-annotation-processor"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
@@ -1696,20 +631,44 @@
 <th width="80%">Type</th>
 <td>jar</td></tr></table></div>
 <div class="section">
-<h3>org.jacoco:jacoco-maven-plugin<a name="org.jacoco:jacoco-maven-plugin"></a></h3>
+<h3>org.hibernate:hibernate-validator-cdi<a name="org.hibernate:hibernate-validator-cdi"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
 <th width="80%">Status</th>
 <td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
 <tr class="b">
 <th width="80%">Group Id</th>
-<td>org.jacoco</td></tr>
+<td>org.hibernate</td></tr>
 <tr class="a">
 <th width="80%">Artifact Id</th>
-<td>jacoco-maven-plugin</td></tr>
+<td>hibernate-validator-cdi</td></tr>
 <tr class="b">
 <th width="80%">Current Version</th>
-<td>0.7.1.201405082137</td></tr>
+<td>5.1.1.Final</td></tr>
+<tr class="a">
+<th width="80%">Scope</th>
+<td>compile</td></tr>
+<tr class="b">
+<th width="80%">Classifier</th>
+<td></td></tr>
+<tr class="a">
+<th width="80%">Type</th>
+<td>jar</td></tr></table></div>
+<div class="section">
+<h3>org.jboss.logging:jboss-logging<a name="org.jboss.logging:jboss-logging"></a></h3>
+<table border="0" class="table table-striped">
+<tr class="a">
+<th width="80%">Status</th>
+<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
+<tr class="b">
+<th width="80%">Group Id</th>
+<td>org.jboss.logging</td></tr>
+<tr class="a">
+<th width="80%">Artifact Id</th>
+<td>jboss-logging</td></tr>
+<tr class="b">
+<th width="80%">Current Version</th>
+<td>3.2.0.Beta1</td></tr>
 <tr class="a">
 <th width="80%">Scope</th>
 <td>compile</td></tr>
@@ -1744,30 +703,6 @@
 <th width="80%">Type</th>
 <td>jar</td></tr></table></div>
 <div class="section">
-<h3>org.jvnet.jax-ws-commons:jaxws-maven-plugin<a name="org.jvnet.jax-ws-commons:jaxws-maven-plugin"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.jvnet.jax-ws-commons</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>jaxws-maven-plugin</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>2.3.1-b03</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
 <h3>org.mockito:mockito-core<a name="org.mockito:mockito-core"></a></h3>
 <table border="0" class="table table-striped">
 <tr class="a">
@@ -1785,30 +720,6 @@
 <tr class="a">
 <th width="80%">Scope</th>
 <td>test</td></tr>
-<tr class="b">
-<th width="80%">Classifier</th>
-<td></td></tr>
-<tr class="a">
-<th width="80%">Type</th>
-<td>jar</td></tr></table></div>
-<div class="section">
-<h3>org.ow2.asm:asm<a name="org.ow2.asm:asm"></a></h3>
-<table border="0" class="table table-striped">
-<tr class="a">
-<th width="80%">Status</th>
-<td><img src="images/icon_success_sml.gif" alt="" />&#160;No newer versions available.</td></tr>
-<tr class="b">
-<th width="80%">Group Id</th>
-<td>org.ow2.asm</td></tr>
-<tr class="a">
-<th width="80%">Artifact Id</th>
-<td>asm</td></tr>
-<tr class="b">
-<th width="80%">Current Version</th>
-<td>5.0.3</td></tr>
-<tr class="a">
-<th width="80%">Scope</th>
-<td>compile</td></tr>
 <tr class="b">
 <th width="80%">Classifier</th>
 <td></td></tr>
@@ -1896,7 +807,7 @@
     <footer>
             <div class="container-fluid">
                       <div class="row-fluid">
-                              <p >Copyright &copy;                    2011&#x2013;2014
+                              <p >Copyright &copy;                    2009&#x2013;2014
                         <a href="https://github.com/hazendaz/">hazendaz</a>.
             All rights reserved.      
                     
