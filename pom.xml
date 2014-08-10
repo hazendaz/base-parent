@@ -117,7 +117,7 @@
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
-            <version>1.9</version>
+            <version>1.10</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -238,55 +238,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.1</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>net.sourceforge.pmd</groupId>
-                            <artifactId>pmd</artifactId>
-                            <version>5.1.2</version>
-                            <exclusions>
-                                <exclusion>
-                                    <artifactId>ant</artifactId>
-                                    <groupId>org.apache.ant</groupId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.beust</groupId>
-                            <artifactId>jcommander</artifactId>
-                            <version>1.35</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>commons-io</groupId>
-                            <artifactId>commons-io</artifactId>
-                            <version>2.4</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>jaxen</groupId>
-                            <artifactId>jaxen</artifactId>
-                            <version>1.1.6</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>junit</groupId>
-                            <artifactId>junit</artifactId>
-                            <version>4.11</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.ant</groupId>
-                            <artifactId>ant-testutil</artifactId>
-                            <version>1.9.4</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.mozilla</groupId>
-                            <artifactId>rhino</artifactId>
-                            <version>1.7R4</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>xerces</groupId>
-                            <artifactId>xercesImpl</artifactId>
-                            <version>2.11.0</version>
-                        </dependency>
-                    </dependencies>
+                    <version>3.2</version>
                 </plugin>
                 <!-- Tools -->
                 <plugin>
@@ -960,8 +912,8 @@
                             <javascriptHtmlSprite>false</javascriptHtmlSprite>
                             <yuiJsNoMunge>true</yuiJsNoMunge>
                             <removeIntertagSpaces>true</removeIntertagSpaces>
-                            <srcFolder>${basedir}/src/main/resources</srcFolder>
-                            <targetFolder>${basedir}/target/classes</targetFolder>
+                            <srcFolder>${project.basedir}/src/main/resources</srcFolder>
+                            <targetFolder>${project.basedir}/target/classes</targetFolder>
                             <fileExt>
                                 <fileExt>html</fileExt>
                                 <fileExt>xhtml</fileExt>
