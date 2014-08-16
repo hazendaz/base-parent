@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20140815" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>base-parent &#x2013; Surefire Report</title>
+    <title>fileupload &#x2013; Surefire Report</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.3.1.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -74,13 +74,33 @@
                       <li class="dropdown-submenu">
                                       <a href="project-reports.html"  title="Project Reports">Project Reports</a>
               <ul class="dropdown-menu">
+                                  <li>      <a href="checkstyle.html"  title="Checkstyle">Checkstyle</a>
+</li>
+                                  <li>      <a href="apidocs/index.html"  title="JavaDocs">JavaDocs</a>
+</li>
+                                  <li>      <a href="testapidocs/index.html"  title="Test JavaDocs">Test JavaDocs</a>
+</li>
+                                  <li>      <a href="xref-test/index.html"  title="Test Source Xref">Test Source Xref</a>
+</li>
+                                  <li>      <a href="xref/index.html"  title="Source Xref">Source Xref</a>
+</li>
+                                  <li>      <a href="cpd.html"  title="CPD">CPD</a>
+</li>
+                                  <li>      <a href="pmd.html"  title="PMD">PMD</a>
+</li>
                                   <li>      <a href="surefire-report.html"  title="Surefire Report">Surefire Report</a>
+</li>
+                                  <li>      <a href="findbugs.html"  title="FindBugs">FindBugs</a>
 </li>
                                   <li>      <a href="property-updates-report.html"  title="Property Updates Report">Property Updates Report</a>
 </li>
                                   <li>      <a href="plugin-updates-report.html"  title="Plugin Updates Report">Plugin Updates Report</a>
 </li>
                                   <li>      <a href="dependency-updates-report.html"  title="Dependency Updates Report">Dependency Updates Report</a>
+</li>
+                                  <li>      <a href="taglist.html"  title="Tag List">Tag List</a>
+</li>
+                                  <li>      <a href="jdepend-report.html"  title="JDepend">JDepend</a>
 </li>
                               </ul>
             </li>
@@ -127,7 +147,7 @@
                   <li id="publishDate">Last Published: 2014-08-15
                       <span class="divider">|</span>
                    </li>
-                  <li id="projectVersion">Version: 3
+                  <li id="projectVersion">Version: 1.0.0
                       </li>
                       
                 
@@ -151,7 +171,7 @@
           <i class="icon-chevron-right"></i>
         Project Information</a>
                   </li>
-                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                      
       <li>
   
                           <a href="project-reports.html" title="Project Reports">
@@ -159,10 +179,66 @@
         Project Reports</a>
                     <ul class="nav nav-list">
                     
+      <li>
+  
+                          <a href="checkstyle.html" title="Checkstyle">
+          <i class="none"></i>
+        Checkstyle</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="apidocs/index.html" title="JavaDocs">
+          <i class="none"></i>
+        JavaDocs</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="testapidocs/index.html" title="Test JavaDocs">
+          <i class="none"></i>
+        Test JavaDocs</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="xref-test/index.html" title="Test Source Xref">
+          <i class="none"></i>
+        Test Source Xref</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="xref/index.html" title="Source Xref">
+          <i class="none"></i>
+        Source Xref</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="cpd.html" title="CPD">
+          <i class="none"></i>
+        CPD</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="pmd.html" title="PMD">
+          <i class="none"></i>
+        PMD</a>
+            </li>
+                    
       <li class="active">
   
             <a href="#"><i class="none"></i>Surefire Report</a>
           </li>
+                    
+      <li>
+  
+                          <a href="findbugs.html" title="FindBugs">
+          <i class="none"></i>
+        FindBugs</a>
+            </li>
                     
       <li>
   
@@ -183,6 +259,20 @@
                           <a href="dependency-updates-report.html" title="Dependency Updates Report">
           <i class="none"></i>
         Dependency Updates Report</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="taglist.html" title="Tag List">
+          <i class="none"></i>
+        Tag List</a>
+            </li>
+                    
+      <li>
+  
+                          <a href="jdepend-report.html" title="JDepend">
+          <i class="none"></i>
+        JDepend</a>
             </li>
               </ul>
         </li>
@@ -227,7 +317,8 @@ function toggleDisplay(elementId) {
 <div class="section">
 <h2><a name="Surefire_Report"></a>Surefire Report</h2></div>
 <div class="section">
-<h2><a name="Summary"></a>Summary</h2><a name="Summary"></a><br />
+<h2><a name="Summary"></a>Summary</h2><a name="Summary"></a>
+<p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
 <table border="1" class="table table-striped">
 <tr class="a">
 <th>Tests</th>
@@ -237,13 +328,164 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
+<td>5</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0%</td>
-<td>0</td></tr></table><br />
+<td>1</td>
+<td>80%</td>
+<td>0.124</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></div>
+<div class="section">
+<h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
+<p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
+<table border="1" class="table table-striped">
+<tr class="a">
+<th>Package</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#com.hazendaz.beans">com.hazendaz.beans</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.124</td></tr>
+<tr class="a">
+<td><a href="#com.hazendaz.weld">com.hazendaz.weld</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>50%</td>
+<td>0</td></tr></table><br />
+<p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p>
+<div class="section">
+<h3><a name="com.hazendaz.beans"></a>com.hazendaz.beans</h3><a name="com.hazendaz.beans"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#com.hazendaz.beansBeanIoExampleTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.beansBeanIoExampleTest">BeanIoExampleTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.109</td></tr>
+<tr class="a">
+<td><a href="#com.hazendaz.beansCsveedExampleTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.beansCsveedExampleTest">CsveedExampleTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.01</td></tr>
+<tr class="b">
+<td><a href="#com.hazendaz.beansLogonBeanTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.beansLogonBeanTest">LogonBeanTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.005</td></tr></table></div>
+<div class="section">
+<h3><a name="com.hazendaz.weld"></a>com.hazendaz.weld</h3><a name="com.hazendaz.weld"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#com.hazendaz.weldBeanProviderTest"><img src="images/icon_warning_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.weldBeanProviderTest">BeanProviderTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0%</td>
+<td>0</td></tr>
+<tr class="a">
+<td><a href="#com.hazendaz.weldLogManagerTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.weldLogManagerTest">LogManagerTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0</td></tr></table></div><br /></div>
+<div class="section">
+<h2><a name="Test_Cases"></a>Test Cases</h2><a name="Test_Cases"></a>
+<p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
+<div class="section">
+<h3><a name="BeanIoExampleTest"></a>BeanIoExampleTest</h3><a name="com.hazendaz.beansBeanIoExampleTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>csvExample</td>
+<td>0.109</td></tr></table></div>
+<div class="section">
+<h3><a name="CsveedExampleTest"></a>CsveedExampleTest</h3><a name="com.hazendaz.beansCsveedExampleTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>csvExample</td>
+<td>0.01</td></tr></table></div>
+<div class="section">
+<h3><a name="LogonBeanTest"></a>LogonBeanTest</h3><a name="com.hazendaz.beansLogonBeanTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>clearTest</td>
+<td>0.005</td></tr></table></div>
+<div class="section">
+<h3><a name="BeanProviderTest"></a>BeanProviderTest</h3><a name="com.hazendaz.weldBeanProviderTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><a href="#com.hazendaz.weld.BeanProviderTest.com.hazendaz.weld.BeanProviderTest"><img src="images/icon_warning_sml.gif" alt="" /></a></td>
+<td><a href="#com.hazendaz.weld.BeanProviderTest.com.hazendaz.weld.BeanProviderTest">com.hazendaz.weld.BeanProviderTest</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;com_hazendaz_weld_BeanProviderTest_com_hazendaz_weld_BeanProviderTest&apos;);"><span style="display:inline;" id="com_hazendaz_weld_BeanProviderTest_com_hazendaz_weld_BeanProviderTestoff"> + </span><span style="display:none;" id="com_hazendaz_weld_BeanProviderTest_com_hazendaz_weld_BeanProviderTeston"> - </span>[ Detail ]</a></div></td>
+<td>0</td></tr>
+<tr class="b">
+<td></td>
+<td>skipped</td>
+<td></td></tr></table></div>
+<div class="section">
+<h3><a name="LogManagerTest"></a>LogManagerTest</h3><a name="com.hazendaz.weldLogManagerTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td>getLoggerTest</td>
+<td>0</td></tr></table></div><br /></div>
+<div class="section">
+<h2><a name="Failure_Details"></a>Failure Details</h2><a name="Failure_Details"></a>
+<p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_warning_sml.gif" alt="" /></td>
+<td><a name="com.hazendaz.weld.BeanProviderTest.com.hazendaz.weld.BeanProviderTest"></a>com.hazendaz.weld.BeanProviderTest</td></tr>
+<tr class="b">
+<td></td>
+<td>skipped: skipped</td></tr></table><br /></div>
                   </div>
             </div>
           </div>
@@ -253,7 +495,7 @@ function toggleDisplay(elementId) {
     <footer>
             <div class="container-fluid">
                       <div class="row-fluid">
-                              <p >Copyright &copy;                    2011&#x2013;2014
+                              <p >Copyright &copy;                    2009&#x2013;2014
                         <a href="https://github.com/hazendaz/">hazendaz</a>.
             All rights reserved.      
                     
