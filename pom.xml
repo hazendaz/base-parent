@@ -783,6 +783,9 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
+            <!-- This plugin will fail if any POM is marked as Byte Order Mark is UTF-8 (BOM).
+               | If this occurs, create a new POM and move the contents in order to fix.
+               | For reference, this was a problem with mybatis/mybatis-spring poms. -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
