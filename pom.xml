@@ -98,7 +98,7 @@
          <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.14.6</version>
+            <version>1.14.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -195,7 +195,7 @@
                 <plugin>
                     <groupId>com.github.github</groupId>
                     <artifactId>site-maven-plugin</artifactId>
-                    <version>0.9</version>
+                    <version>0.10</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -398,7 +398,7 @@
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-svn-commons</artifactId>
-                            <version>1.9.1</version>
+                            <version>1.9.2</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
@@ -447,12 +447,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.9.1</version>
+                    <version>1.9.2</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.9.1</version>
+                            <version>1.9.2</version>
                         </dependency>
                         <dependency>
                             <groupId>com.googlecode.javaewah</groupId>
@@ -527,7 +527,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>org.jacoco</groupId>
                                         <artifactId>jacoco-maven-plugin</artifactId>
-                                        <versionRange>[0.7.1.201405082137,)</versionRange>
+                                        <versionRange>[0.7.2.201409121644,)</versionRange>
                                         <goals>
                                             <goal>prepare-agent</goal>
                                         </goals>
