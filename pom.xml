@@ -202,6 +202,14 @@
                     <groupId>com.github.github</groupId>
                     <artifactId>site-maven-plugin</artifactId>
                     <version>0.10</version>
+                    <dependencies>
+                        <!-- Site Maven Plugin is referencing incorrect version so fixed here -->
+                        <dependency>
+                            <groupId>org.eclipse.mylyn.github</groupId>
+                            <artifactId>org.eclipse.egit.github.core</artifactId>
+                            <version>2.1.5</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -409,7 +417,7 @@
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-utils</artifactId>
-                            <version>3.0.17</version>
+                            <version>3.0.18</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -478,7 +486,7 @@
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-utils</artifactId>
-                            <version>3.0.17</version>
+                            <version>3.0.18</version>
                         </dependency>
                     </dependencies>
                 </plugin>
