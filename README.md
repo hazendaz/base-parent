@@ -2,6 +2,8 @@
 
 ![hazendaz](https://github.com/hazendaz/base-parent/blob/master/src/site/resources/images/hazendaz-banner.jpg)
 
+See site page [here](http://hazendaz.github.io/base-parent/)
+
 ## Quick Start ##
 
 If you quickly want to configure maven for most use cases, just download this project and run `mvn clean install`.
