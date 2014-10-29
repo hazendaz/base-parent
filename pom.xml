@@ -117,7 +117,7 @@
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
-            <version>1.12</version>
+            <version>1.13</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -242,7 +242,9 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.12.1</version>
+                    <version>2.13</version>
+                    <!-- comment out for now until plugin issues resolved since this doesn't work anyways -->
+                    <!-- 
                     <dependencies>
                         <dependency>
                             <groupId>com.hazendaz</groupId>
@@ -250,6 +252,7 @@
                             <version>1.0.1</version>
                         </dependency>
                     </dependencies>
+                    -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -270,7 +273,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.4.1</version>
+                    <version>2.5</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -301,7 +304,7 @@
                         <dependency>
                             <groupId>com.googlecode.htmlcompressor</groupId>
                             <artifactId>htmlcompressor</artifactId>
-                            <version>1.5.3</version>
+                            <version>1.5.2</version>
                         </dependency>
                         <dependency>
                             <groupId>com.yahoo.platform.yui</groupId>
@@ -323,7 +326,7 @@
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
-                    <version>1.4.0</version>
+                    <version>1.5.0</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.yahoo.platform.yui</groupId>
@@ -345,28 +348,10 @@
                     </dependencies>
                 </plugin>
                 <!-- Jaxws Plugin -->
-                <!-- Don't use 2.3.1 at this time as it doesn't work -->
                 <plugin>
-                    <groupId>org.jvnet.jax-ws-commons</groupId>
+                    <groupId>net.trajano.mojo</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>2.3</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>javax.annotation</groupId>
-                            <artifactId>javax.annotation-api</artifactId>
-                            <version>1.2</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.glassfish.metro</groupId>
-                            <artifactId>webservices-rt</artifactId>
-                            <version>2.3.1-b419</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.glassfish.metro</groupId>
-                            <artifactId>webservices-tools</artifactId>
-                            <version>2.3.1-b419</version>
-                        </dependency>
-                    </dependencies>
+                    <version>2.3.8</version>
                 </plugin>
                 <!-- Report Only -->
                 <plugin>
@@ -528,7 +513,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>net.alchim31.maven</groupId>
                                         <artifactId>yuicompressor-maven-plugin</artifactId>
-                                        <versionRange>[1.4.0,)</versionRange>
+                                        <versionRange>[1.5.0,)</versionRange>
                                         <goals>
                                             <goal>compress</goal>
                                         </goals>
@@ -1043,7 +1028,7 @@
                                         <artifactItem>
                                             <groupId>org.glassfish.metro</groupId>
                                             <artifactId>webservices-api</artifactId>
-                                            <version>2.3.1-b411</version>
+                                            <version>2.3.1-b419</version>
                                             <type>jar</type>
                                         </artifactItem>
                                     </artifactItems>
@@ -1059,7 +1044,7 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.jvnet.jax-ws-commons</groupId>
+                        <groupId>net.trajano.mojo</groupId>
                         <artifactId>jaxws-maven-plugin</artifactId>
                         <executions>
                             <execution>
