@@ -3,11 +3,11 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <prerequisites>
-        <maven>3.0.5</maven>
+        <maven>3.2.3</maven>
     </prerequisites>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>3</version>
+    <version>4</version>
     <packaging>pom</packaging>
     <name>base-parent</name>
     <description>Base Maven Parent solving majority of Maven configurations</description>
@@ -90,58 +90,79 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.min-version>3.2.3</maven.min-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <assertj.version>1.7.0</assertj.version>
+        <contiperf.version>2.3.4</contiperf.version>
+        <jmockit.version>1.13</jmockit.version>
+        <junit.version>4.12-beta-2</junit.version>
+        <lombok.version>1.14.8</lombok.version>
+        <hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
+        <mockito.version>1.10.8</mockito.version>
+        <powermock.version>1.5.6</powermock.version>
+        <slf4j.version>1.7.7</slf4j.version>
+
+        <signature.artifact>java17</signature.artifact>
+        <signature.version>1.0</signature.version>
     </properties>
     <dependencies>
          <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.14.8</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator-annotation-processor</artifactId>
-            <version>5.1.3.Final</version>
+            <version>${hibernate-validator.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <!-- prevent warning: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". -->
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
-            <version>1.13</version>
+            <version>${jmockit.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.8</version>
+            <version>${mockito.version}</version>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>objenesis</artifactId>
-                    <groupId>org.objenesis</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-module-junit4</artifactId>
-            <version>1.5.6</version>
+            <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito</artifactId>
-            <version>1.5.6</version>
+            <version>${powermock.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -169,6 +190,19 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>1.3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.5</version>
+                    <configuration>
+                        <useAgent>true</useAgent>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -319,6 +353,11 @@
                     <version>0.7.2.201409121644</version>
                 </plugin>
                 <plugin>
+                    <groupId>org.eluder.coveralls</groupId>
+                    <artifactId>coveralls-maven-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>tidy-maven-plugin</artifactId>
                     <version>1.0-alpha-2</version>
@@ -346,6 +385,29 @@
                             <version>1.0.1</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>2.6</version>
+                    <configuration>
+                        <header>../waffle-parent/license.txt</header>
+                        <excludes>
+                            <exclude>target/**</exclude>
+                            <exclude>**/.gitignore</exclude>
+                            <exclude>**/*.txt</exclude>
+                            <exclude>**/*.xml</exclude>
+                            <exclude>**/*.properties</exclude>
+                            <exclude>**/*.html</exclude>
+                            <exclude>**/*.css</exclude>
+                        </excludes>
+                        <includes>
+                            <include>**/*.java</include>
+                        </includes>
+                        <mapping>
+                            <java>JAVADOC_STYLE</java>
+                        </mapping>
+                    </configuration>
                 </plugin>
                 <!-- Jaxws Plugin -->
                 <plugin>
@@ -487,6 +549,18 @@
                     <artifactId>wagon-maven-plugin</artifactId>
                     <version>1.0-beta-5</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-maven-plugin</artifactId>
+                    <version>1.11</version>
+                    <configuration>
+                        <signature>
+                            <groupId>org.codehaus.mojo.signature</groupId>
+                            <artifactId>${signature.artifact}</artifactId>
+                            <version>${signature.version}</version>
+                        </signature>
+                    </configuration>
+                </plugin>
                 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
                     build itself. -->
                 <plugin>
@@ -578,6 +652,10 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <configuration>
                     <dotGitDirectory>.git</dotGitDirectory>
+                    <!-- Fixes occassional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                    <gitDescribe>
+                        <skip>true</skip>
+                    </gitDescribe>
                 </configuration>
                 <executions>
                     <execution>
@@ -706,6 +784,68 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <configuration>
+                    <rules>
+                        <requireMavenVersion>
+                            <version>[${maven.min-version},)</version>
+                        </requireMavenVersion>
+                    </rules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>enforce-clean</id>
+                        <phase>pre-clean</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>enforce-site</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>test-sniffer</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                        <!-- Remove this when using a license -->
+                        <configuration>
+                           <skip>true</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
                 <configuration>
@@ -718,6 +858,24 @@
                             <goal>site</goal>
                         </goals>
                         <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -858,18 +1016,6 @@
                         <artifactId>jacoco-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>prepare-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>report</id>
-                                <goals>
-                                    <goal>report</goal>
-                                </goals>
-                            </execution>
-                            <execution>
                                 <id>check</id>
                                 <goals>
                                     <goal>check</goal>
@@ -992,6 +1138,26 @@
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>pom</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
                                 </goals>
                             </execution>
                         </executions>
