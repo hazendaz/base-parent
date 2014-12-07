@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MinimizeFilter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fileupload</a> &gt; <a href="index.source.html" class="el_package">com.hazendaz.filters</a> &gt; <span class="el_source">MinimizeFilter.java</span></div><h1>MinimizeFilter.java</h1><pre class="source lang-java linenums">package com.hazendaz.filters;
+
+import java.io.CharArrayWriter;
+import java.io.IOException;
+
+import javax.inject.Inject;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+
+import com.google.common.base.Charsets;
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
+import com.googlecode.htmlcompressor.compressor.XmlCompressor;
+import com.googlecode.htmlcompressor.compressor.YuiCssCompressor;
+import com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor;
+import com.hazendaz.model.IUser;
+
+@WebFilter(urlPatterns = { &quot;/*&quot; })
+<span class="nc" id="L27">public class MinimizeFilter implements Filter {</span>
+
+    @Inject
+    private Logger       logger;
+
+    @Inject
+    private IUser        user;
+
+    /**
+     * The filter configuration object we are associated with. If this value is null, this filter instance is not
+     * currently configured.
+     */
+<span class="nc" id="L39">    private FilterConfig config = null;</span>
+
+    /**
+     * Take this filter out of service.
+     */
+    @Override
+    public void destroy() {
+<span class="nc" id="L46">        this.config = null;</span>
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain)
+            throws IOException, ServletException {
+
+<span class="nc" id="L53">        this.logger.info(&quot;User Name {}&quot;, this.user.getName());</span>
+<span class="nc" id="L54">        this.logger.info(&quot;Request {}&quot;, request.toString());</span>
+<span class="nc" id="L55">        this.logger.info(&quot;Response {}&quot;, response.toString());</span>
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (response instanceof HttpServletResponse) {</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            if (request instanceof HttpServletRequest) {</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">                if ((((HttpServletRequest) request).getRequestURI().contains(&quot;.faces&quot;)</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                        || ((HttpServletRequest) request).getRequestURI().endsWith(&quot;/fileupload/&quot;) || ((HttpServletRequest) request)</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">                        .getRequestURI().contains(&quot;/images/&quot;))</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                        &amp;&amp; !((HttpServletRequest) request).getRequestURI().contains(&quot;js.faces&quot;)</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                        &amp;&amp; !((HttpServletRequest) request).getRequestURI().contains(&quot;css.faces&quot;)) {</span>
+<span class="nc" id="L65">                    chain.doFilter(request, response);</span>
+<span class="nc" id="L66">                    return;</span>
+                }
+
+<span class="nc" id="L69">                final MinimizeServletResponseWrapper wrappedResponse = new MinimizeServletResponseWrapper(</span>
+                        (HttpServletResponse) response);
+
+<span class="nc" id="L72">                this.logger.debug(&quot;doFilter gets called with compression&quot;);</span>
+                try {
+<span class="nc" id="L74">                    chain.doFilter(request, wrappedResponse);</span>
+                } finally {
+<span class="nc bnc" id="L76" title="All 4 branches missed.">                    if (((HttpServletRequest) request).getRequestURI().contains(&quot;.js&quot;)) {</span>
+<span class="nc" id="L77">                        final YuiJavaScriptCompressor compressor = new YuiJavaScriptCompressor();</span>
+<span class="nc" id="L78">                        compressor.setDisableOptimizations(false);</span>
+<span class="nc" id="L79">                        compressor.setErrorReporter(null);</span>
+<span class="nc" id="L80">                        compressor.setLineBreak(-1);</span>
+<span class="nc" id="L81">                        compressor.setNoMunge(true);</span>
+<span class="nc" id="L82">                        compressor.setPreserveAllSemiColons(true);</span>
+                        try {
+<span class="nc" id="L84">                            final CharArrayWriter caw = new CharArrayWriter();</span>
+<span class="nc" id="L85">                            caw.write(compressor.compress(new String(wrappedResponse.getDataStream(), Charsets.UTF_8)));</span>
+<span class="nc" id="L86">                            response.setContentLength(caw.toString().getBytes(Charsets.UTF_8).length);</span>
+<span class="nc" id="L87">                            response.getWriter().print(caw.toString());</span>
+<span class="nc" id="L88">                            response.getWriter().close();</span>
+<span class="nc" id="L89">                        } catch (final Exception e) {</span>
+<span class="nc" id="L90">                            this.logger.error(e.getMessage());</span>
+<span class="nc" id="L91">                        }</span>
+<span class="nc bnc" id="L92" title="All 4 branches missed.">                    } else if (((HttpServletRequest) request).getRequestURI().contains(&quot;.css&quot;)</span>
+<span class="nc bnc" id="L93" title="All 4 branches missed.">                            || ((HttpServletRequest) request).getRequestURI().contains(&quot;.ecss&quot;)) {</span>
+<span class="nc" id="L94">                        final YuiCssCompressor compressor = new YuiCssCompressor();</span>
+<span class="nc" id="L95">                        compressor.setLineBreak(-1);</span>
+                        try {
+<span class="nc" id="L97">                            final CharArrayWriter caw = new CharArrayWriter();</span>
+<span class="nc" id="L98">                            caw.write(compressor.compress(new String(wrappedResponse.getDataStream(), Charsets.UTF_8)));</span>
+<span class="nc" id="L99">                            response.setContentLength(caw.toString().getBytes(Charsets.UTF_8).length);</span>
+<span class="nc" id="L100">                            response.getWriter().print(caw.toString());</span>
+<span class="nc" id="L101">                            response.getWriter().close();</span>
+<span class="nc" id="L102">                        } catch (final Exception e) {</span>
+<span class="nc" id="L103">                            this.logger.error(e.getMessage());</span>
+<span class="nc" id="L104">                        }</span>
+<span class="nc bnc" id="L105" title="All 4 branches missed.">                    } else if (((HttpServletRequest) request).getRequestURI().contains(&quot;.html&quot;)</span>
+<span class="nc bnc" id="L106" title="All 4 branches missed.">                            || ((HttpServletRequest) request).getRequestURI().contains(&quot;.xhtml&quot;)) {</span>
+<span class="nc" id="L107">                        final HtmlCompressor compressor = new HtmlCompressor();</span>
+<span class="nc" id="L108">                        compressor.setCompressJavaScript(false);</span>
+<span class="nc" id="L109">                        compressor.setCompressCss(false);</span>
+<span class="nc" id="L110">                        compressor.setRemoveComments(false);</span>
+<span class="nc" id="L111">                        compressor.setSimpleDoctype(false);</span>
+<span class="nc" id="L112">                        compressor.setRemoveQuotes(false);</span>
+                        try {
+<span class="nc" id="L114">                            final CharArrayWriter caw = new CharArrayWriter();</span>
+<span class="nc" id="L115">                            caw.write(compressor.compress(new String(wrappedResponse.getDataStream(), Charsets.UTF_8)));</span>
+<span class="nc" id="L116">                            response.setContentLength(caw.toString().getBytes(Charsets.UTF_8).length);</span>
+<span class="nc" id="L117">                            response.getWriter().print(caw.toString());</span>
+<span class="nc" id="L118">                            response.getWriter().close();</span>
+<span class="nc" id="L119">                        } catch (final Exception e) {</span>
+<span class="nc" id="L120">                            this.logger.error(e.getMessage());</span>
+<span class="nc" id="L121">                        }</span>
+<span class="nc bnc" id="L122" title="All 4 branches missed.">                    } else if (((HttpServletRequest) request).getRequestURI().contains(&quot;.xml&quot;)) {</span>
+<span class="nc" id="L123">                        final XmlCompressor compressor = new XmlCompressor();</span>
+<span class="nc" id="L124">                        compressor.setEnabled(true);</span>
+<span class="nc" id="L125">                        compressor.setRemoveComments(true);</span>
+<span class="nc" id="L126">                        compressor.setRemoveIntertagSpaces(false);</span>
+                        try {
+<span class="nc" id="L128">                            final CharArrayWriter caw = new CharArrayWriter();</span>
+<span class="nc" id="L129">                            caw.write(compressor.compress(new String(wrappedResponse.getDataStream(), Charsets.UTF_8)));</span>
+<span class="nc" id="L130">                            response.setContentLength(caw.toString().getBytes(Charsets.UTF_8).length);</span>
+<span class="nc" id="L131">                            response.getWriter().print(caw.toString());</span>
+<span class="nc" id="L132">                            response.getWriter().close();</span>
+<span class="nc" id="L133">                        } catch (final Exception e) {</span>
+<span class="nc" id="L134">                            this.logger.error(e.getMessage());</span>
+<span class="nc" id="L135">                        }</span>
+<span class="nc" id="L136">                    } else {</span>
+                        try {
+<span class="nc" id="L138">                            final CharArrayWriter caw = new CharArrayWriter();</span>
+<span class="nc" id="L139">                            caw.write(new String(wrappedResponse.getDataStream(), Charsets.UTF_8));</span>
+<span class="nc" id="L140">                            response.setContentLength(caw.toString().getBytes(Charsets.UTF_8).length);</span>
+<span class="nc" id="L141">                            response.getWriter().print(caw.toString());</span>
+<span class="nc" id="L142">                            response.getWriter().close();</span>
+<span class="nc" id="L143">                        } catch (final Exception e) {</span>
+<span class="nc" id="L144">                            this.logger.error(e.getMessage());</span>
+<span class="nc" id="L145">                        }</span>
+                    }
+<span class="nc" id="L147">                }</span>
+            }
+        }
+<span class="nc" id="L150">    }</span>
+
+    /**
+     * Return filter config Required by Weblogic 6.1
+     * 
+     * @return FilterConfig
+     */
+    public FilterConfig getFilterConfig() {
+<span class="nc" id="L158">        return this.config;</span>
+    }
+
+    /**
+     * Place this filter into service.
+     * 
+     * @param filterConfig
+     *            The filter configuration object
+     */
+    @Override
+    public void init(final FilterConfig filterConfig) {
+<span class="nc" id="L169">        this.config = filterConfig;</span>
+<span class="nc" id="L170">    }</span>
+
+    /**
+     * Set filter config This function is equivalent to init. Required by Weblogic 6.1
+     * 
+     * @param filterConfig
+     *            The filter configuration object
+     */
+    public void setFilterConfig(final FilterConfig filterConfig) {
+<span class="nc" id="L179">        this.init(filterConfig);</span>
+<span class="nc" id="L180">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

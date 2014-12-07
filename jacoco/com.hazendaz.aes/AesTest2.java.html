@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AesTest2.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fileupload</a> &gt; <a href="index.source.html" class="el_package">com.hazendaz.aes</a> &gt; <span class="el_source">AesTest2.java</span></div><h1>AesTest2.java</h1><pre class="source lang-java linenums">package com.hazendaz.aes;
+
+import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
+import javax.annotation.PostConstruct;
+import javax.crypto.KeyGenerator;
+import javax.enterprise.context.SessionScoped;
+
+import org.bouncycastle.crypto.BlockCipher;
+import org.bouncycastle.crypto.DataLengthException;
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.paddings.BlockCipherPadding;
+import org.bouncycastle.crypto.paddings.PKCS7Padding;
+import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
+import org.bouncycastle.crypto.params.KeyParameter;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 
+ * @author Jeremy
+ * 
+ */
+@SessionScoped
+<span class="nc" id="L29">public class AesTest2 implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    public static void main(final String[] args) throws Exception {
+
+<span class="nc" id="L35">        final AesTest2 abc = new AesTest2();</span>
+<span class="nc" id="L36">        abc.init();</span>
+
+<span class="nc" id="L38">        final String secret = &quot;Jeremy is Cool&quot;;</span>
+<span class="nc" id="L39">        System.out.println(secret);</span>
+
+<span class="nc" id="L41">        final byte[] encr = abc.encrypt(secret.getBytes(&quot;UTF-8&quot;));</span>
+<span class="nc" id="L42">        final byte[] decr = abc.decrypt(encr);</span>
+
+<span class="nc" id="L44">        final String decrypted = new String(decr, &quot;UTF-8&quot;);</span>
+<span class="nc" id="L45">        System.out.println(decrypted);</span>
+<span class="nc" id="L46">    }</span>
+
+<span class="nc" id="L48">    private final Logger              logger    = LoggerFactory.getLogger(AesTest2.class);</span>
+
+<span class="nc" id="L50">    private final BlockCipher         AESCipher = new AESEngine();</span>
+
+    private PaddedBufferedBlockCipher cipher;
+    private KeyParameter              keyParameter;
+
+    public byte[] decrypt(final byte[] input) throws DataLengthException, InvalidCipherTextException {
+<span class="nc" id="L56">        return this.processing(input, false);</span>
+    }
+
+    public byte[] encrypt(final byte[] input) throws DataLengthException, InvalidCipherTextException {
+<span class="nc" id="L60">        return this.processing(input, true);</span>
+    }
+
+    @PostConstruct
+    public void init() {
+        KeyGenerator kg;
+        try {
+<span class="nc" id="L67">            kg = KeyGenerator.getInstance(&quot;AES&quot;, new BouncyCastleProvider());</span>
+<span class="nc" id="L68">        } catch (final NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L69">            this.logger.error(&quot;{}&quot;, e.getMessage());</span>
+<span class="nc" id="L70">            return;</span>
+<span class="nc" id="L71">        }</span>
+<span class="nc" id="L72">        kg.init(256, new SecureRandom());</span>
+<span class="nc" id="L73">        this.setPadding(new PKCS7Padding());</span>
+<span class="nc" id="L74">        this.setKey(kg.generateKey().getEncoded());</span>
+<span class="nc" id="L75">    }</span>
+
+    /**
+     * @param key
+     */
+    public void setKey(final byte[] key) {
+<span class="nc" id="L81">        this.keyParameter = new KeyParameter(key);</span>
+<span class="nc" id="L82">    }</span>
+
+    /**
+     * @param cipherPadding
+     */
+    public void setPadding(final BlockCipherPadding cipherPadding) {
+<span class="nc" id="L88">        this.cipher = new PaddedBufferedBlockCipher(this.AESCipher, cipherPadding);</span>
+<span class="nc" id="L89">    }</span>
+
+    private byte[] processing(final byte[] input, final boolean encrypt) throws DataLengthException,
+            InvalidCipherTextException {
+<span class="nc" id="L93">        this.cipher.init(encrypt, this.keyParameter);</span>
+
+<span class="nc" id="L95">        final byte[] output = new byte[this.cipher.getOutputSize(input.length)];</span>
+<span class="nc" id="L96">        int bytesWrittenOut = this.cipher.processBytes(input, 0, input.length, output, 0);</span>
+<span class="nc" id="L97">        bytesWrittenOut += this.cipher.doFinal(output, bytesWrittenOut);</span>
+
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (encrypt) {</span>
+<span class="nc" id="L100">            return output;</span>
+        }
+<span class="nc" id="L102">        System.arraycopy(output, 0, new byte[bytesWrittenOut], 0, bytesWrittenOut);</span>
+<span class="nc" id="L103">        return output;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

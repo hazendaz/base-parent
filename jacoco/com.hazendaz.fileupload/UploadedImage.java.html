@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UploadedImage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fileupload</a> &gt; <a href="index.source.html" class="el_package">com.hazendaz.fileupload</a> &gt; <span class="el_source">UploadedImage.java</span></div><h1>UploadedImage.java</h1><pre class="source lang-java linenums">package com.hazendaz.fileupload;
+
+import java.io.Serializable;
+
+import javax.validation.constraints.NotNull;
+
+<span class="nc" id="L7">public class UploadedImage implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @NotNull
+    private String            name;
+    private String            mime;
+    private long              length;
+    private byte[]            data;
+
+    public byte[] getData() {
+<span class="nc" id="L18">        return this.data;</span>
+    }
+
+    public long getLength() {
+<span class="nc" id="L22">        return this.length;</span>
+    }
+
+    public String getMime() {
+<span class="nc" id="L26">        return this.mime;</span>
+    }
+
+    @NotNull
+    public String getName() {
+<span class="nc" id="L31">        return this.name;</span>
+    }
+
+    public void setData(final byte[] value) {
+<span class="nc" id="L35">        this.data = value;</span>
+<span class="nc" id="L36">    }</span>
+
+    public void setLength(final long value) {
+<span class="nc" id="L39">        this.length = value;</span>
+<span class="nc" id="L40">    }</span>
+
+    public void setName(final String value) {
+<span class="nc" id="L43">        final int extDot = value.lastIndexOf('.');</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if (extDot &gt; 0) {</span>
+<span class="nc" id="L45">            final String extension = value.substring(extDot + 1);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">            if (&quot;csv&quot;.equals(extension)) {</span>
+<span class="nc" id="L47">                this.mime = &quot;text/csv&quot;;</span>
+            } else {
+<span class="nc" id="L49">                this.mime = &quot;text/unknown&quot;;</span>
+            }
+        }
+<span class="nc" id="L52">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>
