@@ -1,6 +1,7 @@
 ﻿# base-parent #
 
 [![Build Status](https://travis-ci.org/hazendaz/base-parent.svg?branch=master)](https://travis-ci.org/hazendaz/base-parent)
+[![Apache 2](http://img.shields.io/badge/license-Apache%202-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ![hazendaz](https://github.com/hazendaz/base-parent/blob/master/src/site/resources/images/hazendaz-banner.jpg)
 
