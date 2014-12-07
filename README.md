@@ -11,7 +11,7 @@ See site page [here](http://hazendaz.github.io/base-parent/)
 
 If you quickly want to configure maven for most use cases, just download this project and run `mvn clean install`.
 
-Requires Maven 3.0.5 or better.
+Requires Maven 3.2.3 or better.
 
 After running `mvn clean install` against this project, simply add the parent to your pom.
 
