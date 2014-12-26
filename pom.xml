@@ -298,7 +298,7 @@
                         <dependency>
                             <groupId>com.hazendaz</groupId>
                             <artifactId>build-tools</artifactId>
-                            <version>1.0.1</version>
+                            <version>1.0.2</version>
                         </dependency>
                     </dependencies>
                     -->
@@ -397,7 +397,7 @@
                         <dependency>
                             <groupId>com.hazendaz</groupId>
                             <artifactId>build-tools</artifactId>
-                            <version>1.0.1</version>
+                            <version>1.0.2</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -602,7 +602,7 @@
                                     <pluginExecutionFilter>
                                         <groupId>net.alchim31.maven</groupId>
                                         <artifactId>yuicompressor-maven-plugin</artifactId>
-                                        <versionRange>[1.5.0,)</versionRange>
+                                        <versionRange>[1.5.1,)</versionRange>
                                         <goals>
                                             <goal>compress</goal>
                                         </goals>
