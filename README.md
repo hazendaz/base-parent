@@ -19,12 +19,12 @@ After running `mvn clean install` against this project, simply add the parent to
 <parent>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>1</version>
+    <version>5</version>
 </parent>
 ```
 
-This project contains only testing dependencies beyond maven plugin configurations.  Simply run `mvn clean install`
-on your project and everything should build as expected.
+This project contains only testing and configuration dependencies beyond maven plugin configurations.  Simply run
+`mvn clean install` on your project and everything should build as expected.
 
 ## Introduction ##
 
@@ -36,6 +36,8 @@ Support is provided for extensive `mvn site` providing user with extensive infor
 
 Source code is formatted using eclipse source format style to ensure projects stay consistant in regards to spacing.
 This is disabled by default.  To enable this functionality, simply build companion `build-tools` from hazendaz.
+
+In order to enable compression or format profiles, copy resources from pom-resources folder to root of project.
 
 ## Installation ##
 
@@ -51,7 +53,7 @@ And add parent to your pom.
 <parent>
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>1</version>
+    <version>5</version>
 </parent>
 ```
 
@@ -59,8 +61,7 @@ Run `mvn clean install` against your own project
 
 ## Profiles ##
 
-`checks` - Runs checkstyles, pmd, findbugs, and jacoco.  Additionally, if you would like a sonar push when finished
-simply uncomment sonar within this profile.
+`checks` - Runs checkstyles, pmd, findbugs, jacoco, and nvd dependency scan.
 
 `compression` - Runs compression against all contained html, css, and javascript.  Requires existance of compression.xml
 file to activate.
@@ -78,5 +79,9 @@ existance of format.xml file to activate.
 
 `weblogic` - Deploys war out to weblogic instance.  Requires user defined weblogic instance and additional configuration.
 
+## Version Plugin Consideration ##
 
+Version plugin will fail if any POM is marked as Byte Order Mark is UTF-8 (BOM).
+If this occurs, create a new POM and copy the contents over in order to fix.
+For reference, this was a problem with [mybatis/mybatis-spring](https://github.com/mybatis/spring/commit/684da1f52c414f4de231e353fc1ef3a8ae4a9f4f).
 
