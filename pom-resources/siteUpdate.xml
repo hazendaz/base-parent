@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site url="http://oss.opensagres.fr/angularjs-eclipse/0.7.0/" selected="true" name="angularjs"/>
+   <site url="http://studio.mulesoft.org/r3/plugin/" selected="true" name="anypoint studio"/>
+   <site url="http://update.atlassian.com/atlassian-eclipse-plugin/rest/nightly/e3.7" selected="true" name="atlassian connector"/>
+   <site url="http://eclipse-cs.sf.net/update/" selected="true" name="checkstyle"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-modello/0.16.0/N/0.16.0.201409152009/" selected="true" name="com.ifedorenko.m2e.sourcelookup.repository"/>
+   <site url="http://directory.apache.org/studio/update/2.x/" selected="true" name="directory studio"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/eclipse-efxclipse-1" selected="true" name="e(fx)clipse - IDE - Updatesite"/>
+   <site url="http://update.eclemma.org/" selected="true" name="eclemma"/>
+   <site url="http://eclipse-cs.sourceforge.net/update" selected="true" name="Eclipse Checkstyle Plugin"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/eclipse-luna-sr1" selected="true" name="Eclipse Luna SR1"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/eclipse-egit-3.5.2" selected="true" name="EGit P2 Repository"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/eclipse-sapphire-8.1" selected="true" name="file:/jobs/genie.technology.sapphire/8.1.x/workspace/build/repository/ - metadata"/>
+   <site url="http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/updates/libertyAdapter/luna/" selected="true" name="file:/test/jazz_build/jbe_bretigny/jazz/buildsystem/buildengine/eclipse/build/tools.image/update/staging/update-site/repository/ - metadata"/>
+   <site url="http://findbugs.cs.umd.edu/eclipse/" selected="true" name="findbugs"/>
+   <site url="http://download.jboss.org/jbosstools/updates/integration/luna/integration-stack/fuse-tooling/7.3.0/all/repo/" selected="true" name="fuse camel"/>
+   <site url="http://download.eclipse.org/egit/updates" selected="true" name="git"/>
+   <site url="http://dist.springsource.org/release/GRECLIPSE/e4.4/" selected="true" name="groovy"/>
+   <site url="http://www.apache.org/dist/ant/ivyde/updatesite/" selected="true" name="ivy"/>
+   <site url="http://jautodoc.sourceforge.net/update/" selected="true" name="jautodoc"/>
+   <site url="http://download.jboss.org/jbosstools/updates/webtools/luna/" selected="true" name="JBoss Tools - Web Tools"/>
+   <site url="http://download.jboss.org/jbosstools/targetplatforms/jbosstoolstarget/luna/" selected="true" name="JBoss Tools Target Platform - Luna"/>
+   <site url="http://jd.benow.ca/jd-eclipse/update/" selected="true" name="jd-gui"/>
+   <site url="http://update.zeroturnaround.com/update-site/" selected="true" name="jrebel"/>
+   <site url="https://bitbucket.org/denmiroch/jsontools/src/default/JsonSite/" selected="true" name="json tools"/>
+   <site url="http://download.eclipse.org/releases/luna" selected="true" name="Luna"/>
+   <site url="http://raw.github.com/trajano/jaxws-maven-connector/master/jaxws-connector-update-site/" selected="true" name="m2e  jaxws"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-antlr/0.15.0/N/0.15.0.201207090124/" selected="true" name="M2E Antlr Connector"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/" selected="true" name="m2e buildhelper"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201207090124/" selected="true" name="M2E Buildhelper Connector"/>
+   <site url="http://m2e-code-quality.github.com/m2e-code-quality/site/latest/" selected="true" name="m2e code quality"/>
+   <site url="http://ianbrandt.github.io/m2e-maven-dependency-plugin/0.0.4/" selected="true" name="m2e Connector for Maven Dependency Plugin Site"/>
+   <site url="http://coderplus.com/m2e-update-sites/yuicompressor-maven-plugin/" selected="true" name="m2e connector for yuicompressor-maven-plugin (site)"/>
+   <site url="http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-jdt-compiler/" selected="true" name="m2e jdt"/>
+   <site url="http://download.jboss.org/jbosstools/updates/m2e-extensions/m2e-apt/" selected="true" name="m2e jdt apt"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-plexus/0.15.0/N/0.15.0.201207090126/" selected="true" name="M2E Plexus Annotations Connector"/>
+   <site url="http://download.eclipse.org/mat/1.4/update-site/" selected="true" name="Memory Analyzer"/>
+   <site url="http://download.oracle.com/technology/products/missioncontrol/updatesites/base/5.4.0/eclipse/" selected="true" name="mission control"/>
+   <site url="http://studio.mulesoft.org/r3/studio-runtimes/" selected="true" name="mule esb"/>
+   <site url="http://dl.bintray.com/harawata/eclipse/" selected="true" name="MyBatipse"/>
+   <site url="http://download.eclipse.org/mylyn/releases/latest/" selected="true" name="mylyn"/>
+   <site url="http://archive.eclipse.org/mylyn/drops/3.11.0/v20140314-2044" selected="true" name="Mylyn for Eclipse 3.7, 3.8 and 4.2"/>
+   <site url="http://download.eclipse.org/mylyn/releases/luna" selected="true" name="Mylyn for Eclipse Luna"/>
+   <site url="http://download.oracle.com/otn_software/oepe/12.1.3.3/luna/repository/dependencies/" selected="true" name="Oracle Enterprise Pack for Eclipse 12.1.3.3 Dependencies"/>
+   <site url="http://download.oracle.com/otn_software/oepe/12.1.3.3.1/luna/repository/dependencies/" selected="true" name="Oracle Enterprise Pack for Eclipse 12.1.3.3.1 Dependencies"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/oracle-cloud-java-service-sdk-14.1.12" selected="true" name="Oracle Java Cloud Service SDK"/>
+   <site url="http://download.oracle.com/otn_software/oepe/luna" selected="true" name="Oracle Server Tools"/>
+   <site url="http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.8.0/N/0.8.0.201409231215/" selected="true" name="org.sonatype.tycho.repository"/>
+   <site url="http://sourceforge.net/projects/pmd/files/pmd-eclipse/update-site/" selected="true" name="pmd"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/jackson-1.9.13" selected="true" name="repository"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/jersey-1.17.1-p002" selected="true" name="repository"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/mimepull-1.9.4" selected="true" name="repository"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/oracle-cloud-developer-service-api-1.1.0.20141013-093151" selected="true" name="repository"/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/pydev-2.7.5" selected="true" name="repository"/>
+   <site url="http://dist.sonar-ide.codehaus.org/eclipse/" selected="true" name="sonarqube"/>
+   <site url="http://subclipse.tigris.org/update_1.10.x/" selected="true" name="subversion"/>
+   <site url="http://eclipse.svnkit.com/1.8.x/" selected="true" name="svnkit"/>
+   <site url="http://download.eclipse.org/eclipse/updates/4.4" selected="true" name="The Eclipse Project Updates"/>
+   <site url="http://download.eclipse.org/webtools/repository/luna" selected="true" name="The Eclipse Web Tools Platform (WTP) software repository"/>
+   <site url="http://basepom.github.io/basepom-m2e/update-site/latest/" selected="true" name="update-site"/>
+   <site url="http://ant.apache.org/ivy/ivyde/updatesite" selected="false" name=""/>
+   <site url="http://download.boulder.ibm.com/ibmdl/pub/software/websphere/wasce/updates/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/datatools/updates/1.12" selected="false" name=""/>
+   <site url="http://download.eclipse.org/m2e-wtp/releases/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/mylyn/releases/3.10" selected="false" name=""/>
+   <site url="http://download.eclipse.org/mylyn/releases/3.12" selected="false" name=""/>
+   <site url="http://download.eclipse.org/mylyn/releases/3.13" selected="false" name=""/>
+   <site url="http://download.eclipse.org/mylyn/releases/3.14" selected="false" name=""/>
+   <site url="http://download.eclipse.org/tm/updates/3.5" selected="false" name=""/>
+   <site url="http://download.eclipse.org/tools/gef/updates/releases/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/webtools/updates/" selected="false" name=""/>
+   <site url="http://download.oracle.com/otn_software/oepe/library/eclipse-wtp-3.6.2" selected="true" name=""/>
+   <site url="http://eclipse.tmatesoft.com/svnkit/1.8.x/" selected="false" name=""/>
+   <site url="http://geronimo.apache.org/devtools/" selected="false" name=""/>
+   <site url="http://java.decompiler.free.fr/jd-eclipse/update" selected="false" name=""/>
+   <site url="http://jope.ow2.org/update/jope/" selected="false" name=""/>
+   <site url="http://m2e-code-quality.github.com/m2e-code-quality/site/" selected="false" name=""/>
+   <site url="http://m2e-code-quality.github.io/m2e-code-quality/site/" selected="false" name=""/>
+   <site url="http://m2eclipse.sonatype.org/sites/m2e-extras/" selected="false" name=""/>
+   <site url="http://master.dl.sourceforge.net/project/sapnweclipse/updates/" selected="false" name=""/>
+   <site url="http://oepe-hudson.us.oracle.com/dash/job/trunk-luna-Build/lastSuccessfulBuild/artifact/trunk/luna/build/product/repository/dependencies/" selected="true" name=""/>
+   <site url="http://pmd.sourceforge.net/eclipse" selected="false" name=""/>
+   <site url="http://update.atlassian.com/atlassian-eclipse-plugin" selected="false" name=""/>
+   <site url="http://www.apache.org/dist/geronimo/eclipse/updates/" selected="false" name=""/>
+   <site url="http://www.eclipse.org/modeling/updates/" selected="false" name=""/>
+</bookmarks>
