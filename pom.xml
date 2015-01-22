@@ -215,7 +215,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.5</version>
+                    <version>1.6</version>
                     <configuration>
                         <useAgent>true</useAgent>
                     </configuration>
@@ -251,7 +251,7 @@
                 <plugin>
                     <groupId>com.github.github</groupId>
                     <artifactId>site-maven-plugin</artifactId>
-                    <version>0.10</version>
+                    <version>0.11</version>
                     <dependencies>
                         <!-- Site Maven Plugin is referencing incorrect version so fixed here -->
                         <dependency>
@@ -544,7 +544,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>3.6.1.201501031845-r</version>
+                            <version>3.6.2.201501210735-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
