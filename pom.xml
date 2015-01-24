@@ -111,7 +111,7 @@
         <signature.version>1.0</signature.version>
     </properties>
     <dependencies>
-         <dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
@@ -253,7 +253,8 @@
                     <artifactId>site-maven-plugin</artifactId>
                     <version>0.11</version>
                     <dependencies>
-                        <!-- Site Maven Plugin is referencing incorrect version so fixed here -->
+                        <!-- Site Maven Plugin is referencing incorrect version 
+                            so fixed here -->
                         <dependency>
                             <groupId>org.eclipse.mylyn.github</groupId>
                             <artifactId>org.eclipse.egit.github.core</artifactId>
@@ -582,71 +583,6 @@
                     <artifactId>dependency-check-maven</artifactId>
                     <version>1.2.8</version>
                 </plugin>
-                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven 
-                    build itself. -->
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
-                                        <artifactId>htmlcompressor-maven-plugin</artifactId>
-                                        <versionRange>[1.3,)</versionRange>
-                                        <goals>
-                                            <goal>html</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>net.alchim31.maven</groupId>
-                                        <artifactId>yuicompressor-maven-plugin</artifactId>
-                                        <versionRange>[1.5.1,)</versionRange>
-                                        <goals>
-                                            <goal>compress</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.jacoco</groupId>
-                                        <artifactId>jacoco-maven-plugin</artifactId>
-                                        <versionRange>[0.7.2.201409121644,)</versionRange>
-                                        <goals>
-                                            <goal>prepare-agent</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-                                        <artifactId>maven-java-formatter-plugin</artifactId>
-                                        <versionRange>[0.4,)</versionRange>
-                                        <goals>
-                                            <goal>format</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -673,7 +609,8 @@
                 <artifactId>git-commit-id-plugin</artifactId>
                 <configuration>
                     <dotGitDirectory>.git</dotGitDirectory>
-                    <!-- Fixes occassional issue in commit id plugin - see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                    <!-- Fixes occassional issue in commit id plugin - see 
+                        https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                     <gitDescribe>
                         <skip>true</skip>
                     </gitDescribe>
@@ -861,7 +798,7 @@
                         </goals>
                         <!-- Remove this when using a license -->
                         <configuration>
-                           <skip>true</skip>
+                            <skip>true</skip>
                         </configuration>
                     </execution>
                 </executions>
@@ -961,9 +898,10 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
-            <!-- This plugin will fail if any POM is marked as Byte Order Mark is UTF-8 (BOM).
-               | If this occurs, create a new POM and move the contents in order to fix.
-               | For reference, this was a problem with mybatis/mybatis-spring poms. -->
+            <!-- This plugin will fail if any POM is marked as Byte Order 
+                Mark is UTF-8 (BOM). If this occurs, create a new POM and move the contents 
+                in order to fix. For reference, this was a problem with mybatis/mybatis-spring 
+                poms. -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
@@ -1321,6 +1259,85 @@
                         </configuration>
                     </plugin>
                 </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>eclipse</id>
+            <activation>
+                <property>
+                    <name>m2e.version</name>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!--This plugin's configuration is used to store 
+                            Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+                        <plugin>
+                            <groupId>org.eclipse.m2e</groupId>
+                            <artifactId>lifecycle-mapping</artifactId>
+                            <version>1.0.0</version>
+                            <configuration>
+                                <lifecycleMappingMetadata>
+                                    <pluginExecutions>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
+                                                <artifactId>htmlcompressor-maven-plugin</artifactId>
+                                                <versionRange>[1.3,)</versionRange>
+                                                <goals>
+                                                    <goal>html</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore></ignore>
+                                            </action>
+                                        </pluginExecution>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>net.alchim31.maven</groupId>
+                                                <artifactId>yuicompressor-maven-plugin</artifactId>
+                                                <versionRange>[1.5.1,)</versionRange>
+                                                <goals>
+                                                    <goal>compress</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore></ignore>
+                                            </action>
+                                        </pluginExecution>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>org.jacoco</groupId>
+                                                <artifactId>jacoco-maven-plugin</artifactId>
+                                                <versionRange>[0.7.2.201409121644,)</versionRange>
+                                                <goals>
+                                                    <goal>prepare-agent</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore></ignore>
+                                            </action>
+                                        </pluginExecution>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                                                <artifactId>maven-java-formatter-plugin</artifactId>
+                                                <versionRange>[0.4,)</versionRange>
+                                                <goals>
+                                                    <goal>format</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore></ignore>
+                                            </action>
+                                        </pluginExecution>
+                                    </pluginExecutions>
+                                </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
             </build>
         </profile>
     </profiles>
