@@ -84,6 +84,7 @@
         </snapshotRepository>
     </distributionManagement>
     <properties>
+        <copywrite>2014</copywrite>
         <github.global.server>github</github.global.server>
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
@@ -638,6 +639,7 @@
                         <manifestEntries>
                             <Build-Number>${buildNumber}</Build-Number>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <Copywrite>${copywrite}</Copywrite>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
                             <Os-Version>${os.version}</Os-Version>
@@ -668,6 +670,7 @@
                         <manifestEntries>
                             <Build-Number>${buildNumber}</Build-Number>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
+                            <Copywrite>${copywrite}</Copywrite>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
                             <Os-Version>${os.version}</Os-Version>
