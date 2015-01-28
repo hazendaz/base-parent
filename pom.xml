@@ -637,7 +637,7 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                         <manifestEntries>
-                            <Build-Number>${buildNumber}</Build-Number>
+                            <Git-Revision>${git.commit.id}</Git-Revision>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
                             <Copywrite>${copywrite}</Copywrite>
                             <Os-Name>${os.name}</Os-Name>
@@ -668,7 +668,7 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                         <manifestEntries>
-                            <Build-Number>${buildNumber}</Build-Number>
+                            <Git-Revision>${git.commit.id}</Git-Revision>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
                             <Copywrite>${copywrite}</Copywrite>
                             <Os-Name>${os.name}</Os-Name>
