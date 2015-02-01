@@ -10,7 +10,7 @@
     <version>5</version>
     <packaging>pom</packaging>
     <name>base-parent</name>
-    <description>Base Maven Parent solving majority of Maven configurations</description>
+    <description>Base Maven Parent solving majority of Maven configurations.  Use this to drive your maven builds.</description>
     <url>https://github.com/hazendaz/base-parent</url>
     <inceptionYear>2011</inceptionYear>
     <organization>
