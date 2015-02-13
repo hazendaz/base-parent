@@ -447,48 +447,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changelog-plugin</artifactId>
                     <version>2.3</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
-                            <artifactId>maven-scm-provider-svnjava</artifactId>
-                            <version>2.1.1</version>
-                            <exclusions>
-                                <exclusion>
-                                    <artifactId>jna</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                                <exclusion>
-                                    <artifactId>platform</artifactId>
-                                    <groupId>net.java.dev.jna</groupId>
-                                </exclusion>
-                            </exclusions>
-                        </dependency>
-                        <dependency>
-                            <groupId>commons-io</groupId>
-                            <artifactId>commons-io</artifactId>
-                            <version>2.4</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>net.java.dev.jna</groupId>
-                            <artifactId>jna-platform</artifactId>
-                            <version>4.1.0</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.antlr</groupId>
-                            <artifactId>antlr-runtime</artifactId>
-                            <version>3.5.2</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-svn-commons</artifactId>
-                            <version>1.9.2</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-utils</artifactId>
-                            <version>3.0.21</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -846,13 +804,6 @@
             </plugin>
         </plugins>
         <extensions>
-            <!-- Might possibly need for changelog plugin but still doesn't solve issue
-            <extension>
-                <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
-                <artifactId>maven-scm-provider-svnjava</artifactId>
-                <version>2.1.1</version>
-            </extension>
-            -->
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh</artifactId>
@@ -862,17 +813,10 @@
     </build>
     <reporting>
         <plugins>
-            <!-- Doesn't work with pure java svn due to outstanding bug in plugin
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changelog-plugin</artifactId>
-                <configuration>
-                    <providerImplementations>
-                        <svn>javasvn</svn>
-                    </providerImplementations>
-                </configuration>
             </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
