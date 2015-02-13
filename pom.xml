@@ -52,8 +52,8 @@
         </contributor>
     </contributors>
     <ciManagement>
-        <system>jenkins</system>
-        <url>http://localhost:8080/jenkins</url>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/hazendaz/base-parent</url>
     </ciManagement>
     <issueManagement>
         <system>Github</system>
