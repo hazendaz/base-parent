@@ -96,7 +96,7 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <lombok.version>1.16.0</lombok.version>
+        <lombok.version>1.16.2</lombok.version>
         <hibernate-validator.version>5.2.0.Alpha1</hibernate-validator.version>
 
         <slf4j.version>1.7.10</slf4j.version>
@@ -382,7 +382,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>tidy-maven-plugin</artifactId>
-                    <version>1.0-alpha-2</version>
+                    <version>1.0-beta-1</version>
                 </plugin>
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
