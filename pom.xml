@@ -84,7 +84,7 @@
         </snapshotRepository>
     </distributionManagement>
     <properties>
-        <copywrite>2014</copywrite>
+        <copyright>2015</copyright>
         <github.global.server>github</github.global.server>
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
@@ -600,7 +600,7 @@
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copywrite>${copywrite}</Copywrite>
+                            <copyright>${copyright}</copyright>
                             <Git-Revision>${git.commit.id}</Git-Revision>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
@@ -631,7 +631,7 @@
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copywrite>${copywrite}</Copywrite>
+                            <copyright>${copyright}</copyright>
                             <Git-Revision>${git.commit.id}</Git-Revision>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
@@ -654,7 +654,7 @@
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copywrite>${copywrite}</Copywrite>
+                            <copyright>${copyright}</copyright>
                             <Git-Revision>${git.commit.id}</Git-Revision>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
@@ -686,7 +686,7 @@
                         </manifest>
                         <manifestEntries>
                             <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copywrite>${copywrite}</Copywrite>
+                            <copyright>${copyright}</copyright>
                             <Git-Revision>${git.commit.id}</Git-Revision>
                             <Os-Name>${os.name}</Os-Name>
                             <Os-Arch>${os.arch}</Os-Arch>
