@@ -2,13 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <prerequisites>
-        <maven>3.1.1</maven>
-    </prerequisites>
+
     <groupId>com.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
     <version>5</version>
     <packaging>pom</packaging>
+
     <name>base-parent</name>
     <description>Base Maven Parent solving majority of Maven configurations.  Use this to drive your maven builds.</description>
     <url>https://github.com/hazendaz/base-parent</url>
@@ -17,6 +16,15 @@
         <name>hazendaz</name>
         <url>https://github.com/hazendaz/</url>
     </organization>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
     <developers>
         <developer>
             <id>jlandis</id>
@@ -51,28 +59,25 @@
             </properties>
         </contributor>
     </contributors>
-    <ciManagement>
-        <system>travis-ci</system>
-        <url>https://travis-ci.org/hazendaz/base-parent</url>
-    </ciManagement>
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/hazendaz/base-parent/issues</url>
-    </issueManagement>
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>manual</distribution>
-            <comments>A business-friendly OSS license</comments>
-        </license>
-    </licenses>
+
+    <prerequisites>
+        <maven>3.1.1</maven>
+    </prerequisites>
+
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://github.com/hazendaz/base-parent</url>
     </scm>
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/hazendaz/base-parent/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/hazendaz/base-parent</url>
+    </ciManagement>
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
@@ -83,6 +88,7 @@
             <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
     <properties>
         <copyright>2015</copyright>
         <github.global.server>github</github.global.server>
@@ -111,6 +117,7 @@
         <signature.artifact>java17</signature.artifact>
         <signature.version>1.0</signature.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -811,6 +818,7 @@
             </extension>
         </extensions>
     </build>
+
     <reporting>
         <plugins>
             <plugin>
@@ -878,6 +886,7 @@
             </plugin>
         </plugins>
     </reporting>
+
     <profiles>
         <profile>
             <id>checks</id>
