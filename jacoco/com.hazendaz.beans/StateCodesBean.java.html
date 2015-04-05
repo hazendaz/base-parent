@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>StateCodesBean.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fileupload</a> &gt; <a href="index.source.html" class="el_package">com.hazendaz.beans</a> &gt; <span class="el_source">StateCodesBean.java</span></div><h1>StateCodesBean.java</h1><pre class="source lang-java linenums">package com.hazendaz.beans;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.inject.Named;
+
+@Named
+@SessionScoped
+<span class="nc" id="L18">public class StateCodesBean implements Serializable {</span>
+
+    private static final long       serialVersionUID = 1L;
+
+    private static List&lt;SelectItem&gt; stateCodes;
+
+    static {
+<span class="nc" id="L25">        final PropertyResourceBundle properties = (PropertyResourceBundle) ResourceBundle.getBundle(&quot;StateCodes&quot;);</span>
+<span class="nc" id="L26">        final Enumeration&lt;String&gt; keys = properties.getKeys();</span>
+<span class="nc" id="L27">        StateCodesBean.stateCodes = new ArrayList&lt;SelectItem&gt;();</span>
+<span class="nc" id="L28">        String nextKey = null;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        while (keys.hasMoreElements()) {</span>
+<span class="nc" id="L30">            nextKey = keys.nextElement();</span>
+<span class="nc" id="L31">            StateCodesBean.stateCodes.add(new SelectItem(nextKey, properties.getString(nextKey)));</span>
+        }
+<span class="nc" id="L33">    }</span>
+
+    public int addFive(final int value) {
+<span class="nc" id="L36">        return value + 5;</span>
+    }
+
+    public List&lt;SelectItem&gt; getStateCodes() {
+<span class="nc" id="L40">        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(&quot;Test Message from @GetStateCodes&quot;));</span>
+<span class="nc" id="L41">        return StateCodesBean.stateCodes;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

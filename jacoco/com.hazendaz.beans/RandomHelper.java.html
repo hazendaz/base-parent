@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RandomHelper.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">fileupload</a> &gt; <a href="index.source.html" class="el_package">com.hazendaz.beans</a> &gt; <span class="el_source">RandomHelper.java</span></div><h1>RandomHelper.java</h1><pre class="source lang-java linenums">package com.hazendaz.beans;
+
+import java.util.Random;
+
+import com.google.common.base.Charsets;
+
+public final class RandomHelper {
+    public static int genRand() {
+<span class="nc" id="L9">        return RandomHelper.rand(1, 10000);</span>
+    }
+
+    public static int rand(final int lo, final int hi) {
+<span class="nc" id="L13">        final Random rn2 = new Random();</span>
+<span class="nc" id="L14">        final int n = hi - lo + 1;</span>
+<span class="nc" id="L15">        int i = rn2.nextInt() % n;</span>
+
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (i &lt; 0) {</span>
+<span class="nc" id="L18">            i = -i;</span>
+        }
+
+<span class="nc" id="L21">        return lo + i;</span>
+    }
+
+    public static String randomstring(final int lo, final int hi) {
+<span class="nc" id="L25">        final int n = RandomHelper.rand(lo, hi);</span>
+<span class="nc" id="L26">        final byte[] b = new byte[n];</span>
+
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        for (int i = 0; i &lt; n; i++) {</span>
+<span class="nc" id="L29">            b[i] = (byte) RandomHelper.rand('A', 'Z');</span>
+        }
+
+<span class="nc" id="L32">        return new String(b, Charsets.UTF_8);</span>
+    }
+
+<span class="nc" id="L35">    private RandomHelper() {</span>
+
+<span class="nc" id="L37">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
