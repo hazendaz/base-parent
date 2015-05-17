@@ -69,22 +69,24 @@ Run `mvn clean install` against your own project
 `compression` - Runs compression against all contained html, css, and javascript.  Requires existence of compression.xml
 file to activate.
 
+`eclipse` - Lifecycle mapping exclusions for eclipse.  Activated with existence of property m2e.version.
+
+`endorsed` - Pulls down webservices api overriding version contained with jdk6
+
 `format` - Runs eclipse formatting using spaces rather than tabs and 120 rather than 80 character lines.  Requires
 existence of format.xml file to activate.
 
 `license` - Runs license java file tagging.  Requires existence of license.txt file to activate.
 
+`release` - Runs gpg against deliverables when releasing not via release plugin such as during deploy.
+
 `sort` - Runs a sort against your pom configuration helping to keep projects aligned.
-
-`endorsed` - Pulls down webservices api overriding version contained with jdk6
-
-`wsimport` - Runs wsimport goal.  This is mainly for example as additional configuration is required.
 
 `tomcat` - Runs tomcat embedded war build against project.
 
 `weblogic` - Deploys war out to weblogic instance.  Requires user defined weblogic instance and additional configuration.
 
-`eclipse` - Lifecycle mapping exclusions for eclipse.  Activated with existence of property m2e.version.
+`wsimport` - Runs wsimport goal.  This is mainly for example as additional configuration is required.
 
 ## Version Plugin Consideration ##
 
@@ -118,52 +120,52 @@ Dependencies are as follows:
 
 Majority of plugins will perform on their own.  All managed plugins are listed here.
 
+- animal-sniffer-maven-plugin
+- build-helper-maven-plugin
+- coveralls-maven-plugin
+- dependency-check-maven
+- findbugs-maven-plugin
+- formatter-maven-plugin (Soon to be, formally the maven-java-formatter-plugin)
+- git-commit-id-plugin
+- htmlcompressor-maven-plugin
+- jacoco-maven-plugin
+- jaxws-maven-plugin
+- jdepend-maven-plugin
+- license-maven-plugin
+- maven-antrun-plugin
+- maven-assembly-plugin
+- maven-changelog-plugin
+- maven-changes-plugin
+- maven-checkstyle-plugin
 - maven-clean-plugin
 - maven-compiler-plugin - useIncrementalCompilation set to false, See https://jira.codehaus.org/browse/MCOMPILER-209
+- maven-dependency-plugin
 - maven-deploy-plugin
 - maven-enforcer-plugin
 - maven-gpg-plugin
 - maven-install-plugin
-- maven-pdf-plugin - currently issue prevents this from building much more than empty pdf
-- maven-resources-plugin
-- maven-site-plugin
-- site-maven-plugin
-- maven-surefire-plugin
-- git-commit-id-plugin
-- build-helper-maven-plugin
 - maven-jar-plugin
-- maven-war-plugin
-- maven-checkstyle-plugin
 - maven-javadoc-plugin
-- maven-pmd-plugin
-- maven-antrun-plugin
-- maven-assembly-plugin
-- maven-dependency-plugin
-- maven-release-plugin
-- maven-source-plugin
-- findbugs-maven-plugin
-- htmlcompressor-maven-plugin
-- jacoco-maven-plugin
-- coveralls-maven-plugin
-- tidy-maven-plugin
-- yuicompressor-maven-plugin
-- maven-java-formatter-plugin - will soon be java-formatter-maven-plugin
-- license-maven-plugin
-- jaxws-maven-plugin
-- jdepend-maven-plugin
-- maven-changelog-plugin
-- maven-changes-plugin
 - maven-jxr-plugin
+- maven-pdf-plugin - currently issue prevents this from building much more than empty pdf
+- maven-pmd-plugin
 - maven-project-info-reports-plugin
-- maven-surefire-report-plugin
-- taglist-maven-plugin
-- versions-maven-plugin
-- tomcat7-maven-plugin
-- weblogic-maven-plugin
+- maven-release-plugin
+- maven-resources-plugin
 - maven-scm-plugin
+- maven-site-plugin
+- maven-source-plugin
+- maven-surefire-plugin
+- maven-surefire-report-plugin
+- maven-war-plugin
+- site-maven-plugin
 - sonar-maven-plugin
+- taglist-maven-plugin
+- tomcat7-maven-plugin
+- tidy-maven-plugin
+- versions-maven-plugin
 - wagon-maven-plugin
-- animal-sniffer-maven-plugin
-- dependency-check-maven
+- weblogic-maven-plugin
+- yuicompressor-maven-plugin
 
 ### More to come... ###
