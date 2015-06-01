@@ -289,7 +289,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>2.1.13</version>
+                    <version>2.1.13</version> <!-- Don't use 2.1.14, it's defective with incorrect slf4j usage. -->
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
