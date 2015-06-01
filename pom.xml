@@ -744,7 +744,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <!-- Seems like maven bug when trying to exclude enforce in mapping lifecycle -->
+                <!-- Maven bug. OSS parent defines 1.2 and maven isn't properly switching to my managed 1.4 -->
                 <version>1.4</version>
                 <configuration>
                     <rules>
