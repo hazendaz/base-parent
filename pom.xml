@@ -614,7 +614,7 @@
                         https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                     <gitDescribe>
                         <always>true</always>
-                     </gitDescribe>
+                    </gitDescribe>
                 </configuration>
                 <executions>
                     <execution>
@@ -747,7 +747,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <!-- Maven bug. OSS parent defines 1.2 and maven isn't properly switching to my managed 1.4 -->
+                <!-- Maven bug. OSS parent defines 1.2 and maven isn't properly 
+                    switching to my managed 1.4 -->
                 <version>1.4</version>
                 <configuration>
                     <rules>
