@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hazendaz/base-parent.svg?branch=master)](https://travis-ci.org/hazendaz/base-parent)
 [![Build Status](https://buildhive.cloudbees.com/job/hazendaz/job/base-parent/badge/icon)](https://buildhive.cloudbees.com/job/hazendaz/job/base-parent/)
+[![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/base-parent/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.hazendaz/base-parent)
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ![hazendaz](src/site/resources/images/hazendaz-banner.jpg)
