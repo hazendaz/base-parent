@@ -99,7 +99,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <lombok.version>1.16.4</lombok.version>
-        <hibernate-validator.version>5.2.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.2.1.Final</hibernate-validator.version>
 
         <slf4j.version>1.7.12</slf4j.version>
 
@@ -413,9 +413,9 @@
                     </dependencies>
                 </plugin>
                 <plugin>
-                    <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-                    <artifactId>maven-java-formatter-plugin</artifactId>
-                    <version>0.4</version>
+                    <groupId>net.revelc.code</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>0.5.2</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
@@ -1077,8 +1077,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-                        <artifactId>maven-java-formatter-plugin</artifactId>
+                        <groupId>net.revelc.code</groupId>
+                        <artifactId>formatter-maven-plugin</artifactId>
                         <configuration>
                             <configFile>eclipse-formatter-config.xml</configFile>
                         </configuration>
@@ -1331,9 +1331,9 @@
                                         </pluginExecution>
                                         <pluginExecution>
                                             <pluginExecutionFilter>
-                                                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
-                                                <artifactId>maven-java-formatter-plugin</artifactId>
-                                                <versionRange>[0.4,)</versionRange>
+                                                <groupId>net.revelc.code</groupId>
+                                                <artifactId>formatter-maven-plugin</artifactId>
+                                                <versionRange>[0.5.2,)</versionRange>
                                                 <goals>
                                                     <goal>format</goal>
                                                 </goals>
