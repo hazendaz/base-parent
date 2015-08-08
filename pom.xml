@@ -115,6 +115,7 @@
         <signature.version>1.0</signature.version>
     </properties>
 
+    <!-- TODO: Move builk of this into an aggregator (other than lombok / hibernate no other dependencies matter here) -->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
