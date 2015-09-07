@@ -112,6 +112,7 @@
         <jmockit.version>1.19</jmockit.version>
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
+        <objenesis.version>2.2</objenesis.version>
         <powermock.version>1.6.2</powermock.version>
 
         <signature.artifact>java17</signature.artifact>
@@ -181,6 +182,12 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.objenesis</groupId>
+            <artifactId>objenesis</artifactId>
+            <version>${objenesis.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
