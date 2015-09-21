@@ -769,9 +769,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <!-- Maven bug. OSS parent defines 1.2 and maven isn't properly 
-                    switching to my managed 1.4 -->
-                <version>1.4</version>
                 <configuration>
                     <rules>
                         <requireMavenVersion>
@@ -1352,7 +1349,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>org.apache.maven.plugins</groupId>
                                                 <artifactId>maven-enforcer-plugin</artifactId>
-                                                <versionRange>[1.4,)</versionRange>
+                                                <versionRange>[1.4.1,)</versionRange>
                                                 <goals>
                                                     <goal>enforce</goal>
                                                 </goals>
