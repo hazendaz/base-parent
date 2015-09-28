@@ -76,6 +76,18 @@
     <ciManagement>
         <system>travis-ci</system>
         <url>https://travis-ci.org/hazendaz/base-parent</url>
+        <notifiers>
+            <notifier>
+                <type>mail</type>
+                <sendOnError>true</sendOnError>
+                <sendOnFailure>true</sendOnFailure>
+                <sendOnSuccess>false</sendOnSuccess>
+                <sendOnWarning>false</sendOnWarning>
+                <configuration>
+                    <address>jeremylandis@hotmail.com</address>
+                </configuration>
+            </notifier>
+        </notifiers>
     </ciManagement>
 
     <distributionManagement>
@@ -97,6 +109,7 @@
     <properties>
         <copyright>2015</copyright>
         <github.global.server>github</github.global.server>
+
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
