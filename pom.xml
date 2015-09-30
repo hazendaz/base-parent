@@ -494,6 +494,11 @@
                 <!-- Report Only -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>javancss-maven-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
                     <artifactId>jdepend-maven-plugin</artifactId>
                     <version>2.0</version>
                 </plugin>
@@ -916,6 +921,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>taglist-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>javancss-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
