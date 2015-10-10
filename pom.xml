@@ -135,7 +135,7 @@
         <junit.version>4.12</junit.version>
         <mockito.version>1.10.19</mockito.version>
         <objenesis.version>2.2</objenesis.version>
-        <powermock.version>1.6.2</powermock.version>
+        <powermock.version>1.6.3</powermock.version>
 
         <signature.artifact>java17</signature.artifact>
         <signature.version>1.0</signature.version>
