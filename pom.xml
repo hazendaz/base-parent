@@ -442,17 +442,6 @@
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.2</version>
                 </plugin>
-                <!-- Container Deployments -->
-                <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>weblogic-maven-plugin</artifactId>
-                    <version>2.9.5</version>
-                </plugin>
                 <!-- SCM -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -1144,62 +1133,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>tomcat</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>tomcat-run</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>exec-war-only</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <path>${project.name}</path>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>weblogic</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>weblogic-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>weblogic-deploy</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>deploy</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <adminServerHostName>localhost</adminServerHostName>
-                            <adminServerPort>7001</adminServerPort>
-                            <adminServerProtocol>http</adminServerProtocol>
-                            <userId>${user.name}</userId>
-                            <password>${password}</password>
-                            <upload>true</upload>
-                            <remote>false</remote>
-                            <verbose>true</verbose>
-                            <debug>true</debug>
-                            <targetNames>AdminServer</targetNames>
-                            <exploded>true</exploded>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
