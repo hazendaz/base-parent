@@ -15,16 +15,16 @@ See site page [here](http://hazendaz.github.io/base-parent/)
 If you quickly want to configure maven for most use cases, just download this project and run `mvn clean install`.
 
 Requires
-- Maven 3.1.1 or better
+- Maven 3.2.5 or better
 - Java 7 or better
 
 After running `mvn clean install` against this project, simply add the parent to your pom.
 
 ```
 <parent>
-    <groupId>com.hazendaz</groupId>
+    <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>5</version>
+    <version>9</version>
 </parent>
 ```
 
@@ -84,10 +84,6 @@ existence of format.xml file to activate.
 
 `sort` - Runs a sort against your pom configuration helping to keep projects aligned.
 
-`tomcat` - Runs tomcat embedded war build against project.
-
-`weblogic` - Deploys war out to weblogic instance.  Requires user defined weblogic instance and additional configuration.
-
 `wsimport` - Runs wsimport goal.  This is mainly for example as additional configuration is required.
 
 ## Version Plugin Consideration ##
@@ -104,19 +100,8 @@ In order to use any of these, you must define them within your own pom.
 Use of JMockit requires Junit to be listed last.
 
 Dependencies are as follows:
-- assertj
-- catch-exception
-- hamcrest
 - hibernate-validator-annotation-processor
-- javassist
-- jmockit
-- junit
 - lombok
-- memoryfilesystem
-- mockito
-- objenisis
-- powermock
-- slf4j/simple
 
 ## Plugin Management ##
 
@@ -127,7 +112,7 @@ Majority of plugins will perform on their own.  All managed plugins are listed h
 - coveralls-maven-plugin
 - dependency-check-maven
 - findbugs-maven-plugin
-- formatter-maven-plugin (Soon to be, formally the maven-java-formatter-plugin)
+- formatter-maven-plugin (formally the maven-java-formatter-plugin)
 - git-commit-id-plugin
 - htmlcompressor-maven-plugin
 - jacoco-maven-plugin
