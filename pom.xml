@@ -122,7 +122,7 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <lombok.version>1.16.8</lombok.version>
+        <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 
         <signature.artifact>java17</signature.artifact>
