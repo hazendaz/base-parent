@@ -370,7 +370,7 @@
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>2.11</version>
+                    <version>3.0</version>
                     <configuration>
                         <header>license.txt</header>
                         <excludes>
@@ -384,7 +384,7 @@
                         <dependency>
                             <groupId>com.mycila</groupId>
                             <artifactId>license-maven-plugin-git</artifactId>
-                            <version>2.11</version>
+                            <version>3.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
