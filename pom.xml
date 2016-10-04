@@ -113,11 +113,11 @@
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.testSource>1.7</maven.compiler.testSource>
-        <maven.compiler.testTarget>1.7</maven.compiler.testTarget>
         <maven.min-version>3.2.5</maven.min-version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.testSource>1.8</maven.compiler.testSource>
+        <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -125,7 +125,7 @@
         <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 
-        <signature.artifact>java17</signature.artifact>
+        <signature.artifact>java18</signature.artifact>
         <signature.version>1.0</signature.version>
     </properties>
 
