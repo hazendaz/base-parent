@@ -129,6 +129,7 @@
 
         <lombok.version>1.16.10</lombok.version>
         <hibernate-validator.version>5.3.0.CR1</hibernate-validator.version>
+        <jsr305.version>3.0.1</jsr305.version>
 
         <signature.artifact>java18</signature.artifact>
         <signature.version>1.0</signature.version>
@@ -145,6 +146,12 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator-annotation-processor</artifactId>
             <version>${hibernate-validator.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>${jsr305.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
