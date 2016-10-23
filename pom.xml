@@ -128,7 +128,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <lombok.version>1.16.10</lombok.version>
-        <hibernate-validator.version>5.3.0.CR1</hibernate-validator.version>
+        <hibernate-validator.version>5.3.0.Final</hibernate-validator.version>
         <jsr305.version>3.0.1</jsr305.version>
 
         <signature.artifact>java18</signature.artifact>
