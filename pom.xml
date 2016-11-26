@@ -18,7 +18,7 @@
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>manual</distribution>
             <comments>A business-friendly OSS license</comments>
         </license>
@@ -29,7 +29,7 @@
             <id>jlandis</id>
             <name>Jeremy Landis</name>
             <email>jeremylandis@hotmail.com</email>
-            <url>http://www.linkedin.com/pub/jeremy-landis/19/b27/548/</url>
+            <url>https://www.linkedin.com/in/jeremy-landis-548b2719</url>
             <organization>hazendaz</organization>
             <organizationUrl>https://github.com/hazendaz</organizationUrl>
             <roles>
@@ -38,7 +38,7 @@
             </roles>
             <timezone>-5</timezone>
             <properties>
-                <picUrl>http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
+                <picUrl>https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
             </properties>
         </developer>
     </developers>
@@ -46,7 +46,7 @@
         <contributor>
             <name>Jeremy Landis</name>
             <email>jeremylandis@hotmail.com</email>
-            <url>http://www.linkedin.com/pub/jeremy-landis/19/b27/548/</url>
+            <url>https://www.linkedin.com/in/jeremy-landis-548b2719</url>
             <organization>hazendaz</organization>
             <organizationUrl>https://github.com/hazendaz</organizationUrl>
             <roles>
@@ -54,7 +54,7 @@
             </roles>
             <timezone>-5</timezone>
             <properties>
-                <picUrl>http://m.c.lnkd.licdn.com/mpr/mpr/shrink_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
+                <picUrl>https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
             </properties>
         </contributor>
     </contributors>
