@@ -106,7 +106,7 @@
     </distributionManagement>
 
     <properties>
-        <copyright>2015</copyright>
+        <copyright>2016</copyright>
 
         <github.global.server>github</github.global.server>
 
