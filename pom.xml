@@ -182,6 +182,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>1.4.1</version>
+                    <configuration>
+                        <rules>
+                            <requireMavenVersion>
+                                <version>[${maven.min-version},)</version>
+                            </requireMavenVersion>
+                        </rules>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -197,6 +204,10 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pdf-plugin</artifactId>
                     <version>1.3</version>
+                    <configuration>
+                        <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+                        <includeReports>false</includeReports>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -207,6 +218,24 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.6</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Os-Name>${os.name}</Os-Name>
+                                <Os-Arch>${os.arch}</Os-Arch>
+                                <Os-Version>${os.version}</Os-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
@@ -237,28 +266,76 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.19.1</version>
                 </plugin>
+
                 <!-- Build Plugins -->
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
                     <version>2.2.1</version>
+                    <configuration>
+                        <dotGitDirectory>.git</dotGitDirectory>
+                        <!-- Fixes occassional issue in commit id plugin - see 
+                            https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                        <gitDescribe>
+                            <always>true</always>
+                        </gitDescribe>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>1.12</version>
                 </plugin>
+
                 <!-- Packaging types / tools -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Os-Name>${os.name}</Os-Name>
+                                <Os-Arch>${os.arch}</Os-Arch>
+                                <Os-Version>${os.version}</Os-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                        <skipIfEmpty>true</skipIfEmpty>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.0.0</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Os-Name>${os.name}</Os-Name>
+                                <Os-Arch>${os.arch}</Os-Arch>
+                                <Os-Version>${os.version}</Os-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
                 </plugin>
+
                 <!-- Reporting plugins -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -282,12 +359,31 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.10.4</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Os-Name>${os.name}</Os-Name>
+                                <Os-Arch>${os.arch}</Os-Arch>
+                                <Os-Version>${os.version}</Os-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>3.7</version>
                 </plugin>
+
                 <!-- Tools -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -316,7 +412,26 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>3.0.1</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Build-Time>${maven.build.timestamp}</Build-Time>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <Os-Name>${os.name}</Os-Name>
+                                <Os-Arch>${os.arch}</Os-Arch>
+                                <Os-Version>${os.version}</Os-Version>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
                 </plugin>
+
                 <!-- External Tools -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -400,12 +515,14 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+
                 <!-- Jaxws Plugin -->
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
                     <version>2.3.8</version>
                 </plugin>
+
                 <!-- Report Only -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -452,6 +569,7 @@
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.3</version>
                 </plugin>
+
                 <!-- SCM -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -476,7 +594,7 @@
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>4.5.0.201609210915-r </version>
+                            <version>4.5.0.201609210915-r</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
@@ -485,12 +603,14 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+
                 <!-- Sonar -->
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.2</version>
                 </plugin>
+
                 <!-- Wagon -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -516,24 +636,9 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <!-- Core plugins -->
-            <!-- Delete all from target but not target itself -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <configuration>
-                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
-                    <filesets>
-                        <fileset>
-                            <directory>${project.build.directory}</directory>
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pdf-plugin</artifactId>
@@ -544,25 +649,14 @@
                         <goals>
                             <goal>pdf</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
-                            <includeReports>false</includeReports>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Build Plugins -->
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <configuration>
-                    <dotGitDirectory>.git</dotGitDirectory>
-                    <!-- Fixes occassional issue in commit id plugin - see 
-                        https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
-                    <gitDescribe>
-                        <always>true</always>
-                    </gitDescribe>
-                </configuration>
                 <executions>
                     <execution>
                         <id>git-commit-id</id>
@@ -573,29 +667,11 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Packaging types / Tools -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copyright>${copyright}</Copyright>
-                            <Git-Revision>${git.commit.id}</Git-Revision>
-                            <Os-Name>${os.name}</Os-Name>
-                            <Os-Arch>${os.arch}</Os-Arch>
-                            <Os-Version>${os.version}</Os-Version>
-                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                        </manifestEntries>
-                    </archive>
-                    <skipIfEmpty>true</skipIfEmpty>
-                </configuration>
                 <executions>
                     <execution>
                         <id>attach-jars</id>
@@ -605,50 +681,11 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copyright>${copyright}</Copyright>
-                            <Git-Revision>${git.commit.id}</Git-Revision>
-                            <Os-Name>${os.name}</Os-Name>
-                            <Os-Arch>${os.arch}</Os-Arch>
-                            <Os-Version>${os.version}</Os-Version>
-                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
-            </plugin>
+
             <!-- Reporting Plugins -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copyright>${copyright}</Copyright>
-                            <Git-Revision>${git.commit.id}</Git-Revision>
-                            <Os-Name>${os.name}</Os-Name>
-                            <Os-Arch>${os.arch}</Os-Arch>
-                            <Os-Version>${os.version}</Os-Version>
-                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -659,28 +696,11 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Tools -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Build-Time>${maven.build.timestamp}</Build-Time>
-                            <Copyright>${copyright}</Copyright>
-                            <Git-Revision>${git.commit.id}</Git-Revision>
-                            <Os-Name>${os.name}</Os-Name>
-                            <Os-Arch>${os.arch}</Os-Arch>
-                            <Os-Version>${os.version}</Os-Version>
-                            <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                            <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                        </manifestEntries>
-                    </archive>
-                </configuration>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -694,13 +714,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <configuration>
-                    <rules>
-                        <requireMavenVersion>
-                            <version>[${maven.min-version},)</version>
-                        </requireMavenVersion>
-                    </rules>
-                </configuration>
                 <executions>
                     <execution>
                         <id>enforce-maven</id>
@@ -747,15 +760,10 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>report</id>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
+
         <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
@@ -813,6 +821,14 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <!-- select non-aggregate reports -->
+                            <report>report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
             <!-- This plugin will fail if any POM is marked as Byte Order 
                 Mark is UTF-8 (BOM). If this occurs, create a new POM and move the contents 
@@ -939,6 +955,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>compression</id>
             <activation>
@@ -999,6 +1016,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>format</id>
             <activation>
@@ -1025,6 +1043,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>license</id>
             <activation>
@@ -1049,6 +1068,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>sort</id>
             <build>
@@ -1068,6 +1088,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>release</id>
             <build>
@@ -1088,6 +1109,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>endorsed</id>
             <build>
@@ -1128,6 +1150,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>wsimport</id>
             <build>
@@ -1147,6 +1170,7 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>eclipse</id>
             <activation>
@@ -1237,6 +1261,25 @@
                         </plugin>
                     </plugins>
                 </pluginManagement>
+
+                <plugins>
+                    <!-- Delete all from target but not target itself when in eclipse only -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <configuration>
+                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                            <filesets>
+                                <fileset>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
     </profiles>
