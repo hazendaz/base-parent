@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HtmlMetrics.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">HtmlMetrics.java</span></div><h1>HtmlMetrics.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+<span class="nc" id="L42"> *</span>
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor.compressor;
+<span class="nc" id="L65"></span>
+/**
+ * Class that stores metrics about HTML documents.
+ * 
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ */
+public class HtmlMetrics {
+
+    /** The filesize. */
+    private int filesize;
+<span class="nc" id="L75"></span>
+<span class="nc" id="L76">    /** The empty chars. */</span>
+    private int emptyChars;
+
+    /** The inline script size. */
+    private int inlineScriptSize;
+
+    /** The inline style size. */
+    private int inlineStyleSize;
+<span class="nc" id="L84"></span>
+    /** The inline event size. */
+    private int inlineEventSize;
+
+    /**
+     * Returns total filesize of a document.
+     *
+     * @return total filesize of a document, in bytes
+     */
+    public int getFilesize() {
+<span class="nc" id="L94">        return filesize;</span>
+<span class="nc" id="L95">    }</span>
+
+    /**
+     * Sets the filesize.
+     *
+     * @param filesize
+     *            the filesize to set
+     */
+<span class="nc" id="L103">    public void setFilesize(int filesize) {</span>
+        this.filesize = filesize;
+    }
+
+    /**
+     * Returns number of empty characters (spaces, tabs, end of lines) in a document.
+     *
+     * @return number of empty characters in a document
+     */
+    public int getEmptyChars() {
+<span class="nc" id="L113">        return emptyChars;</span>
+<span class="nc" id="L114">    }</span>
+
+    /**
+     * Sets the empty chars.
+     *
+     * @param emptyChars
+     *            the emptyChars to set
+     */
+<span class="nc" id="L122">    public void setEmptyChars(int emptyChars) {</span>
+        this.emptyChars = emptyChars;
+    }
+
+    /**
+     * Returns total size of inline &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags.
+     *
+     * @return total size of inline &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags, in bytes
+     */
+    public int getInlineScriptSize() {
+<span class="nc" id="L132">        return inlineScriptSize;</span>
+<span class="nc" id="L133">    }</span>
+
+    /**
+     * Sets the inline script size.
+     *
+     * @param inlineScriptSize
+     *            the inlineScriptSize to set
+     */
+<span class="nc" id="L141">    public void setInlineScriptSize(int inlineScriptSize) {</span>
+        this.inlineScriptSize = inlineScriptSize;
+    }
+
+    /**
+     * Returns total size of inline &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags.
+     *
+     * @return total size of inline &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags, in bytes
+     */
+    public int getInlineStyleSize() {
+<span class="nc" id="L151">        return inlineStyleSize;</span>
+<span class="nc" id="L152">    }</span>
+
+    /**
+     * Sets the inline style size.
+<span class="nc" id="L156">     *</span>
+<span class="nc" id="L157">     * @param inlineStyleSize</span>
+     *            the inlineStyleSize to set
+     */
+    public void setInlineStyleSize(int inlineStyleSize) {
+        this.inlineStyleSize = inlineStyleSize;
+    }
+
+    /**
+     * Returns total size of inline event handlers (&lt;code&gt;onclick&lt;/code&gt;, etc).
+     *
+     * @return total size of inline event handlers, in bytes
+     */
+    public int getInlineEventSize() {
+        return inlineEventSize;
+    }
+
+    /**
+     * Sets the inline event size.
+     *
+     * @param inlineEventSize
+     *            the inlineEventSize to set
+     */
+    public void setInlineEventSize(int inlineEventSize) {
+        this.inlineEventSize = inlineEventSize;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(&quot;Filesize=%d, Empty Chars=%d, Script Size=%d, Style Size=%d, Event Handler Size=%d&quot;,
+                filesize, emptyChars, inlineScriptSize, inlineStyleSize, inlineEventSize);
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

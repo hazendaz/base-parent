@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>YuiCssCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">YuiCssCompressor.java</span></div><h1>YuiCssCompressor.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+<span class="nc" id="L55"> *</span>
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+<span class="nc" id="L58"> *    Unless required by applicable law or agreed to in writing, software</span>
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+<span class="nc" id="L61"> *    See the License for the specific language governing permissions and</span>
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor.compressor;
+<span class="nc" id="L65"></span>
+import java.io.IOException;
+import java.io.StringReader;
+<span class="nc" id="L68">import java.io.StringWriter;</span>
+<span class="nc" id="L69"></span>
+<span class="nc" id="L70">import org.slf4j.Logger;</span>
+<span class="nc" id="L71">import org.slf4j.LoggerFactory;</span>
+<span class="nc" id="L72"></span>
+<span class="nc" id="L73">import com.yahoo.platform.yui.compressor.CssCompressor;</span>
+
+<span class="nc" id="L75">/**</span>
+ * Basic CSS compressor implementation using &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI
+ * Compressor&lt;/a&gt; that could be used by {@link HtmlCompressor} for inline CSS compression.
+ * 
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ * 
+ * @see HtmlCompressor#setCssCompressor(Compressor)
+ * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+ */
+public class YuiCssCompressor implements Compressor {
+
+    /** The Constant Logger. */
+<span class="nc" id="L87">    private static final Logger logger    = LoggerFactory.getLogger(YuiCssCompressor.class);</span>
+
+    /** The line break. */
+    private int                 lineBreak = -1;
+
+    @Override
+    public String compress(String source) {
+        StringWriter result = new StringWriter();
+
+        try {
+            CssCompressor compressor = new CssCompressor(new StringReader(source));
+            compressor.compress(result, lineBreak);
+        } catch (IOException e) {
+            result.write(source);
+<span class="nc" id="L101">            logger.error(&quot;&quot;, e);</span>
+<span class="nc" id="L102">        }</span>
+
+        return result.toString();
+    }
+
+    /**
+     * Returns number of symbols per line Yahoo YUI Compressor will use during CSS compression. This corresponds to
+     * &lt;code&gt;--line-break&lt;/code&gt; command line option.
+     * 
+     * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for CSS compression.
+     * 
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
+    public int getLineBreak() {
+        return lineBreak;
+    }
+
+    /**
+     * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during CSS compression. This
+     * corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if CSS compression is
+     * enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.
+     * 
+     * @param lineBreak
+     *            set number of symbols per line
+     * 
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
+    public void setLineBreak(int lineBreak) {
+        this.lineBreak = lineBreak;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

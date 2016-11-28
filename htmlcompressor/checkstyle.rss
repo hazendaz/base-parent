@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>HTML Compressor and Minifier - Checkstyle report</title>
+    <link>https://github.com/hazendaz/htmlcompressor/</link>
+    <description>HTML Compressor and Minifier - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2009 - 2016 Jeremy Landis</copyright>
+    <item>
+      <title>File: 25,
+             Errors: 2019,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>https://github.com/hazendaz/htmlcompressor//checkstyle.html</link>
+      <description>
+        <p>Click <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.taglib.CssCompressorTag.java">com/googlecode/htmlcompressor/taglib/CssCompressorTag.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#jargs.gnu.CmdLineParser.java">jargs/gnu/CmdLineParser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  146
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.taglib.HtmlCompressorTag.java">com/googlecode/htmlcompressor/taglib/HtmlCompressorTag.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  114
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.taglib.package-info.java">com/googlecode/htmlcompressor/taglib/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.CmdLineCompressor.java">com/googlecode/htmlcompressor/CmdLineCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  192
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.analyzer.HtmlAnalyzer.java">com/googlecode/htmlcompressor/analyzer/HtmlAnalyzer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  59
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.taglib.JavaScriptCompressorTag.java">com/googlecode/htmlcompressor/taglib/JavaScriptCompressorTag.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  63
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.taglib.XmlCompressorTag.java">com/googlecode/htmlcompressor/taglib/XmlCompressorTag.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  24
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#jargs.gnu.package-info.java">jargs/gnu/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.HtmlCompressorStatistics.java">com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  36
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.analyzer.package-info.java">com/googlecode/htmlcompressor/analyzer/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor.java">com/googlecode/htmlcompressor/compressor/ClosureJavaScriptCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  104
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.YuiCssCompressor.java">com/googlecode/htmlcompressor/compressor/YuiCssCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  33
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.HtmlMetrics.java">com/googlecode/htmlcompressor/compressor/HtmlMetrics.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  35
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.velocity.HtmlCompressorDirective.java">com/googlecode/htmlcompressor/velocity/HtmlCompressorDirective.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  55
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.package-info.java">com/googlecode/htmlcompressor/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.package-info.java">com/googlecode/htmlcompressor/compressor/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor.java">com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  128
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.velocity.package-info.java">com/googlecode/htmlcompressor/velocity/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.XmlCompressor.java">com/googlecode/htmlcompressor/compressor/XmlCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  80
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.velocity.XmlCompressorDirective.java">com/googlecode/htmlcompressor/velocity/XmlCompressorDirective.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  27
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.velocity.JavaScriptCompressorDirective.java">com/googlecode/htmlcompressor/velocity/JavaScriptCompressorDirective.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  42
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.HtmlCompressor.java">com/googlecode/htmlcompressor/compressor/HtmlCompressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  748
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.compressor.Compressor.java">com/googlecode/htmlcompressor/compressor/Compressor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/htmlcompressor//checkstyle.html#com.googlecode.htmlcompressor.velocity.CssCompressorDirective.java">com/googlecode/htmlcompressor/velocity/CssCompressorDirective.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  29
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CssCompressorDirective.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.velocity</a> &gt; <span class="el_source">CssCompressorDirective.java</span></div><h1>CssCompressorDirective.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+<span class="nc" id="L60"> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor.velocity;
+
+<span class="nc" id="L66">import java.io.IOException;</span>
+import java.io.StringWriter;
+import java.io.Writer;
+
+import org.apache.velocity.context.InternalContextAdapter;
+<span class="nc" id="L71">import org.apache.velocity.exception.MethodInvocationException;</span>
+import org.apache.velocity.exception.TemplateInitException;
+import org.apache.velocity.runtime.RuntimeServices;
+<span class="nc" id="L74">import org.apache.velocity.runtime.directive.Directive;</span>
+import org.apache.velocity.runtime.log.Log;
+import org.apache.velocity.runtime.parser.node.Node;
+
+<span class="nc" id="L78">import com.googlecode.htmlcompressor.compressor.HtmlCompressor;</span>
+import com.googlecode.htmlcompressor.compressor.YuiCssCompressor;
+
+/**
+ * Velocity directive that compresses an CSS content within #compressCss ... #end block. All CSS-related properties from
+<span class="nc" id="L83"> * {@link HtmlCompressor} are supported.</span>
+<span class="nc" id="L84"> *</span>
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ * @see HtmlCompressor
+<span class="nc" id="L87"> * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L88"> */</span>
+<span class="nc" id="L89">public class CssCompressorDirective extends Directive {</span>
+
+    /** The log. */
+    private Log     log;
+
+    /** The enabled. */
+    private boolean enabled         = true;
+<span class="nc" id="L96"></span>
+<span class="nc" id="L97">    // YUICompressor settings</span>
+
+    /** The yui css line break. */
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    private int     yuiCssLineBreak = -1;</span>
+
+    public String getName() {
+<span class="nc" id="L103">        return &quot;compressCss&quot;;</span>
+<span class="nc" id="L104">    }</span>
+<span class="nc" id="L105"></span>
+    public int getType() {
+<span class="nc" id="L107">        return BLOCK;</span>
+<span class="nc" id="L108">    }</span>
+<span class="nc" id="L109"></span>
+<span class="nc" id="L110">    @Override</span>
+<span class="nc" id="L111">    public void init(RuntimeServices rs, InternalContextAdapter context, Node node) throws TemplateInitException {</span>
+<span class="nc" id="L112">        super.init(rs, context, node);</span>
+        log = rs.getLog();
+<span class="nc" id="L114"></span>
+        // set compressor properties
+<span class="nc" id="L116">        enabled = rs.getBoolean(&quot;userdirective.compressCss.enabled&quot;, true);</span>
+        yuiCssLineBreak = rs.getInt(&quot;userdirective.compressCss.yuiCssLineBreak&quot;, -1);
+    }
+<span class="nc" id="L119"></span>
+    @Override
+    public boolean render(InternalContextAdapter context, Writer writer, Node node) throws IOException,
+            MethodInvocationException {
+
+        // render content
+        StringWriter content = new StringWriter();
+        node.jjtGetChild(0).render(context, content);
+
+        // compress
+        if (enabled) {
+            try {
+
+                YuiCssCompressor compressor = new YuiCssCompressor();
+                compressor.setLineBreak(yuiCssLineBreak);
+                String result = compressor.compress(content.toString());
+
+                writer.write(result);
+            } catch (Exception e) {
+                writer.write(content.toString());
+                String msg = &quot;Failed to compress content: &quot; + content.toString();
+                log.error(msg, e);
+                throw new RuntimeException(msg, e);
+
+            }
+        } else {
+            writer.write(content.toString());
+        }
+
+        return true;
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

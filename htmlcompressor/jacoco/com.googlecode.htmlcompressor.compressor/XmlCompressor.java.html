@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">XmlCompressor.java</span></div><h1>XmlCompressor.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+<span class="nc" id="L49"> *</span>
+ *    Copyright 2009-2016 the original author or authors.
+ *
+<span class="nc" id="L52"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+<span class="nc" id="L56"> *       http://www.apache.org/licenses/LICENSE-2.0</span>
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+<span class="nc" id="L59"> *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor.compressor;
+
+import java.text.MessageFormat;
+<span class="nc" id="L67">import java.util.ArrayList;</span>
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+<span class="nc" id="L71"></span>
+/**
+ * Class that compresses given XML source by removing comments, extra spaces and line breaks while preserving content
+ * within CDATA blocks.
+<span class="nc" id="L75"> * </span>
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ */
+public class XmlCompressor implements Compressor {
+<span class="nc" id="L79"></span>
+    /** The enabled. */
+    private boolean                enabled              = true;
+
+<span class="nc" id="L83">    /** The remove comments. */</span>
+    // default settings
+    private boolean                removeComments       = true;
+
+<span class="nc" id="L87">    /** The remove intertag spaces. */</span>
+    private boolean                removeIntertagSpaces = true;
+
+    /** The Constant tempCdataBlock. */
+<span class="nc" id="L91">    // temp replacements for preserved blocks</span>
+    protected static final String  tempCdataBlock       = &quot;%%%COMPRESS~CDATA~{0,number,#}%%%&quot;;
+
+    /** The Constant cdataPattern. */
+    // compiled regex patterns
+    protected static final Pattern cdataPattern         = Pattern.compile(&quot;&lt;!\\[CDATA\\[.*?\\]\\]&gt;&quot;, Pattern.DOTALL
+                                                                | Pattern.CASE_INSENSITIVE);
+
+    /** The Constant commentPattern. */
+    protected static final Pattern commentPattern       = Pattern.compile(&quot;&lt;!--.*?--&gt;&quot;, Pattern.DOTALL
+                                                                | Pattern.CASE_INSENSITIVE);
+
+<span class="nc bnc" id="L103" title="All 6 branches missed.">    /** The Constant intertagPattern. */</span>
+<span class="nc" id="L104">    protected static final Pattern intertagPattern      = Pattern.compile(&quot;&gt;\\s+&lt;&quot;, Pattern.DOTALL</span>
+                                                                | Pattern.CASE_INSENSITIVE);
+
+    /** The Constant tagEndSpacePattern. */
+<span class="nc" id="L108">    protected static final Pattern tagEndSpacePattern   = Pattern.compile(&quot;(&lt;(?:[^&gt;]+?))(?:\\s+?)(/?&gt;)&quot;, Pattern.DOTALL</span>
+                                                                | Pattern.CASE_INSENSITIVE);
+
+<span class="nc" id="L111">    /** The Constant multispacePattern. */</span>
+    protected static final Pattern multispacePattern    = Pattern.compile(&quot;\\s+(?=[^&lt;]*?&gt;)&quot;, Pattern.DOTALL
+                                                                | Pattern.CASE_INSENSITIVE);
+<span class="nc" id="L114"></span>
+    /** The Constant tagPropertyPattern. */
+    protected static final Pattern tagPropertyPattern   = Pattern.compile(&quot;(\\s\\w+)\\s*=\\s*(?=[^&lt;]*?&gt;)&quot;,
+<span class="nc" id="L117">                                                                Pattern.CASE_INSENSITIVE);</span>
+
+<span class="nc" id="L119">    /** The Constant tempCdataPattern. */</span>
+    protected static final Pattern tempCdataPattern     = Pattern.compile(&quot;%%%COMPRESS~CDATA~(\\d+?)%%%&quot;,
+                                                                Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
+
+    /**
+     * The main method that compresses given XML source and returns compressed result.
+     * 
+     * @param xml
+     *            XML content to compress
+     * @return compressed content.
+     */
+    @Override
+    public String compress(String xml) {
+        if (!enabled || xml == null || xml.length() == 0) {
+<span class="nc" id="L133">            return xml;</span>
+<span class="nc" id="L134">        }</span>
+<span class="nc" id="L135"></span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        // preserved block containers</span>
+<span class="nc" id="L137">        List&lt;String&gt; cdataBlocks = new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L138"></span>
+        // preserve blocks
+<span class="nc" id="L140">        xml = preserveBlocks(xml, cdataBlocks);</span>
+<span class="nc" id="L141"></span>
+        // process pure xml
+<span class="nc" id="L143">        xml = processXml(xml);</span>
+
+        // return preserved blocks
+        xml = returnBlocks(xml, cdataBlocks);
+
+        return xml.trim();
+    }
+
+    /**
+     * Preserve blocks.
+     *
+     * @param xml
+     *            the xml
+     * @param cdataBlocks
+<span class="nc" id="L157">     *            the cdata blocks</span>
+<span class="nc" id="L158">     * @return the string</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">     */</span>
+<span class="nc" id="L160">    protected String preserveBlocks(String xml, List&lt;String&gt; cdataBlocks) {</span>
+        // preserve CDATA blocks
+<span class="nc" id="L162">        Matcher matcher = cdataPattern.matcher(xml);</span>
+<span class="nc" id="L163">        int index = 0;</span>
+        StringBuffer sb = new StringBuffer();
+<span class="nc" id="L165">        while (matcher.find()) {</span>
+            cdataBlocks.add(matcher.group(0));
+            matcher.appendReplacement(sb, MessageFormat.format(tempCdataBlock, index++));
+        }
+        matcher.appendTail(sb);
+        xml = sb.toString();
+
+        return xml;
+    }
+
+    /**
+     * Return blocks.
+<span class="nc" id="L177">     *</span>
+     * @param xml
+     *            the xml
+<span class="nc" id="L180">     * @param cdataBlocks</span>
+     *            the cdata blocks
+     * @return the string
+<span class="nc" id="L183">     */</span>
+    protected String returnBlocks(String xml, List&lt;String&gt; cdataBlocks) {
+<span class="nc" id="L185">        // put CDATA blocks back</span>
+        Matcher matcher = tempCdataPattern.matcher(xml);
+        StringBuffer sb = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, Matcher.quoteReplacement(cdataBlocks.get(Integer.parseInt(matcher.group(1)))));
+        }
+        matcher.appendTail(sb);
+        xml = sb.toString();
+
+        return xml;
+    }
+
+<span class="nc" id="L197">    /**</span>
+     * Process xml.
+     *
+<span class="nc" id="L200">     * @param xml</span>
+     *            the xml
+     * @return the string
+<span class="nc" id="L203">     */</span>
+<span class="nc" id="L204">    protected String processXml(String xml) {</span>
+        // remove comments
+        xml = removeComments(xml);
+
+        // remove inter-tag spaces
+        xml = removeIntertagSpaces(xml);
+
+        // remove unneeded spaces inside tags
+        xml = removeSpacesInsideTags(xml);
+
+        return xml;
+    }
+<span class="nc bnc" id="L216" title="All 2 branches missed."></span>
+<span class="nc" id="L217">    /**</span>
+     * Removes the spaces inside tags.
+<span class="nc" id="L219">     *</span>
+     * @param xml
+     *            the xml
+     * @return the string
+     */
+    protected String removeSpacesInsideTags(String xml) {
+        // replace miltiple spaces inside tags with single spaces
+        xml = multispacePattern.matcher(xml).replaceAll(&quot; &quot;);
+
+        // remove spaces around equal sign inside tags
+        xml = tagPropertyPattern.matcher(xml).replaceAll(&quot;$1=&quot;);
+
+<span class="nc bnc" id="L231" title="All 2 branches missed.">        // remove ending spaces inside tags</span>
+<span class="nc" id="L232">        xml = tagEndSpacePattern.matcher(xml).replaceAll(&quot;$1$2&quot;);</span>
+        return xml;
+<span class="nc" id="L234">    }</span>
+
+    /**
+     * Removes the intertag spaces.
+     *
+     * @param xml
+     *            the xml
+     * @return the string
+     */
+<span class="nc" id="L243">    protected String removeIntertagSpaces(String xml) {</span>
+        // remove inter-tag spaces
+        if (removeIntertagSpaces) {
+            xml = intertagPattern.matcher(xml).replaceAll(&quot;&gt;&lt;&quot;);
+        }
+        return xml;
+    }
+
+    /**
+     * Removes the comments.
+     *
+<span class="nc" id="L254">     * @param xml</span>
+<span class="nc" id="L255">     *            the xml</span>
+     * @return the string
+     */
+    protected String removeComments(String xml) {
+        // remove comments
+        if (removeComments) {
+            xml = commentPattern.matcher(xml).replaceAll(&quot;&quot;);
+        }
+<span class="nc" id="L263">        return xml;</span>
+    }
+
+    /**
+     * Returns &lt;code&gt;true&lt;/code&gt; if compression is enabled.
+     * 
+     * @return &lt;code&gt;true&lt;/code&gt; if compression is enabled.
+     */
+    public boolean isEnabled() {
+        return enabled;
+<span class="nc" id="L273">    }</span>
+<span class="nc" id="L274"></span>
+    /**
+     * If set to &lt;code&gt;false&lt;/code&gt; all compression will be bypassed. Might be useful for testing purposes. Default is
+     * &lt;code&gt;true&lt;/code&gt;.
+     * 
+     * @param enabled
+     *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression
+     */
+<span class="nc" id="L282">    public void setEnabled(boolean enabled) {</span>
+        this.enabled = enabled;
+    }
+
+    /**
+     * Returns &lt;code&gt;true&lt;/code&gt; if all XML comments will be removed.
+     * 
+     * @return &lt;code&gt;true&lt;/code&gt; if all XML comments will be removed
+     */
+    public boolean isRemoveComments() {
+<span class="nc" id="L292">        return removeComments;</span>
+<span class="nc" id="L293">    }</span>
+
+    /**
+     * If set to &lt;code&gt;true&lt;/code&gt; all XML comments will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
+     * 
+     * @param removeComments
+     *            set &lt;code&gt;true&lt;/code&gt; to remove all XML comments
+     */
+    public void setRemoveComments(boolean removeComments) {
+        this.removeComments = removeComments;
+    }
+
+    /**
+     * Returns &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
+     * 
+     * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
+     */
+    public boolean isRemoveIntertagSpaces() {
+        return removeIntertagSpaces;
+    }
+
+    /**
+     * If set to &lt;code&gt;true&lt;/code&gt; all inter-tag whitespace characters will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
+     * 
+     * @param removeIntertagSpaces
+     *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters
+     */
+    public void setRemoveIntertagSpaces(boolean removeIntertagSpaces) {
+        this.removeIntertagSpaces = removeIntertagSpaces;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

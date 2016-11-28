@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CmdLineCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor</a> &gt; <span class="el_source">CmdLineCompressor.java</span></div><h1>CmdLineCompressor.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor;
+
+import jargs.gnu.CmdLineParser;
+import jargs.gnu.CmdLineParser.Option;
+import jargs.gnu.CmdLineParser.OptionException;
+
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+import java.util.regex.Matcher;
+<span class="nc" id="L89">import java.util.regex.Pattern;</span>
+import java.util.regex.PatternSyntaxException;
+
+<span class="nc" id="L92">import org.slf4j.Logger;</span>
+import org.slf4j.LoggerFactory;
+
+import com.google.javascript.jscomp.CompilationLevel;
+import com.google.javascript.jscomp.JSSourceFile;
+import com.googlecode.htmlcompressor.analyzer.HtmlAnalyzer;
+import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;
+import com.googlecode.htmlcompressor.compressor.Compressor;
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
+import com.googlecode.htmlcompressor.compressor.XmlCompressor;
+
+/**
+ * Wrapper for HTML and XML compressor classes that allows using them from a command line.
+ * 
+ * &lt;p&gt;
+ * Usage: &lt;code&gt;java -jar htmlcompressor.jar [options] [input]&lt;/code&gt;
+ * &lt;p&gt;
+ * To view a list of all available parameters please run with &lt;code&gt;-?&lt;/code&gt; option:
+ * &lt;p&gt;
+ * &lt;code&gt;java -jar htmlcompressor.jar -?&lt;/code&gt;
+ * 
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ */
+public class CmdLineCompressor {
+
+    /** The Constant logger. */
+    private static final Logger  logger     = LoggerFactory.getLogger(CmdLineCompressor.class);
+
+    /** The Constant urlPattern. */
+    private static final Pattern urlPattern = Pattern.compile(&quot;^https?://.*$&quot;, Pattern.CASE_INSENSITIVE);
+
+    /** The help opt. */
+    private boolean              helpOpt;
+
+    /** The analyze opt. */
+    private boolean              analyzeOpt;
+
+    /** The charset opt. */
+    private Charset              charsetOpt;
+
+    /** The output filename opt. */
+    private String               outputFilenameOpt;
+
+    /** The patterns filename opt. */
+    private String               patternsFilenameOpt;
+
+    /** The type opt. */
+    private String               typeOpt;
+
+    /** The filemask opt. */
+    private String               filemaskOpt;
+
+    /** The recursive opt. */
+    private boolean              recursiveOpt;
+
+    /** The preserve comments opt. */
+    private boolean              preserveCommentsOpt;
+
+    /** The preserve intertag spaces opt. */
+    private boolean              preserveIntertagSpacesOpt;
+
+    /** The preserve multi spaces opt. */
+    private boolean              preserveMultiSpacesOpt;
+
+    /** The remove intertag spaces opt. */
+    private boolean              removeIntertagSpacesOpt;
+
+    /** The remove quotes opt. */
+    private boolean              removeQuotesOpt;
+
+    /** The remove surrounding spaces opt. */
+    private String               removeSurroundingSpacesOpt;
+
+    /** The preserve line breaks opt. */
+    private boolean              preserveLineBreaksOpt;
+
+    /** The preserve php tags opt. */
+    private boolean              preservePhpTagsOpt;
+
+    /** The preserve server script tags opt. */
+    private boolean              preserveServerScriptTagsOpt;
+
+    /** The preserve ssi tags opt. */
+    private boolean              preserveSsiTagsOpt;
+
+    /** The compress js opt. */
+    private boolean              compressJsOpt;
+
+    /** The compress css opt. */
+    private boolean              compressCssOpt;
+
+    /** The js compressor opt. */
+    private String               jsCompressorOpt;
+
+    /** The simple doctype opt. */
+    private boolean              simpleDoctypeOpt;
+
+    /** The remove script attributes opt. */
+    private boolean              removeScriptAttributesOpt;
+
+    /** The remove style attributes opt. */
+    private boolean              removeStyleAttributesOpt;
+
+    /** The remove link attributes opt. */
+    private boolean              removeLinkAttributesOpt;
+
+    /** The remove form attributes opt. */
+    private boolean              removeFormAttributesOpt;
+
+    /** The remove input attributes opt. */
+    private boolean              removeInputAttributesOpt;
+
+    /** The simple boolean attributes opt. */
+    private boolean              simpleBooleanAttributesOpt;
+
+    /** The remove java script protocol opt. */
+    private boolean              removeJavaScriptProtocolOpt;
+
+    /** The remove http protocol opt. */
+    private boolean              removeHttpProtocolOpt;
+
+    /** The remove https protocol opt. */
+    private boolean              removeHttpsProtocolOpt;
+
+    /** The nomunge opt. */
+<span class="nc" id="L217">    private boolean              nomungeOpt;</span>
+<span class="nc" id="L218"></span>
+    /** The linebreak opt. */
+<span class="nc" id="L220">    private int                  linebreakOpt;</span>
+<span class="nc" id="L221"></span>
+<span class="nc" id="L222">    /** The preserve semi opt. */</span>
+<span class="nc" id="L223">    private boolean              preserveSemiOpt;</span>
+<span class="nc" id="L224"></span>
+<span class="nc" id="L225">    /** The disable optimizations opt. */</span>
+<span class="nc" id="L226">    private boolean              disableOptimizationsOpt;</span>
+<span class="nc" id="L227"></span>
+<span class="nc" id="L228">    /** The closure opt level opt. */</span>
+<span class="nc" id="L229">    private String               closureOptLevelOpt;</span>
+<span class="nc" id="L230"></span>
+<span class="nc" id="L231">    /** The closure custom externs only opt. */</span>
+<span class="nc" id="L232">    private boolean              closureCustomExternsOnlyOpt;</span>
+<span class="nc" id="L233"></span>
+<span class="nc" id="L234">    /** The closure externs opt. */</span>
+<span class="nc" id="L235">    private List&lt;String&gt;         closureExternsOpt;</span>
+<span class="nc" id="L236"></span>
+<span class="nc" id="L237">    /** The file args opt. */</span>
+<span class="nc" id="L238">    private List&lt;String&gt;         fileArgsOpt;</span>
+<span class="nc" id="L239"></span>
+<span class="nc" id="L240">    /**</span>
+<span class="nc" id="L241">     * Instantiates a new cmd line compressor.</span>
+     *
+<span class="nc" id="L243">     * @param args</span>
+<span class="nc" id="L244">     *            the args</span>
+<span class="nc" id="L245">     */</span>
+<span class="nc" id="L246">    public CmdLineCompressor(String[] args) {</span>
+<span class="nc" id="L247">        CmdLineParser parser = new CmdLineParser();</span>
+<span class="nc" id="L248"></span>
+<span class="nc" id="L249">        Option helpOption = parser.addBooleanOption('h', &quot;help&quot;);</span>
+<span class="nc" id="L250">        Option helpOptAlt = parser.addBooleanOption('?', &quot;help_alt&quot;);</span>
+<span class="nc" id="L251">        Option analyzeOption = parser.addBooleanOption('a', &quot;analyze&quot;);</span>
+<span class="nc" id="L252">        Option recursiveOption = parser.addBooleanOption('r', &quot;recursive&quot;);</span>
+        Option charsetOption = parser.addStringOption('c', &quot;charset&quot;);
+<span class="nc" id="L254">        Option outputFilenameOption = parser.addStringOption('o', &quot;output&quot;);</span>
+<span class="nc" id="L255">        Option patternsFilenameOption = parser.addStringOption('p', &quot;preserve&quot;);</span>
+<span class="nc" id="L256">        Option typeOption = parser.addStringOption('t', &quot;type&quot;);</span>
+<span class="nc" id="L257">        Option filemaskOption = parser.addStringOption('m', &quot;mask&quot;);</span>
+        Option preserveCommentsOption = parser.addBooleanOption(&quot;preserve-comments&quot;);
+<span class="nc" id="L259">        Option preserveIntertagSpacesOption = parser.addBooleanOption(&quot;preserve-intertag-spaces&quot;);</span>
+<span class="nc" id="L260">        Option preserveMultiSpacesOption = parser.addBooleanOption(&quot;preserve-multi-spaces&quot;);</span>
+<span class="nc" id="L261">        Option removeIntertagSpacesOption = parser.addBooleanOption(&quot;remove-intertag-spaces&quot;);</span>
+        Option removeSurroundingSpacesOption = parser.addStringOption(&quot;remove-surrounding-spaces&quot;);
+        Option removeQuotesOption = parser.addBooleanOption(&quot;remove-quotes&quot;);
+<span class="nc" id="L264">        Option preserveLineBreaksOption = parser.addBooleanOption(&quot;preserve-line-breaks&quot;);</span>
+        Option preservePhpTagsOption = parser.addBooleanOption(&quot;preserve-php&quot;);
+<span class="nc bnc" id="L266" title="All 2 branches missed.">        Option preserveServerScriptTagsOption = parser.addBooleanOption(&quot;preserve-server-script&quot;);</span>
+<span class="nc bnc" id="L267" title="All 2 branches missed.">        Option preserveSsiTagsOption = parser.addBooleanOption(&quot;preserve-ssi&quot;);</span>
+<span class="nc" id="L268">        Option compressJsOption = parser.addBooleanOption(&quot;compress-js&quot;);</span>
+<span class="nc" id="L269">        Option compressCssOption = parser.addBooleanOption(&quot;compress-css&quot;);</span>
+<span class="nc" id="L270">        Option jsCompressorOption = parser.addStringOption(&quot;js-compressor&quot;);</span>
+<span class="nc" id="L271"></span>
+<span class="nc" id="L272">        Option simpleDoctypeOption = parser.addBooleanOption(&quot;simple-doctype&quot;);</span>
+<span class="nc" id="L273">        Option removeScriptAttributesOption = parser.addBooleanOption(&quot;remove-script-attr&quot;);</span>
+<span class="nc" id="L274">        Option removeStyleAttributesOption = parser.addBooleanOption(&quot;remove-style-attr&quot;);</span>
+<span class="nc" id="L275">        Option removeLinkAttributesOption = parser.addBooleanOption(&quot;remove-link-attr&quot;);</span>
+<span class="nc" id="L276">        Option removeFormAttributesOption = parser.addBooleanOption(&quot;remove-form-attr&quot;);</span>
+<span class="nc" id="L277">        Option removeInputAttributesOption = parser.addBooleanOption(&quot;remove-input-attr&quot;);</span>
+<span class="nc" id="L278">        Option simpleBooleanAttributesOption = parser.addBooleanOption(&quot;simple-bool-attr&quot;);</span>
+<span class="nc" id="L279">        Option removeJavaScriptProtocolOption = parser.addBooleanOption(&quot;remove-js-protocol&quot;);</span>
+<span class="nc" id="L280">        Option removeHttpProtocolOption = parser.addBooleanOption(&quot;remove-http-protocol&quot;);</span>
+<span class="nc" id="L281">        Option removeHttpsProtocolOption = parser.addBooleanOption(&quot;remove-https-protocol&quot;);</span>
+<span class="nc" id="L282"></span>
+<span class="nc" id="L283">        Option nomungeOption = parser.addBooleanOption(&quot;nomunge&quot;);</span>
+<span class="nc" id="L284">        Option linebreakOption = parser.addStringOption(&quot;line-break&quot;);</span>
+<span class="nc" id="L285">        Option preserveSemiOption = parser.addBooleanOption(&quot;preserve-semi&quot;);</span>
+<span class="nc" id="L286">        Option disableOptimizationsOption = parser.addBooleanOption(&quot;disable-optimizations&quot;);</span>
+
+<span class="nc" id="L288">        Option closureOptLevelOption = parser.addStringOption(&quot;closure-opt-level&quot;);</span>
+<span class="nc" id="L289">        Option closureCustomExternsOnlyOption = parser.addBooleanOption(&quot;closure-custom-externs-only&quot;);</span>
+<span class="nc" id="L290">        Option closureExternsOption = parser.addStringOption(&quot;closure-externs&quot;);</span>
+<span class="nc" id="L291"></span>
+<span class="nc" id="L292">        try {</span>
+<span class="nc" id="L293">            parser.parse(args);</span>
+<span class="nc" id="L294"></span>
+<span class="nc" id="L295">            this.helpOpt = (Boolean) parser.getOptionValue(helpOption, false)</span>
+<span class="nc" id="L296">                    || (Boolean) parser.getOptionValue(helpOptAlt, false);</span>
+<span class="nc" id="L297">            this.analyzeOpt = (Boolean) parser.getOptionValue(analyzeOption, false);</span>
+            this.recursiveOpt = (Boolean) parser.getOptionValue(recursiveOption, false);
+<span class="nc" id="L299">            this.charsetOpt = Charset.forName((String) parser.getOptionValue(charsetOption, &quot;UTF-8&quot;));</span>
+<span class="nc" id="L300">            this.outputFilenameOpt = (String) parser.getOptionValue(outputFilenameOption);</span>
+<span class="nc" id="L301">            this.patternsFilenameOpt = (String) parser.getOptionValue(patternsFilenameOption);</span>
+<span class="nc" id="L302">            this.typeOpt = (String) parser.getOptionValue(typeOption);</span>
+            this.filemaskOpt = (String) parser.getOptionValue(filemaskOption);
+<span class="nc" id="L304">            this.preserveCommentsOpt = (Boolean) parser.getOptionValue(preserveCommentsOption, false);</span>
+            this.preserveIntertagSpacesOpt = (Boolean) parser.getOptionValue(preserveIntertagSpacesOption, false);
+<span class="nc" id="L306">            this.preserveMultiSpacesOpt = (Boolean) parser.getOptionValue(preserveMultiSpacesOption, false);</span>
+            this.removeIntertagSpacesOpt = (Boolean) parser.getOptionValue(removeIntertagSpacesOption, false);
+<span class="nc" id="L308">            this.removeQuotesOpt = (Boolean) parser.getOptionValue(removeQuotesOption, false);</span>
+            this.preserveLineBreaksOpt = (Boolean) parser.getOptionValue(preserveLineBreaksOption, false);
+<span class="nc" id="L310">            this.preservePhpTagsOpt = (Boolean) parser.getOptionValue(preservePhpTagsOption, false);</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">            this.preserveServerScriptTagsOpt = (Boolean) parser.getOptionValue(preserveServerScriptTagsOption, false);</span>
+<span class="nc bnc" id="L312" title="All 2 branches missed.">            this.preserveSsiTagsOpt = (Boolean) parser.getOptionValue(preserveSsiTagsOption, false);</span>
+<span class="nc" id="L313">            this.compressJsOpt = (Boolean) parser.getOptionValue(compressJsOption, false);</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">            this.compressCssOpt = (Boolean) parser.getOptionValue(compressCssOption, false);</span>
+<span class="nc" id="L315">            this.jsCompressorOpt = (String) parser.getOptionValue(jsCompressorOption, HtmlCompressor.JS_COMPRESSOR_YUI);</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed."></span>
+<span class="nc" id="L317">            this.simpleDoctypeOpt = (Boolean) parser.getOptionValue(simpleDoctypeOption, false);</span>
+            this.removeScriptAttributesOpt = (Boolean) parser.getOptionValue(removeScriptAttributesOption, false);
+            this.removeStyleAttributesOpt = (Boolean) parser.getOptionValue(removeStyleAttributesOption, false);
+            this.removeLinkAttributesOpt = (Boolean) parser.getOptionValue(removeLinkAttributesOption, false);
+            this.removeFormAttributesOpt = (Boolean) parser.getOptionValue(removeFormAttributesOption, false);
+<span class="nc" id="L322">            this.removeInputAttributesOpt = (Boolean) parser.getOptionValue(removeInputAttributesOption, false);</span>
+            this.simpleBooleanAttributesOpt = (Boolean) parser.getOptionValue(simpleBooleanAttributesOption, false);
+            this.removeJavaScriptProtocolOpt = (Boolean) parser.getOptionValue(removeJavaScriptProtocolOption, false);
+<span class="nc bnc" id="L325" title="All 2 branches missed.">            this.removeHttpProtocolOpt = (Boolean) parser.getOptionValue(removeHttpProtocolOption, false);</span>
+            this.removeHttpsProtocolOpt = (Boolean) parser.getOptionValue(removeHttpsProtocolOption, false);
+
+<span class="nc bnc" id="L328" title="All 2 branches missed.">            this.nomungeOpt = (Boolean) parser.getOptionValue(nomungeOption, false);</span>
+<span class="nc bnc" id="L329" title="All 2 branches missed.">            this.linebreakOpt = (Integer) parser.getOptionValue(linebreakOption, -1);</span>
+<span class="nc" id="L330">            this.preserveSemiOpt = (Boolean) parser.getOptionValue(preserveSemiOption, false);</span>
+<span class="nc" id="L331">            this.disableOptimizationsOpt = (Boolean) parser.getOptionValue(disableOptimizationsOption, false);</span>
+
+            this.closureOptLevelOpt = (String) parser.getOptionValue(closureOptLevelOption,
+                    ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE);
+<span class="nc" id="L335">            this.closureCustomExternsOnlyOpt = (Boolean) parser.getOptionValue(closureCustomExternsOnlyOption, false);</span>
+<span class="nc" id="L336"></span>
+<span class="nc" id="L337">            this.closureExternsOpt = parser.getOptionValues(closureExternsOption);</span>
+<span class="nc" id="L338"></span>
+<span class="nc" id="L339">            this.removeSurroundingSpacesOpt = (String) parser.getOptionValue(removeSurroundingSpacesOption);</span>
+            if (this.removeSurroundingSpacesOpt != null) {
+<span class="nc" id="L341">                if (&quot;min&quot;.equalsIgnoreCase(this.removeSurroundingSpacesOpt)) {</span>
+                    this.removeSurroundingSpacesOpt = HtmlCompressor.BLOCK_TAGS_MIN;
+                } else if (&quot;max&quot;.equalsIgnoreCase(this.removeSurroundingSpacesOpt)) {
+                    this.removeSurroundingSpacesOpt = HtmlCompressor.BLOCK_TAGS_MAX;
+                } else if (&quot;all&quot;.equalsIgnoreCase(this.removeSurroundingSpacesOpt)) {
+                    this.removeSurroundingSpacesOpt = HtmlCompressor.ALL_TAGS;
+                }
+            }
+
+<span class="nc" id="L350">            // input file</span>
+<span class="nc" id="L351">            this.fileArgsOpt = parser.getRemainingArgs();</span>
+<span class="nc" id="L352"></span>
+            // charset
+            this.charsetOpt = Charset.isSupported(this.charsetOpt.name()) ? this.charsetOpt : StandardCharsets.UTF_8;
+
+            // look for &quot;/?&quot;
+            for (int i = 0; i &lt; args.length; i++) {
+                if (&quot;/?&quot;.equals(args[i])) {
+                    this.helpOpt = true;
+                    break;
+<span class="nc bnc" id="L361" title="All 2 branches missed.">                }</span>
+<span class="nc" id="L362">            }</span>
+<span class="nc" id="L363"></span>
+        } catch (OptionException e) {
+            logger.info(&quot;{}&quot; + e.getMessage());
+            logger.trace(&quot;&quot;, e);
+<span class="nc" id="L367">            printUsage();</span>
+<span class="nc bnc" id="L368" title="All 6 branches missed.">        }</span>
+<span class="nc" id="L369"></span>
+    }
+
+<span class="nc bnc" id="L372" title="All 2 branches missed.">    /**</span>
+     * The main method.
+<span class="nc bnc" id="L374" title="All 2 branches missed.">     *</span>
+<span class="nc" id="L375">     * @param args</span>
+     *            the arguments
+<span class="nc bnc" id="L377" title="All 2 branches missed.">     */</span>
+    public static void main(String[] args) {
+<span class="nc bnc" id="L379" title="All 2 branches missed.">        CmdLineCompressor cmdLineCompressor = new CmdLineCompressor(args);</span>
+<span class="nc" id="L380">        cmdLineCompressor.process();</span>
+    }
+<span class="nc" id="L382"></span>
+    /**
+     * Process.
+     */
+<span class="nc bnc" id="L386" title="All 2 branches missed.">    public void process() {</span>
+        try {
+<span class="nc" id="L388"></span>
+<span class="nc bnc" id="L389" title="All 2 branches missed.">            // help</span>
+            if (helpOpt) {
+<span class="nc bnc" id="L391" title="All 2 branches missed.">                printUsage();</span>
+<span class="nc" id="L392">                return;</span>
+            }
+<span class="nc bnc" id="L394" title="All 2 branches missed."></span>
+<span class="nc" id="L395">            // type</span>
+<span class="nc bnc" id="L396" title="All 2 branches missed.">            String type = typeOpt;</span>
+<span class="nc" id="L397">            if (type != null &amp;&amp; !&quot;html&quot;.equalsIgnoreCase(type) &amp;&amp; !&quot;xml&quot;.equalsIgnoreCase(type)) {</span>
+<span class="nc" id="L398">                throw new IllegalArgumentException(&quot;Unknown type: &quot; + type);</span>
+<span class="nc" id="L399">            }</span>
+
+            if (fileArgsOpt.isEmpty()) {
+<span class="nc" id="L402">                // html by default for stdin</span>
+<span class="nc bnc" id="L403" title="All 2 branches missed.">                if (type == null) {</span>
+<span class="nc" id="L404">                    type = &quot;html&quot;;</span>
+                }
+            } else if (type == null) {
+                // detect type from extension
+<span class="nc" id="L408">                if (fileArgsOpt.get(0).toLowerCase().endsWith(&quot;.xml&quot;)) {</span>
+                    type = &quot;xml&quot;;
+                } else {
+<span class="nc" id="L411">                    type = &quot;html&quot;;</span>
+<span class="nc" id="L412">                }</span>
+<span class="nc" id="L413">            }</span>
+<span class="nc" id="L414"></span>
+<span class="nc" id="L415">            if (analyzeOpt) {</span>
+<span class="nc" id="L416">                // analyzer mode</span>
+<span class="nc" id="L417">                HtmlAnalyzer analyzer = new HtmlAnalyzer(</span>
+<span class="nc" id="L418">                        HtmlCompressor.JS_COMPRESSOR_CLOSURE.equalsIgnoreCase(jsCompressorOpt) ? HtmlCompressor.JS_COMPRESSOR_CLOSURE</span>
+<span class="nc" id="L419">                                : HtmlCompressor.JS_COMPRESSOR_YUI);</span>
+                analyzer.analyze(readResource(buildReader(fileArgsOpt.isEmpty() ? null : fileArgsOpt.get(0))));
+<span class="nc" id="L421">            } else {</span>
+                // compression mode
+                Compressor compressor = &quot;xml&quot;.equalsIgnoreCase(type) ? createXmlCompressor() : createHtmlCompressor();
+                Map&lt;String, String&gt; ioMap = buildInputOutputMap();
+                for (Map.Entry&lt;String, String&gt; entry : ioMap.entrySet()) {
+                    writeResource(compressor.compress(readResource(buildReader(entry.getKey()))),
+                            buildWriter(entry.getValue()));
+                }
+            }
+
+        } catch (NoClassDefFoundError e) {
+<span class="nc" id="L432">            if (HtmlCompressor.JS_COMPRESSOR_CLOSURE.equalsIgnoreCase(jsCompressorOpt)) {</span>
+                logger.info(&quot;ERROR: For JavaScript compression using Google Closure Compiler\n&quot;
+                        + &quot;additional jar file called compiler.jar must be present\n&quot;
+<span class="nc" id="L435">                        + &quot;in the same directory as HtmlCompressor jar&quot;);</span>
+            } else {
+                logger.info(&quot;ERROR: For CSS or JavaScript compression using YUICompressor additional jar file \n&quot;
+<span class="nc bnc" id="L438" title="All 2 branches missed.">                        + &quot;called yuicompressor.jar must be present\n&quot; + &quot;in the same directory as HtmlCompressor jar&quot;);</span>
+<span class="nc" id="L439">            }</span>
+            logger.trace(&quot;&quot;, e);
+        } catch (OptionException e) {
+<span class="nc bnc" id="L442" title="All 2 branches missed.">            logger.info(&quot;{}&quot; + e.getMessage());</span>
+<span class="nc" id="L443">            logger.trace(&quot;&quot;, e);</span>
+            printUsage();
+        } catch (IOException | IllegalArgumentException e) {
+<span class="nc bnc" id="L446" title="All 2 branches missed.">            logger.info(&quot;{}&quot; + e.getMessage());</span>
+<span class="nc" id="L447">            logger.trace(&quot;&quot;, e);</span>
+        }
+
+<span class="nc bnc" id="L450" title="All 2 branches missed.">    }</span>
+
+<span class="nc" id="L452">    /**</span>
+<span class="nc" id="L453">     * Creates the html compressor.</span>
+     *
+<span class="nc" id="L455">     * @return the compressor</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">     * @throws OptionException</span>
+<span class="nc bnc" id="L457" title="All 2 branches missed.">     *             the option exception</span>
+     */
+<span class="nc" id="L459">    private Compressor createHtmlCompressor() throws OptionException {</span>
+<span class="nc" id="L460"></span>
+<span class="nc" id="L461">        boolean useClosureCompressor = HtmlCompressor.JS_COMPRESSOR_CLOSURE.equalsIgnoreCase(jsCompressorOpt);</span>
+<span class="nc" id="L462"></span>
+<span class="nc" id="L463">        // custom preserve patterns</span>
+<span class="nc" id="L464">        List&lt;Pattern&gt; preservePatterns = new ArrayList&lt;Pattern&gt;();</span>
+
+        // predefined
+<span class="nc bnc" id="L467" title="All 16 branches missed.">        if (preservePhpTagsOpt) {</span>
+<span class="nc" id="L468">            preservePatterns.add(HtmlCompressor.PHP_TAG_PATTERN);</span>
+<span class="nc" id="L469">        }</span>
+<span class="nc" id="L470"></span>
+        if (preserveServerScriptTagsOpt) {
+            preservePatterns.add(HtmlCompressor.SERVER_SCRIPT_TAG_PATTERN);
+        }
+<span class="nc" id="L474"></span>
+        if (preserveSsiTagsOpt) {
+<span class="nc bnc" id="L476" title="All 2 branches missed.">            preservePatterns.add(HtmlCompressor.SERVER_SIDE_INCLUDE_PATTERN);</span>
+<span class="nc bnc" id="L477" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L478"></span>
+<span class="nc" id="L479">        if (patternsFilenameOpt != null) {</span>
+<span class="nc" id="L480"></span>
+<span class="nc" id="L481">            try (FileInputStream stream = new FileInputStream(patternsFilenameOpt);</span>
+<span class="nc" id="L482">                    BufferedReader patternsIn = new BufferedReader(new InputStreamReader(stream, charsetOpt))) {</span>
+
+<span class="nc" id="L484">                String line = null;</span>
+<span class="nc" id="L485">                while ((line = patternsIn.readLine()) != null) {</span>
+<span class="nc" id="L486">                    if (line.length() &gt; 0) {</span>
+<span class="nc" id="L487">                        try {</span>
+<span class="nc" id="L488">                            preservePatterns.add(Pattern.compile(line));</span>
+<span class="nc" id="L489">                        } catch (PatternSyntaxException e) {</span>
+<span class="nc" id="L490">                            logger.trace(&quot;&quot;, e);</span>
+<span class="nc" id="L491">                            throw new IllegalArgumentException(&quot;Regular expression compilation error: &quot;</span>
+<span class="nc" id="L492">                                    + e.getMessage());</span>
+<span class="nc" id="L493">                        }</span>
+<span class="nc" id="L494">                    }</span>
+                }
+<span class="nc" id="L496">            } catch (IOException e) {</span>
+                logger.trace(&quot;&quot;, e);
+<span class="nc" id="L498">                throw new IllegalArgumentException(&quot;Unable to read custom pattern definitions file: &quot; + e.getMessage());</span>
+<span class="nc" id="L499">            }</span>
+<span class="nc" id="L500">        }</span>
+<span class="nc" id="L501"></span>
+<span class="nc" id="L502">        // set compressor options</span>
+        HtmlCompressor htmlCompressor = new HtmlCompressor();
+
+<span class="nc bnc" id="L505" title="All 4 branches missed.">        htmlCompressor.setRemoveComments(!preserveCommentsOpt);</span>
+<span class="nc" id="L506">        htmlCompressor.setRemoveMultiSpaces(!preserveMultiSpacesOpt);</span>
+        htmlCompressor.setRemoveIntertagSpaces(removeIntertagSpacesOpt);
+<span class="nc bnc" id="L508" title="All 2 branches missed.">        htmlCompressor.setRemoveQuotes(removeQuotesOpt);</span>
+<span class="nc" id="L509">        htmlCompressor.setPreserveLineBreaks(preserveLineBreaksOpt);</span>
+<span class="nc" id="L510">        htmlCompressor.setCompressJavaScript(compressJsOpt);</span>
+        htmlCompressor.setCompressCss(compressCssOpt);
+
+<span class="nc bnc" id="L513" title="All 2 branches missed.">        htmlCompressor.setSimpleDoctype(simpleDoctypeOpt);</span>
+<span class="nc" id="L514">        htmlCompressor.setRemoveScriptAttributes(removeScriptAttributesOpt);</span>
+<span class="nc bnc" id="L515" title="All 2 branches missed.">        htmlCompressor.setRemoveStyleAttributes(removeStyleAttributesOpt);</span>
+<span class="nc" id="L516">        htmlCompressor.setRemoveLinkAttributes(removeLinkAttributesOpt);</span>
+<span class="nc" id="L517">        htmlCompressor.setRemoveFormAttributes(removeFormAttributesOpt);</span>
+<span class="nc" id="L518">        htmlCompressor.setRemoveInputAttributes(removeInputAttributesOpt);</span>
+<span class="nc" id="L519">        htmlCompressor.setSimpleBooleanAttributes(simpleBooleanAttributesOpt);</span>
+<span class="nc bnc" id="L520" title="All 2 branches missed.">        htmlCompressor.setRemoveJavaScriptProtocol(removeJavaScriptProtocolOpt);</span>
+<span class="nc" id="L521">        htmlCompressor.setRemoveHttpProtocol(removeHttpProtocolOpt);</span>
+        htmlCompressor.setRemoveHttpsProtocol(removeHttpsProtocolOpt);
+<span class="nc" id="L523">        htmlCompressor.setRemoveSurroundingSpaces(removeSurroundingSpacesOpt);</span>
+
+        htmlCompressor.setPreservePatterns(preservePatterns);
+<span class="nc" id="L526"></span>
+        htmlCompressor.setYuiJsNoMunge(nomungeOpt);
+        htmlCompressor.setYuiJsPreserveAllSemiColons(preserveSemiOpt);
+<span class="nc" id="L529">        htmlCompressor.setYuiJsDisableOptimizations(disableOptimizationsOpt);</span>
+        htmlCompressor.setYuiJsLineBreak(linebreakOpt);
+        htmlCompressor.setYuiCssLineBreak(linebreakOpt);
+
+        // switch js compressor to closure
+        if (compressJsOpt &amp;&amp; useClosureCompressor) {
+            ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();
+
+            if (closureOptLevelOpt.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {
+                closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);
+                closureCompressor.setCustomExternsOnly(closureCustomExternsOnlyOpt);
+
+                // get externs
+<span class="nc" id="L542">                if (!closureExternsOpt.isEmpty()) {</span>
+<span class="nc bnc" id="L543" title="All 2 branches missed.">                    List&lt;JSSourceFile&gt; externs = new ArrayList&lt;JSSourceFile&gt;();</span>
+<span class="nc bnc" id="L544" title="All 2 branches missed.">                    for (String externFile : closureExternsOpt) {</span>
+                        externs.add(JSSourceFile.fromFile(externFile));
+<span class="nc" id="L546">                    }</span>
+                    closureCompressor.setExterns(externs);
+                }
+            } else if (closureOptLevelOpt.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {
+                closureCompressor.setCompilationLevel(CompilationLevel.WHITESPACE_ONLY);
+            } else {
+                closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);
+            }
+
+            htmlCompressor.setJavaScriptCompressor(closureCompressor);
+        }
+
+        return htmlCompressor;
+<span class="nc" id="L559">    }</span>
+
+<span class="nc" id="L561">    /**</span>
+<span class="nc bnc" id="L562" title="All 2 branches missed.">     * Creates the xml compressor.</span>
+<span class="nc" id="L563">     *</span>
+     * @return the compressor
+     * @throws IllegalArgumentException
+<span class="nc bnc" id="L566" title="All 4 branches missed.">     *             the illegal argument exception</span>
+<span class="nc" id="L567">     * @throws OptionException</span>
+     *             the option exception
+<span class="nc" id="L569">     */</span>
+    private Compressor createXmlCompressor() throws IllegalArgumentException, OptionException {
+        XmlCompressor xmlCompressor = new XmlCompressor();
+        xmlCompressor.setRemoveComments(!preserveCommentsOpt);
+<span class="nc bnc" id="L573" title="All 6 branches missed.">        xmlCompressor.setRemoveIntertagSpaces(!preserveIntertagSpacesOpt);</span>
+<span class="nc" id="L574"></span>
+        return xmlCompressor;
+    }
+<span class="nc bnc" id="L577" title="All 2 branches missed."></span>
+<span class="nc" id="L578">    /**</span>
+     * Builds the input output map.
+<span class="nc bnc" id="L580" title="All 2 branches missed.">     *</span>
+<span class="nc bnc" id="L581" title="All 2 branches missed.">     * @return the map</span>
+<span class="nc" id="L582">     * @throws IllegalArgumentException</span>
+<span class="nc bnc" id="L583" title="All 2 branches missed.">     *             the illegal argument exception</span>
+     * @throws IOException
+<span class="nc bnc" id="L585" title="All 4 branches missed.">     *             Signals that an I/O exception has occurred.</span>
+<span class="nc bnc" id="L586" title="All 2 branches missed.">     */</span>
+    private Map&lt;String, String&gt; buildInputOutputMap() throws IllegalArgumentException, IOException {
+<span class="nc bnc" id="L588" title="All 2 branches missed.">        Map&lt;String, String&gt; map = new HashMap&lt;&gt;();</span>
+
+<span class="nc bnc" id="L590" title="All 2 branches missed.">        File outpuFile = null;</span>
+<span class="nc" id="L591">        if (outputFilenameOpt != null) {</span>
+<span class="nc" id="L592">            outpuFile = new File(outputFilenameOpt);</span>
+<span class="nc" id="L593"></span>
+<span class="nc" id="L594">            // make dirs</span>
+            if (outputFilenameOpt.endsWith(&quot;/&quot;) || outputFilenameOpt.endsWith(&quot;\\&quot;)) {
+                outpuFile.mkdirs();
+            } else {
+                (new File(outpuFile.getCanonicalFile().getParent())).mkdirs();
+<span class="nc" id="L599">            }</span>
+<span class="nc" id="L600">        }</span>
+<span class="nc bnc" id="L601" title="All 2 branches missed."></span>
+<span class="nc" id="L602">        if (fileArgsOpt.size() &gt; 1 &amp;&amp; (outpuFile == null || !outpuFile.isDirectory())) {</span>
+<span class="nc bnc" id="L603" title="All 2 branches missed.">            throw new IllegalArgumentException(&quot;Output must be a directory and end with a slash (/)&quot;);</span>
+<span class="nc bnc" id="L604" title="All 2 branches missed.">        }</span>
+
+<span class="nc" id="L606">        if (fileArgsOpt.isEmpty()) {</span>
+            map.put(null, outputFilenameOpt);
+<span class="nc bnc" id="L608" title="All 2 branches missed.">        } else {</span>
+<span class="nc" id="L609">            for (int i = 0; i &lt; fileArgsOpt.size(); i++) {</span>
+<span class="nc" id="L610">                if (!urlPattern.matcher(fileArgsOpt.get(i)).matches()) {</span>
+<span class="nc" id="L611">                    File inputFile = new File(fileArgsOpt.get(i));</span>
+<span class="nc" id="L612">                    if (inputFile.isDirectory()) {</span>
+                        // is dir
+<span class="nc" id="L614">                        if (outpuFile != null &amp;&amp; outpuFile.isDirectory()) {</span>
+                            if (!recursiveOpt) {
+<span class="nc" id="L616">                                // non-recursive</span>
+<span class="nc" id="L617">                                for (File file : inputFile.listFiles(new CompressorFileFilter(typeOpt, filemaskOpt,</span>
+                                        false))) {
+<span class="nc" id="L619">                                    if (!file.isDirectory()) {</span>
+                                        String from = file.getCanonicalPath();
+                                        String to = from.replaceFirst(escRegEx(inputFile.getCanonicalPath()),
+                                                Matcher.quoteReplacement(outpuFile.getCanonicalPath()));
+<span class="nc bnc" id="L623" title="All 4 branches missed.">                                        map.put(from, to);</span>
+<span class="nc" id="L624">                                    }</span>
+<span class="nc" id="L625">                                }</span>
+<span class="nc" id="L626">                            } else {</span>
+<span class="nc" id="L627">                                // recursive</span>
+<span class="nc" id="L628">                                Stack&lt;File&gt; fileStack = new Stack&lt;&gt;();</span>
+<span class="nc" id="L629">                                fileStack.push(inputFile);</span>
+                                while (!fileStack.isEmpty()) {
+                                    File child = fileStack.pop();
+                                    if (child.isDirectory()) {
+<span class="nc" id="L633">                                        for (File f : child.listFiles(new CompressorFileFilter(typeOpt, filemaskOpt,</span>
+                                                true))) {
+<span class="nc bnc" id="L635" title="All 6 branches missed.">                                            fileStack.push(f);</span>
+<span class="nc" id="L636">                                        }</span>
+                                    } else if (child.isFile()) {
+<span class="nc" id="L638">                                        String from = child.getCanonicalPath();</span>
+                                        String to = from.replaceFirst(escRegEx(inputFile.getCanonicalPath()),
+                                                Matcher.quoteReplacement(outpuFile.getCanonicalPath()));
+                                        map.put(from, to);
+                                        // make dirs
+                                        (new File((new File(to)).getCanonicalFile().getParent())).mkdirs();
+                                    }
+<span class="nc" id="L645">                                }</span>
+                            }
+                        } else {
+                            throw new IllegalArgumentException(&quot;Output must be a directory and end with a slash (/)&quot;);
+                        }
+                    } else {
+                        // is file
+                        if (outpuFile != null &amp;&amp; outpuFile.isDirectory()) {
+                            String from = inputFile.getCanonicalPath();
+                            String to = from.replaceFirst(escRegEx(inputFile.getCanonicalFile().getParentFile()
+                                    .getCanonicalPath()), Matcher.quoteReplacement(outpuFile.getCanonicalPath()));
+                            map.put(fileArgsOpt.get(i), to);
+                        } else {
+<span class="nc bnc" id="L658" title="All 2 branches missed.">                            map.put(fileArgsOpt.get(i), outputFilenameOpt);</span>
+<span class="nc" id="L659">                        }</span>
+<span class="nc bnc" id="L660" title="All 2 branches missed."></span>
+<span class="nc" id="L661">                    }</span>
+                } else {
+<span class="nc" id="L663">                    // is url</span>
+                    if (fileArgsOpt.size() == 1 &amp;&amp; (outpuFile == null || !outpuFile.isDirectory())) {
+                        map.put(fileArgsOpt.get(i), outputFilenameOpt);
+                    } else {
+                        throw new IllegalArgumentException(
+                                &quot;Input URL should be single and cannot have directory as output&quot;);
+                    }
+                }
+            }
+        }
+
+        return map;
+    }
+
+<span class="nc bnc" id="L677" title="All 2 branches missed.">    /**</span>
+<span class="nc" id="L678">     * Builds the reader.</span>
+     *
+<span class="nc" id="L680">     * @param filename</span>
+     *            the filename
+     * @return the buffered reader
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    private BufferedReader buildReader(String filename) throws IOException {
+        if (filename == null) {
+            return new BufferedReader(new InputStreamReader(System.in, charsetOpt));
+        } else if (urlPattern.matcher(filename).matches()) {
+            return new BufferedReader(new InputStreamReader((new URL(filename)).openConnection().getInputStream()));
+        } else {
+            return new BufferedReader(new InputStreamReader(new FileInputStream(filename), charsetOpt));
+        }
+<span class="nc" id="L694">    }</span>
+
+<span class="nc" id="L696">    /**</span>
+<span class="nc bnc" id="L697" title="All 2 branches missed.">     * Builds the writer.</span>
+<span class="nc" id="L698">     *</span>
+<span class="nc" id="L699">     * @param filename</span>
+     *            the filename
+     * @return the writer
+<span class="nc" id="L702">     * @throws IOException</span>
+<span class="nc" id="L703">     *             Signals that an I/O exception has occurred.</span>
+<span class="nc" id="L704">     */</span>
+    private Writer buildWriter(String filename) throws IOException {
+        if (filename == null) {
+            return new OutputStreamWriter(System.out, charsetOpt);
+        } else {
+            return new OutputStreamWriter(new FileOutputStream(filename), charsetOpt);
+        }
+    }
+
+    /**
+     * Read resource.
+     *
+     * @param input
+     *            the input
+     * @return the string
+<span class="nc" id="L719">     * @throws IOException</span>
+     *             Signals that an I/O exception has occurred.
+<span class="nc" id="L721">     */</span>
+<span class="nc" id="L722">    private String readResource(BufferedReader input) throws IOException {</span>
+<span class="nc" id="L723">        StringBuilder source = new StringBuilder();</span>
+        try {
+            String line = null;
+            while ((line = input.readLine()) != null) {
+                source.append(line);
+                source.append(System.getProperty(&quot;line.separator&quot;));
+            }
+        } finally {
+            closeStream(input);
+<span class="nc bnc" id="L732" title="All 2 branches missed.">        }</span>
+        return source.toString();
+<span class="nc" id="L734">    }</span>
+<span class="nc" id="L735"></span>
+<span class="nc" id="L736">    /**</span>
+<span class="nc" id="L737">     * Write resource.</span>
+     *
+<span class="nc" id="L739">     * @param content</span>
+     *            the content
+     * @param output
+     *            the output
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    private void writeResource(String content, Writer output) throws IOException {
+        try {
+            output.write(content);
+<span class="nc" id="L749">        } finally {</span>
+            closeStream(output);
+        }
+    }
+
+    /**
+     * Close stream.
+<span class="nc" id="L756">     *</span>
+     * @param stream
+     *            the stream
+     */
+    private void closeStream(Closeable stream) {
+        if (stream != null) {
+            try {
+                stream.close();
+            } catch (IOException e) {
+                logger.trace(&quot;&quot;, e);
+            }
+        }
+    }
+
+    /**
+     * Esc reg ex.
+     *
+     * @param inStr
+     *            the in str
+     * @return the string
+     */
+    private String escRegEx(String inStr) {
+        return inStr.replaceAll(&quot;([\\\\*+\\[\\](){}\\$.?\\^|])&quot;, &quot;\\\\$1&quot;);
+    }
+
+    /**
+     * Prints the usage.
+     */
+    private void printUsage() {
+        logger.info(&quot;Usage: java -jar htmlcompressor.jar [options] [input]\n\n&quot;
+
+        + &quot;[input]                        URL, filename, directory, or space separated list\n&quot;
+                + &quot;                               of files and directories to compress.\n&quot;
+                + &quot;                               If none provided reads from &lt;stdin&gt;\n\n&quot;
+
+                + &quot;Global Options:\n&quot; + &quot; -?, /?, -h, --help            Displays this help screen\n&quot;
+                + &quot; -t, --type &lt;html|xml&gt;         If not provided autodetects from file extension\n&quot;
+                + &quot; -r, --recursive               Process files inside subdirectories\n&quot;
+                + &quot; -c, --charset &lt;charset&gt;       Charset for reading files, UTF-8 by default\n&quot;
+                + &quot; -m, --mask &lt;filemask&gt;         Filter input files inside directories by mask\n&quot;
+                + &quot; -o, --output &lt;path&gt;           Filename or directory for compression results.\n&quot;
+                + &quot;                               If none provided outputs result to &lt;stdout&gt;\n&quot;
+                + &quot; -a, --analyze                 Tries different settings and displays report.\n&quot;
+                + &quot;                               All settings except --js-compressor are ignored\n\n&quot;
+
+                + &quot;XML Compression Options:\n&quot; + &quot; --preserve-comments           Preserve comments\n&quot;
+                + &quot; --preserve-intertag-spaces    Preserve intertag spaces\n\n&quot;
+
+                + &quot;HTML Compression Options:\n&quot; + &quot; --preserve-comments           Preserve comments\n&quot;
+                + &quot; --preserve-multi-spaces       Preserve multiple spaces\n&quot;
+                + &quot; --preserve-line-breaks        Preserve line breaks\n&quot;
+                + &quot; --remove-intertag-spaces      Remove intertag spaces\n&quot;
+                + &quot; --remove-quotes               Remove unneeded quotes\n&quot;
+                + &quot; --simple-doctype              Change doctype to &lt;!DOCTYPE html&gt;\n&quot;
+                + &quot; --remove-style-attr           Remove TYPE attribute from STYLE tags\n&quot;
+                + &quot; --remove-link-attr            Remove TYPE attribute from LINK tags\n&quot;
+                + &quot; --remove-script-attr          Remove TYPE and LANGUAGE from SCRIPT tags\n&quot;
+                + &quot; --remove-form-attr            Remove METHOD=\&quot;GET\&quot; from FORM tags\n&quot;
+                + &quot; --remove-input-attr           Remove TYPE=\&quot;TEXT\&quot; from INPUT tags\n&quot;
+                + &quot; --simple-bool-attr            Remove values from boolean tag attributes\n&quot;
+                + &quot; --remove-js-protocol          Remove \&quot;javascript:\&quot; from inline event handlers\n&quot;
+                + &quot; --remove-http-protocol        Remove \&quot;http:\&quot; from tag attributes\n&quot;
+                + &quot; --remove-https-protocol       Remove \&quot;https:\&quot; from tag attributes\n&quot;
+                + &quot; --remove-surrounding-spaces &lt;min|max|all|custom_list&gt;\n&quot;
+                + &quot;                               Predefined or custom comma separated list of tags\n&quot;
+                + &quot; --compress-js                 Enable inline JavaScript compression\n&quot;
+                + &quot; --compress-css                Enable inline CSS compression using YUICompressor\n&quot;
+                + &quot; --js-compressor &lt;yui|closure&gt; Switch inline JavaScript compressor between\n&quot;
+<span class="nc" id="L824">                + &quot;                               YUICompressor (default) and Closure Compiler\n\n&quot;</span>
+
+                + &quot;JavaScript Compression Options for YUI Compressor:\n&quot;
+                + &quot; --nomunge                     Minify only, do not obfuscate\n&quot;
+                + &quot; --preserve-semi               Preserve all semicolons\n&quot;
+                + &quot; --disable-optimizations       Disable all micro optimizations\n&quot;
+                + &quot; --line-break &lt;column num&gt;     Insert a line break after the specified column\n\n&quot;
+
+                + &quot;JavaScript Compression Options for Google Closure Compiler:\n&quot;
+                + &quot; --closure-opt-level &lt;simple|advanced|whitespace&gt;\n&quot;
+                + &quot;                               Sets level of optimization (simple by default)\n&quot;
+                + &quot; --closure-externs &lt;file&gt;      Sets custom externs file, repeat for each file\n&quot;
+                + &quot; --closure-custom-externs-only Disable default built-in externs\n\n&quot;
+
+                + &quot;CSS Compression Options for YUI Compressor:\n&quot;
+                + &quot; --line-break &lt;column num&gt;     Insert a line break after the specified column\n\n&quot;
+
+                + &quot;Custom Block Preservation Options:\n&quot;
+                + &quot; --preserve-php                Preserve &lt;?php ... ?&gt; tags\n&quot;
+                + &quot; --preserve-server-script      Preserve &lt;% ... %&gt; tags\n&quot;
+                + &quot; --preserve-ssi                Preserve &lt;!--# ... --&gt; tags\n&quot;
+                + &quot; -p, --preserve &lt;path&gt;         Read regular expressions that define\n&quot;
+                + &quot;                               custom preservation rules from a file\n\n&quot;
+<span class="nc" id="L847"></span>
+                + &quot;Please note that if you enable CSS or JavaScript compression, additional\n&quot;
+<span class="nc" id="L849">                + &quot;YUI Compressor or Google Closure Compiler jar files must be present\n&quot;</span>
+                + &quot;in the same directory as this jar.&quot;
+<span class="nc bnc" id="L851" title="All 2 branches missed."></span>
+<span class="nc bnc" id="L852" title="All 4 branches missed.">        );</span>
+<span class="nc" id="L853">    }</span>
+
+<span class="nc" id="L855">    /**</span>
+     * The Class CompressorFileFilter.
+     */
+    private class CompressorFileFilter implements FileFilter {
+<span class="nc" id="L859"></span>
+<span class="nc" id="L860">        /** The filemask pattern. */</span>
+<span class="nc" id="L861">        private Pattern filemaskPattern;</span>
+<span class="nc" id="L862"></span>
+<span class="nc" id="L863">        /** The with dirs. */</span>
+        private boolean withDirs;
+<span class="nc" id="L865"></span>
+        /**
+<span class="nc" id="L867">         * Instantiates a new compressor file filter.</span>
+         *
+         * @param type
+         *            the type
+<span class="nc bnc" id="L871" title="All 2 branches missed.">         * @param filemask</span>
+         *            the filemask
+<span class="nc bnc" id="L873" title="All 2 branches missed.">         * @param withDirs</span>
+<span class="nc" id="L874">         *            the with dirs</span>
+         */
+        public CompressorFileFilter(String type, String filemask, boolean withDirs) {
+
+<span class="nc bnc" id="L878" title="All 4 branches missed.">            this.withDirs = withDirs;</span>
+
+<span class="nc" id="L880">            if (filemask == null) {</span>
+                if (type != null &amp;&amp; &quot;xml&quot;.equalsIgnoreCase(type)) {
+                    filemaskPattern = Pattern.compile(&quot;^.*\\.xml$&quot;, Pattern.CASE_INSENSITIVE);
+                } else {
+                    filemaskPattern = Pattern.compile(&quot;^.*\\.html?$&quot;, Pattern.CASE_INSENSITIVE);
+                }
+            } else {
+                // turn mask into regexp
+                filemask = filemask.replaceAll(escRegEx(&quot;.&quot;), Matcher.quoteReplacement(&quot;\\.&quot;));
+                filemask = filemask.replaceAll(escRegEx(&quot;*&quot;), Matcher.quoteReplacement(&quot;.*&quot;));
+                filemask = filemask.replaceAll(escRegEx(&quot;?&quot;), Matcher.quoteReplacement(&quot;.&quot;));
+                filemask = filemask.replaceAll(escRegEx(&quot;;&quot;), Matcher.quoteReplacement(&quot;$|^&quot;));
+                filemask = &quot;^&quot; + filemask + &quot;$&quot;;
+
+                filemaskPattern = Pattern.compile(filemask, Pattern.CASE_INSENSITIVE);
+            }
+        }
+
+        @Override
+        public boolean accept(File file) {
+            if (!withDirs) {
+                // take only matching non-dirs
+                if (!file.isDirectory()) {
+                    return filemaskPattern.matcher(file.getName()).matches();
+                }
+            } else {
+                // take matching files and dirs
+                return file.isDirectory() || filemaskPattern.matcher(file.getName()).matches();
+            }
+            return false;
+        }
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JavaScriptCompressorTag.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.taglib</a> &gt; <span class="el_source">JavaScriptCompressorTag.java</span></div><h1>JavaScriptCompressorTag.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+<span class="nc" id="L60"> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+package com.googlecode.htmlcompressor.taglib;
+
+<span class="nc" id="L66">import java.io.IOException;</span>
+
+import javax.servlet.jsp.JspException;
+<span class="nc" id="L69">import javax.servlet.jsp.tagext.BodyContent;</span>
+import javax.servlet.jsp.tagext.BodyTagSupport;
+
+<span class="nc" id="L72">import org.slf4j.Logger;</span>
+import org.slf4j.LoggerFactory;
+
+import com.google.javascript.jscomp.CompilationLevel;
+import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
+import com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor;
+
+/**
+ * JSP tag that compresses an JavaScript content within &amp;lt;compress:js&amp;gt; tags. All JavaScript-related properties from
+ * {@link HtmlCompressor} are supported.
+ *
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ * @see HtmlCompressor
+<span class="nc" id="L86"> * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+ * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;
+ */
+public class JavaScriptCompressorTag extends BodyTagSupport {
+
+<span class="nc" id="L91">    /** The Constant serialVersionUID. */</span>
+    private static final long   serialVersionUID = 1L;
+
+    /** The Constant logger. */
+    private static final Logger logger           = LoggerFactory.getLogger(JavaScriptCompressorTag.class);
+<span class="nc" id="L96"></span>
+<span class="nc" id="L97">    /** The enabled. */</span>
+    private boolean             enabled          = true;
+
+<span class="nc bnc" id="L100" title="All 2 branches missed.">    /** The js compressor. */</span>
+    private String              jsCompressor     = HtmlCompressor.JS_COMPRESSOR_YUI;
+
+    // YUICompressor settings
+<span class="nc bnc" id="L104" title="All 2 branches missed."></span>
+    /** The yui js no munge. */
+<span class="nc" id="L106">    private boolean             yuiJsNoMunge;</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed."></span>
+<span class="nc" id="L108">    /** The yui js preserve all semi colons. */</span>
+<span class="nc" id="L109">    private boolean             yuiJsPreserveAllSemiColons;</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed."></span>
+<span class="nc" id="L111">    /** The yui js disable optimizations. */</span>
+    private boolean             yuiJsDisableOptimizations;
+<span class="nc" id="L113"></span>
+    /** The yui js line break. */
+    private int                 yuiJsLineBreak   = -1;
+<span class="nc" id="L116"></span>
+    // Closure compressor settings
+<span class="nc" id="L118"></span>
+    /** The closure opt level. */
+<span class="nc" id="L120">    private String              closureOptLevel  = ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE;</span>
+<span class="nc" id="L121"></span>
+<span class="nc" id="L122">    @Override</span>
+<span class="nc" id="L123">    public int doEndTag() throws JspException {</span>
+<span class="nc" id="L124"></span>
+        BodyContent bodyContent = getBodyContent();
+<span class="nc" id="L126">        String content = bodyContent.getString();</span>
+
+        try {
+<span class="nc" id="L129">            if (enabled) {</span>
+<span class="nc" id="L130"></span>
+<span class="nc" id="L131">                String result;</span>
+<span class="nc" id="L132"></span>
+<span class="nc" id="L133">                if (jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {</span>
+<span class="nc" id="L134">                    // call Closure compressor</span>
+<span class="nc" id="L135">                    ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();</span>
+                    if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {
+                        closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);
+<span class="nc" id="L138">                    } else if (closureOptLevel</span>
+<span class="nc" id="L139">                            .equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {</span>
+<span class="nc" id="L140">                        closureCompressor.setCompilationLevel(CompilationLevel.WHITESPACE_ONLY);</span>
+                    } else {
+<span class="nc" id="L142">                        closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);</span>
+                    }
+
+                    result = closureCompressor.compress(content);
+
+                } else {
+                    // call YUICompressor
+                    YuiJavaScriptCompressor yuiCompressor = new YuiJavaScriptCompressor();
+                    yuiCompressor.setDisableOptimizations(yuiJsDisableOptimizations);
+                    yuiCompressor.setLineBreak(yuiJsLineBreak);
+                    yuiCompressor.setNoMunge(yuiJsNoMunge);
+<span class="nc" id="L153">                    yuiCompressor.setPreserveAllSemiColons(yuiJsPreserveAllSemiColons);</span>
+<span class="nc" id="L154"></span>
+                    result = yuiCompressor.compress(content);
+                }
+
+                bodyContent.clear();
+                bodyContent.append(result);
+                bodyContent.writeOut(pageContext.getOut());
+            } else {
+                bodyContent.clear();
+                bodyContent.append(content);
+<span class="nc" id="L164">                bodyContent.writeOut(pageContext.getOut());</span>
+<span class="nc" id="L165">            }</span>
+
+        } catch (IOException e) {
+            logger.error(&quot;&quot;, e);
+        }
+
+        return super.doEndTag();
+    }
+
+    /**
+<span class="nc" id="L175">     * Sets the yui js no munge.</span>
+<span class="nc" id="L176">     *</span>
+     * @param yuiJsNoMunge
+     *            the new yui js no munge
+     * @see HtmlCompressor#setYuiJsNoMunge(boolean)
+     */
+    public void setYuiJsNoMunge(boolean yuiJsNoMunge) {
+        this.yuiJsNoMunge = yuiJsNoMunge;
+    }
+
+    /**
+<span class="nc" id="L186">     * Sets the yui js preserve all semi colons.</span>
+<span class="nc" id="L187">     *</span>
+     * @param yuiJsPreserveAllSemiColons
+     *            the new yui js preserve all semi colons
+     * @see HtmlCompressor#setYuiJsPreserveAllSemiColons(boolean)
+     */
+    public void setYuiJsPreserveAllSemiColons(boolean yuiJsPreserveAllSemiColons) {
+        this.yuiJsPreserveAllSemiColons = yuiJsPreserveAllSemiColons;
+    }
+
+    /**
+<span class="nc" id="L197">     * Sets the yui js disable optimizations.</span>
+<span class="nc" id="L198">     *</span>
+     * @param yuiJsDisableOptimizations
+     *            the new yui js disable optimizations
+     * @see HtmlCompressor#setYuiJsDisableOptimizations(boolean)
+     */
+    public void setYuiJsDisableOptimizations(boolean yuiJsDisableOptimizations) {
+        this.yuiJsDisableOptimizations = yuiJsDisableOptimizations;
+    }
+
+    /**
+     * Sets the yui js line break.
+     *
+     * @param yuiJsLineBreak
+     *            the new yui js line break
+     * @see HtmlCompressor#setYuiJsLineBreak(int)
+<span class="nc" id="L213">     */</span>
+<span class="nc" id="L214">    public void setYuiJsLineBreak(int yuiJsLineBreak) {</span>
+        this.yuiJsLineBreak = yuiJsLineBreak;
+    }
+
+    /**
+     * Sets the enabled.
+     *
+     * @param enabled
+     *            the new enabled
+     * @see HtmlCompressor#setEnabled(boolean)
+     */
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+<span class="nc" id="L227">    }</span>
+<span class="nc" id="L228"></span>
+    /**
+     * Sets JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.
+     * 
+     * @param jsCompressor
+     *            Could be either &lt;code&gt;&quot;yui&quot;&lt;/code&gt; for using {@link YuiJavaScriptCompressor} (used by default if none
+     *            provided) or &lt;code&gt;&quot;closure&quot;&lt;/code&gt; for using {@link ClosureJavaScriptCompressor}
+     * 
+     * @see YuiJavaScriptCompressor
+     * @see ClosureJavaScriptCompressor
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;
+     */
+    public void setJsCompressor(String jsCompressor) {
+        this.jsCompressor = jsCompressor;
+    }
+
+    /**
+     * Sets level of optimization if &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt; is
+     * used for compressing inline JavaScript.
+     * 
+     * @param closureOptLevel
+     *            Could be either &lt;code&gt;&quot;simple&quot;&lt;/code&gt; (used by default), &lt;code&gt;&quot;whitespace&quot;&lt;/code&gt; or
+     *            &lt;code&gt;&quot;advanced&quot;&lt;/code&gt;
+     * 
+     * @see ClosureJavaScriptCompressor#setCompilationLevel(CompilationLevel)
+     */
+    public void setClosureOptLevel(String closureOptLevel) {
+        this.closureOptLevel = closureOptLevel;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

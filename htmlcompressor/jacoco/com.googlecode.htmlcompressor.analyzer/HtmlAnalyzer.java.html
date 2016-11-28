@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HtmlAnalyzer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.analyzer</a> &gt; <span class="el_source">HtmlAnalyzer.java</span></div><h1>HtmlAnalyzer.java</h1><pre class="source lang-java linenums">/**
+ * ====
+ *     ====
+ *         ====
+ *                Copyright 2009-2016 the original author or authors.
+ *
+ *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *                you may not use this file except in compliance with the License.
+ *                You may obtain a copy of the License at
+ *
+ *                   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *                Unless required by applicable law or agreed to in writing, software
+ *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *                See the License for the specific language governing permissions and
+ *                limitations under the License.
+ *         ====
+ *
+ *            Copyright 2009-2016 the original author or authors.
+ *
+ *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *            you may not use this file except in compliance with the License.
+ *            You may obtain a copy of the License at
+ *
+ *               http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *            Unless required by applicable law or agreed to in writing, software
+ *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *            See the License for the specific language governing permissions and
+ *            limitations under the License.
+ *     ====
+ *
+ *        Copyright 2009-2016 the original author or authors.
+ *
+ *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *        you may not use this file except in compliance with the License.
+ *        You may obtain a copy of the License at
+ *
+ *           http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *        Unless required by applicable law or agreed to in writing, software
+ *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *        See the License for the specific language governing permissions and
+ *        limitations under the License.
+ * ====
+ *
+ *    Copyright 2009-2016 the original author or authors.
+ *
+ *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+<span class="nc" id="L55"> *</span>
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+<span class="nc" id="L58"> *    Unless required by applicable law or agreed to in writing, software</span>
+ *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+<span class="nc" id="L63"> */</span>
+package com.googlecode.htmlcompressor.analyzer;
+<span class="nc" id="L65"></span>
+import java.text.NumberFormat;
+import java.util.Formatter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Strings;
+<span class="nc" id="L73">import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;</span>
+<span class="nc" id="L74">import com.googlecode.htmlcompressor.compressor.HtmlCompressor;</span>
+<span class="nc" id="L75"></span>
+/**
+ * Class that compresses provided source with different compression settings and displays page size gains in a report.
+ *
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
+ */
+public class HtmlAnalyzer {
+
+    /** The Constant logger. */
+<span class="nc" id="L84">    private static final Logger logger       = LoggerFactory.getLogger(HtmlAnalyzer.class);</span>
+
+<span class="nc" id="L86">    /** The js compressor. */</span>
+<span class="nc" id="L87">    private String              jsCompressor = HtmlCompressor.JS_COMPRESSOR_YUI;</span>
+
+<span class="nc" id="L89">    /**</span>
+     * Instantiates a new html analyzer.
+<span class="nc" id="L91">     */</span>
+<span class="nc" id="L92">    public HtmlAnalyzer() {</span>
+        // Required for override
+    }
+<span class="nc" id="L95"></span>
+<span class="nc" id="L96">    /**</span>
+     * Instantiates a new html analyzer.
+     *
+<span class="nc" id="L99">     * @param jsCompressor</span>
+<span class="nc" id="L100">     *            the js compressor</span>
+<span class="nc" id="L101">     */</span>
+<span class="nc" id="L102">    public HtmlAnalyzer(String jsCompressor) {</span>
+        this.jsCompressor = jsCompressor;
+    }
+<span class="nc" id="L105"></span>
+<span class="nc" id="L106">    /**</span>
+<span class="nc" id="L107">     * Analyze.</span>
+<span class="nc" id="L108">     *</span>
+     * @param source
+     *            the source
+<span class="nc" id="L111">     */</span>
+<span class="nc" id="L112">    public void analyze(String source) {</span>
+<span class="nc" id="L113">        int originalSize = source.length();</span>
+<span class="nc" id="L114"></span>
+        HtmlCompressor compressor = getCleanCompressor();
+        String compResult = compressor.compress(source);
+<span class="nc" id="L117"></span>
+<span class="nc" id="L118">        printHeader();</span>
+<span class="nc" id="L119"></span>
+<span class="nc" id="L120">        logger.info(formatLine(&quot;Compression disabled&quot;, originalSize, originalSize, originalSize));</span>
+        int prevSize = originalSize;
+
+<span class="nc" id="L123">        // spaces inside tags</span>
+<span class="nc" id="L124">        logger.info(formatLine(&quot;All settings disabled&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L125">        prevSize = compResult.length();</span>
+<span class="nc" id="L126"></span>
+        // remove comments
+        compressor.setRemoveComments(true);
+<span class="nc" id="L129">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L130">        logger.info(formatLine(&quot;Comments removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L131">        prevSize = compResult.length();</span>
+<span class="nc" id="L132"></span>
+        // remove mulispaces
+        compressor.setRemoveMultiSpaces(true);
+<span class="nc" id="L135">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L136">        logger.info(formatLine(&quot;Multiple spaces removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L137">        prevSize = compResult.length();</span>
+<span class="nc" id="L138"></span>
+        // remove intertag spaces
+        compressor.setRemoveIntertagSpaces(true);
+<span class="nc" id="L141">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L142">        logger.info(formatLine(&quot;No spaces between tags&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L143">        prevSize = compResult.length();</span>
+<span class="nc" id="L144"></span>
+        // remove min surrounding spaces
+        compressor.setRemoveSurroundingSpaces(HtmlCompressor.BLOCK_TAGS_MIN);
+<span class="nc" id="L147">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L148">        logger.info(formatLine(&quot;No surround spaces (min)&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L149">        prevSize = compResult.length();</span>
+<span class="nc" id="L150"></span>
+        // remove max surrounding spaces
+        compressor.setRemoveSurroundingSpaces(HtmlCompressor.BLOCK_TAGS_MAX);
+<span class="nc" id="L153">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L154">        logger.info(formatLine(&quot;No surround spaces (max)&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L155">        prevSize = compResult.length();</span>
+<span class="nc" id="L156"></span>
+        // remove all surrounding spaces
+        compressor.setRemoveSurroundingSpaces(HtmlCompressor.ALL_TAGS);
+<span class="nc" id="L159">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L160">        logger.info(formatLine(&quot;No surround spaces (all)&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L161">        prevSize = compResult.length();</span>
+<span class="nc" id="L162"></span>
+        // remove quotes
+        compressor.setRemoveQuotes(true);
+<span class="nc" id="L165">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L166">        logger.info(formatLine(&quot;Quotes removed from tags&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L167">        prevSize = compResult.length();</span>
+<span class="nc" id="L168"></span>
+        // link attrib
+        compressor.setRemoveLinkAttributes(true);
+<span class="nc" id="L171">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L172">        logger.info(formatLine(&quot;&lt;link&gt; attr. removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L173">        prevSize = compResult.length();</span>
+<span class="nc" id="L174"></span>
+        // style attrib
+        compressor.setRemoveStyleAttributes(true);
+<span class="nc" id="L177">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L178">        logger.info(formatLine(&quot;&lt;style&gt; attr. removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L179">        prevSize = compResult.length();</span>
+<span class="nc" id="L180"></span>
+        // script attrib
+        compressor.setRemoveScriptAttributes(true);
+<span class="nc" id="L183">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L184">        logger.info(formatLine(&quot;&lt;script&gt; attr. removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L185">        prevSize = compResult.length();</span>
+<span class="nc" id="L186"></span>
+        // form attrib
+        compressor.setRemoveFormAttributes(true);
+<span class="nc" id="L189">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L190">        logger.info(formatLine(&quot;&lt;form&gt; attr. removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L191">        prevSize = compResult.length();</span>
+<span class="nc" id="L192"></span>
+        // input attrib
+        compressor.setRemoveInputAttributes(true);
+<span class="nc" id="L195">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L196">        logger.info(formatLine(&quot;&lt;input&gt; attr. removed&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L197">        prevSize = compResult.length();</span>
+<span class="nc" id="L198"></span>
+        // simple bool
+        compressor.setSimpleBooleanAttributes(true);
+        compResult = compressor.compress(source);
+<span class="nc" id="L202">        logger.info(formatLine(&quot;Simple boolean attributes&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L203">        prevSize = compResult.length();</span>
+<span class="nc" id="L204"></span>
+<span class="nc" id="L205">        // simple doctype</span>
+<span class="nc" id="L206">        compressor.setSimpleDoctype(true);</span>
+<span class="nc" id="L207">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L208">        logger.info(formatLine(&quot;Simple doctype&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L209">        prevSize = compResult.length();</span>
+
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        // js protocol</span>
+        compressor.setRemoveJavaScriptProtocol(true);
+        compResult = compressor.compress(source);
+<span class="nc" id="L214">        logger.info(formatLine(&quot;Remove js pseudo-protocol&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L215">        prevSize = compResult.length();</span>
+<span class="nc" id="L216"></span>
+<span class="nc" id="L217">        // http protocol</span>
+<span class="nc" id="L218">        compressor.setRemoveHttpProtocol(true);</span>
+<span class="nc" id="L219">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L220">        logger.info(formatLine(&quot;Remove http protocol&quot;, originalSize, compResult.length(), prevSize));</span>
+        prevSize = compResult.length();
+
+        // https protocol
+<span class="nc" id="L224">        compressor.setRemoveHttpsProtocol(true);</span>
+<span class="nc" id="L225">        compResult = compressor.compress(source);</span>
+<span class="nc" id="L226">        logger.info(formatLine(&quot;Remove https protocol&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L227">        prevSize = compResult.length();</span>
+<span class="nc" id="L228"></span>
+<span class="nc" id="L229">        // inline css</span>
+<span class="nc" id="L230">        try {</span>
+<span class="nc" id="L231">            compressor.setCompressCss(true);</span>
+            compResult = compressor.compress(source);
+            logger.info(formatLine(&quot;Compress inline CSS (YUI)&quot;, originalSize, compResult.length(), prevSize));
+<span class="nc" id="L234">            prevSize = compResult.length();</span>
+        } catch (NoClassDefFoundError e) {
+<span class="nc" id="L236">            logger.info(formatEmptyLine(&quot;Compress inline CSS (YUI)&quot;));</span>
+            logger.trace(&quot;&quot;, e);
+        }
+
+        if (jsCompressor.equals(HtmlCompressor.JS_COMPRESSOR_YUI)) {
+            // inline js yui
+            try {
+                compressor.setCompressJavaScript(true);
+<span class="nc" id="L244">                compResult = compressor.compress(source);</span>
+<span class="nc" id="L245">                logger.info(formatLine(&quot;Compress inline JS (YUI)&quot;, originalSize, compResult.length(), prevSize));</span>
+<span class="nc" id="L246">            } catch (NoClassDefFoundError e) {</span>
+                logger.info(formatEmptyLine(&quot;Compress inline JS (YUI)&quot;));
+<span class="nc" id="L248">                logger.trace(&quot;&quot;, e);</span>
+            }
+        } else {
+            // inline js yui
+            try {
+                compressor.setCompressJavaScript(true);
+                compressor.setJavaScriptCompressor(new ClosureJavaScriptCompressor());
+                compResult = compressor.compress(source);
+                logger.info(formatLine(&quot;Compress JS (Closure)&quot;, originalSize, compResult.length(), prevSize));
+            } catch (NoClassDefFoundError e) {
+                logger.info(formatEmptyLine(&quot;Compress JS (Closure)&quot;));
+                logger.trace(&quot;&quot;, e);
+            }
+        }
+
+        printFooter();
+
+    }
+<span class="nc" id="L266"></span>
+<span class="nc" id="L267">    /**</span>
+<span class="nc" id="L268">     * Gets the clean compressor.</span>
+<span class="nc" id="L269">     *</span>
+<span class="nc bnc" id="L270" title="All 8 branches missed.">     * @return the clean compressor</span>
+<span class="nc" id="L271">     */</span>
+    private HtmlCompressor getCleanCompressor() {
+        HtmlCompressor compressor = new HtmlCompressor();
+        compressor.setRemoveComments(false);
+        compressor.setRemoveMultiSpaces(false);
+
+        return compressor;
+    }
+
+    /**
+     * Format line.
+     *
+<span class="nc" id="L283">     * @param descr</span>
+<span class="nc" id="L284">     *            the descr</span>
+<span class="nc" id="L285">     * @param originalSize</span>
+<span class="nc bnc" id="L286" title="All 8 branches missed.">     *            the original size</span>
+<span class="nc" id="L287">     * @param compressedSize</span>
+     *            the compressed size
+     * @param prevSize
+     *            the prev size
+     * @return the string
+     */
+    private String formatLine(String descr, int originalSize, int compressedSize, int prevSize) {
+<span class="nc" id="L294">        String result;</span>
+<span class="nc" id="L295">        try (Formatter fmt = new Formatter()) {</span>
+<span class="nc" id="L296">            fmt.format(&quot;%-25s | %16s | %16s | %12s |&quot;, descr, formatDecrease(prevSize, compressedSize),</span>
+                    formatDecrease(originalSize, compressedSize), formatSize(compressedSize));
+<span class="nc" id="L298">            result = fmt.toString();</span>
+<span class="nc" id="L299">        }</span>
+        return result;
+<span class="nc" id="L301">    }</span>
+
+    /**
+     * Format empty line.
+     *
+     * @param descr
+<span class="nc" id="L307">     *            the descr</span>
+<span class="nc" id="L308">     * @return the string</span>
+<span class="nc" id="L309">     */</span>
+<span class="nc" id="L310">    private String formatEmptyLine(String descr) {</span>
+<span class="nc" id="L311">        String result;</span>
+<span class="nc" id="L312">        try (Formatter fmt = new Formatter()) {</span>
+            fmt.format(&quot;%-25s | %16s | %16s | %12s |&quot;, descr, &quot;-&quot;, &quot;-&quot;, &quot;-&quot;);
+            result = fmt.toString();
+        }
+        return result;
+    }
+
+    /**
+     * Prints the header.
+     */
+    private void printHeader() {
+        logger.info(&quot;\n&quot;);
+<span class="nc" id="L324">        logger.info(Strings.repeat(&quot;=&quot;, 80));</span>
+<span class="nc" id="L325">        logger.info(String.format(&quot;%-25s | %-16s | %-16s | %-12s |&quot;, &quot;         Setting&quot;, &quot;Incremental Gain&quot;,</span>
+<span class="nc" id="L326">                &quot;   Total Gain&quot;, &quot; Page Size&quot;));</span>
+<span class="nc" id="L327">        logger.info(&quot;\n&quot;);</span>
+        logger.info(Strings.repeat(&quot;=&quot;, 80));
+<span class="nc" id="L329"></span>
+    }
+
+    /**
+     * Prints the footer.
+     */
+    private void printFooter() {
+        logger.info(Strings.repeat(&quot;=&quot;, 80));
+        logger.info(&quot;\n&quot;);
+        logger.info(&quot;Each consecutive compressor setting is applied on top of previous ones.&quot;);
+        logger.info(&quot;In order to see JS and CSS compression results, YUI jar file must be present.&quot;);
+        logger.info(&quot;All sizes are in bytes.&quot;);
+<span class="nc" id="L341">    }</span>
+<span class="nc" id="L342"></span>
+<span class="nc" id="L343">    /**</span>
+<span class="nc" id="L344">     * Format decrease.</span>
+     *
+     * @param originalSize
+     *            the original size
+     * @param compressedSize
+     *            the compressed size
+     * @return the string
+     */
+    private String formatDecrease(int originalSize, int compressedSize) {
+        NumberFormat nf = NumberFormat.getPercentInstance();
+        nf.setGroupingUsed(true);
+        nf.setMinimumFractionDigits(1);
+        nf.setMaximumFractionDigits(1);
+
+        return formatSize(originalSize - compressedSize) + &quot; (&quot; + nf.format(1 - (double) compressedSize / originalSize)
+                + &quot;)&quot;;
+    }
+
+    /**
+     * Format size.
+     *
+     * @param size
+     *            the size
+     * @return the string
+     */
+    private String formatSize(int size) {
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setGroupingUsed(true);
+        nf.setParseIntegerOnly(true);
+        return nf.format(size);
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
