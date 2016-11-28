@@ -4,7 +4,7 @@
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>10</version>
+    <version>11-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -67,7 +67,7 @@
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <url>https://github.com/hazendaz/base-parent</url>
-        <tag>base-parent-10</tag>
+        <tag>HEAD</tag>
     </scm>
     <issueManagement>
         <system>Github</system>
