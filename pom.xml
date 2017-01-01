@@ -274,6 +274,7 @@
                     <version>2.2.1</version>
                     <configuration>
                         <dotGitDirectory>.git</dotGitDirectory>
+                        <failOnNoGitDirectory>false</failOnNoGitDirectory>
                         <!-- Fixes occassional issue in commit id plugin - see 
                             https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                         <gitDescribe>
