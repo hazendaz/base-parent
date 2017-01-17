@@ -1,0 +1,1 @@
+find ~/Documents/GitHub -name '*.git' -execdir sh -c 'cd {} && git gc' \;
