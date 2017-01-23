@@ -127,7 +127,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <lombok.version>1.16.12</lombok.version>
-        <hibernate-validator.version>5.3.4.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.4.0.CR1</hibernate-validator.version>
         <jsr305.version>3.0.1</jsr305.version>
 
         <signature.artifact>java18</signature.artifact>
@@ -167,7 +167,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.0</version>
+                    <version>3.6.1</version>
                     <configuration>
                         <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
                         <useIncrementalCompilation>false</useIncrementalCompilation>
@@ -271,7 +271,7 @@
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>2.2.1</version>
+                    <version>2.2.2</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
                         <!-- Fixes occassional issue in commit id plugin - see 
