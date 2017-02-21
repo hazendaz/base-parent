@@ -17,7 +17,7 @@
  *                limitations under the License.
  *         ====
  *
- *            Copyright 2009-2016 the original author or authors.
+ *            Copyright 2009-2017 the original author or authors.
  *
  *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *            you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
  *            limitations under the License.
  *     ====
  *
- *        Copyright 2009-2016 the original author or authors.
+ *        Copyright 2009-2017 the original author or authors.
  *
  *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *        you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
  *        limitations under the License.
  * ====
  *
- *    Copyright 2009-2016 the original author or authors.
+ *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -137,7 +137,7 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
                 logger.error(&quot;[WARNING] HtmlCompressor: '{}' during JavaScript compression&quot;, message);
             } else {
                 logger.error(&quot;[WARNING] HtmlCompressor: '{}' at line [{}:{}] during JavaScript compression {}&quot;,
-                        message, line, lineOffset, (lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;));
+                        message, line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);
             }
 <span class="nc" id="L142">        }</span>
 
@@ -147,7 +147,7 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
                 logger.error(&quot;[ERROR] HtmlCompressor: '{}' during JavaScript compression&quot;, message);
             } else {
                 logger.error(&quot;[ERROR] HtmlCompressor: '{}' at line [{}:{}] during JavaScript compression {}&quot;, message,
-                        line, lineOffset, (lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;));
+                        line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);
             }
         }
 

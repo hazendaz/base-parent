@@ -17,7 +17,7 @@
  *                limitations under the License.
  *         ====
  *
- *            Copyright 2009-2016 the original author or authors.
+ *            Copyright 2009-2017 the original author or authors.
  *
  *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *            you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
  *            limitations under the License.
  *     ====
  *
- *        Copyright 2009-2016 the original author or authors.
+ *        Copyright 2009-2017 the original author or authors.
  *
  *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *        you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
  *        limitations under the License.
  * ====
  *
- *    Copyright 2009-2016 the original author or authors.
+ *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -93,7 +93,7 @@ import java.util.regex.PatternSyntaxException;
 import org.slf4j.LoggerFactory;
 
 import com.google.javascript.jscomp.CompilationLevel;
-import com.google.javascript.jscomp.JSSourceFile;
+import com.google.javascript.jscomp.SourceFile;
 import com.googlecode.htmlcompressor.analyzer.HtmlAnalyzer;
 import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;
 import com.googlecode.htmlcompressor.compressor.Compressor;
@@ -461,7 +461,7 @@ public class CmdLineCompressor {
 <span class="nc" id="L461">        boolean useClosureCompressor = HtmlCompressor.JS_COMPRESSOR_CLOSURE.equalsIgnoreCase(jsCompressorOpt);</span>
 <span class="nc" id="L462"></span>
 <span class="nc" id="L463">        // custom preserve patterns</span>
-<span class="nc" id="L464">        List&lt;Pattern&gt; preservePatterns = new ArrayList&lt;Pattern&gt;();</span>
+<span class="nc" id="L464">        List&lt;Pattern&gt; preservePatterns = new ArrayList&lt;&gt;();</span>
 
         // predefined
 <span class="nc bnc" id="L467" title="All 16 branches missed.">        if (preservePhpTagsOpt) {</span>
@@ -540,9 +540,9 @@ public class CmdLineCompressor {
 
                 // get externs
 <span class="nc" id="L542">                if (!closureExternsOpt.isEmpty()) {</span>
-<span class="nc bnc" id="L543" title="All 2 branches missed.">                    List&lt;JSSourceFile&gt; externs = new ArrayList&lt;JSSourceFile&gt;();</span>
+<span class="nc bnc" id="L543" title="All 2 branches missed.">                    List&lt;SourceFile&gt; externs = new ArrayList&lt;&gt;();</span>
 <span class="nc bnc" id="L544" title="All 2 branches missed.">                    for (String externFile : closureExternsOpt) {</span>
-                        externs.add(JSSourceFile.fromFile(externFile));
+                        externs.add(SourceFile.fromFile(externFile));
 <span class="nc" id="L546">                    }</span>
                     closureCompressor.setExterns(externs);
                 }

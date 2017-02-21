@@ -23,10 +23,10 @@ under the License.
     <link>https://github.com/hazendaz/htmlcompressor/</link>
     <description>HTML Compressor and Minifier - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2009 - 2016 Jeremy Landis</copyright>
+    <copyright>&#169;2009 - 2017 Jeremy Landis</copyright>
     <item>
       <title>File: 25,
-             Errors: 2019,
+             Errors: 2005,
              Warnings: 0,
              Infos: 0
       </title>
@@ -209,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  104
+                  102
                 </td>
               </tr>
                           <tr>
@@ -321,7 +321,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  80
+                  79
                 </td>
               </tr>
                           <tr>
@@ -363,7 +363,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  748
+                  739
                 </td>
               </tr>
                           <tr>
@@ -391,7 +391,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  29
+                  27
                 </td>
               </tr>
                       </tbody>

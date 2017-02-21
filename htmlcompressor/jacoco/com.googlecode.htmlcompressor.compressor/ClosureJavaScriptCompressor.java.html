@@ -17,7 +17,7 @@
  *                limitations under the License.
  *         ====
  *
- *            Copyright 2009-2016 the original author or authors.
+ *            Copyright 2009-2017 the original author or authors.
  *
  *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *            you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
  *            limitations under the License.
  *     ====
  *
- *        Copyright 2009-2016 the original author or authors.
+ *        Copyright 2009-2017 the original author or authors.
  *
  *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *        you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
  *        limitations under the License.
  * ====
  *
- *    Copyright 2009-2016 the original author or authors.
+ *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -66,9 +66,10 @@ package com.googlecode.htmlcompressor.compressor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
-<span class="nc" id="L70">import java.util.List;</span>
-<span class="nc" id="L71">import java.util.logging.Level;</span>
+<span class="nc" id="L71">import java.util.List;</span>
+<span class="nc" id="L72">import java.util.logging.Level;</span>
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -76,22 +77,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
-import com.google.common.io.LimitInputStream;
+import com.google.common.io.ByteStreams;
 import com.google.javascript.jscomp.CompilationLevel;
 import com.google.javascript.jscomp.Compiler;
 import com.google.javascript.jscomp.CompilerOptions;
-import com.google.javascript.jscomp.JSSourceFile;
+import com.google.javascript.jscomp.SourceFile;
 import com.google.javascript.jscomp.Result;
-<span class="nc" id="L85">import com.google.javascript.jscomp.WarningLevel;</span>
+<span class="nc" id="L86">import com.google.javascript.jscomp.WarningLevel;</span>
 
 /**
-<span class="nc" id="L88"> * Basic JavaScript compressor implementation using &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure</span>
+<span class="nc" id="L89"> * Basic JavaScript compressor implementation using &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure</span>
  * Compiler&lt;/a&gt; that could be used by {@link HtmlCompressor} for inline JavaScript compression.
  * 
-<span class="nc" id="L91"> * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;</span>
+<span class="nc" id="L92"> * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;</span>
  * 
  * @see HtmlCompressor#setJavaScriptCompressor(Compressor)
-<span class="nc" id="L94"> * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
+<span class="nc" id="L95"> * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
  */
 public class ClosureJavaScriptCompressor implements Compressor {
 
@@ -102,9 +103,9 @@ public class ClosureJavaScriptCompressor implements Compressor {
     /** The Constant COMPILATION_LEVEL_SIMPLE. */
     public static final String  COMPILATION_LEVEL_SIMPLE     = &quot;simple&quot;;
 
-<span class="nc" id="L105">    /** The Constant COMPILATION_LEVEL_ADVANCED. */</span>
+<span class="nc" id="L106">    /** The Constant COMPILATION_LEVEL_ADVANCED. */</span>
     public static final String  COMPILATION_LEVEL_ADVANCED   = &quot;advanced&quot;;
-<span class="nc" id="L107"></span>
+<span class="nc" id="L108"></span>
     /** The Constant COMPILATION_LEVEL_WHITESPACE. */
     public static final String  COMPILATION_LEVEL_WHITESPACE = &quot;whitespace&quot;;
 
@@ -112,83 +113,83 @@ public class ClosureJavaScriptCompressor implements Compressor {
 
     /** The compiler options. */
     private CompilerOptions     compilerOptions              = new CompilerOptions();
-<span class="nc" id="L115"></span>
-<span class="nc" id="L116">    /** The compilation level. */</span>
-<span class="nc" id="L117">    private CompilationLevel    compilationLevel             = CompilationLevel.SIMPLE_OPTIMIZATIONS;</span>
+<span class="nc" id="L116"></span>
+<span class="nc" id="L117">    /** The compilation level. */</span>
+<span class="nc" id="L118">    private CompilationLevel    compilationLevel             = CompilationLevel.SIMPLE_OPTIMIZATIONS;</span>
 
     /** The logging level. */
     private Level               loggingLevel                 = Level.SEVERE;
 
-<span class="nc" id="L122">    /** The warning level. */</span>
+<span class="nc" id="L123">    /** The warning level. */</span>
     private WarningLevel        warningLevel                 = WarningLevel.DEFAULT;
 
-<span class="nc" id="L125">    /** The custom externs only. */</span>
-<span class="nc" id="L126">    private boolean             customExternsOnly;</span>
+<span class="nc" id="L126">    /** The custom externs only. */</span>
+<span class="nc" id="L127">    private boolean             customExternsOnly;</span>
 
     /** The externs. */
-<span class="nc" id="L129">    private List&lt;JSSourceFile&gt;  externs;</span>
-<span class="nc bnc" id="L130" title="All 2 branches missed."></span>
+<span class="nc" id="L130">    private List&lt;SourceFile&gt;    externs;</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed."></span>
     /**
-<span class="nc bnc" id="L132" title="All 2 branches missed.">     * Instantiates a new closure java script compressor.</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">     * Instantiates a new closure java script compressor.</span>
      */
-<span class="nc" id="L134">    public ClosureJavaScriptCompressor() {</span>
-<span class="nc" id="L135">        // Required for override.</span>
-<span class="nc" id="L136">    }</span>
-<span class="nc" id="L137"></span>
+<span class="nc" id="L135">    public ClosureJavaScriptCompressor() {</span>
+<span class="nc" id="L136">        // Required for override.</span>
+<span class="nc" id="L137">    }</span>
+<span class="nc" id="L138"></span>
     /**
      * Instantiates a new closure java script compressor.
-<span class="nc bnc" id="L140" title="All 2 branches missed.">     *</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">     * @param compilationLevel</span>
-<span class="nc" id="L142">     *            the compilation level</span>
-<span class="nc" id="L143">     */</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">     *</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">     * @param compilationLevel</span>
+<span class="nc" id="L143">     *            the compilation level</span>
+<span class="nc" id="L144">     */</span>
     public ClosureJavaScriptCompressor(CompilationLevel compilationLevel) {
         this.compilationLevel = compilationLevel;
-<span class="nc bnc" id="L146" title="All 2 branches missed.">    }</span>
-<span class="nc" id="L147"></span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">    }</span>
+<span class="nc" id="L148"></span>
     @Override
     public String compress(String source) {
 
-<span class="nc" id="L151">        StringWriter writer = new StringWriter();</span>
+<span class="nc" id="L152">        StringWriter writer = new StringWriter();</span>
 
         // prepare source
-<span class="nc" id="L154">        List&lt;JSSourceFile&gt; input = new ArrayList&lt;JSSourceFile&gt;();</span>
-        input.add(JSSourceFile.fromCode(&quot;source.js&quot;, source));
-<span class="nc" id="L156"></span>
-<span class="nc" id="L157">        // prepare externs</span>
-        List&lt;JSSourceFile&gt; externsList = new ArrayList&lt;JSSourceFile&gt;();
-<span class="nc" id="L159">        if (compilationLevel.equals(CompilationLevel.ADVANCED_OPTIMIZATIONS)) {</span>
-<span class="nc" id="L160">            // default externs</span>
+<span class="nc" id="L155">        List&lt;SourceFile&gt; input = new ArrayList&lt;&gt;();</span>
+        input.add(SourceFile.fromCode(&quot;source.js&quot;, source));
+<span class="nc" id="L157"></span>
+<span class="nc" id="L158">        // prepare externs</span>
+        List&lt;SourceFile&gt; externsList = new ArrayList&lt;&gt;();
+<span class="nc" id="L160">        if (compilationLevel.equals(CompilationLevel.ADVANCED_OPTIMIZATIONS)) {</span>
+<span class="nc" id="L161">            // default externs</span>
             if (!customExternsOnly) {
-<span class="nc" id="L162">                try {</span>
+<span class="nc" id="L163">                try {</span>
                     externsList = getDefaultExterns();
-<span class="nc bnc" id="L164" title="All 2 branches missed.">                } catch (IOException e) {</span>
-<span class="nc" id="L165">                    logger.error(&quot;&quot;, e);</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">                } catch (IOException e) {</span>
+<span class="nc" id="L166">                    logger.error(&quot;&quot;, e);</span>
                 }
-<span class="nc" id="L167">            }</span>
+<span class="nc" id="L168">            }</span>
             // add user defined externs
             if (externs != null) {
-<span class="nc" id="L170">                for (JSSourceFile extern : externs) {</span>
+<span class="nc" id="L171">                for (SourceFile extern : externs) {</span>
                     externsList.add(extern);
                 }
             }
             // add empty externs
             if (externsList.isEmpty()) {
-                externsList.add(JSSourceFile.fromCode(&quot;externs.js&quot;, &quot;&quot;));
+                externsList.add(SourceFile.fromCode(&quot;externs.js&quot;, &quot;&quot;));
             }
         } else {
             // empty externs
-            externsList.add(JSSourceFile.fromCode(&quot;externs.js&quot;, &quot;&quot;));
+            externsList.add(SourceFile.fromCode(&quot;externs.js&quot;, &quot;&quot;));
         }
 
-<span class="nc" id="L183">        Compiler.setLoggingLevel(loggingLevel);</span>
-<span class="nc" id="L184"></span>
-<span class="nc" id="L185">        Compiler compiler = new Compiler();</span>
-<span class="nc bnc" id="L186" title="All 2 branches missed.">        compiler.disableThreads();</span>
-<span class="nc" id="L187"></span>
-<span class="nc" id="L188">        compilationLevel.setOptionsForCompilationLevel(compilerOptions);</span>
-<span class="nc" id="L189">        warningLevel.setOptionsForWarningLevel(compilerOptions);</span>
-<span class="nc" id="L190"></span>
-        Result result = compiler.compile(externsList, input, compilerOptions);
+<span class="nc" id="L184">        Compiler.setLoggingLevel(loggingLevel);</span>
+<span class="nc" id="L185"></span>
+<span class="nc" id="L186">        Compiler compiler = new Compiler();</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        compiler.disableThreads();</span>
+<span class="nc" id="L188"></span>
+<span class="nc" id="L189">        compilationLevel.setOptionsForCompilationLevel(compilerOptions);</span>
+        warningLevel.setOptionsForWarningLevel(compilerOptions);
+<span class="nc bnc" id="L191" title="All 8 branches missed."></span>
+<span class="nc" id="L192">        Result result = compiler.compile(externsList, input, compilerOptions);</span>
 
         if (result.success) {
             writer.write(compiler.toSource());
@@ -199,8 +200,8 @@ public class ClosureJavaScriptCompressor implements Compressor {
         return writer.toString();
 
     }
-<span class="nc" id="L202"></span>
-    /**
+
+<span class="nc" id="L204">    /**</span>
      * Gets the default externs.
      *
      * @return the default externs
@@ -208,22 +209,23 @@ public class ClosureJavaScriptCompressor implements Compressor {
      *             Signals that an I/O exception has occurred.
      */
     // read default externs from closure.jar
-    private List&lt;JSSourceFile&gt; getDefaultExterns() throws IOException {
+    private List&lt;SourceFile&gt; getDefaultExterns() throws IOException {
         InputStream input = ClosureJavaScriptCompressor.class.getResourceAsStream(&quot;/externs.zip&quot;);
-        ZipInputStream zip = new ZipInputStream(input);
-        List&lt;JSSourceFile&gt; externs = Lists.newLinkedList();
-        for (ZipEntry entry = null; (entry = zip.getNextEntry()) != null;) {
-            LimitInputStream entryStream = new LimitInputStream(zip, entry.getSize());
-            externs.add(JSSourceFile.fromInputStream(entry.getName(), entryStream));
+        List&lt;SourceFile&gt; externList = Lists.newLinkedList();
+        try (ZipInputStream zip = new ZipInputStream(input)) {
+            for (ZipEntry entry; (entry = zip.getNextEntry()) != null;) {
+                externList.add(SourceFile.fromInputStream(entry.getName(), ByteStreams.limit(zip, entry.getSize()),
+                        Charset.defaultCharset()));
+            }
         }
-        return externs;
+        return externList;
     }
 
     /**
      * Returns level of optimization that is applied when compiling JavaScript code.
      * 
-<span class="nc" id="L225">     * @return &lt;code&gt;CompilationLevel&lt;/code&gt; that is applied when compiling JavaScript code.</span>
-<span class="nc" id="L226">     * </span>
+<span class="nc" id="L227">     * @return &lt;code&gt;CompilationLevel&lt;/code&gt; that is applied when compiling JavaScript code.</span>
+<span class="nc" id="L228">     * </span>
      * @see &lt;a
      *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/CompilationLevel.html&quot;&gt;CompilationLevel&lt;/a&gt;
      */
@@ -234,7 +236,7 @@ public class ClosureJavaScriptCompressor implements Compressor {
     /**
      * Sets level of optimization that should be applied when compiling JavaScript code. If none is provided,
      * &lt;code&gt;CompilationLevel.SIMPLE_OPTIMIZATIONS&lt;/code&gt; will be used by default.
-<span class="nc" id="L237">     * </span>
+<span class="nc" id="L239">     * </span>
      * &lt;p&gt;
      * &lt;b&gt;Warning:&lt;/b&gt; Using &lt;code&gt;CompilationLevel.ADVANCED_OPTIMIZATIONS&lt;/code&gt; could break inline JavaScript if
      * externs are not set properly.
@@ -248,8 +250,8 @@ public class ClosureJavaScriptCompressor implements Compressor {
      * @see &lt;a href=&quot;http://code.google.com/closure/compiler/docs/compilation_levels.html&quot;&gt;Closure Compiler Compilation
      *      Levels&lt;/a&gt;
      * @see &lt;a
-<span class="nc" id="L251">     *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/CompilationLevel.html&quot;&gt;CompilationLevel&lt;/a&gt;</span>
-<span class="nc" id="L252">     */</span>
+<span class="nc" id="L253">     *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/CompilationLevel.html&quot;&gt;CompilationLevel&lt;/a&gt;</span>
+<span class="nc" id="L254">     */</span>
     public void setCompilationLevel(CompilationLevel compilationLevel) {
         this.compilationLevel = compilationLevel;
     }
@@ -257,7 +259,7 @@ public class ClosureJavaScriptCompressor implements Compressor {
     /**
      * Returns options that are used by the Closure compiler.
      * 
-<span class="nc" id="L260">     * @return &lt;code&gt;CompilerOptions&lt;/code&gt; that are used by the compiler</span>
+<span class="nc" id="L262">     * @return &lt;code&gt;CompilerOptions&lt;/code&gt; that are used by the compiler</span>
      * 
      * @see &lt;a
      *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/CompilerOptions.html&quot;&gt;CompilerOptions&lt;/a&gt;
@@ -269,8 +271,8 @@ public class ClosureJavaScriptCompressor implements Compressor {
     /**
      * Sets options that will be used by the Closure compiler. If none is provided, default options constructor will be
      * used: &lt;code&gt;new CompilerOptions()&lt;/code&gt;.
-<span class="nc" id="L272">     * </span>
-<span class="nc" id="L273">     * @param compilerOptions</span>
+<span class="nc" id="L274">     * </span>
+<span class="nc" id="L275">     * @param compilerOptions</span>
      *            &lt;code&gt;CompilerOptions&lt;/code&gt; that will be used by the compiler
      * 
      * @see &lt;a
@@ -279,7 +281,7 @@ public class ClosureJavaScriptCompressor implements Compressor {
     public void setCompilerOptions(CompilerOptions compilerOptions) {
         this.compilerOptions = compilerOptions;
     }
-<span class="nc" id="L282"></span>
+<span class="nc" id="L284"></span>
     /**
      * Returns logging level used by the Closure compiler.
      * 
@@ -302,19 +304,19 @@ public class ClosureJavaScriptCompressor implements Compressor {
     }
 
     /**
-     * Returns &lt;code&gt;JSSourceFile&lt;/code&gt; used as a reference during the compression at
+     * Returns &lt;code&gt;SourceFile&lt;/code&gt; used as a reference during the compression at
      * &lt;code&gt;CompilationLevel.ADVANCED_OPTIMIZATIONS&lt;/code&gt; level.
      * 
-<span class="nc" id="L308">     * @return &lt;code&gt;JSSourceFile&lt;/code&gt; used as a reference during compression</span>
-<span class="nc" id="L309">     */</span>
-    public List&lt;JSSourceFile&gt; getExterns() {
+<span class="nc" id="L310">     * @return &lt;code&gt;SourceFile&lt;/code&gt; used as a reference during compression</span>
+<span class="nc" id="L311">     */</span>
+    public List&lt;SourceFile&gt; getExterns() {
         return externs;
     }
 
     /**
      * Sets external JavaScript files that are used as a reference for function declarations if
      * &lt;code&gt;CompilationLevel.ADVANCED_OPTIMIZATIONS&lt;/code&gt; compression level is used.
-<span class="nc" id="L317">     * </span>
+<span class="nc" id="L319">     * </span>
      * &lt;p&gt;
      * A number of default externs defined inside Closure's jar will be used besides user defined ones, to use only user
      * defined externs set {@link #setCustomExternsOnly(boolean) setCustomExternsOnly(true)}
@@ -324,20 +326,20 @@ public class ClosureJavaScriptCompressor implements Compressor {
      * externs are not set properly.
      * 
      * @param externs
-     *            &lt;code&gt;JSSourceFile&lt;/code&gt; to use as a reference during compression
+     *            &lt;code&gt;SourceFile&lt;/code&gt; to use as a reference during compression
      * 
-<span class="nc" id="L329">     * @see #setCompilationLevel(CompilationLevel)</span>
-<span class="nc" id="L330">     * @see #setCustomExternsOnly(boolean)</span>
+<span class="nc" id="L331">     * @see #setCompilationLevel(CompilationLevel)</span>
+<span class="nc" id="L332">     * @see #setCustomExternsOnly(boolean)</span>
      * @see &lt;a href=&quot;http://code.google.com/closure/compiler/docs/api-tutorial3.html&quot;&gt;Advanced Compilation and
      *      Externs&lt;/a&gt;
      * @see &lt;a
-     *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/JSSourceFile.html&quot;&gt;JSSourceFile&lt;/a&gt;
+     *      href=&quot;http://closure-compiler.googlecode.com/svn/trunk/javadoc/com/google/javascript/jscomp/SourceFile.html&quot;&gt;SourceFile&lt;/a&gt;
      */
-    public void setExterns(List&lt;JSSourceFile&gt; externs) {
+    public void setExterns(List&lt;SourceFile&gt; externs) {
         this.externs = externs;
     }
 
-<span class="nc" id="L340">    /**</span>
+<span class="nc" id="L342">    /**</span>
      * Returns &lt;code&gt;WarningLevel&lt;/code&gt; used by the Closure compiler.
      *
      * @return &lt;code&gt;WarningLevel&lt;/code&gt; used by the Closure compiler
@@ -351,8 +353,8 @@ public class ClosureJavaScriptCompressor implements Compressor {
      * 
      * @param warningLevel
      *            &lt;code&gt;WarningLevel&lt;/code&gt; to use
-<span class="nc" id="L354">     * </span>
-<span class="nc" id="L355">     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/docs/api-ref.html&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
+<span class="nc" id="L356">     * </span>
+<span class="nc" id="L357">     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/docs/api-ref.html&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
      */
     public void setWarningLevel(WarningLevel warningLevel) {
         this.warningLevel = warningLevel;

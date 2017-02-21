@@ -22,7 +22,7 @@ HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,YuiJavaScr
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,HtmlCompressor,2816,0,266,0,664,0,229,0,96,0
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,XmlCompressor,225,0,14,0,57,0,22,0,15,0
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,YuiCssCompressor,46,0,0,0,14,0,5,0,5,0
-HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,ClosureJavaScriptCompressor,228,0,14,0,64,0,24,0,17,0
+HTML Compressor and Minifier,com.googlecode.htmlcompressor.compressor,ClosureJavaScriptCompressor,262,0,22,0,64,0,28,0,17,0
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.analyzer,HtmlAnalyzer,740,0,18,0,145,0,20,0,11,0
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.velocity,CssCompressorDirective,98,0,2,0,25,0,6,0,5,0
 HTML Compressor and Minifier,com.googlecode.htmlcompressor.velocity,JavaScriptCompressorDirective,177,0,8,0,45,0,9,0,5,0

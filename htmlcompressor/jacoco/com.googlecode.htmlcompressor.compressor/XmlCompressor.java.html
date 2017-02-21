@@ -17,7 +17,7 @@
  *                limitations under the License.
  *         ====
  *
- *            Copyright 2009-2016 the original author or authors.
+ *            Copyright 2009-2017 the original author or authors.
  *
  *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *            you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
  *            limitations under the License.
  *     ====
  *
- *        Copyright 2009-2016 the original author or authors.
+ *        Copyright 2009-2017 the original author or authors.
  *
  *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *        you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
  *        limitations under the License.
  * ====
 <span class="nc" id="L49"> *</span>
- *    Copyright 2009-2016 the original author or authors.
+ *    Copyright 2009-2017 the original author or authors.
  *
 <span class="nc" id="L52"> *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
  *    you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ public class XmlCompressor implements Compressor {
 
     /** The Constant tempCdataBlock. */
 <span class="nc" id="L91">    // temp replacements for preserved blocks</span>
-    protected static final String  tempCdataBlock       = &quot;%%%COMPRESS~CDATA~{0,number,#}%%%&quot;;
+    protected static final String  TEMP_CD_DATA_BLOCK   = &quot;%%%COMPRESS~CDATA~{0,number,#}%%%&quot;;
 
     /** The Constant cdataPattern. */
     // compiled regex patterns
@@ -134,7 +134,7 @@ public class XmlCompressor implements Compressor {
 <span class="nc" id="L134">        }</span>
 <span class="nc" id="L135"></span>
 <span class="nc bnc" id="L136" title="All 2 branches missed.">        // preserved block containers</span>
-<span class="nc" id="L137">        List&lt;String&gt; cdataBlocks = new ArrayList&lt;String&gt;();</span>
+<span class="nc" id="L137">        List&lt;String&gt; cdataBlocks = new ArrayList&lt;&gt;();</span>
 <span class="nc" id="L138"></span>
         // preserve blocks
 <span class="nc" id="L140">        xml = preserveBlocks(xml, cdataBlocks);</span>
@@ -164,7 +164,7 @@ public class XmlCompressor implements Compressor {
         StringBuffer sb = new StringBuffer();
 <span class="nc" id="L165">        while (matcher.find()) {</span>
             cdataBlocks.add(matcher.group(0));
-            matcher.appendReplacement(sb, MessageFormat.format(tempCdataBlock, index++));
+            matcher.appendReplacement(sb, MessageFormat.format(TEMP_CD_DATA_BLOCK, index++));
         }
         matcher.appendTail(sb);
         xml = sb.toString();

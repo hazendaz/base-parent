@@ -17,7 +17,7 @@
  *                limitations under the License.
  *         ====
  *
- *            Copyright 2009-2016 the original author or authors.
+ *            Copyright 2009-2017 the original author or authors.
  *
  *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *            you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@
  *            limitations under the License.
  *     ====
  *
- *        Copyright 2009-2016 the original author or authors.
+ *        Copyright 2009-2017 the original author or authors.
  *
  *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *        you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@
  *        limitations under the License.
  * ====
  *
- *    Copyright 2009-2016 the original author or authors.
+ *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -238,31 +238,31 @@ public class HtmlCompressor implements Compressor {
 
     /** The Constant tempCondCommentBlock. */
 <span class="nc" id="L240">    // temp replacements for preserved blocks</span>
-    protected static final String    tempCondCommentBlock         = &quot;%%%~COMPRESS~COND~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_COND_COMMENT_BLOCK      = &quot;%%%~COMPRESS~COND~{0,number,#}~%%%&quot;;
 
 <span class="nc" id="L243">    /** The Constant tempPreBlock. */</span>
-<span class="nc" id="L244">    protected static final String    tempPreBlock                 = &quot;%%%~COMPRESS~PRE~{0,number,#}~%%%&quot;;</span>
+<span class="nc" id="L244">    protected static final String    TEMP_PRE_BLOCK               = &quot;%%%~COMPRESS~PRE~{0,number,#}~%%%&quot;;</span>
 
     /** The Constant tempTextAreaBlock. */
-    protected static final String    tempTextAreaBlock            = &quot;%%%~COMPRESS~TEXTAREA~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_TEXT_AREA_BLOCK         = &quot;%%%~COMPRESS~TEXTAREA~{0,number,#}~%%%&quot;;
 
     /** The Constant tempScriptBlock. */
-<span class="nc" id="L250">    protected static final String    tempScriptBlock              = &quot;%%%~COMPRESS~SCRIPT~{0,number,#}~%%%&quot;;</span>
+<span class="nc" id="L250">    protected static final String    TEMP_SCRIPT_BLOCK            = &quot;%%%~COMPRESS~SCRIPT~{0,number,#}~%%%&quot;;</span>
 <span class="nc" id="L251"></span>
     /** The Constant tempStyleBlock. */
-    protected static final String    tempStyleBlock               = &quot;%%%~COMPRESS~STYLE~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_STYLE_BLOCK             = &quot;%%%~COMPRESS~STYLE~{0,number,#}~%%%&quot;;
 
     /** The Constant tempEventBlock. */
-    protected static final String    tempEventBlock               = &quot;%%%~COMPRESS~EVENT~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_EVENT_BLOCK             = &quot;%%%~COMPRESS~EVENT~{0,number,#}~%%%&quot;;
 <span class="nc" id="L257"></span>
     /** The Constant tempLineBreakBlock. */
-    protected static final String    tempLineBreakBlock           = &quot;%%%~COMPRESS~LT~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_LINE_BREAK_BLOCK        = &quot;%%%~COMPRESS~LT~{0,number,#}~%%%&quot;;
 
 <span class="nc" id="L261">    /** The Constant tempSkipBlock. */</span>
-    protected static final String    tempSkipBlock                = &quot;%%%~COMPRESS~SKIP~{0,number,#}~%%%&quot;;
+    protected static final String    TEMP_SKIP_BLOCK              = &quot;%%%~COMPRESS~SKIP~{0,number,#}~%%%&quot;;
 
     /** The Constant tempUserBlock. */
-<span class="nc" id="L265">    protected static final String    tempUserBlock                = &quot;%%%~COMPRESS~USER{0,number,#}~{1,number,#}~%%%&quot;;</span>
+<span class="nc" id="L265">    protected static final String    TEMP_USER_BLOCK              = &quot;%%%~COMPRESS~USER{0,number,#}~{1,number,#}~%%%&quot;;</span>
 
     /** The Constant emptyPattern. */
     // compiled regex patterns
@@ -475,15 +475,15 @@ public class HtmlCompressor implements Compressor {
     protected static final Pattern   tempCondCommentPattern       = Pattern.compile(&quot;%%%~COMPRESS~COND~(\\d+?)~%%%&quot;);
 
     /** The Constant tempPrePattern. */
-<span class="nc bnc" id="L478" title="All 6 branches missed.">    protected static final Pattern   tempPrePattern               = Pattern.compile(&quot;%%%~COMPRESS~PRE~(\\d+?)~%%%&quot;);</span>
-<span class="nc" id="L479"></span>
-    /** The Constant tempTextAreaPattern. */
+    protected static final Pattern   tempPrePattern               = Pattern.compile(&quot;%%%~COMPRESS~PRE~(\\d+?)~%%%&quot;);
+<span class="nc bnc" id="L479" title="All 6 branches missed."></span>
+<span class="nc" id="L480">    /** The Constant tempTextAreaPattern. */</span>
     protected static final Pattern   tempTextAreaPattern          = Pattern
                                                                           .compile(&quot;%%%~COMPRESS~TEXTAREA~(\\d+?)~%%%&quot;);
-<span class="nc" id="L483"></span>
-    /** The Constant tempScriptPattern. */
+
+<span class="nc" id="L484">    /** The Constant tempScriptPattern. */</span>
     protected static final Pattern   tempScriptPattern            = Pattern.compile(&quot;%%%~COMPRESS~SCRIPT~(\\d+?)~%%%&quot;);
-<span class="nc" id="L486"></span>
+
 <span class="nc" id="L487">    /** The Constant tempStylePattern. */</span>
 <span class="nc" id="L488">    protected static final Pattern   tempStylePattern             = Pattern.compile(&quot;%%%~COMPRESS~STYLE~(\\d+?)~%%%&quot;);</span>
 <span class="nc" id="L489"></span>
@@ -492,26 +492,27 @@ public class HtmlCompressor implements Compressor {
 <span class="nc" id="L492"></span>
 <span class="nc" id="L493">    /** The Constant tempSkipPattern. */</span>
 <span class="nc" id="L494">    protected static final Pattern   tempSkipPattern              = Pattern.compile(&quot;%%%~COMPRESS~SKIP~(\\d+?)~%%%&quot;);</span>
-
+<span class="nc" id="L495"></span>
     /** The Constant tempLineBreakPattern. */
-<span class="nc" id="L497">    protected static final Pattern   tempLineBreakPattern         = Pattern.compile(&quot;%%%~COMPRESS~LT~(\\d+?)~%%%&quot;);</span>
-
+    protected static final Pattern   tempLineBreakPattern         = Pattern.compile(&quot;%%%~COMPRESS~LT~(\\d+?)~%%%&quot;);
+<span class="nc" id="L498"></span>
     /**
      * The main method that compresses given HTML source and returns compressed result.
-<span class="nc" id="L501">     * </span>
-     * @param html
+     * 
+<span class="nc" id="L502">     * @param html</span>
      *            HTML content to compress
-<span class="nc" id="L504">     * @return compressed content.</span>
-     */
+     * @return compressed content.
+<span class="nc" id="L505">     */</span>
+    @Override
     public String compress(String html) {
         if (!enabled || html == null || html.length() == 0) {
-<span class="nc" id="L508">            return html;</span>
+<span class="nc" id="L509">            return html;</span>
         }
 
         // calculate uncompressed statistics
-<span class="nc" id="L512">        initStatistics(html);</span>
+<span class="nc" id="L513">        initStatistics(html);</span>
 
-<span class="nc" id="L514">        // preserved block containers</span>
+<span class="nc" id="L515">        // preserved block containers</span>
         List&lt;String&gt; condCommentBlocks = new ArrayList&lt;&gt;();
         List&lt;String&gt; preBlocks = new ArrayList&lt;&gt;();
         List&lt;String&gt; taBlocks = new ArrayList&lt;&gt;();
@@ -522,20 +523,20 @@ public class HtmlCompressor implements Compressor {
         List&lt;String&gt; lineBreakBlocks = new ArrayList&lt;&gt;();
         List&lt;List&lt;String&gt;&gt; userBlocks = new ArrayList&lt;&gt;();
 
-<span class="nc bnc" id="L525" title="All 2 branches missed.">        // preserve blocks</span>
-<span class="nc" id="L526">        html = preserveBlocks(html, preBlocks, taBlocks, scriptBlocks, styleBlocks, eventBlocks, condCommentBlocks,</span>
-<span class="nc" id="L527">                skipBlocks, lineBreakBlocks, userBlocks);</span>
-<span class="nc" id="L528"></span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">        // preserve blocks</span>
+<span class="nc" id="L527">        html = preserveBlocks(html, preBlocks, taBlocks, scriptBlocks, styleBlocks, eventBlocks, condCommentBlocks,</span>
+<span class="nc" id="L528">                skipBlocks, lineBreakBlocks, userBlocks);</span>
+<span class="nc" id="L529"></span>
         // process pure html
         html = processHtml(html);
-<span class="nc" id="L531"></span>
-<span class="nc bnc" id="L532" title="All 2 branches missed.">        // process preserved blocks</span>
-<span class="nc" id="L533">        processPreservedBlocks(preBlocks, taBlocks, scriptBlocks, styleBlocks, eventBlocks, condCommentBlocks,</span>
+<span class="nc" id="L532"></span>
+<span class="nc bnc" id="L533" title="All 2 branches missed.">        // process preserved blocks</span>
+<span class="nc" id="L534">        processPreservedBlocks(preBlocks, taBlocks, scriptBlocks, styleBlocks, eventBlocks, condCommentBlocks,</span>
                 skipBlocks, lineBreakBlocks, userBlocks);
-<span class="nc" id="L535"></span>
-<span class="nc" id="L536">        // put preserved blocks back</span>
+<span class="nc" id="L536"></span>
+<span class="nc" id="L537">        // put preserved blocks back</span>
         html = returnBlocks(html, preBlocks, taBlocks, scriptBlocks, styleBlocks, eventBlocks, condCommentBlocks,
-<span class="nc" id="L538">                skipBlocks, lineBreakBlocks, userBlocks);</span>
+<span class="nc" id="L539">                skipBlocks, lineBreakBlocks, userBlocks);</span>
 
         // calculate compressed statistics
         endStatistics(html);
@@ -545,17 +546,17 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Inits the statistics.
-<span class="nc bnc" id="L548" title="All 2 branches missed.">     *</span>
-<span class="nc" id="L549">     * @param html</span>
-<span class="nc" id="L550">     *            the html</span>
+<span class="nc bnc" id="L549" title="All 2 branches missed.">     *</span>
+<span class="nc" id="L550">     * @param html</span>
+<span class="nc" id="L551">     *            the html</span>
      */
     protected void initStatistics(String html) {
-<span class="nc" id="L553">        // create stats</span>
-<span class="nc bnc" id="L554" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc" id="L555">            statistics = new HtmlCompressorStatistics();</span>
+<span class="nc" id="L554">        // create stats</span>
+<span class="nc bnc" id="L555" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc" id="L556">            statistics = new HtmlCompressorStatistics();</span>
             statistics.setTime((new Date()).getTime());
             statistics.getOriginalMetrics().setFilesize(html.length());
-<span class="nc" id="L558"></span>
+<span class="nc" id="L559"></span>
             // calculate number of empty chars
             Matcher matcher = emptyPattern.matcher(html);
             while (matcher.find()) {
@@ -588,162 +589,162 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Preserve blocks.
-<span class="nc bnc" id="L591" title="All 2 branches missed.">     *</span>
-<span class="nc bnc" id="L592" title="All 2 branches missed.">     * @param html</span>
-<span class="nc" id="L593">     *            the html</span>
+<span class="nc bnc" id="L592" title="All 2 branches missed.">     *</span>
+<span class="nc bnc" id="L593" title="All 2 branches missed.">     * @param html</span>
+<span class="nc" id="L594">     *            the html</span>
      * @param preBlocks
-<span class="nc" id="L595">     *            the pre blocks</span>
-<span class="nc" id="L596">     * @param taBlocks</span>
-<span class="nc" id="L597">     *            the ta blocks</span>
-<span class="nc bnc" id="L598" title="All 2 branches missed.">     * @param scriptBlocks</span>
-<span class="nc bnc" id="L599" title="All 2 branches missed.">     *            the script blocks</span>
-<span class="nc" id="L600">     * @param styleBlocks</span>
-<span class="nc" id="L601">     *            the style blocks</span>
+<span class="nc" id="L596">     *            the pre blocks</span>
+<span class="nc" id="L597">     * @param taBlocks</span>
+<span class="nc" id="L598">     *            the ta blocks</span>
+<span class="nc bnc" id="L599" title="All 2 branches missed.">     * @param scriptBlocks</span>
+<span class="nc bnc" id="L600" title="All 2 branches missed.">     *            the script blocks</span>
+<span class="nc" id="L601">     * @param styleBlocks</span>
+<span class="nc" id="L602">     *            the style blocks</span>
      * @param eventBlocks
      *            the event blocks
-<span class="nc" id="L604">     * @param condCommentBlocks</span>
-<span class="nc" id="L605">     *            the cond comment blocks</span>
-<span class="nc" id="L606">     * @param skipBlocks</span>
+<span class="nc" id="L605">     * @param condCommentBlocks</span>
+<span class="nc" id="L606">     *            the cond comment blocks</span>
+<span class="nc" id="L607">     * @param skipBlocks</span>
      *            the skip blocks
      * @param lineBreakBlocks
      *            the line break blocks
      * @param userBlocks
-<span class="nc" id="L611">     *            the user blocks</span>
-<span class="nc" id="L612">     * @return the string</span>
-<span class="nc" id="L613">     */</span>
-<span class="nc bnc" id="L614" title="All 2 branches missed.">    protected String preserveBlocks(String html, List&lt;String&gt; preBlocks, List&lt;String&gt; taBlocks,</span>
-<span class="nc bnc" id="L615" title="All 2 branches missed.">            List&lt;String&gt; scriptBlocks, List&lt;String&gt; styleBlocks, List&lt;String&gt; eventBlocks,</span>
-<span class="nc" id="L616">            List&lt;String&gt; condCommentBlocks, List&lt;String&gt; skipBlocks, List&lt;String&gt; lineBreakBlocks,</span>
-<span class="nc" id="L617">            List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
+<span class="nc" id="L612">     *            the user blocks</span>
+<span class="nc" id="L613">     * @return the string</span>
+<span class="nc" id="L614">     */</span>
+<span class="nc bnc" id="L615" title="All 2 branches missed.">    protected String preserveBlocks(String html, List&lt;String&gt; preBlocks, List&lt;String&gt; taBlocks,</span>
+<span class="nc bnc" id="L616" title="All 2 branches missed.">            List&lt;String&gt; scriptBlocks, List&lt;String&gt; styleBlocks, List&lt;String&gt; eventBlocks,</span>
+<span class="nc" id="L617">            List&lt;String&gt; condCommentBlocks, List&lt;String&gt; skipBlocks, List&lt;String&gt; lineBreakBlocks,</span>
+<span class="nc" id="L618">            List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
 
         // preserve user blocks
-<span class="nc" id="L620">        if (preservePatterns != null) {</span>
-<span class="nc" id="L621">            for (int p = 0; p &lt; preservePatterns.size(); p++) {</span>
-                List&lt;String&gt; userBlock = new ArrayList&lt;String&gt;();
+<span class="nc" id="L621">        if (preservePatterns != null) {</span>
+<span class="nc" id="L622">            for (int p = 0; p &lt; preservePatterns.size(); p++) {</span>
+                List&lt;String&gt; userBlock = new ArrayList&lt;&gt;();
 
-<span class="nc" id="L624">                Matcher matcher = preservePatterns.get(p).matcher(html);</span>
-<span class="nc" id="L625">                int index = 0;</span>
-<span class="nc" id="L626">                StringBuffer sb = new StringBuffer();</span>
-<span class="nc" id="L627">                while (matcher.find()) {</span>
-<span class="nc bnc" id="L628" title="All 2 branches missed.">                    if (matcher.group(0).trim().length() &gt; 0) {</span>
-<span class="nc bnc" id="L629" title="All 2 branches missed.">                        userBlock.add(matcher.group(0));</span>
-<span class="nc" id="L630">                        matcher.appendReplacement(sb, MessageFormat.format(tempUserBlock, p, index++));</span>
-<span class="nc" id="L631">                    }</span>
-<span class="nc" id="L632">                }</span>
+<span class="nc" id="L625">                Matcher matcher = preservePatterns.get(p).matcher(html);</span>
+<span class="nc" id="L626">                int index = 0;</span>
+<span class="nc" id="L627">                StringBuffer sb = new StringBuffer();</span>
+<span class="nc" id="L628">                while (matcher.find()) {</span>
+<span class="nc bnc" id="L629" title="All 2 branches missed.">                    if (matcher.group(0).trim().length() &gt; 0) {</span>
+<span class="nc bnc" id="L630" title="All 2 branches missed.">                        userBlock.add(matcher.group(0));</span>
+<span class="nc" id="L631">                        matcher.appendReplacement(sb, MessageFormat.format(TEMP_USER_BLOCK, p, index++));</span>
+<span class="nc" id="L632">                    }</span>
+<span class="nc" id="L633">                }</span>
                 matcher.appendTail(sb);
                 html = sb.toString();
-<span class="nc" id="L635">                userBlocks.add(userBlock);</span>
-<span class="nc" id="L636">            }</span>
+<span class="nc" id="L636">                userBlocks.add(userBlock);</span>
+<span class="nc" id="L637">            }</span>
         }
 
-<span class="nc" id="L639">        // preserve &lt;!-- {{{ ---&gt;&lt;!-- }}} ---&gt; skip blocks</span>
-<span class="nc" id="L640">        Matcher matcher = skipPattern.matcher(html);</span>
-<span class="nc" id="L641">        int skipBlockIndex = 0;</span>
-<span class="nc bnc" id="L642" title="All 2 branches missed.">        StringBuffer sb = new StringBuffer();</span>
-<span class="nc bnc" id="L643" title="All 2 branches missed.">        while (matcher.find()) {</span>
-<span class="nc" id="L644">            if (matcher.group(1).trim().length() &gt; 0) {</span>
-<span class="nc" id="L645">                skipBlocks.add(matcher.group(1));</span>
-                matcher.appendReplacement(sb, MessageFormat.format(tempSkipBlock, skipBlockIndex++));
+<span class="nc" id="L640">        // preserve &lt;!-- {{{ ---&gt;&lt;!-- }}} ---&gt; skip blocks</span>
+<span class="nc" id="L641">        Matcher matcher = skipPattern.matcher(html);</span>
+<span class="nc" id="L642">        int skipBlockIndex = 0;</span>
+<span class="nc bnc" id="L643" title="All 2 branches missed.">        StringBuffer sb = new StringBuffer();</span>
+<span class="nc bnc" id="L644" title="All 2 branches missed.">        while (matcher.find()) {</span>
+<span class="nc" id="L645">            if (matcher.group(1).trim().length() &gt; 0) {</span>
+<span class="nc" id="L646">                skipBlocks.add(matcher.group(1));</span>
+                matcher.appendReplacement(sb, MessageFormat.format(TEMP_SKIP_BLOCK, skipBlockIndex++));
             }
-<span class="nc" id="L648">        }</span>
-<span class="nc" id="L649">        matcher.appendTail(sb);</span>
+<span class="nc" id="L649">        }</span>
+<span class="nc" id="L650">        matcher.appendTail(sb);</span>
         html = sb.toString();
-<span class="nc" id="L651"></span>
-<span class="nc" id="L652">        // preserve conditional comments</span>
-<span class="nc bnc" id="L653" title="All 2 branches missed.">        HtmlCompressor condCommentCompressor = createCompressorClone();</span>
-<span class="nc bnc" id="L654" title="All 2 branches missed.">        matcher = condCommentPattern.matcher(html);</span>
-<span class="nc" id="L655">        int index = 0;</span>
-<span class="nc" id="L656">        sb = new StringBuffer();</span>
+<span class="nc" id="L652"></span>
+<span class="nc" id="L653">        // preserve conditional comments</span>
+<span class="nc bnc" id="L654" title="All 2 branches missed.">        HtmlCompressor condCommentCompressor = createCompressorClone();</span>
+<span class="nc bnc" id="L655" title="All 2 branches missed.">        matcher = condCommentPattern.matcher(html);</span>
+<span class="nc" id="L656">        int index = 0;</span>
+<span class="nc" id="L657">        sb = new StringBuffer();</span>
         while (matcher.find()) {
             if (matcher.group(2).trim().length() &gt; 0) {
-<span class="nc" id="L659">                condCommentBlocks.add(matcher.group(1) + condCommentCompressor.compress(matcher.group(2))</span>
-<span class="nc" id="L660">                        + matcher.group(3));</span>
-                matcher.appendReplacement(sb, MessageFormat.format(tempCondCommentBlock, index++));
+<span class="nc" id="L660">                condCommentBlocks.add(matcher.group(1) + condCommentCompressor.compress(matcher.group(2))</span>
+<span class="nc" id="L661">                        + matcher.group(3));</span>
+                matcher.appendReplacement(sb, MessageFormat.format(TEMP_COND_COMMENT_BLOCK, index++));
             }
-<span class="nc" id="L663">        }</span>
-<span class="nc" id="L664">        matcher.appendTail(sb);</span>
-<span class="nc" id="L665">        html = sb.toString();</span>
-<span class="nc bnc" id="L666" title="All 2 branches missed."></span>
-<span class="nc bnc" id="L667" title="All 2 branches missed.">        // preserve inline events</span>
-<span class="nc" id="L668">        matcher = eventPattern1.matcher(html);</span>
-<span class="nc" id="L669">        index = 0;</span>
+<span class="nc" id="L664">        }</span>
+<span class="nc" id="L665">        matcher.appendTail(sb);</span>
+<span class="nc" id="L666">        html = sb.toString();</span>
+<span class="nc bnc" id="L667" title="All 2 branches missed."></span>
+<span class="nc bnc" id="L668" title="All 2 branches missed.">        // preserve inline events</span>
+<span class="nc" id="L669">        matcher = eventPattern1.matcher(html);</span>
+<span class="nc" id="L670">        index = 0;</span>
         sb = new StringBuffer();
         while (matcher.find()) {
-<span class="nc" id="L672">            if (matcher.group(2).trim().length() &gt; 0) {</span>
-<span class="nc" id="L673">                eventBlocks.add(matcher.group(2));</span>
-                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempEventBlock, index++) + &quot;$3&quot;);
+<span class="nc" id="L673">            if (matcher.group(2).trim().length() &gt; 0) {</span>
+<span class="nc" id="L674">                eventBlocks.add(matcher.group(2));</span>
+                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_EVENT_BLOCK, index++) + &quot;$3&quot;);
             }
-<span class="nc" id="L676">        }</span>
-<span class="nc" id="L677">        matcher.appendTail(sb);</span>
-<span class="nc" id="L678">        html = sb.toString();</span>
-<span class="nc bnc" id="L679" title="All 2 branches missed."></span>
+<span class="nc" id="L677">        }</span>
+<span class="nc" id="L678">        matcher.appendTail(sb);</span>
+<span class="nc" id="L679">        html = sb.toString();</span>
+<span class="nc bnc" id="L680" title="All 2 branches missed."></span>
         matcher = eventPattern2.matcher(html);
-<span class="nc bnc" id="L681" title="All 2 branches missed.">        sb = new StringBuffer();</span>
+<span class="nc bnc" id="L682" title="All 2 branches missed.">        sb = new StringBuffer();</span>
         while (matcher.find()) {
             if (matcher.group(2).trim().length() &gt; 0) {
-<span class="nc" id="L684">                eventBlocks.add(matcher.group(2));</span>
-<span class="nc" id="L685">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempEventBlock, index++) + &quot;$3&quot;);</span>
-<span class="nc bnc" id="L686" title="All 2 branches missed.">            }</span>
-<span class="nc" id="L687">        }</span>
+<span class="nc" id="L685">                eventBlocks.add(matcher.group(2));</span>
+<span class="nc" id="L686">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_EVENT_BLOCK, index++) + &quot;$3&quot;);</span>
+<span class="nc bnc" id="L687" title="All 2 branches missed.">            }</span>
+<span class="nc" id="L688">        }</span>
         matcher.appendTail(sb);
         html = sb.toString();
-<span class="nc bnc" id="L690" title="All 6 branches missed."></span>
+<span class="nc bnc" id="L691" title="All 6 branches missed."></span>
         // preserve PRE tags
-<span class="nc" id="L692">        matcher = prePattern.matcher(html);</span>
-<span class="nc" id="L693">        index = 0;</span>
-<span class="nc bnc" id="L694" title="All 2 branches missed.">        sb = new StringBuffer();</span>
+<span class="nc" id="L693">        matcher = prePattern.matcher(html);</span>
+<span class="nc" id="L694">        index = 0;</span>
+<span class="nc bnc" id="L695" title="All 2 branches missed.">        sb = new StringBuffer();</span>
         while (matcher.find()) {
             if (matcher.group(2).trim().length() &gt; 0) {
                 preBlocks.add(matcher.group(2));
-<span class="nc" id="L698">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempPreBlock, index++) + &quot;$3&quot;);</span>
-<span class="nc" id="L699">            }</span>
+<span class="nc" id="L699">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_PRE_BLOCK, index++) + &quot;$3&quot;);</span>
+<span class="nc" id="L700">            }</span>
         }
         matcher.appendTail(sb);
-<span class="nc" id="L702">        html = sb.toString();</span>
+<span class="nc" id="L703">        html = sb.toString();</span>
 
-<span class="nc" id="L704">        // preserve SCRIPT tags</span>
-<span class="nc" id="L705">        matcher = scriptPattern.matcher(html);</span>
+<span class="nc" id="L705">        // preserve SCRIPT tags</span>
+<span class="nc" id="L706">        matcher = scriptPattern.matcher(html);</span>
         index = 0;
         sb = new StringBuffer();
-<span class="nc" id="L708">        while (matcher.find()) {</span>
-<span class="nc" id="L709">            // ignore empty scripts</span>
-<span class="nc" id="L710">            if (matcher.group(2).trim().length() &gt; 0) {</span>
-<span class="nc bnc" id="L711" title="All 2 branches missed."></span>
-<span class="nc bnc" id="L712" title="All 2 branches missed.">                // check type</span>
-<span class="nc" id="L713">                String type = &quot;&quot;;</span>
-<span class="nc" id="L714">                Matcher typeMatcher = typeAttrPattern.matcher(matcher.group(1));</span>
+<span class="nc" id="L709">        while (matcher.find()) {</span>
+<span class="nc" id="L710">            // ignore empty scripts</span>
+<span class="nc" id="L711">            if (matcher.group(2).trim().length() &gt; 0) {</span>
+<span class="nc bnc" id="L712" title="All 2 branches missed."></span>
+<span class="nc bnc" id="L713" title="All 2 branches missed.">                // check type</span>
+<span class="nc" id="L714">                String type = &quot;&quot;;</span>
+<span class="nc" id="L715">                Matcher typeMatcher = typeAttrPattern.matcher(matcher.group(1));</span>
                 if (typeMatcher.find()) {
                     type = typeMatcher.group(2).toLowerCase();
-<span class="nc" id="L717">                }</span>
-<span class="nc" id="L718"></span>
+<span class="nc" id="L718">                }</span>
+<span class="nc" id="L719"></span>
                 if (type.length() == 0 || &quot;text/javascript&quot;.equals(type) || &quot;application/javascript&quot;.equals(type)) {
                     // javascript block, preserve and compress with js compressor
-<span class="nc" id="L721">                    scriptBlocks.add(matcher.group(2));</span>
-<span class="nc" id="L722">                    matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempScriptBlock, index++) + &quot;$3&quot;);</span>
-<span class="nc" id="L723">                } else if (&quot;text/x-jquery-tmpl&quot;.equals(type)) {</span>
-<span class="nc bnc" id="L724" title="All 2 branches missed.">                    // jquery template, ignore so it gets compressed with the rest of html</span>
-<span class="nc bnc" id="L725" title="All 2 branches missed.">                } else {</span>
-<span class="nc" id="L726">                    // some custom script, preserve it inside &quot;skip blocks&quot; so it won't be compressed with js compressor</span>
-<span class="nc" id="L727">                    skipBlocks.add(matcher.group(2));</span>
-                    matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempSkipBlock, skipBlockIndex++) + &quot;$3&quot;);
+<span class="nc" id="L722">                    scriptBlocks.add(matcher.group(2));</span>
+<span class="nc" id="L723">                    matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_SCRIPT_BLOCK, index++) + &quot;$3&quot;);</span>
+<span class="nc" id="L724">                } else if (&quot;text/x-jquery-tmpl&quot;.equals(type)) {</span>
+<span class="nc bnc" id="L725" title="All 2 branches missed.">                    // jquery template, ignore so it gets compressed with the rest of html</span>
+<span class="nc bnc" id="L726" title="All 2 branches missed.">                } else {</span>
+<span class="nc" id="L727">                    // some custom script, preserve it inside &quot;skip blocks&quot; so it won't be compressed with js compressor</span>
+<span class="nc" id="L728">                    skipBlocks.add(matcher.group(2));</span>
+                    matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_SKIP_BLOCK, skipBlockIndex++) + &quot;$3&quot;);
                 }
-<span class="nc" id="L730"></span>
-<span class="nc" id="L731">            }</span>
+<span class="nc" id="L731"></span>
+<span class="nc" id="L732">            }</span>
         }
         matcher.appendTail(sb);
-<span class="nc bnc" id="L734" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L735"></span>
-<span class="nc" id="L736">        // preserve STYLE tags</span>
-<span class="nc" id="L737">        matcher = stylePattern.matcher(html);</span>
-<span class="nc bnc" id="L738" title="All 2 branches missed.">        index = 0;</span>
-<span class="nc" id="L739">        sb = new StringBuffer();</span>
-<span class="nc" id="L740">        while (matcher.find()) {</span>
+<span class="nc bnc" id="L735" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L736"></span>
+<span class="nc" id="L737">        // preserve STYLE tags</span>
+<span class="nc" id="L738">        matcher = stylePattern.matcher(html);</span>
+<span class="nc bnc" id="L739" title="All 2 branches missed.">        index = 0;</span>
+<span class="nc" id="L740">        sb = new StringBuffer();</span>
+<span class="nc" id="L741">        while (matcher.find()) {</span>
             if (matcher.group(2).trim().length() &gt; 0) {
-<span class="nc" id="L742">                styleBlocks.add(matcher.group(2));</span>
-<span class="nc" id="L743">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempStyleBlock, index++) + &quot;$3&quot;);</span>
+<span class="nc" id="L743">                styleBlocks.add(matcher.group(2));</span>
+<span class="nc" id="L744">                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_STYLE_BLOCK, index++) + &quot;$3&quot;);</span>
             }
         }
-<span class="nc" id="L746">        matcher.appendTail(sb);</span>
+<span class="nc" id="L747">        matcher.appendTail(sb);</span>
         html = sb.toString();
 
         // preserve TEXTAREA tags
@@ -753,7 +754,7 @@ public class HtmlCompressor implements Compressor {
         while (matcher.find()) {
             if (matcher.group(2).trim().length() &gt; 0) {
                 taBlocks.add(matcher.group(2));
-                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(tempTextAreaBlock, index++) + &quot;$3&quot;);
+                matcher.appendReplacement(sb, &quot;$1&quot; + MessageFormat.format(TEMP_TEXT_AREA_BLOCK, index++) + &quot;$3&quot;);
             }
         }
         matcher.appendTail(sb);
@@ -766,7 +767,7 @@ public class HtmlCompressor implements Compressor {
             sb = new StringBuffer();
             while (matcher.find()) {
                 lineBreakBlocks.add(matcher.group(1));
-                matcher.appendReplacement(sb, MessageFormat.format(tempLineBreakBlock, index++));
+                matcher.appendReplacement(sb, MessageFormat.format(TEMP_LINE_BREAK_BLOCK, index++));
             }
             matcher.appendTail(sb);
             html = sb.toString();
@@ -777,121 +778,121 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Return blocks.
-<span class="nc bnc" id="L780" title="All 2 branches missed.">     *</span>
-<span class="nc" id="L781">     * @param html</span>
-<span class="nc" id="L782">     *            the html</span>
-<span class="nc bnc" id="L783" title="All 2 branches missed.">     * @param preBlocks</span>
-<span class="nc" id="L784">     *            the pre blocks</span>
-<span class="nc bnc" id="L785" title="All 2 branches missed.">     * @param taBlocks</span>
-<span class="nc" id="L786">     *            the ta blocks</span>
+<span class="nc bnc" id="L781" title="All 2 branches missed.">     *</span>
+<span class="nc" id="L782">     * @param html</span>
+<span class="nc" id="L783">     *            the html</span>
+<span class="nc bnc" id="L784" title="All 2 branches missed.">     * @param preBlocks</span>
+<span class="nc" id="L785">     *            the pre blocks</span>
+<span class="nc bnc" id="L786" title="All 2 branches missed.">     * @param taBlocks</span>
+<span class="nc" id="L787">     *            the ta blocks</span>
      * @param scriptBlocks
-<span class="nc" id="L788">     *            the script blocks</span>
-<span class="nc" id="L789">     * @param styleBlocks</span>
-<span class="nc" id="L790">     *            the style blocks</span>
+<span class="nc" id="L789">     *            the script blocks</span>
+<span class="nc" id="L790">     * @param styleBlocks</span>
+<span class="nc" id="L791">     *            the style blocks</span>
      * @param eventBlocks
      *            the event blocks
      * @param condCommentBlocks
-<span class="nc" id="L794">     *            the cond comment blocks</span>
-<span class="nc" id="L795">     * @param skipBlocks</span>
-<span class="nc bnc" id="L796" title="All 2 branches missed.">     *            the skip blocks</span>
-<span class="nc" id="L797">     * @param lineBreakBlocks</span>
-<span class="nc bnc" id="L798" title="All 2 branches missed.">     *            the line break blocks</span>
-<span class="nc" id="L799">     * @param userBlocks</span>
+<span class="nc" id="L795">     *            the cond comment blocks</span>
+<span class="nc" id="L796">     * @param skipBlocks</span>
+<span class="nc bnc" id="L797" title="All 2 branches missed.">     *            the skip blocks</span>
+<span class="nc" id="L798">     * @param lineBreakBlocks</span>
+<span class="nc bnc" id="L799" title="All 2 branches missed.">     *            the line break blocks</span>
+<span class="nc" id="L800">     * @param userBlocks</span>
      *            the user blocks
-<span class="nc" id="L801">     * @return the string</span>
-<span class="nc" id="L802">     */</span>
-<span class="nc" id="L803">    protected String returnBlocks(String html, List&lt;String&gt; preBlocks, List&lt;String&gt; taBlocks,</span>
+<span class="nc" id="L802">     * @return the string</span>
+<span class="nc" id="L803">     */</span>
+<span class="nc" id="L804">    protected String returnBlocks(String html, List&lt;String&gt; preBlocks, List&lt;String&gt; taBlocks,</span>
             List&lt;String&gt; scriptBlocks, List&lt;String&gt; styleBlocks, List&lt;String&gt; eventBlocks,
             List&lt;String&gt; condCommentBlocks, List&lt;String&gt; skipBlocks, List&lt;String&gt; lineBreakBlocks,
-<span class="nc" id="L806">            List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
-<span class="nc" id="L807"></span>
-<span class="nc bnc" id="L808" title="All 2 branches missed.">        // put line breaks back</span>
-<span class="nc" id="L809">        if (preserveLineBreaks) {</span>
-<span class="nc bnc" id="L810" title="All 2 branches missed.">            Matcher matcher = tempLineBreakPattern.matcher(html);</span>
-<span class="nc" id="L811">            StringBuffer sb = new StringBuffer();</span>
+<span class="nc" id="L807">            List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
+<span class="nc" id="L808"></span>
+<span class="nc bnc" id="L809" title="All 2 branches missed.">        // put line breaks back</span>
+<span class="nc" id="L810">        if (preserveLineBreaks) {</span>
+<span class="nc bnc" id="L811" title="All 2 branches missed.">            Matcher matcher = tempLineBreakPattern.matcher(html);</span>
+<span class="nc" id="L812">            StringBuffer sb = new StringBuffer();</span>
             while (matcher.find()) {
-<span class="nc" id="L813">                int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L814">                if (lineBreakBlocks.size() &gt; i) {</span>
-<span class="nc" id="L815">                    matcher.appendReplacement(sb, lineBreakBlocks.get(i));</span>
+<span class="nc" id="L814">                int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L815">                if (lineBreakBlocks.size() &gt; i) {</span>
+<span class="nc" id="L816">                    matcher.appendReplacement(sb, lineBreakBlocks.get(i));</span>
                 }
             }
-<span class="nc" id="L818">            matcher.appendTail(sb);</span>
-<span class="nc" id="L819">            html = sb.toString();</span>
-<span class="nc bnc" id="L820" title="All 2 branches missed.">        }</span>
-<span class="nc" id="L821"></span>
-<span class="nc bnc" id="L822" title="All 2 branches missed.">        // put TEXTAREA blocks back</span>
-<span class="nc" id="L823">        Matcher matcher = tempTextAreaPattern.matcher(html);</span>
+<span class="nc" id="L819">            matcher.appendTail(sb);</span>
+<span class="nc" id="L820">            html = sb.toString();</span>
+<span class="nc bnc" id="L821" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L822"></span>
+<span class="nc bnc" id="L823" title="All 2 branches missed.">        // put TEXTAREA blocks back</span>
+<span class="nc" id="L824">        Matcher matcher = tempTextAreaPattern.matcher(html);</span>
         StringBuffer sb = new StringBuffer();
-<span class="nc" id="L825">        while (matcher.find()) {</span>
-<span class="nc" id="L826">            int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L827">            if (taBlocks.size() &gt; i) {</span>
+<span class="nc" id="L826">        while (matcher.find()) {</span>
+<span class="nc" id="L827">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L828">            if (taBlocks.size() &gt; i) {</span>
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(taBlocks.get(i)));
             }
-<span class="nc" id="L830">        }</span>
-<span class="nc" id="L831">        matcher.appendTail(sb);</span>
-<span class="nc bnc" id="L832" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L833"></span>
-<span class="nc bnc" id="L834" title="All 2 branches missed.">        // put STYLE blocks back</span>
-<span class="nc" id="L835">        matcher = tempStylePattern.matcher(html);</span>
+<span class="nc" id="L831">        }</span>
+<span class="nc" id="L832">        matcher.appendTail(sb);</span>
+<span class="nc bnc" id="L833" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L834"></span>
+<span class="nc bnc" id="L835" title="All 2 branches missed.">        // put STYLE blocks back</span>
+<span class="nc" id="L836">        matcher = tempStylePattern.matcher(html);</span>
         sb = new StringBuffer();
-<span class="nc" id="L837">        while (matcher.find()) {</span>
-<span class="nc" id="L838">            int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L839">            if (styleBlocks.size() &gt; i) {</span>
+<span class="nc" id="L838">        while (matcher.find()) {</span>
+<span class="nc" id="L839">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L840">            if (styleBlocks.size() &gt; i) {</span>
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(styleBlocks.get(i)));
             }
-<span class="nc" id="L842">        }</span>
-<span class="nc" id="L843">        matcher.appendTail(sb);</span>
-<span class="nc bnc" id="L844" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L845"></span>
-<span class="nc bnc" id="L846" title="All 2 branches missed.">        // put SCRIPT blocks back</span>
-<span class="nc" id="L847">        matcher = tempScriptPattern.matcher(html);</span>
+<span class="nc" id="L843">        }</span>
+<span class="nc" id="L844">        matcher.appendTail(sb);</span>
+<span class="nc bnc" id="L845" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L846"></span>
+<span class="nc bnc" id="L847" title="All 2 branches missed.">        // put SCRIPT blocks back</span>
+<span class="nc" id="L848">        matcher = tempScriptPattern.matcher(html);</span>
         sb = new StringBuffer();
-<span class="nc" id="L849">        while (matcher.find()) {</span>
-<span class="nc" id="L850">            int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L851">            if (scriptBlocks.size() &gt; i) {</span>
+<span class="nc" id="L850">        while (matcher.find()) {</span>
+<span class="nc" id="L851">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L852">            if (scriptBlocks.size() &gt; i) {</span>
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(scriptBlocks.get(i)));
             }
-<span class="nc" id="L854">        }</span>
-<span class="nc" id="L855">        matcher.appendTail(sb);</span>
-<span class="nc bnc" id="L856" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L857"></span>
-<span class="nc bnc" id="L858" title="All 2 branches missed.">        // put PRE blocks back</span>
-<span class="nc" id="L859">        matcher = tempPrePattern.matcher(html);</span>
+<span class="nc" id="L855">        }</span>
+<span class="nc" id="L856">        matcher.appendTail(sb);</span>
+<span class="nc bnc" id="L857" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L858"></span>
+<span class="nc bnc" id="L859" title="All 2 branches missed.">        // put PRE blocks back</span>
+<span class="nc" id="L860">        matcher = tempPrePattern.matcher(html);</span>
         sb = new StringBuffer();
-<span class="nc" id="L861">        while (matcher.find()) {</span>
-<span class="nc" id="L862">            int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L863">            if (preBlocks.size() &gt; i) {</span>
+<span class="nc" id="L862">        while (matcher.find()) {</span>
+<span class="nc" id="L863">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L864">            if (preBlocks.size() &gt; i) {</span>
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(preBlocks.get(i)));
             }
-<span class="nc" id="L866">        }</span>
-<span class="nc" id="L867">        matcher.appendTail(sb);</span>
-<span class="nc bnc" id="L868" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L869"></span>
-<span class="nc bnc" id="L870" title="All 2 branches missed.">        // put event blocks back</span>
-<span class="nc" id="L871">        matcher = tempEventPattern.matcher(html);</span>
+<span class="nc" id="L867">        }</span>
+<span class="nc" id="L868">        matcher.appendTail(sb);</span>
+<span class="nc bnc" id="L869" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L870"></span>
+<span class="nc bnc" id="L871" title="All 2 branches missed.">        // put event blocks back</span>
+<span class="nc" id="L872">        matcher = tempEventPattern.matcher(html);</span>
         sb = new StringBuffer();
-<span class="nc" id="L873">        while (matcher.find()) {</span>
-<span class="nc" id="L874">            int i = Integer.parseInt(matcher.group(1));</span>
-<span class="nc" id="L875">            if (eventBlocks.size() &gt; i) {</span>
+<span class="nc" id="L874">        while (matcher.find()) {</span>
+<span class="nc" id="L875">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L876">            if (eventBlocks.size() &gt; i) {</span>
                 matcher.appendReplacement(sb, Matcher.quoteReplacement(eventBlocks.get(i)));
             }
-<span class="nc bnc" id="L878" title="All 2 branches missed.">        }</span>
-<span class="nc bnc" id="L879" title="All 2 branches missed.">        matcher.appendTail(sb);</span>
-<span class="nc" id="L880">        html = sb.toString();</span>
-<span class="nc" id="L881"></span>
-<span class="nc" id="L882">        // put conditional comments back</span>
-<span class="nc bnc" id="L883" title="All 2 branches missed.">        matcher = tempCondCommentPattern.matcher(html);</span>
-<span class="nc" id="L884">        sb = new StringBuffer();</span>
-<span class="nc bnc" id="L885" title="All 4 branches missed.">        while (matcher.find()) {</span>
-<span class="nc" id="L886">            int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc bnc" id="L879" title="All 2 branches missed.">        }</span>
+<span class="nc bnc" id="L880" title="All 2 branches missed.">        matcher.appendTail(sb);</span>
+<span class="nc" id="L881">        html = sb.toString();</span>
+<span class="nc" id="L882"></span>
+<span class="nc" id="L883">        // put conditional comments back</span>
+<span class="nc bnc" id="L884" title="All 2 branches missed.">        matcher = tempCondCommentPattern.matcher(html);</span>
+<span class="nc" id="L885">        sb = new StringBuffer();</span>
+<span class="nc bnc" id="L886" title="All 4 branches missed.">        while (matcher.find()) {</span>
+<span class="nc" id="L887">            int i = Integer.parseInt(matcher.group(1));</span>
             if (condCommentBlocks.size() &gt; i) {
-<span class="nc" id="L888">                matcher.appendReplacement(sb, Matcher.quoteReplacement(condCommentBlocks.get(i)));</span>
-<span class="nc" id="L889">            }</span>
-<span class="nc" id="L890">        }</span>
+<span class="nc" id="L889">                matcher.appendReplacement(sb, Matcher.quoteReplacement(condCommentBlocks.get(i)));</span>
+<span class="nc" id="L890">            }</span>
+<span class="nc" id="L891">        }</span>
         matcher.appendTail(sb);
         html = sb.toString();
 
-<span class="nc" id="L894">        // put skip blocks back</span>
+<span class="nc" id="L895">        // put skip blocks back</span>
         matcher = tempSkipPattern.matcher(html);
         sb = new StringBuffer();
         while (matcher.find()) {
@@ -904,51 +905,51 @@ public class HtmlCompressor implements Compressor {
         html = sb.toString();
 
         // put user blocks back
-<span class="nc" id="L907">        if (preservePatterns != null) {</span>
+<span class="nc" id="L908">        if (preservePatterns != null) {</span>
             for (int p = preservePatterns.size() - 1; p &gt;= 0; p--) {
                 Pattern tempUserPattern = Pattern.compile(&quot;%%%~COMPRESS~USER&quot; + p + &quot;~(\\d+?)~%%%&quot;);
-<span class="nc" id="L910">                matcher = tempUserPattern.matcher(html);</span>
+<span class="nc" id="L911">                matcher = tempUserPattern.matcher(html);</span>
                 sb = new StringBuffer();
                 while (matcher.find()) {
-<span class="nc" id="L913">                    int i = Integer.parseInt(matcher.group(1));</span>
+<span class="nc" id="L914">                    int i = Integer.parseInt(matcher.group(1));</span>
                     if (userBlocks.size() &gt; p &amp;&amp; userBlocks.get(p).size() &gt; i) {
                         matcher.appendReplacement(sb, Matcher.quoteReplacement(userBlocks.get(p).get(i)));
-<span class="nc" id="L916">                    }</span>
+<span class="nc" id="L917">                    }</span>
                 }
                 matcher.appendTail(sb);
-<span class="nc" id="L919">                html = sb.toString();</span>
+<span class="nc" id="L920">                html = sb.toString();</span>
             }
         }
-<span class="nc" id="L922"></span>
+<span class="nc" id="L923"></span>
         return html;
     }
-<span class="nc" id="L925"></span>
+<span class="nc" id="L926"></span>
     /**
      * Process html.
-<span class="nc" id="L928">     *</span>
+<span class="nc" id="L929">     *</span>
      * @param html
      *            the html
-<span class="nc" id="L931">     * @return the string</span>
+<span class="nc" id="L932">     * @return the string</span>
      */
     protected String processHtml(String html) {
-<span class="nc" id="L934"></span>
+<span class="nc" id="L935"></span>
         // remove comments
         html = removeComments(html);
-<span class="nc" id="L937"></span>
+<span class="nc" id="L938"></span>
         // simplify doctype
         html = simpleDoctype(html);
-<span class="nc" id="L940"></span>
+<span class="nc" id="L941"></span>
         // remove script attributes
         html = removeScriptAttributes(html);
-<span class="nc" id="L943"></span>
+<span class="nc" id="L944"></span>
         // remove style attributes
         html = removeStyleAttributes(html);
-<span class="nc" id="L946"></span>
+<span class="nc" id="L947"></span>
         // remove link attributes
         html = removeLinkAttributes(html);
-<span class="nc" id="L949"></span>
+<span class="nc" id="L950"></span>
         // remove form attributes
-<span class="nc" id="L951">        html = removeFormAttributes(html);</span>
+<span class="nc" id="L952">        html = removeFormAttributes(html);</span>
 
         // remove input attributes
         html = removeInputAttributes(html);
@@ -960,30 +961,30 @@ public class HtmlCompressor implements Compressor {
         html = removeHttpProtocol(html);
 
         // remove https from attributes
-<span class="nc bnc" id="L963" title="All 2 branches missed.">        html = removeHttpsProtocol(html);</span>
+<span class="nc bnc" id="L964" title="All 2 branches missed.">        html = removeHttpsProtocol(html);</span>
 
-<span class="nc bnc" id="L965" title="All 2 branches missed.">        // remove inter-tag spaces</span>
-<span class="nc" id="L966">        html = removeIntertagSpaces(html);</span>
-<span class="nc bnc" id="L967" title="All 2 branches missed."></span>
-<span class="nc" id="L968">        // remove multi whitespace characters</span>
+<span class="nc bnc" id="L966" title="All 2 branches missed.">        // remove inter-tag spaces</span>
+<span class="nc" id="L967">        html = removeIntertagSpaces(html);</span>
+<span class="nc bnc" id="L968" title="All 2 branches missed."></span>
+<span class="nc" id="L969">        // remove multi whitespace characters</span>
         html = removeMultiSpaces(html);
-<span class="nc bnc" id="L970" title="All 2 branches missed."></span>
-<span class="nc" id="L971">        // remove spaces around equals sign and ending spaces</span>
+<span class="nc bnc" id="L971" title="All 2 branches missed."></span>
+<span class="nc" id="L972">        // remove spaces around equals sign and ending spaces</span>
         html = removeSpacesInsideTags(html);
-<span class="nc" id="L973"></span>
+<span class="nc" id="L974"></span>
         // remove quotes from tag attributes
         html = removeQuotesInsideTags(html);
 
-<span class="nc" id="L977">        // remove surrounding spaces</span>
-<span class="nc" id="L978">        html = removeSurroundingSpaces(html);</span>
-<span class="nc bnc" id="L979" title="All 2 branches missed."></span>
-<span class="nc" id="L980">        return html.trim();</span>
+<span class="nc" id="L978">        // remove surrounding spaces</span>
+<span class="nc" id="L979">        html = removeSurroundingSpaces(html);</span>
+<span class="nc bnc" id="L980" title="All 2 branches missed."></span>
+<span class="nc" id="L981">        return html.trim();</span>
     }
-<span class="nc" id="L982"></span>
-<span class="nc" id="L983">    /**</span>
+<span class="nc" id="L983"></span>
+<span class="nc" id="L984">    /**</span>
      * Removes the surrounding spaces.
      *
-<span class="nc" id="L986">     * @param html</span>
+<span class="nc" id="L987">     * @param html</span>
      *            the html
      * @return the string
      */
@@ -995,22 +996,22 @@ public class HtmlCompressor implements Compressor {
                 pattern = surroundingSpacesMinPattern;
             } else if (removeSurroundingSpaces.equalsIgnoreCase(BLOCK_TAGS_MAX)) {
                 pattern = surroundingSpacesMaxPattern;
-<span class="nc bnc" id="L998" title="All 2 branches missed.">            }</span>
-<span class="nc" id="L999">            if (removeSurroundingSpaces.equalsIgnoreCase(ALL_TAGS)) {</span>
-<span class="nc" id="L1000">                pattern = surroundingSpacesAllPattern;</span>
-<span class="nc bnc" id="L1001" title="All 2 branches missed.">            } else {</span>
+<span class="nc bnc" id="L999" title="All 2 branches missed.">            }</span>
+<span class="nc" id="L1000">            if (removeSurroundingSpaces.equalsIgnoreCase(ALL_TAGS)) {</span>
+<span class="nc" id="L1001">                pattern = surroundingSpacesAllPattern;</span>
+<span class="nc bnc" id="L1002" title="All 2 branches missed.">            } else {</span>
                 pattern = Pattern.compile(&quot;\\s*(&lt;/?(?:&quot; + removeSurroundingSpaces.replaceAll(&quot;,&quot;, &quot;|&quot;)
-<span class="nc bnc" id="L1003" title="All 2 branches missed.">                        + &quot;)(?:&gt;|[\\s/][^&gt;]*&gt;))\\s*&quot;, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
-<span class="nc" id="L1004">            }</span>
+<span class="nc bnc" id="L1004" title="All 2 branches missed.">                        + &quot;)(?:&gt;|[\\s/][^&gt;]*&gt;))\\s*&quot;, Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="nc" id="L1005">            }</span>
 
-<span class="nc" id="L1006">            Matcher matcher = pattern.matcher(html);</span>
+<span class="nc" id="L1007">            Matcher matcher = pattern.matcher(html);</span>
             StringBuffer sb = new StringBuffer();
             while (matcher.find()) {
-<span class="nc" id="L1009">                matcher.appendReplacement(sb, &quot;$1&quot;);</span>
-<span class="nc" id="L1010">            }</span>
+<span class="nc" id="L1010">                matcher.appendReplacement(sb, &quot;$1&quot;);</span>
+<span class="nc" id="L1011">            }</span>
             matcher.appendTail(sb);
             html = sb.toString();
-<span class="nc" id="L1013"></span>
+<span class="nc" id="L1014"></span>
         }
         return html;
     }
@@ -1022,24 +1023,24 @@ public class HtmlCompressor implements Compressor {
      *            the html
      * @return the string
      */
-<span class="nc" id="L1025">    protected String removeQuotesInsideTags(String html) {</span>
+<span class="nc" id="L1026">    protected String removeQuotesInsideTags(String html) {</span>
         // remove quotes from tag attributes
         if (removeQuotes) {
             Matcher matcher = tagQuotePattern.matcher(html);
-<span class="nc" id="L1029">            StringBuffer sb = new StringBuffer();</span>
-<span class="nc" id="L1030">            while (matcher.find()) {</span>
-<span class="nc bnc" id="L1031" title="All 2 branches missed.">                // if quoted attribute is followed by &quot;/&quot; add extra space</span>
+<span class="nc" id="L1030">            StringBuffer sb = new StringBuffer();</span>
+<span class="nc" id="L1031">            while (matcher.find()) {</span>
+<span class="nc bnc" id="L1032" title="All 2 branches missed.">                // if quoted attribute is followed by &quot;/&quot; add extra space</span>
                 if (matcher.group(3).trim().length() == 0) {
-<span class="nc bnc" id="L1033" title="All 4 branches missed.">                    matcher.appendReplacement(sb, &quot;=$2&quot;);</span>
-<span class="nc" id="L1034">                } else {</span>
+<span class="nc bnc" id="L1034" title="All 4 branches missed.">                    matcher.appendReplacement(sb, &quot;=$2&quot;);</span>
+<span class="nc" id="L1035">                } else {</span>
                     matcher.appendReplacement(sb, &quot;=$2 $3&quot;);
-<span class="nc" id="L1036">                }</span>
+<span class="nc" id="L1037">                }</span>
             }
             matcher.appendTail(sb);
-<span class="nc" id="L1039">            html = sb.toString();</span>
-<span class="nc" id="L1040"></span>
+<span class="nc" id="L1040">            html = sb.toString();</span>
+<span class="nc" id="L1041"></span>
         }
-<span class="nc" id="L1042">        return html;</span>
+<span class="nc" id="L1043">        return html;</span>
     }
 
     /**
@@ -1051,10 +1052,10 @@ public class HtmlCompressor implements Compressor {
      */
     protected String removeSpacesInsideTags(String html) {
         // remove spaces around equals sign inside tags
-<span class="nc bnc" id="L1054" title="All 2 branches missed.">        html = tagPropertyPattern.matcher(html).replaceAll(&quot;$1=&quot;);</span>
-<span class="nc" id="L1055"></span>
+<span class="nc bnc" id="L1055" title="All 2 branches missed.">        html = tagPropertyPattern.matcher(html).replaceAll(&quot;$1=&quot;);</span>
+<span class="nc" id="L1056"></span>
         // remove ending spaces inside tags
-<span class="nc" id="L1057">        // html = tagEndSpacePattern.matcher(html).replaceAll(&quot;$1$2&quot;);</span>
+<span class="nc" id="L1058">        // html = tagEndSpacePattern.matcher(html).replaceAll(&quot;$1$2&quot;);</span>
         Matcher matcher = tagEndSpacePattern.matcher(html);
         StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
@@ -1066,13 +1067,13 @@ public class HtmlCompressor implements Compressor {
             }
         }
         matcher.appendTail(sb);
-<span class="nc bnc" id="L1069" title="All 2 branches missed.">        html = sb.toString();</span>
-<span class="nc" id="L1070"></span>
-<span class="nc" id="L1071">        return html;</span>
-<span class="nc" id="L1072">    }</span>
-<span class="nc" id="L1073"></span>
+<span class="nc bnc" id="L1070" title="All 2 branches missed.">        html = sb.toString();</span>
+<span class="nc" id="L1071"></span>
+<span class="nc" id="L1072">        return html;</span>
+<span class="nc" id="L1073">    }</span>
+<span class="nc" id="L1074"></span>
     /**
-<span class="nc" id="L1075">     * Removes the multi spaces.</span>
+<span class="nc" id="L1076">     * Removes the multi spaces.</span>
      *
      * @param html
      *            the html
@@ -1084,10 +1085,10 @@ public class HtmlCompressor implements Compressor {
             html = multispacePattern.matcher(html).replaceAll(&quot; &quot;);
         }
         return html;
-<span class="nc bnc" id="L1087" title="All 2 branches missed.">    }</span>
-<span class="nc" id="L1088"></span>
+<span class="nc bnc" id="L1088" title="All 2 branches missed.">    }</span>
+<span class="nc" id="L1089"></span>
     /**
-<span class="nc" id="L1090">     * Removes the intertag spaces.</span>
+<span class="nc" id="L1091">     * Removes the intertag spaces.</span>
      *
      * @param html
      *            the html
@@ -1099,10 +1100,10 @@ public class HtmlCompressor implements Compressor {
             html = intertagPattern_TagTag.matcher(html).replaceAll(&quot;&gt;&lt;&quot;);
             html = intertagPattern_TagCustom.matcher(html).replaceAll(&quot;&gt;%%%~&quot;);
             html = intertagPattern_CustomTag.matcher(html).replaceAll(&quot;~%%%&lt;&quot;);
-<span class="nc bnc" id="L1102" title="All 2 branches missed.">            html = intertagPattern_CustomCustom.matcher(html).replaceAll(&quot;~%%%%%%~&quot;);</span>
-<span class="nc" id="L1103">        }</span>
+<span class="nc bnc" id="L1103" title="All 2 branches missed.">            html = intertagPattern_CustomCustom.matcher(html).replaceAll(&quot;~%%%%%%~&quot;);</span>
+<span class="nc" id="L1104">        }</span>
         return html;
-<span class="nc" id="L1105">    }</span>
+<span class="nc" id="L1106">    }</span>
 
     /**
      * Removes the comments.
@@ -1114,14 +1115,14 @@ public class HtmlCompressor implements Compressor {
     protected String removeComments(String html) {
         // remove comments
         if (removeComments) {
-<span class="nc bnc" id="L1117" title="All 2 branches missed.">            html = commentPattern.matcher(html).replaceAll(&quot;&quot;);</span>
+<span class="nc bnc" id="L1118" title="All 2 branches missed.">            html = commentPattern.matcher(html).replaceAll(&quot;&quot;);</span>
         }
-<span class="nc" id="L1119">        return html;</span>
+<span class="nc" id="L1120">        return html;</span>
     }
 
-<span class="nc" id="L1122">    /**</span>
+<span class="nc" id="L1123">    /**</span>
      * Simple doctype.
-<span class="nc" id="L1124">     *</span>
+<span class="nc" id="L1125">     *</span>
      * @param html
      *            the html
      * @return the string
@@ -1133,10 +1134,10 @@ public class HtmlCompressor implements Compressor {
         }
         return html;
     }
-<span class="nc bnc" id="L1136" title="All 2 branches missed."></span>
-<span class="nc" id="L1137">    /**</span>
+<span class="nc bnc" id="L1137" title="All 2 branches missed."></span>
+<span class="nc" id="L1138">    /**</span>
      * Removes the script attributes.
-<span class="nc" id="L1139">     *</span>
+<span class="nc" id="L1140">     *</span>
      * @param html
      *            the html
      * @return the string
@@ -1148,21 +1149,21 @@ public class HtmlCompressor implements Compressor {
             html = jsTypeAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);
 
             // remove language from script tags
-<span class="nc bnc" id="L1151" title="All 2 branches missed.">            html = jsLangAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
-<span class="nc" id="L1152">        }</span>
-<span class="nc" id="L1153">        return html;</span>
-<span class="nc bnc" id="L1154" title="All 2 branches missed.">    }</span>
+<span class="nc bnc" id="L1152" title="All 2 branches missed.">            html = jsLangAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
+<span class="nc" id="L1153">        }</span>
+<span class="nc" id="L1154">        return html;</span>
+<span class="nc bnc" id="L1155" title="All 2 branches missed.">    }</span>
 
-<span class="nc bnc" id="L1156" title="All 2 branches missed.">    /**</span>
-<span class="nc" id="L1157">     * Removes the style attributes.</span>
+<span class="nc bnc" id="L1157" title="All 2 branches missed.">    /**</span>
+<span class="nc" id="L1158">     * Removes the style attributes.</span>
      *
-<span class="nc" id="L1159">     * @param html</span>
+<span class="nc" id="L1160">     * @param html</span>
      *            the html
      * @return the string
-<span class="nc" id="L1162">     */</span>
-<span class="nc" id="L1163">    protected String removeStyleAttributes(String html) {</span>
+<span class="nc" id="L1163">     */</span>
+<span class="nc" id="L1164">    protected String removeStyleAttributes(String html) {</span>
         // remove type from style tags
-<span class="nc" id="L1165">        if (removeStyleAttributes) {</span>
+<span class="nc" id="L1166">        if (removeStyleAttributes) {</span>
             html = styleTypeAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);
         }
         return html;
@@ -1174,10 +1175,10 @@ public class HtmlCompressor implements Compressor {
      * @param html
      *            the html
      * @return the string
-<span class="nc bnc" id="L1177" title="All 2 branches missed.">     */</span>
-<span class="nc" id="L1178">    protected String removeLinkAttributes(String html) {</span>
+<span class="nc bnc" id="L1178" title="All 2 branches missed.">     */</span>
+<span class="nc" id="L1179">    protected String removeLinkAttributes(String html) {</span>
         // remove type from link tags with rel=stylesheet
-<span class="nc" id="L1180">        if (removeLinkAttributes) {</span>
+<span class="nc" id="L1181">        if (removeLinkAttributes) {</span>
             Matcher matcher = linkTypeAttrPattern.matcher(html);
             StringBuffer sb = new StringBuffer();
             while (matcher.find()) {
@@ -1189,10 +1190,10 @@ public class HtmlCompressor implements Compressor {
                 }
             }
             matcher.appendTail(sb);
-<span class="nc bnc" id="L1192" title="All 2 branches missed.">            html = sb.toString();</span>
-<span class="nc" id="L1193">        }</span>
+<span class="nc bnc" id="L1193" title="All 2 branches missed.">            html = sb.toString();</span>
+<span class="nc" id="L1194">        }</span>
         return html;
-<span class="nc" id="L1195">    }</span>
+<span class="nc" id="L1196">    }</span>
 
     /**
      * Removes the form attributes.
@@ -1204,10 +1205,10 @@ public class HtmlCompressor implements Compressor {
     protected String removeFormAttributes(String html) {
         // remove method from form tags
         if (removeFormAttributes) {
-<span class="nc bnc" id="L1207" title="All 2 branches missed.">            html = formMethodAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
-<span class="nc" id="L1208">        }</span>
+<span class="nc bnc" id="L1208" title="All 2 branches missed.">            html = formMethodAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
+<span class="nc" id="L1209">        }</span>
         return html;
-<span class="nc" id="L1210">    }</span>
+<span class="nc" id="L1211">    }</span>
 
     /**
      * Removes the input attributes.
@@ -1219,21 +1220,21 @@ public class HtmlCompressor implements Compressor {
     protected String removeInputAttributes(String html) {
         // remove type from input tags
         if (removeInputAttributes) {
-<span class="nc bnc" id="L1222" title="All 2 branches missed.">            html = inputTypeAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
-<span class="nc" id="L1223">        }</span>
-<span class="nc" id="L1224">        return html;</span>
-<span class="nc bnc" id="L1225" title="All 2 branches missed.">    }</span>
+<span class="nc bnc" id="L1223" title="All 2 branches missed.">            html = inputTypeAttrPattern.matcher(html).replaceAll(&quot;$1$3&quot;);</span>
+<span class="nc" id="L1224">        }</span>
+<span class="nc" id="L1225">        return html;</span>
+<span class="nc bnc" id="L1226" title="All 2 branches missed.">    }</span>
 
-<span class="nc bnc" id="L1227" title="All 2 branches missed.">    /**</span>
-<span class="nc" id="L1228">     * Simple boolean attributes.</span>
+<span class="nc bnc" id="L1228" title="All 2 branches missed.">    /**</span>
+<span class="nc" id="L1229">     * Simple boolean attributes.</span>
      *
-<span class="nc" id="L1230">     * @param html</span>
+<span class="nc" id="L1231">     * @param html</span>
      *            the html
      * @return the string
-<span class="nc" id="L1233">     */</span>
-<span class="nc" id="L1234">    protected String simpleBooleanAttributes(String html) {</span>
+<span class="nc" id="L1234">     */</span>
+<span class="nc" id="L1235">    protected String simpleBooleanAttributes(String html) {</span>
         // simplify boolean attributes
-<span class="nc" id="L1236">        if (simpleBooleanAttributes) {</span>
+<span class="nc" id="L1237">        if (simpleBooleanAttributes) {</span>
             html = booleanAttrPattern.matcher(html).replaceAll(&quot;$1$2$4&quot;);
         }
         return html;
@@ -1245,21 +1246,21 @@ public class HtmlCompressor implements Compressor {
      * @param html
      *            the html
      * @return the string
-<span class="nc bnc" id="L1248" title="All 2 branches missed.">     */</span>
-<span class="nc" id="L1249">    protected String removeHttpProtocol(String html) {</span>
-<span class="nc" id="L1250">        // remove http protocol from tag attributes</span>
-<span class="nc bnc" id="L1251" title="All 2 branches missed.">        if (removeHttpProtocol) {</span>
+<span class="nc bnc" id="L1249" title="All 2 branches missed.">     */</span>
+<span class="nc" id="L1250">    protected String removeHttpProtocol(String html) {</span>
+<span class="nc" id="L1251">        // remove http protocol from tag attributes</span>
+<span class="nc bnc" id="L1252" title="All 2 branches missed.">        if (removeHttpProtocol) {</span>
             Matcher matcher = httpProtocolPattern.matcher(html);
-<span class="nc bnc" id="L1253" title="All 2 branches missed.">            StringBuffer sb = new StringBuffer();</span>
-<span class="nc" id="L1254">            while (matcher.find()) {</span>
+<span class="nc bnc" id="L1254" title="All 2 branches missed.">            StringBuffer sb = new StringBuffer();</span>
+<span class="nc" id="L1255">            while (matcher.find()) {</span>
                 // if rel!=external
-<span class="nc" id="L1256">                if (!relExternalPattern.matcher(matcher.group(0)).matches()) {</span>
+<span class="nc" id="L1257">                if (!relExternalPattern.matcher(matcher.group(0)).matches()) {</span>
                     matcher.appendReplacement(sb, &quot;$1$2&quot;);
                 } else {
-<span class="nc" id="L1259">                    matcher.appendReplacement(sb, &quot;$0&quot;);</span>
-<span class="nc" id="L1260">                }</span>
+<span class="nc" id="L1260">                    matcher.appendReplacement(sb, &quot;$0&quot;);</span>
+<span class="nc" id="L1261">                }</span>
             }
-<span class="nc" id="L1262">            matcher.appendTail(sb);</span>
+<span class="nc" id="L1263">            matcher.appendTail(sb);</span>
             html = sb.toString();
         }
         return html;
@@ -1287,16 +1288,16 @@ public class HtmlCompressor implements Compressor {
             }
             matcher.appendTail(sb);
             html = sb.toString();
-<span class="nc" id="L1290">        }</span>
-<span class="nc" id="L1291">        return html;</span>
-<span class="nc" id="L1292">    }</span>
-<span class="nc" id="L1293"></span>
-<span class="nc" id="L1294">    /**</span>
-<span class="nc" id="L1295">     * Process preserved blocks.</span>
-<span class="nc" id="L1296">     *</span>
-<span class="nc" id="L1297">     * @param preBlocks</span>
-<span class="nc" id="L1298">     *            the pre blocks</span>
-<span class="nc" id="L1299">     * @param taBlocks</span>
+<span class="nc" id="L1291">        }</span>
+<span class="nc" id="L1292">        return html;</span>
+<span class="nc" id="L1293">    }</span>
+<span class="nc" id="L1294"></span>
+<span class="nc" id="L1295">    /**</span>
+<span class="nc" id="L1296">     * Process preserved blocks.</span>
+<span class="nc" id="L1297">     *</span>
+<span class="nc" id="L1298">     * @param preBlocks</span>
+<span class="nc" id="L1299">     *            the pre blocks</span>
+<span class="nc" id="L1300">     * @param taBlocks</span>
      *            the ta blocks
      * @param scriptBlocks
      *            the script blocks
@@ -1305,12 +1306,12 @@ public class HtmlCompressor implements Compressor {
      * @param eventBlocks
      *            the event blocks
      * @param condCommentBlocks
-<span class="nc bnc" id="L1308" title="All 2 branches missed.">     *            the cond comment blocks</span>
-<span class="nc bnc" id="L1309" title="All 2 branches missed.">     * @param skipBlocks</span>
-<span class="nc" id="L1310">     *            the skip blocks</span>
-<span class="nc" id="L1311">     * @param lineBreakBlocks</span>
+<span class="nc bnc" id="L1309" title="All 2 branches missed.">     *            the cond comment blocks</span>
+<span class="nc bnc" id="L1310" title="All 2 branches missed.">     * @param skipBlocks</span>
+<span class="nc" id="L1311">     *            the skip blocks</span>
+<span class="nc" id="L1312">     * @param lineBreakBlocks</span>
      *            the line break blocks
-<span class="nc" id="L1313">     * @param userBlocks</span>
+<span class="nc" id="L1314">     * @param userBlocks</span>
      *            the user blocks
      */
     protected void processPreservedBlocks(List&lt;String&gt; preBlocks, List&lt;String&gt; taBlocks, List&lt;String&gt; scriptBlocks,
@@ -1319,12 +1320,12 @@ public class HtmlCompressor implements Compressor {
         processPreBlocks(preBlocks);
         processTextAreaBlocks(taBlocks);
         processScriptBlocks(scriptBlocks);
-<span class="nc bnc" id="L1322" title="All 2 branches missed.">        processStyleBlocks(styleBlocks);</span>
-<span class="nc bnc" id="L1323" title="All 2 branches missed.">        processEventBlocks(eventBlocks);</span>
-<span class="nc" id="L1324">        processCondCommentBlocks(condCommentBlocks);</span>
-<span class="nc" id="L1325">        processSkipBlocks(skipBlocks);</span>
+<span class="nc bnc" id="L1323" title="All 2 branches missed.">        processStyleBlocks(styleBlocks);</span>
+<span class="nc bnc" id="L1324" title="All 2 branches missed.">        processEventBlocks(eventBlocks);</span>
+<span class="nc" id="L1325">        processCondCommentBlocks(condCommentBlocks);</span>
+<span class="nc" id="L1326">        processSkipBlocks(skipBlocks);</span>
         processUserBlocks(userBlocks);
-<span class="nc" id="L1327">        processLineBreakBlocks(lineBreakBlocks);</span>
+<span class="nc" id="L1328">        processLineBreakBlocks(lineBreakBlocks);</span>
     }
 
     /**
@@ -1333,12 +1334,12 @@ public class HtmlCompressor implements Compressor {
      * @param preBlocks
      *            the pre blocks
      */
-<span class="nc bnc" id="L1336" title="All 2 branches missed.">    protected void processPreBlocks(List&lt;String&gt; preBlocks) {</span>
-<span class="nc bnc" id="L1337" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc" id="L1338">            for (String block : preBlocks) {</span>
-<span class="nc" id="L1339">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1337" title="All 2 branches missed.">    protected void processPreBlocks(List&lt;String&gt; preBlocks) {</span>
+<span class="nc bnc" id="L1338" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc" id="L1339">            for (String block : preBlocks) {</span>
+<span class="nc" id="L1340">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
             }
-<span class="nc" id="L1341">        }</span>
+<span class="nc" id="L1342">        }</span>
     }
 
     /**
@@ -1347,12 +1348,12 @@ public class HtmlCompressor implements Compressor {
      * @param taBlocks
      *            the ta blocks
      */
-<span class="nc bnc" id="L1350" title="All 2 branches missed.">    protected void processTextAreaBlocks(List&lt;String&gt; taBlocks) {</span>
-<span class="nc bnc" id="L1351" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc" id="L1352">            for (String block : taBlocks) {</span>
-<span class="nc" id="L1353">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1351" title="All 2 branches missed.">    protected void processTextAreaBlocks(List&lt;String&gt; taBlocks) {</span>
+<span class="nc bnc" id="L1352" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc" id="L1353">            for (String block : taBlocks) {</span>
+<span class="nc" id="L1354">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
             }
-<span class="nc" id="L1355">        }</span>
+<span class="nc" id="L1356">        }</span>
     }
 
     /**
@@ -1361,12 +1362,12 @@ public class HtmlCompressor implements Compressor {
      * @param condCommentBlocks
      *            the cond comment blocks
      */
-<span class="nc bnc" id="L1364" title="All 2 branches missed.">    protected void processCondCommentBlocks(List&lt;String&gt; condCommentBlocks) {</span>
-<span class="nc bnc" id="L1365" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc" id="L1366">            for (String block : condCommentBlocks) {</span>
-<span class="nc" id="L1367">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1365" title="All 2 branches missed.">    protected void processCondCommentBlocks(List&lt;String&gt; condCommentBlocks) {</span>
+<span class="nc bnc" id="L1366" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc" id="L1367">            for (String block : condCommentBlocks) {</span>
+<span class="nc" id="L1368">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
             }
-<span class="nc" id="L1369">        }</span>
+<span class="nc" id="L1370">        }</span>
     }
 
     /**
@@ -1375,14 +1376,14 @@ public class HtmlCompressor implements Compressor {
      * @param skipBlocks
      *            the skip blocks
      */
-<span class="nc bnc" id="L1378" title="All 2 branches missed.">    protected void processSkipBlocks(List&lt;String&gt; skipBlocks) {</span>
-<span class="nc bnc" id="L1379" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc bnc" id="L1380" title="All 2 branches missed.">            for (String block : skipBlocks) {</span>
-<span class="nc" id="L1381">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
-<span class="nc" id="L1382">            }</span>
-<span class="nc" id="L1383">        }</span>
+<span class="nc bnc" id="L1379" title="All 2 branches missed.">    protected void processSkipBlocks(List&lt;String&gt; skipBlocks) {</span>
+<span class="nc bnc" id="L1380" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc bnc" id="L1381" title="All 2 branches missed.">            for (String block : skipBlocks) {</span>
+<span class="nc" id="L1382">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc" id="L1383">            }</span>
+<span class="nc" id="L1384">        }</span>
     }
-<span class="nc" id="L1385"></span>
+<span class="nc" id="L1386"></span>
     /**
      * Process line break blocks.
      *
@@ -1392,30 +1393,30 @@ public class HtmlCompressor implements Compressor {
     protected void processLineBreakBlocks(List&lt;String&gt; lineBreakBlocks) {
         if (generateStatistics) {
             for (String block : lineBreakBlocks) {
-<span class="nc bnc" id="L1395" title="All 2 branches missed.">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
-<span class="nc bnc" id="L1396" title="All 2 branches missed.">            }</span>
-<span class="nc" id="L1397">        }</span>
-<span class="nc" id="L1398">    }</span>
-<span class="nc" id="L1399"></span>
+<span class="nc bnc" id="L1396" title="All 2 branches missed.">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1397" title="All 2 branches missed.">            }</span>
+<span class="nc" id="L1398">        }</span>
+<span class="nc" id="L1399">    }</span>
+<span class="nc" id="L1400"></span>
     /**
      * Process user blocks.
-<span class="nc bnc" id="L1402" title="All 2 branches missed.">     *</span>
-<span class="nc bnc" id="L1403" title="All 2 branches missed.">     * @param userBlocks</span>
-<span class="nc" id="L1404">     *            the user blocks</span>
+<span class="nc bnc" id="L1403" title="All 2 branches missed.">     *</span>
+<span class="nc bnc" id="L1404" title="All 2 branches missed.">     * @param userBlocks</span>
+<span class="nc" id="L1405">     *            the user blocks</span>
      */
-<span class="nc bnc" id="L1406" title="All 2 branches missed.">    protected void processUserBlocks(List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
-<span class="nc bnc" id="L1407" title="All 2 branches missed.">        if (generateStatistics) {</span>
-<span class="nc" id="L1408">            for (List&lt;String&gt; blockList : userBlocks) {</span>
-<span class="nc" id="L1409">                for (String block : blockList) {</span>
+<span class="nc bnc" id="L1407" title="All 2 branches missed.">    protected void processUserBlocks(List&lt;List&lt;String&gt;&gt; userBlocks) {</span>
+<span class="nc bnc" id="L1408" title="All 2 branches missed.">        if (generateStatistics) {</span>
+<span class="nc" id="L1409">            for (List&lt;String&gt; blockList : userBlocks) {</span>
+<span class="nc" id="L1410">                for (String block : blockList) {</span>
                     statistics.setPreservedSize(statistics.getPreservedSize() + block.length());
                 }
-<span class="nc bnc" id="L1412" title="All 2 branches missed.">            }</span>
-<span class="nc bnc" id="L1413" title="All 2 branches missed.">        }</span>
-<span class="nc" id="L1414">    }</span>
-<span class="nc" id="L1415"></span>
-<span class="nc" id="L1416">    /**</span>
+<span class="nc bnc" id="L1413" title="All 2 branches missed.">            }</span>
+<span class="nc bnc" id="L1414" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L1415">    }</span>
+<span class="nc" id="L1416"></span>
+<span class="nc" id="L1417">    /**</span>
      * Process event blocks.
-<span class="nc" id="L1418">     *</span>
+<span class="nc" id="L1419">     *</span>
      * @param eventBlocks
      *            the event blocks
      */
@@ -1426,18 +1427,18 @@ public class HtmlCompressor implements Compressor {
                 statistics.getOriginalMetrics().setInlineEventSize(
                         statistics.getOriginalMetrics().getInlineEventSize() + block.length());
             }
-<span class="nc" id="L1429">        }</span>
+<span class="nc" id="L1430">        }</span>
 
-<span class="nc" id="L1431">        if (removeJavaScriptProtocol) {</span>
-<span class="nc bnc" id="L1432" title="All 2 branches missed.">            for (int i = 0; i &lt; eventBlocks.size(); i++) {</span>
-<span class="nc" id="L1433">                eventBlocks.set(i, removeJavaScriptProtocol(eventBlocks.get(i)));</span>
+<span class="nc" id="L1432">        if (removeJavaScriptProtocol) {</span>
+<span class="nc bnc" id="L1433" title="All 2 branches missed.">            for (int i = 0; i &lt; eventBlocks.size(); i++) {</span>
+<span class="nc" id="L1434">                eventBlocks.set(i, removeJavaScriptProtocol(eventBlocks.get(i)));</span>
             }
         } else if (generateStatistics) {
-<span class="nc bnc" id="L1436" title="All 2 branches missed.">            for (String block : eventBlocks) {</span>
-<span class="nc" id="L1437">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1437" title="All 2 branches missed.">            for (String block : eventBlocks) {</span>
+<span class="nc" id="L1438">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
             }
         }
-<span class="nc" id="L1440"></span>
+<span class="nc" id="L1441"></span>
         if (generateStatistics) {
             for (String block : eventBlocks) {
                 statistics.getCompressedMetrics().setInlineEventSize(
@@ -1448,30 +1449,30 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Removes the java script protocol.
-<span class="nc bnc" id="L1451" title="All 2 branches missed.">     *</span>
-<span class="nc bnc" id="L1452" title="All 2 branches missed.">     * @param source</span>
-<span class="nc" id="L1453">     *            the source</span>
-<span class="nc" id="L1454">     * @return the string</span>
-<span class="nc" id="L1455">     */</span>
+<span class="nc bnc" id="L1452" title="All 2 branches missed.">     *</span>
+<span class="nc bnc" id="L1453" title="All 2 branches missed.">     * @param source</span>
+<span class="nc" id="L1454">     *            the source</span>
+<span class="nc" id="L1455">     * @return the string</span>
+<span class="nc" id="L1456">     */</span>
     protected String removeJavaScriptProtocol(String source) {
         // remove javascript: from inline events
-<span class="nc bnc" id="L1458" title="All 2 branches missed.">        String result = source;</span>
-<span class="nc bnc" id="L1459" title="All 2 branches missed."></span>
-<span class="nc" id="L1460">        Matcher matcher = eventJsProtocolPattern.matcher(source);</span>
+<span class="nc bnc" id="L1459" title="All 2 branches missed.">        String result = source;</span>
+<span class="nc bnc" id="L1460" title="All 2 branches missed."></span>
+<span class="nc" id="L1461">        Matcher matcher = eventJsProtocolPattern.matcher(source);</span>
         if (matcher.matches()) {
-<span class="nc bnc" id="L1462" title="All 2 branches missed.">            result = matcher.replaceFirst(&quot;$1&quot;);</span>
-<span class="nc bnc" id="L1463" title="All 2 branches missed.">        }</span>
-<span class="nc" id="L1464"></span>
-<span class="nc" id="L1465">        if (generateStatistics) {</span>
+<span class="nc bnc" id="L1463" title="All 2 branches missed.">            result = matcher.replaceFirst(&quot;$1&quot;);</span>
+<span class="nc bnc" id="L1464" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L1465"></span>
+<span class="nc" id="L1466">        if (generateStatistics) {</span>
             statistics.setPreservedSize(statistics.getPreservedSize() + result.length());
         }
-<span class="nc bnc" id="L1468" title="All 2 branches missed."></span>
-<span class="nc bnc" id="L1469" title="All 2 branches missed.">        return result;</span>
-<span class="nc" id="L1470">    }</span>
-<span class="nc" id="L1471"></span>
-<span class="nc" id="L1472">    /**</span>
+<span class="nc bnc" id="L1469" title="All 2 branches missed."></span>
+<span class="nc bnc" id="L1470" title="All 2 branches missed.">        return result;</span>
+<span class="nc" id="L1471">    }</span>
+<span class="nc" id="L1472"></span>
+<span class="nc" id="L1473">    /**</span>
      * Process script blocks.
-<span class="nc" id="L1474">     *</span>
+<span class="nc" id="L1475">     *</span>
      * @param scriptBlocks
      *            the script blocks
      */
@@ -1481,30 +1482,30 @@ public class HtmlCompressor implements Compressor {
             for (String block : scriptBlocks) {
                 statistics.getOriginalMetrics().setInlineScriptSize(
                         statistics.getOriginalMetrics().getInlineScriptSize() + block.length());
-<span class="nc bnc" id="L1484" title="All 2 branches missed.">            }</span>
-<span class="nc bnc" id="L1485" title="All 2 branches missed.">        }</span>
-<span class="nc" id="L1486"></span>
-<span class="nc" id="L1487">        if (compressJavaScript) {</span>
-<span class="nc" id="L1488">            for (int i = 0; i &lt; scriptBlocks.size(); i++) {</span>
+<span class="nc bnc" id="L1485" title="All 2 branches missed.">            }</span>
+<span class="nc bnc" id="L1486" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L1487"></span>
+<span class="nc" id="L1488">        if (compressJavaScript) {</span>
+<span class="nc" id="L1489">            for (int i = 0; i &lt; scriptBlocks.size(); i++) {</span>
                 scriptBlocks.set(i, compressJavaScript(scriptBlocks.get(i)));
             }
-<span class="nc bnc" id="L1491" title="All 2 branches missed.">        } else if (generateStatistics) {</span>
-<span class="nc bnc" id="L1492" title="All 2 branches missed.">            for (String block : scriptBlocks) {</span>
-<span class="nc" id="L1493">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc bnc" id="L1492" title="All 2 branches missed.">        } else if (generateStatistics) {</span>
+<span class="nc bnc" id="L1493" title="All 2 branches missed.">            for (String block : scriptBlocks) {</span>
+<span class="nc" id="L1494">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
             }
-<span class="nc bnc" id="L1495" title="All 2 branches missed.">        }</span>
-<span class="nc bnc" id="L1496" title="All 2 branches missed."></span>
-<span class="nc" id="L1497">        if (generateStatistics) {</span>
-<span class="nc" id="L1498">            for (String block : scriptBlocks) {</span>
+<span class="nc bnc" id="L1496" title="All 2 branches missed.">        }</span>
+<span class="nc bnc" id="L1497" title="All 2 branches missed."></span>
+<span class="nc" id="L1498">        if (generateStatistics) {</span>
+<span class="nc" id="L1499">            for (String block : scriptBlocks) {</span>
                 statistics.getCompressedMetrics().setInlineScriptSize(
                         statistics.getCompressedMetrics().getInlineScriptSize() + block.length());
-<span class="nc bnc" id="L1501" title="All 2 branches missed.">            }</span>
-<span class="nc bnc" id="L1502" title="All 2 branches missed.">        }</span>
-<span class="nc" id="L1503">    }</span>
-<span class="nc" id="L1504"></span>
-<span class="nc" id="L1505">    /**</span>
+<span class="nc bnc" id="L1502" title="All 2 branches missed.">            }</span>
+<span class="nc bnc" id="L1503" title="All 2 branches missed.">        }</span>
+<span class="nc" id="L1504">    }</span>
+<span class="nc" id="L1505"></span>
+<span class="nc" id="L1506">    /**</span>
      * Process style blocks.
-<span class="nc" id="L1507">     *</span>
+<span class="nc" id="L1508">     *</span>
      * @param styleBlocks
      *            the style blocks
      */
@@ -1516,35 +1517,35 @@ public class HtmlCompressor implements Compressor {
                         statistics.getOriginalMetrics().getInlineStyleSize() + block.length());
             }
         }
-<span class="nc bnc" id="L1519" title="All 2 branches missed."></span>
-<span class="nc" id="L1520">        if (compressCss) {</span>
-<span class="nc" id="L1521">            for (int i = 0; i &lt; styleBlocks.size(); i++) {</span>
-<span class="nc" id="L1522">                styleBlocks.set(i, compressCssStyles(styleBlocks.get(i)));</span>
-<span class="nc" id="L1523">            }</span>
-<span class="nc" id="L1524">        } else if (generateStatistics) {</span>
+<span class="nc bnc" id="L1520" title="All 2 branches missed."></span>
+<span class="nc" id="L1521">        if (compressCss) {</span>
+<span class="nc" id="L1522">            for (int i = 0; i &lt; styleBlocks.size(); i++) {</span>
+<span class="nc" id="L1523">                styleBlocks.set(i, compressCssStyles(styleBlocks.get(i)));</span>
+<span class="nc" id="L1524">            }</span>
+<span class="nc" id="L1525">        } else if (generateStatistics) {</span>
             for (String block : styleBlocks) {
-<span class="nc bnc" id="L1526" title="All 2 branches missed.">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
-<span class="nc" id="L1527">            }</span>
+<span class="nc bnc" id="L1527" title="All 2 branches missed.">                statistics.setPreservedSize(statistics.getPreservedSize() + block.length());</span>
+<span class="nc" id="L1528">            }</span>
         }
 
-<span class="nc" id="L1530">        if (generateStatistics) {</span>
+<span class="nc" id="L1531">        if (generateStatistics) {</span>
             for (String block : styleBlocks) {
                 statistics.getCompressedMetrics().setInlineStyleSize(
                         statistics.getCompressedMetrics().getInlineStyleSize() + block.length());
-<span class="nc" id="L1534">            }</span>
-<span class="nc" id="L1535">        }</span>
-<span class="nc bnc" id="L1536" title="All 2 branches missed.">    }</span>
-<span class="nc" id="L1537"></span>
-<span class="nc" id="L1538">    /**</span>
+<span class="nc" id="L1535">            }</span>
+<span class="nc" id="L1536">        }</span>
+<span class="nc bnc" id="L1537" title="All 2 branches missed.">    }</span>
+<span class="nc" id="L1538"></span>
+<span class="nc" id="L1539">    /**</span>
      * Compress java script.
      *
-<span class="nc" id="L1541">     * @param source</span>
+<span class="nc" id="L1542">     * @param source</span>
      *            the source
-<span class="nc bnc" id="L1543" title="All 2 branches missed.">     * @return the string</span>
-<span class="nc" id="L1544">     */</span>
+<span class="nc bnc" id="L1544" title="All 2 branches missed.">     * @return the string</span>
+<span class="nc" id="L1545">     */</span>
     protected String compressJavaScript(String source) {
 
-<span class="nc" id="L1547">        // set default javascript compressor</span>
+<span class="nc" id="L1548">        // set default javascript compressor</span>
         if (javaScriptCompressor == null) {
             YuiJavaScriptCompressor yuiJsCompressor = new YuiJavaScriptCompressor();
             yuiJsCompressor.setNoMunge(yuiJsNoMunge);
@@ -1558,28 +1559,28 @@ public class HtmlCompressor implements Compressor {
 
             javaScriptCompressor = yuiJsCompressor;
         }
-<span class="nc bnc" id="L1561" title="All 2 branches missed."></span>
-<span class="nc" id="L1562">        // detect CDATA wrapper</span>
-<span class="nc" id="L1563">        boolean cdataWrapper = false;</span>
+<span class="nc bnc" id="L1562" title="All 2 branches missed."></span>
+<span class="nc" id="L1563">        // detect CDATA wrapper</span>
+<span class="nc" id="L1564">        boolean cdataWrapper = false;</span>
         Matcher matcher = cdataPattern.matcher(source);
-<span class="nc" id="L1565">        if (matcher.matches()) {</span>
+<span class="nc" id="L1566">        if (matcher.matches()) {</span>
             cdataWrapper = true;
             source = matcher.group(1);
         }
-<span class="nc" id="L1569"></span>
-<span class="nc" id="L1570">        String result = javaScriptCompressor.compress(source);</span>
-<span class="nc bnc" id="L1571" title="All 2 branches missed."></span>
-<span class="nc" id="L1572">        if (cdataWrapper) {</span>
-<span class="nc" id="L1573">            result = &quot;&lt;![CDATA[&quot; + result + &quot;]]&gt;&quot;;</span>
+<span class="nc" id="L1570"></span>
+<span class="nc" id="L1571">        String result = javaScriptCompressor.compress(source);</span>
+<span class="nc bnc" id="L1572" title="All 2 branches missed."></span>
+<span class="nc" id="L1573">        if (cdataWrapper) {</span>
+<span class="nc" id="L1574">            result = &quot;&lt;![CDATA[&quot; + result + &quot;]]&gt;&quot;;</span>
         }
 
-<span class="nc" id="L1576">        return result;</span>
+<span class="nc" id="L1577">        return result;</span>
 
-<span class="nc bnc" id="L1578" title="All 2 branches missed.">    }</span>
-<span class="nc" id="L1579"></span>
+<span class="nc bnc" id="L1579" title="All 2 branches missed.">    }</span>
+<span class="nc" id="L1580"></span>
     /**
      * Compress css styles.
-<span class="nc" id="L1582">     *</span>
+<span class="nc" id="L1583">     *</span>
      * @param source
      *            the source
      * @return the string
@@ -1589,34 +1590,34 @@ public class HtmlCompressor implements Compressor {
         // set default css compressor
         if (cssCompressor == null) {
             YuiCssCompressor yuiCssCompressor = new YuiCssCompressor();
-<span class="nc" id="L1592">            yuiCssCompressor.setLineBreak(yuiCssLineBreak);</span>
-<span class="nc" id="L1593"></span>
-<span class="nc" id="L1594">            cssCompressor = yuiCssCompressor;</span>
-<span class="nc" id="L1595">        }</span>
-<span class="nc" id="L1596"></span>
-<span class="nc" id="L1597">        // detect CDATA wrapper</span>
-<span class="nc" id="L1598">        boolean cdataWrapper = false;</span>
-<span class="nc" id="L1599">        Matcher matcher = cdataPattern.matcher(source);</span>
-<span class="nc" id="L1600">        if (matcher.matches()) {</span>
-<span class="nc" id="L1601">            cdataWrapper = true;</span>
-<span class="nc" id="L1602">            source = matcher.group(1);</span>
-<span class="nc" id="L1603">        }</span>
-<span class="nc" id="L1604"></span>
-<span class="nc" id="L1605">        String result = cssCompressor.compress(source);</span>
-<span class="nc" id="L1606"></span>
-<span class="nc" id="L1607">        if (cdataWrapper) {</span>
-<span class="nc" id="L1608">            result = &quot;&lt;![CDATA[&quot; + result + &quot;]]&gt;&quot;;</span>
-<span class="nc" id="L1609">        }</span>
-<span class="nc" id="L1610"></span>
-<span class="nc" id="L1611">        return result;</span>
-<span class="nc" id="L1612"></span>
-<span class="nc" id="L1613">    }</span>
-<span class="nc" id="L1614"></span>
-<span class="nc" id="L1615">    /**</span>
-<span class="nc" id="L1616">     * Creates the compressor clone.</span>
-<span class="nc" id="L1617">     *</span>
+<span class="nc" id="L1593">            yuiCssCompressor.setLineBreak(yuiCssLineBreak);</span>
+<span class="nc" id="L1594"></span>
+<span class="nc" id="L1595">            cssCompressor = yuiCssCompressor;</span>
+<span class="nc" id="L1596">        }</span>
+<span class="nc" id="L1597"></span>
+<span class="nc" id="L1598">        // detect CDATA wrapper</span>
+<span class="nc" id="L1599">        boolean cdataWrapper = false;</span>
+<span class="nc" id="L1600">        Matcher matcher = cdataPattern.matcher(source);</span>
+<span class="nc" id="L1601">        if (matcher.matches()) {</span>
+<span class="nc" id="L1602">            cdataWrapper = true;</span>
+<span class="nc" id="L1603">            source = matcher.group(1);</span>
+<span class="nc" id="L1604">        }</span>
+<span class="nc" id="L1605"></span>
+<span class="nc" id="L1606">        String result = cssCompressor.compress(source);</span>
+<span class="nc" id="L1607"></span>
+<span class="nc" id="L1608">        if (cdataWrapper) {</span>
+<span class="nc" id="L1609">            result = &quot;&lt;![CDATA[&quot; + result + &quot;]]&gt;&quot;;</span>
+<span class="nc" id="L1610">        }</span>
+<span class="nc" id="L1611"></span>
+<span class="nc" id="L1612">        return result;</span>
+<span class="nc" id="L1613"></span>
+<span class="nc" id="L1614">    }</span>
+<span class="nc" id="L1615"></span>
+<span class="nc" id="L1616">    /**</span>
+<span class="nc" id="L1617">     * Creates the compressor clone.</span>
+<span class="nc" id="L1618">     *</span>
      * @return the html compressor
-<span class="nc" id="L1619">     */</span>
+<span class="nc" id="L1620">     */</span>
     protected HtmlCompressor createCompressorClone() {
         HtmlCompressor clone = new HtmlCompressor();
         clone.setJavaScriptCompressor(javaScriptCompressor);
@@ -1626,7 +1627,7 @@ public class HtmlCompressor implements Compressor {
         clone.setRemoveIntertagSpaces(removeIntertagSpaces);
         clone.setRemoveQuotes(removeQuotes);
         clone.setCompressJavaScript(compressJavaScript);
-<span class="nc" id="L1629">        clone.setCompressCss(compressCss);</span>
+<span class="nc" id="L1630">        clone.setCompressCss(compressCss);</span>
         clone.setSimpleDoctype(simpleDoctype);
         clone.setRemoveScriptAttributes(removeScriptAttributes);
         clone.setRemoveStyleAttributes(removeStyleAttributes);
@@ -1647,8 +1648,8 @@ public class HtmlCompressor implements Compressor {
 
         return clone;
 
-<span class="nc" id="L1650">    }</span>
-<span class="nc" id="L1651"></span>
+<span class="nc" id="L1651">    }</span>
+<span class="nc" id="L1652"></span>
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if JavaScript compression is enabled.
      * 
@@ -1656,7 +1657,7 @@ public class HtmlCompressor implements Compressor {
      */
     public boolean isCompressJavaScript() {
         return compressJavaScript;
-<span class="nc" id="L1659">    }</span>
+<span class="nc" id="L1660">    }</span>
 
     /**
      * Enables JavaScript compression within &amp;lt;script&amp;gt; tags using &lt;a
@@ -1677,8 +1678,8 @@ public class HtmlCompressor implements Compressor {
      */
     public void setCompressJavaScript(boolean compressJavaScript) {
         this.compressJavaScript = compressJavaScript;
-<span class="nc" id="L1680">    }</span>
-<span class="nc" id="L1681"></span>
+<span class="nc" id="L1681">    }</span>
+<span class="nc" id="L1682"></span>
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if CSS compression is enabled.
      * 
@@ -1689,7 +1690,7 @@ public class HtmlCompressor implements Compressor {
     }
 
     /**
-<span class="nc" id="L1692">     * Enables CSS compression within &amp;lt;style&amp;gt; tags using &lt;a</span>
+<span class="nc" id="L1693">     * Enables CSS compression within &amp;lt;style&amp;gt; tags using &lt;a</span>
      * href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; if set to &lt;code&gt;true&lt;/code&gt;. Default
      * is &lt;code&gt;false&lt;/code&gt; for performance reasons.
      * 
@@ -1703,8 +1704,8 @@ public class HtmlCompressor implements Compressor {
      *            set &lt;code&gt;true&lt;/code&gt; to enable CSS compression. Default is &lt;code&gt;false&lt;/code&gt;
      * 
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
-<span class="nc" id="L1706">     * </span>
-<span class="nc" id="L1707">     */</span>
+<span class="nc" id="L1707">     * </span>
+<span class="nc" id="L1708">     */</span>
     public void setCompressCss(boolean compressCss) {
         this.compressCss = compressCss;
     }
@@ -1715,7 +1716,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;nomunge&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L1718">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1719">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
      */
     public boolean isYuiJsNoMunge() {
         return yuiJsNoMunge;
@@ -1729,8 +1730,8 @@ public class HtmlCompressor implements Compressor {
      * @param yuiJsNoMunge
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;nomunge&lt;/code&gt; mode
      * 
-<span class="nc" id="L1732">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="nc" id="L1733">     */</span>
+<span class="nc" id="L1733">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1734">     */</span>
     public void setYuiJsNoMunge(boolean yuiJsNoMunge) {
         this.yuiJsNoMunge = yuiJsNoMunge;
     }
@@ -1741,7 +1742,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;preserve-semi&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L1744">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1745">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
      */
     public boolean isYuiJsPreserveAllSemiColons() {
         return yuiJsPreserveAllSemiColons;
@@ -1755,8 +1756,8 @@ public class HtmlCompressor implements Compressor {
      * @param yuiJsPreserveAllSemiColons
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;preserve-semi&lt;/code&gt; mode
      * 
-<span class="nc" id="L1758">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="nc" id="L1759">     */</span>
+<span class="nc" id="L1759">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1760">     */</span>
     public void setYuiJsPreserveAllSemiColons(boolean yuiJsPreserveAllSemiColons) {
         this.yuiJsPreserveAllSemiColons = yuiJsPreserveAllSemiColons;
     }
@@ -1767,7 +1768,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;disable-optimizations&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L1770">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1771">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
      */
     public boolean isYuiJsDisableOptimizations() {
         return yuiJsDisableOptimizations;
@@ -1781,8 +1782,8 @@ public class HtmlCompressor implements Compressor {
      * @param yuiJsDisableOptimizations
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;disable-optimizations&lt;/code&gt; mode
      * 
-<span class="nc" id="L1784">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="nc" id="L1785">     */</span>
+<span class="nc" id="L1785">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1786">     */</span>
     public void setYuiJsDisableOptimizations(boolean yuiJsDisableOptimizations) {
         this.yuiJsDisableOptimizations = yuiJsDisableOptimizations;
     }
@@ -1793,7 +1794,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L1796">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1797">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
      */
     public int getYuiJsLineBreak() {
         return yuiJsLineBreak;
@@ -1807,8 +1808,8 @@ public class HtmlCompressor implements Compressor {
      * @param yuiJsLineBreak
      *            set number of symbols per line
      * 
-<span class="nc" id="L1810">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="nc" id="L1811">     */</span>
+<span class="nc" id="L1811">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1812">     */</span>
     public void setYuiJsLineBreak(int yuiJsLineBreak) {
         this.yuiJsLineBreak = yuiJsLineBreak;
     }
@@ -1816,7 +1817,7 @@ public class HtmlCompressor implements Compressor {
     /**
      * Returns number of symbols per line Yahoo YUI Compressor will use during CSS compression. This corresponds to
      * &lt;code&gt;--line-break&lt;/code&gt; command line option.
-<span class="nc" id="L1819">     * </span>
+<span class="nc" id="L1820">     * </span>
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for CSS compression.
      * 
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
@@ -1832,8 +1833,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @param yuiCssLineBreak
      *            set number of symbols per line
-<span class="nc" id="L1835">     * </span>
-<span class="nc" id="L1836">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L1836">     * </span>
+<span class="nc" id="L1837">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
      */
     public void setYuiCssLineBreak(int yuiCssLineBreak) {
         this.yuiCssLineBreak = yuiCssLineBreak;
@@ -1841,7 +1842,7 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all unnecessary quotes will be removed from tag attributes.
-<span class="nc" id="L1844">     *</span>
+<span class="nc" id="L1845">     *</span>
      * @return true, if is removes the quotes
      */
     public boolean isRemoveQuotes() {
@@ -1852,8 +1853,8 @@ public class HtmlCompressor implements Compressor {
      * If set to &lt;code&gt;true&lt;/code&gt; all unnecessary quotes will be removed from tag attributes. Default is
      * &lt;code&gt;false&lt;/code&gt;.
      * 
-<span class="nc" id="L1855">     * &lt;p&gt;</span>
-<span class="nc" id="L1856">     * &lt;b&gt;Note:&lt;/b&gt; Even though quotes are removed only when it is safe to do so, it still might break strict HTML</span>
+<span class="nc" id="L1856">     * &lt;p&gt;</span>
+<span class="nc" id="L1857">     * &lt;b&gt;Note:&lt;/b&gt; Even though quotes are removed only when it is safe to do so, it still might break strict HTML</span>
      * validation. Turn this option on only if a page validation is not very important or to squeeze the most out of the
      * compression. This option has no performance impact.
      * 
@@ -1861,7 +1862,7 @@ public class HtmlCompressor implements Compressor {
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary quotes from tag attributes
      */
     public void setRemoveQuotes(boolean removeQuotes) {
-<span class="nc" id="L1864">        this.removeQuotes = removeQuotes;</span>
+<span class="nc" id="L1865">        this.removeQuotes = removeQuotes;</span>
     }
 
     /**
@@ -1871,8 +1872,8 @@ public class HtmlCompressor implements Compressor {
      */
     public boolean isEnabled() {
         return enabled;
-<span class="nc" id="L1874">    }</span>
-<span class="nc" id="L1875"></span>
+<span class="nc" id="L1875">    }</span>
+<span class="nc" id="L1876"></span>
     /**
      * If set to &lt;code&gt;false&lt;/code&gt; all compression will be bypassed. Might be useful for testing purposes. Default is
      * &lt;code&gt;true&lt;/code&gt;.
@@ -1880,7 +1881,7 @@ public class HtmlCompressor implements Compressor {
      * @param enabled
      *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression
      */
-<span class="nc" id="L1883">    public void setEnabled(boolean enabled) {</span>
+<span class="nc" id="L1884">    public void setEnabled(boolean enabled) {</span>
         this.enabled = enabled;
     }
 
@@ -1891,8 +1892,8 @@ public class HtmlCompressor implements Compressor {
      */
     public boolean isRemoveComments() {
         return removeComments;
-<span class="nc" id="L1894">    }</span>
-<span class="nc" id="L1895"></span>
+<span class="nc" id="L1895">    }</span>
+<span class="nc" id="L1896"></span>
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all HTML comments will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
      * 
@@ -1900,7 +1901,7 @@ public class HtmlCompressor implements Compressor {
      *            set &lt;code&gt;true&lt;/code&gt; to remove all HTML comments
      */
     public void setRemoveComments(boolean removeComments) {
-<span class="nc" id="L1903">        this.removeComments = removeComments;</span>
+<span class="nc" id="L1904">        this.removeComments = removeComments;</span>
     }
 
     /**
@@ -1914,8 +1915,8 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all multiple whitespace characters will be replaced with single spaces. Default is
-<span class="nc" id="L1917">     * &lt;code&gt;true&lt;/code&gt;.</span>
-<span class="nc" id="L1918">     * </span>
+<span class="nc" id="L1918">     * &lt;code&gt;true&lt;/code&gt;.</span>
+<span class="nc" id="L1919">     * </span>
      * @param removeMultiSpaces
      *            set &lt;code&gt;true&lt;/code&gt; to replace all multiple whitespace characters will single spaces.
      */
@@ -1923,7 +1924,7 @@ public class HtmlCompressor implements Compressor {
         this.removeMultiSpaces = removeMultiSpaces;
     }
 
-<span class="nc" id="L1926">    /**</span>
+<span class="nc" id="L1927">    /**</span>
      * Returns &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
      * 
      * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
@@ -1943,8 +1944,8 @@ public class HtmlCompressor implements Compressor {
      *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters
      */
     public void setRemoveIntertagSpaces(boolean removeIntertagSpaces) {
-<span class="nc" id="L1946">        this.removeIntertagSpaces = removeIntertagSpaces;</span>
-<span class="nc" id="L1947">    }</span>
+<span class="nc" id="L1947">        this.removeIntertagSpaces = removeIntertagSpaces;</span>
+<span class="nc" id="L1948">    }</span>
 
     /**
      * Returns a list of Patterns defining custom preserving block rules.
@@ -1955,7 +1956,7 @@ public class HtmlCompressor implements Compressor {
         return preservePatterns;
     }
 
-<span class="nc" id="L1958">    /**</span>
+<span class="nc" id="L1959">    /**</span>
      * This method allows setting custom block preservation rules defined by regular expression patterns. Blocks that
      * match provided patterns will be skipped during HTML compression.
      * 
@@ -1972,8 +1973,8 @@ public class HtmlCompressor implements Compressor {
      *            List of &lt;code&gt;Pattern&lt;/code&gt; objects that will be used to skip matched blocks during compression
      */
     public void setPreservePatterns(List&lt;Pattern&gt; preservePatterns) {
-<span class="nc" id="L1975">        this.preservePatterns = preservePatterns;</span>
-<span class="nc" id="L1976">    }</span>
+<span class="nc" id="L1976">        this.preservePatterns = preservePatterns;</span>
+<span class="nc" id="L1977">    }</span>
 
     /**
      * Returns &lt;code&gt;ErrorReporter&lt;/code&gt; used by YUI Compressor to log error messages during JavasSript compression.
@@ -1986,7 +1987,7 @@ public class HtmlCompressor implements Compressor {
     public ErrorReporter getYuiErrorReporter() {
         return yuiErrorReporter;
     }
-<span class="nc" id="L1989"></span>
+<span class="nc" id="L1990"></span>
     /**
      * Sets &lt;code&gt;ErrorReporter&lt;/code&gt; that YUI Compressor will use for reporting errors during JavaScript compression.
      * If no &lt;code&gt;ErrorReporter&lt;/code&gt; was provided {@link YuiJavaScriptCompressor.DefaultErrorReporter} will be used
@@ -2011,8 +2012,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @see YuiJavaScriptCompressor
      * @see ClosureJavaScriptCompressor
-<span class="nc" id="L2014">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="nc" id="L2015">     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
+<span class="nc" id="L2015">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+<span class="nc" id="L2016">     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
      */
     public Compressor getJavaScriptCompressor() {
         return javaScriptCompressor;
@@ -2023,7 +2024,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * &lt;p&gt;
      * HtmlCompressor currently comes with basic implementations for &lt;a
-<span class="nc" id="L2026">     * href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; (called</span>
+<span class="nc" id="L2027">     * href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; (called</span>
      * {@link YuiJavaScriptCompressor}) and &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure
      * Compiler&lt;/a&gt; (called {@link ClosureJavaScriptCompressor}) that should be enough for most cases, but users can
      * also create their own JavaScript compressors for custom needs.
@@ -2044,8 +2045,8 @@ public class HtmlCompressor implements Compressor {
     }
 
     /**
-<span class="nc" id="L2047">     * Returns CSS compressor implementation that will be used to compress inline CSS in HTML.</span>
-<span class="nc" id="L2048">     * </span>
+<span class="nc" id="L2048">     * Returns CSS compressor implementation that will be used to compress inline CSS in HTML.</span>
+<span class="nc" id="L2049">     * </span>
      * @return &lt;code&gt;Compressor&lt;/code&gt; implementation that will be used to compress inline CSS in HTML.
      * 
      * @see YuiCssCompressor
@@ -2055,7 +2056,7 @@ public class HtmlCompressor implements Compressor {
         return cssCompressor;
     }
 
-<span class="nc" id="L2058">    /**</span>
+<span class="nc" id="L2059">    /**</span>
      * Sets CSS compressor implementation that will be used to compress inline CSS in HTML.
      * 
      * &lt;p&gt;
@@ -2066,8 +2067,8 @@ public class HtmlCompressor implements Compressor {
      * &lt;p&gt;
      * If no compressor is set {@link YuiCssCompressor} will be used by default.
      * 
-<span class="nc" id="L2069">     * @param cssCompressor</span>
-<span class="nc" id="L2070">     *            {@link Compressor} implementation that will be used for inline CSS compression</span>
+<span class="nc" id="L2070">     * @param cssCompressor</span>
+<span class="nc" id="L2071">     *            {@link Compressor} implementation that will be used for inline CSS compression</span>
      * 
      * @see YuiCssCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
@@ -2075,7 +2076,7 @@ public class HtmlCompressor implements Compressor {
     public void setCssCompressor(Compressor cssCompressor) {
         this.cssCompressor = cssCompressor;
     }
-<span class="nc" id="L2078"></span>
+<span class="nc" id="L2079"></span>
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if existing DOCTYPE declaration will be replaced with simple
      * &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration.
@@ -2093,8 +2094,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @param simpleDoctype
      *            set &lt;code&gt;true&lt;/code&gt; to replace existing DOCTYPE declaration with &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;
-<span class="nc" id="L2096">     */</span>
-<span class="nc" id="L2097">    public void setSimpleDoctype(boolean simpleDoctype) {</span>
+<span class="nc" id="L2097">     */</span>
+<span class="nc" id="L2098">    public void setSimpleDoctype(boolean simpleDoctype) {</span>
         this.simpleDoctype = simpleDoctype;
     }
 
@@ -2104,7 +2105,7 @@ public class HtmlCompressor implements Compressor {
      * @return &lt;code&gt;true&lt;/code&gt; if unnecessary attributes will be removed from &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags
      */
     public boolean isRemoveScriptAttributes() {
-<span class="nc" id="L2107">        return removeScriptAttributes;</span>
+<span class="nc" id="L2108">        return removeScriptAttributes;</span>
     }
 
     /**
@@ -2116,8 +2117,8 @@ public class HtmlCompressor implements Compressor {
      * &lt;/ul&gt;
      * 
      * &lt;p&gt;
-<span class="nc" id="L2119">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
-<span class="nc" id="L2120">     * </span>
+<span class="nc" id="L2120">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
+<span class="nc" id="L2121">     * </span>
      * @param removeScriptAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags
      */
@@ -2125,7 +2126,7 @@ public class HtmlCompressor implements Compressor {
         this.removeScriptAttributes = removeScriptAttributes;
     }
 
-<span class="nc" id="L2128">    /**</span>
+<span class="nc" id="L2129">    /**</span>
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;type=&quot;text/style&quot;&lt;/code&gt; attributes will be removed from
      * &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags.
      *
@@ -2143,8 +2144,8 @@ public class HtmlCompressor implements Compressor {
      * @param removeStyleAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;type=&quot;text/style&quot;&lt;/code&gt; attributes from
      *            &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags
-<span class="nc" id="L2146">     */</span>
-<span class="nc" id="L2147">    public void setRemoveStyleAttributes(boolean removeStyleAttributes) {</span>
+<span class="nc" id="L2147">     */</span>
+<span class="nc" id="L2148">    public void setRemoveStyleAttributes(boolean removeStyleAttributes) {</span>
         this.removeStyleAttributes = removeStyleAttributes;
     }
 
@@ -2154,7 +2155,7 @@ public class HtmlCompressor implements Compressor {
      * @return &lt;code&gt;true&lt;/code&gt; if unnecessary attributes will be removed from &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags
      */
     public boolean isRemoveLinkAttributes() {
-<span class="nc" id="L2157">        return removeLinkAttributes;</span>
+<span class="nc" id="L2158">        return removeLinkAttributes;</span>
     }
 
     /**
@@ -2166,8 +2167,8 @@ public class HtmlCompressor implements Compressor {
      * &lt;/ul&gt;
      * 
      * &lt;p&gt;
-<span class="nc" id="L2169">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
-<span class="nc" id="L2170">     * </span>
+<span class="nc" id="L2170">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
+<span class="nc" id="L2171">     * </span>
      * @param removeLinkAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags
      */
@@ -2177,7 +2178,7 @@ public class HtmlCompressor implements Compressor {
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
-<span class="nc" id="L2180">     * tags.</span>
+<span class="nc" id="L2181">     * tags.</span>
      *
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
      *         tags
@@ -2189,8 +2190,8 @@ public class HtmlCompressor implements Compressor {
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
      * tags. Default is &lt;code&gt;false&lt;/code&gt;.
-<span class="nc" id="L2192">     * </span>
-<span class="nc" id="L2193">     * @param removeFormAttributes</span>
+<span class="nc" id="L2193">     * </span>
+<span class="nc" id="L2194">     * @param removeFormAttributes</span>
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
      *            tags
      */
@@ -2198,7 +2199,7 @@ public class HtmlCompressor implements Compressor {
         this.removeFormAttributes = removeFormAttributes;
     }
 
-<span class="nc" id="L2201">    /**</span>
+<span class="nc" id="L2202">    /**</span>
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;type=&quot;text&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;
      * tags.
      *
@@ -2220,8 +2221,8 @@ public class HtmlCompressor implements Compressor {
     public void setRemoveInputAttributes(boolean removeInputAttributes) {
         this.removeInputAttributes = removeInputAttributes;
     }
-<span class="nc" id="L2223"></span>
-<span class="nc" id="L2224">    /**</span>
+<span class="nc" id="L2224"></span>
+<span class="nc" id="L2225">    /**</span>
      * Returns &lt;code&gt;true&lt;/code&gt; if boolean attributes will be simplified.
      *
      * @return &lt;code&gt;true&lt;/code&gt; if boolean attributes will be simplified
@@ -2229,7 +2230,7 @@ public class HtmlCompressor implements Compressor {
     public boolean isSimpleBooleanAttributes() {
         return simpleBooleanAttributes;
     }
-<span class="nc" id="L2232"></span>
+<span class="nc" id="L2233"></span>
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, any values of following boolean attributes will be removed:
      * &lt;ul&gt;
@@ -2246,8 +2247,8 @@ public class HtmlCompressor implements Compressor {
      * Default is &lt;code&gt;false&lt;/code&gt;.
      * 
      * @param simpleBooleanAttributes
-<span class="nc" id="L2249">     *            set &lt;code&gt;true&lt;/code&gt; to simplify boolean attributes</span>
-<span class="nc" id="L2250">     */</span>
+<span class="nc" id="L2250">     *            set &lt;code&gt;true&lt;/code&gt; to simplify boolean attributes</span>
+<span class="nc" id="L2251">     */</span>
     public void setSimpleBooleanAttributes(boolean simpleBooleanAttributes) {
         this.simpleBooleanAttributes = simpleBooleanAttributes;
     }
@@ -2257,7 +2258,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.
      */
-<span class="nc" id="L2260">    public boolean isRemoveJavaScriptProtocol() {</span>
+<span class="nc" id="L2261">    public boolean isRemoveJavaScriptProtocol() {</span>
         return removeJavaScriptProtocol;
     }
 
@@ -2284,8 +2285,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,
      *         &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
-<span class="nc" id="L2287">     */</span>
-<span class="nc" id="L2288">    public boolean isRemoveHttpProtocol() {</span>
+<span class="nc" id="L2288">     */</span>
+<span class="nc" id="L2289">    public boolean isRemoveHttpProtocol() {</span>
         return removeHttpProtocol;
     }
 
@@ -2295,7 +2296,7 @@ public class HtmlCompressor implements Compressor {
      * document's current protocol instead.
      * 
      * &lt;p&gt;
-<span class="nc" id="L2298">     * Tags marked with &lt;code&gt;rel=&quot;external&quot;&lt;/code&gt; will be skipped.</span>
+<span class="nc" id="L2299">     * Tags marked with &lt;code&gt;rel=&quot;external&quot;&lt;/code&gt; will be skipped.</span>
      * 
      * &lt;p&gt;
      * For example:
@@ -2322,8 +2323,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;
      *         , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
-<span class="nc" id="L2325">     */</span>
-<span class="nc" id="L2326">    public boolean isRemoveHttpsProtocol() {</span>
+<span class="nc" id="L2326">     */</span>
+<span class="nc" id="L2327">    public boolean isRemoveHttpsProtocol() {</span>
         return removeHttpsProtocol;
     }
 
@@ -2331,7 +2332,7 @@ public class HtmlCompressor implements Compressor {
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;
      * , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes. URL without a protocol would make a browser use
      * document's current protocol instead.
-<span class="nc" id="L2334">     * </span>
+<span class="nc" id="L2335">     * </span>
      * &lt;p&gt;
      * Tags marked with &lt;code&gt;rel=&quot;external&quot;&lt;/code&gt; will be skipped.
      * 
@@ -2349,8 +2350,8 @@ public class HtmlCompressor implements Compressor {
      * 
      * @param removeHttpsProtocol
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;HTTP&lt;/code&gt; protocol from tag attributes
-<span class="nc" id="L2352">     */</span>
-<span class="nc" id="L2353">    public void setRemoveHttpsProtocol(boolean removeHttpsProtocol) {</span>
+<span class="nc" id="L2353">     */</span>
+<span class="nc" id="L2354">    public void setRemoveHttpsProtocol(boolean removeHttpsProtocol) {</span>
         this.removeHttpsProtocol = removeHttpsProtocol;
     }
 
@@ -2362,7 +2363,7 @@ public class HtmlCompressor implements Compressor {
     public boolean isGenerateStatistics() {
         return generateStatistics;
     }
-<span class="nc" id="L2365"></span>
+<span class="nc" id="L2366"></span>
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, HTML compression statistics will be generated.
      * 
@@ -2371,7 +2372,7 @@ public class HtmlCompressor implements Compressor {
      * 
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-<span class="nc" id="L2374">     * </span>
+<span class="nc" id="L2375">     * </span>
      * @param generateStatistics
      *            set &lt;code&gt;true&lt;/code&gt; to generate HTML compression statistics
      * 
@@ -2384,8 +2385,8 @@ public class HtmlCompressor implements Compressor {
     /**
      * Returns {@link HtmlCompressorStatistics} object containing statistics of the last HTML compression, if enabled.
      * Should be called after {@link #compress(String)}
-<span class="nc" id="L2387">     * </span>
-<span class="nc" id="L2388">     * @return {@link HtmlCompressorStatistics} object containing last HTML compression statistics</span>
+<span class="nc" id="L2388">     * </span>
+<span class="nc" id="L2389">     * @return {@link HtmlCompressorStatistics} object containing last HTML compression statistics</span>
      * 
      * @see HtmlCompressorStatistics
      * @see #setGenerateStatistics(boolean)
@@ -2393,7 +2394,7 @@ public class HtmlCompressor implements Compressor {
     public HtmlCompressorStatistics getStatistics() {
         return statistics;
     }
-<span class="nc" id="L2396"></span>
+<span class="nc" id="L2397"></span>
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if line breaks will be preserved.
      * 
@@ -2407,11 +2408,11 @@ public class HtmlCompressor implements Compressor {
      * If set to &lt;code&gt;true&lt;/code&gt;, line breaks will be preserved.
      * 
      * &lt;p&gt;
-<span class="nc bnc" id="L2410" title="All 4 branches missed.">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
-<span class="nc" id="L2411">     * </span>
+<span class="nc bnc" id="L2411" title="All 4 branches missed.">     * Default is &lt;code&gt;false&lt;/code&gt;.</span>
+<span class="nc" id="L2412">     * </span>
      * @param preserveLineBreaks
-<span class="nc" id="L2413">     *            set &lt;code&gt;true&lt;/code&gt; to preserve line breaks</span>
-<span class="nc" id="L2414">     */</span>
+<span class="nc" id="L2414">     *            set &lt;code&gt;true&lt;/code&gt; to preserve line breaks</span>
+<span class="nc" id="L2415">     */</span>
     public void setPreserveLineBreaks(boolean preserveLineBreaks) {
         this.preserveLineBreaks = preserveLineBreaks;
     }
