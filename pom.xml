@@ -284,7 +284,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.12</version>
+                    <version>3.0.0</version>
                 </plugin>
 
                 <!-- Packaging types / tools -->
@@ -1250,7 +1250,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>net.revelc.code.formatter</groupId>
                                                 <artifactId>formatter-maven-plugin</artifactId>
-                                                <versionRange>[2.0.0,)</versionRange>
+                                                <versionRange>[2.0.1,)</versionRange>
                                                 <goals>
                                                     <goal>format</goal>
                                                 </goals>
