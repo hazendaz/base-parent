@@ -106,13 +106,16 @@
     </distributionManagement>
 
     <properties>
-        <copyright>2016</copyright>
+        <!-- Project Level -->
+        <copyright>2017</copyright>
 
+        <!-- Github Settings -->
         <github.global.server>github</github.global.server>
 
         <!-- Remember to adjust this up as you add unit tests -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
 
+        <!-- Maven Settings -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -126,12 +129,75 @@
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <!-- Supported Versions -->
         <lombok.version>1.16.14</lombok.version>
         <hibernate-validator.version>5.4.0.Final</hibernate-validator.version>
         <jsr305.version>3.0.1</jsr305.version>
 
+        <!-- Signature Settings -->
         <signature.artifact>java18</signature.artifact>
         <signature.version>1.0</signature.version>
+
+        <!-- plugin versions -->
+        <animal-sniffer.plugin>1.15</animal-sniffer.plugin>
+        <antrun.plugin>1.8</antrun.plugin>
+        <assembly.plugin>3.0.0</assembly.plugin>
+        <build-helper.plugin>3.0.0</build-helper.plugin>
+        <changelog.plugin>2.3</changelog.plugin>
+        <changes.plugin>2.12.1</changes.plugin>
+        <checkstyle.plugin>2.17</checkstyle.plugin>
+        <clean.plugin>3.0.0</clean.plugin>
+        <compiler.plugin>3.6.1</compiler.plugin>
+        <coveralls.plugin>4.3.0</coveralls.plugin>
+        <dependency.plugin>3.0.0</dependency.plugin>
+        <dependency-check.plugin>1.4.5</dependency-check.plugin>
+        <deploy.plugin>2.8.2</deploy.plugin>
+        <enforcer.plugin>1.4.1</enforcer.plugin>
+        <findbugs.plugin>3.0.4</findbugs.plugin>
+        <formatter.plugin>2.0.1</formatter.plugin>
+        <git-commit.plugin>2.2.2</git-commit.plugin>
+        <gpg.plugin>1.6</gpg.plugin>
+        <htmlcompressor.plugin>1.3</htmlcompressor.plugin>
+        <install.plugin>2.5.2</install.plugin>
+        <jacoco.plugin>0.7.9</jacoco.plugin>
+        <jar.plugin>3.0.2</jar.plugin>
+        <javadoc.plugin>2.10.4</javadoc.plugin>
+        <javancss.plugin>2.1</javancss.plugin>
+        <jaxws.plugin>2.3.8</jaxws.plugin>
+        <jdepend.plugin>2.0</jdepend.plugin>
+        <jxr.plugin>2.5</jxr.plugin>
+        <license.plugin>3.0</license.plugin>
+        <pdf.plugin>1.3</pdf.plugin>
+        <pmd.plugin>3.7</pmd.plugin>
+        <project-info.plugin>2.9</project-info.plugin>
+        <release.plugin>2.5.3</release.plugin>
+        <resources.plugin>3.0.2</resources.plugin>
+        <scm.plugin>1.9.5</scm.plugin>
+        <site.plugin>3.6</site.plugin>
+        <sonar.plugin>3.2</sonar.plugin>
+        <source.plugin>3.0.1</source.plugin>
+        <surefire.plugin>2.19.1</surefire.plugin>
+        <taglist.plugin>2.4</taglist.plugin>
+        <tidy.plugin>1.0.0</tidy.plugin>
+        <versions.plugin>2.3</versions.plugin>
+        <wagon.plugin>1.0</wagon.plugin>
+        <war.plugin>3.0.0</war.plugin>
+        <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
+
+        <!-- Dependencies for plugins -->
+        <build-tools.version>1.1.3</build-tools.version>
+        <doxia.version>1.7</doxia.version>
+        <fluido.version>1.6</fluido.version>
+        <htmlcompressor.version>1.6.3</htmlcompressor.version>
+        <JavaEWAH.version>1.1.6</JavaEWAH.version>
+        <jgit.version>4.6.0.201612231935-r</jgit.version>
+        <jsch.version>0.1.54</jsch.version>
+        <license-git.version>3.0</license-git.version>
+        <plexus.version>3.0.24</plexus.version>
+        <scm.version>1.9.5</scm.version>
+        <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
+        <wagon-ssh.version>2.12</wagon-ssh.version>
+        <yuicompressor.version>2.4.8</yuicompressor.version>
     </properties>
 
     <dependencies>
@@ -162,12 +228,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${clean.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>${compiler.plugin}</version>
                     <configuration>
                         <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
                         <useIncrementalCompilation>false</useIncrementalCompilation>
@@ -176,12 +242,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
+                    <version>${deploy.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.4.1</version>
+                    <version>${enforcer.plugin}</version>
                     <configuration>
                         <rules>
                             <requireMavenVersion>
@@ -193,17 +259,17 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.6</version>
+                    <version>${gpg.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
+                    <version>${install.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pdf-plugin</artifactId>
-                    <version>1.3</version>
+                    <version>${pdf.plugin}</version>
                     <configuration>
                         <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
                         <includeReports>false</includeReports>
@@ -212,12 +278,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${resources.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.6</version>
+                    <version>${site.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -240,38 +306,37 @@
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-module-markdown</artifactId>
-                            <version>1.7</version>
+                            <version>${doxia.version}</version>
                         </dependency>
-                        <!-- Do not upgrade to 2.0.4 as it doesn't work -->
                         <dependency>
                             <groupId>net.trajano.wagon</groupId>
                             <artifactId>wagon-git</artifactId>
-                            <version>2.0.3</version>
+                            <version>${wagon-git.version}</version>
                         </dependency>
                         <!-- For reporting only of versions -->
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
                             <artifactId>maven-fluido-skin</artifactId>
-                            <version>1.6</version>
+                            <version>${fluido.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.wagon</groupId>
                             <artifactId>wagon-ssh</artifactId>
-                            <version>2.12</version>
+                            <version>${wagon-ssh.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>${surefire.plugin}</version>
                 </plugin>
 
                 <!-- Build Plugins -->
                 <plugin>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <version>2.2.2</version>
+                    <version>${git-commit.plugin}</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
                         <!-- Fixes occassional issue in commit id plugin - see 
@@ -284,14 +349,14 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${build-helper.plugin}</version>
                 </plugin>
 
                 <!-- Packaging types / tools -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${jar.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -315,7 +380,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${war.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -340,7 +405,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.17</version>
+                    <version>${checkstyle.plugin}</version>
                     <configuration>
                         <failOnViolation>false</failOnViolation>
                     </configuration>
@@ -350,7 +415,7 @@
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
                             <artifactId>build-tools</artifactId>
-                            <version>1.1.3</version>
+                            <version>${build-tools.version}</version>
                         </dependency>
                     </dependencies>
                     -->
@@ -358,7 +423,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
+                    <version>${javadoc.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -381,29 +446,29 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>3.7</version>
+                    <version>${pmd.plugin}</version>
                 </plugin>
 
                 <!-- Tools -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>1.8</version>
+                    <version>${antrun.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${assembly.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${dependency.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
+                    <version>${release.plugin}</version>
                     <configuration>
                         <releaseProfiles>release</releaseProfiles>
                     </configuration>
@@ -411,7 +476,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>3.0.1</version>
+                    <version>${source.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -436,68 +501,68 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>3.0.4</version>
+                    <version>${findbugs.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
                     <artifactId>htmlcompressor-maven-plugin</artifactId>
-                    <version>1.3</version>
+                    <version>${htmlcompressor.plugin}</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
                             <artifactId>htmlcompressor</artifactId>
-                            <version>1.6.3</version>
+                            <version>${htmlcompressor.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>com.yahoo.platform.yui</groupId>
                             <artifactId>yuicompressor</artifactId>
-                            <version>2.4.8</version>
+                            <version>${yuicompressor.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.7.9</version>
+                    <version>${jacoco.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eluder.coveralls</groupId>
                     <artifactId>coveralls-maven-plugin</artifactId>
-                    <version>4.3.0</version>
+                    <version>${coveralls.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>tidy-maven-plugin</artifactId>
-                    <version>1.0.0</version>
+                    <version>${tidy.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
-                    <version>1.5.1</version>
+                    <version>${yuicompressor.plugin}</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.yahoo.platform.yui</groupId>
                             <artifactId>yuicompressor</artifactId>
-                            <version>2.4.8</version>
+                            <version>${yuicompressor.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>net.revelc.code.formatter</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
-                    <version>2.0.1</version>
+                    <version>${formatter.plugin}</version>
                     <dependencies>
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
                             <artifactId>build-tools</artifactId>
-                            <version>1.1.3</version>
+                            <version>${build-tools.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>3.0</version>
+                    <version>${license.plugin}</version>
                     <configuration>
                         <header>license.txt</header>
                         <excludes>
@@ -511,7 +576,7 @@
                         <dependency>
                             <groupId>com.mycila</groupId>
                             <artifactId>license-maven-plugin-git</artifactId>
-                            <version>3.0</version>
+                            <version>${license-git.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -520,86 +585,86 @@
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>2.3.8</version>
+                    <version>${jaxws.plugin}</version>
                 </plugin>
 
                 <!-- Report Only -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>javancss-maven-plugin</artifactId>
-                    <version>2.1</version>
+                    <version>${javancss.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>jdepend-maven-plugin</artifactId>
-                    <version>2.0</version>
+                    <version>${jdepend.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changelog-plugin</artifactId>
-                    <version>2.3</version>
+                    <version>${changelog.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changes-plugin</artifactId>
-                    <version>2.12.1</version>
+                    <version>${changes.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jxr-plugin</artifactId>
-                    <version>2.5</version>
+                    <version>${jxr.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>2.9</version>
+                    <version>${project-info.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>${surefire.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>taglist-maven-plugin</artifactId>
-                    <version>2.4</version>
+                    <version>${taglist.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.3</version>
+                    <version>${versions.plugin}</version>
                 </plugin>
 
                 <!-- SCM -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.9.5</version>
+                    <version>${scm.plugin}</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.9.5</version>
+                            <version>${scm.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>com.googlecode.javaewah</groupId>
                             <artifactId>JavaEWAH</artifactId>
-                            <version>1.1.6</version>
+                            <version>${JavaEWAH.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>com.jcraft</groupId>
                             <artifactId>jsch</artifactId>
-                            <version>0.1.54</version>
+                            <version>${jsch.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.eclipse.jgit</groupId>
                             <artifactId>org.eclipse.jgit</artifactId>
-                            <version>4.6.0.201612231935-r</version>
+                            <version>${jgit.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.codehaus.plexus</groupId>
                             <artifactId>plexus-utils</artifactId>
-                            <version>3.0.24</version>
+                            <version>${plexus.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -608,19 +673,19 @@
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>${sonar.plugin}</version>
                 </plugin>
 
                 <!-- Wagon -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>wagon-maven-plugin</artifactId>
-                    <version>1.0</version>
+                    <version>${wagon.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>animal-sniffer-maven-plugin</artifactId>
-                    <version>1.15</version>
+                    <version>${animal-sniffer.plugin}</version>
                     <configuration>
                         <signature>
                             <groupId>org.codehaus.mojo.signature</groupId>
@@ -632,7 +697,7 @@
                 <plugin>
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
-                    <version>1.4.5</version>
+                    <version>${dependency-check.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -785,7 +850,7 @@
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh</artifactId>
-                <version>2.12</version>
+                <version>${wagon-ssh.version}</version>
             </extension>
         </extensions>
     </build>
@@ -1211,7 +1276,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
                                                 <artifactId>htmlcompressor-maven-plugin</artifactId>
-                                                <versionRange>[1.3,)</versionRange>
+                                                <versionRange>[${htmlcompressor.plugin},)</versionRange>
                                                 <goals>
                                                     <goal>html</goal>
                                                 </goals>
@@ -1224,7 +1289,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>net.alchim31.maven</groupId>
                                                 <artifactId>yuicompressor-maven-plugin</artifactId>
-                                                <versionRange>[1.5.1,)</versionRange>
+                                                <versionRange>[${yuicompressor.plugin},)</versionRange>
                                                 <goals>
                                                     <goal>compress</goal>
                                                 </goals>
@@ -1237,7 +1302,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>org.jacoco</groupId>
                                                 <artifactId>jacoco-maven-plugin</artifactId>
-                                                <versionRange>[0.7.9,)</versionRange>
+                                                <versionRange>[${jacoco.plugin},)</versionRange>
                                                 <goals>
                                                     <goal>prepare-agent</goal>
                                                 </goals>
@@ -1250,7 +1315,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>net.revelc.code.formatter</groupId>
                                                 <artifactId>formatter-maven-plugin</artifactId>
-                                                <versionRange>[2.0.1,)</versionRange>
+                                                <versionRange>[${formatter.plugin},)</versionRange>
                                                 <goals>
                                                     <goal>format</goal>
                                                 </goals>
@@ -1263,7 +1328,7 @@
                                             <pluginExecutionFilter>
                                                 <groupId>org.apache.maven.plugins</groupId>
                                                 <artifactId>maven-enforcer-plugin</artifactId>
-                                                <versionRange>[1.4.1,)</versionRange>
+                                                <versionRange>[${enforcer.plugin},)</versionRange>
                                                 <goals>
                                                     <goal>enforce</goal>
                                                 </goals>
