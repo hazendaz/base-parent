@@ -190,7 +190,7 @@
         <fluido.version>1.6</fluido.version>
         <htmlcompressor.version>1.6.3</htmlcompressor.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
-        <jgit.version>4.6.0.201612231935-r</jgit.version>
+        <jgit.version>4.6.1.201703071140-r</jgit.version>
         <jsch.version>0.1.54</jsch.version>
         <license-git.version>3.0</license-git.version>
         <plexus.version>3.0.24</plexus.version>
