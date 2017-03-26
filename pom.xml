@@ -131,7 +131,7 @@
 
         <!-- Supported Versions -->
         <lombok.version>1.16.14</lombok.version>
-        <hibernate-validator.version>5.4.0.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <jsr305.version>3.0.1</jsr305.version>
 
         <!-- Signature Settings -->
