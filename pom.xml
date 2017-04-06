@@ -130,7 +130,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Supported Versions -->
-        <lombok.version>1.16.14</lombok.version>
+        <lombok.version>1.16.16</lombok.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
         <jsr305.version>3.0.1</jsr305.version>
 
