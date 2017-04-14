@@ -132,7 +132,7 @@
         <!-- Supported Versions -->
         <lombok.version>1.16.16</lombok.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
-        <jsr305.version>3.0.1</jsr305.version>
+        <jsr305.version>3.0.2</jsr305.version>
 
         <!-- Signature Settings -->
         <signature.artifact>java18</signature.artifact>
