@@ -198,6 +198,7 @@
         <wagon.plugin>1.0</wagon.plugin>
         <war.plugin>3.0.0</war.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
+        <xml-format.plugin>3.0.4</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
         <build-tools.version>1.1.3</build-tools.version>
@@ -565,6 +566,16 @@
                             <version>${build-tools.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>au.com.acegi</groupId>
+                    <artifactId>xml-format-maven-plugin</artifactId>
+                    <version>${xml-format.plugin}</version>
+                    <configuration>
+                        <indentSize>4</indentSize>
+                        <lineLength>120</lineLength>
+                        <skip>true</skip> <!-- TODO: Skip this for now until some adjustments are made -->
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>com.mycila</groupId>
@@ -1152,6 +1163,17 @@
                             <execution>
                                 <goals>
                                     <goal>format</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>au.com.acegi</groupId>
+                        <artifactId>xml-format-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>xml-format</goal>
                                 </goals>
                             </execution>
                         </executions>
