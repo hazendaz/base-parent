@@ -74,10 +74,6 @@
         </contributor>
     </contributors>
 
-    <prerequisites>
-        <maven>3.5.0</maven>
-    </prerequisites>
-
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
