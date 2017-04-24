@@ -555,12 +555,17 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${license.plugin}</version>
                     <configuration>
-                        <header>license.txt</header>
+                        <header>${license.header}</header>
                         <excludes>
                             <exclude>**/*.lck</exclude>
                             <exclude>**/*.log</exclude>
                             <exclude>.factorypath</exclude>
                             <exclude>.gitattributes</exclude>
+                            <exclude>LICENSE</exclude>
+                            <exclude>LICENSE_HEADER</exclude>
+                            <exclude>license.txt</exclude>
+                            <exclude>mvnw</exclude>
+                            <exclude>mvnw.bat</exclude>
                         </excludes>
                     </configuration>
                     <dependencies>
@@ -1135,12 +1140,15 @@
         </profile>
 
         <profile>
-            <id>license</id>
+            <id>license-txt</id>
             <activation>
                 <file>
                     <exists>license.txt</exists>
                 </file>
             </activation>
+            <properties>
+                <license.header>license.txt</license.header>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -1159,6 +1167,34 @@
             </build>
         </profile>
 
+        <profile>
+            <id>license-header</id>
+            <activation>
+                <file>
+                    <exists>LICENSE_HEADER</exists>
+                </file>
+            </activation>
+            <properties>
+                <license.header>LICENSE_HEADER</license.header>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.mycila</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>format</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+       
         <profile>
             <id>sort</id>
             <build>
