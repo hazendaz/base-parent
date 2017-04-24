@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    base-parent (https://github.com/hazendaz/base-parent)
+
+    Copyright (c) 2011 - 2017 Hazendaz.
+
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of The Apache Software License,
+    Version 2.0 which accompanies this distribution, and is available at
+    http://www.apache.org/licenses/LICENSE-2.0.txt
+
+    Contributors:
+        Hazendaz (Jeremy Landis).
+
+-->
 <bookmarks>
    <site url="http://oss.opensagres.fr/angularjs-eclipse/0.7.0/" selected="true" name="angularjs"/>
    <site url="http://studio.mulesoft.org/r3/plugin/" selected="true" name="anypoint studio"/>
