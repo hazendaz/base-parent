@@ -1,0 +1,3 @@
+# For updating maven wrapper for travis ci
+
+git update-index --chmod=+x mvnw
