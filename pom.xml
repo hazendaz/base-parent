@@ -474,6 +474,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${release.plugin}</version>
                     <configuration>
+                        <addSchema>false</addSchema>
                         <releaseProfiles>release</releaseProfiles>
                     </configuration>
                 </plugin>
