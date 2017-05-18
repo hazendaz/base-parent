@@ -179,7 +179,7 @@
         <jxr.plugin>2.5</jxr.plugin>
         <license.plugin>3.0</license.plugin>
         <pdf.plugin>1.3</pdf.plugin>
-        <pmd.plugin>3.7</pmd.plugin>
+        <pmd.plugin>3.8</pmd.plugin>
         <project-info.plugin>2.9</project-info.plugin>
         <release.plugin>2.5.3</release.plugin>
         <resources.plugin>3.0.2</resources.plugin>
