@@ -590,7 +590,7 @@
                             <exclude>LICENSE_HEADER</exclude>
                             <exclude>license.txt</exclude>
                             <exclude>mvnw</exclude>
-                            <exclude>mvnw.bat</exclude>
+                            <exclude>mvnw.cmd</exclude>
                         </excludes>
                     </configuration>
                     <dependencies>
