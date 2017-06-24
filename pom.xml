@@ -203,7 +203,7 @@
         <fluido.version>1.6</fluido.version>
         <htmlcompressor.version>1.6.3</htmlcompressor.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
-        <jgit.version>4.7.1.201706071930-r</jgit.version>
+        <jgit.version>4.8.0.201706111038-r</jgit.version>
         <jsch.version>0.1.54</jsch.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.3.1</metro.version>
