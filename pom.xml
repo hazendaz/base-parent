@@ -197,7 +197,7 @@
         <xml-format.plugin>3.0.5</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
-        <build-tools.version>1.1.4</build-tools.version>
+        <build-tools.version>1.1.5</build-tools.version>
         <checkstyle.version>8.0</checkstyle.version>
         <doxia.version>1.7</doxia.version>
         <fluido.version>1.6</fluido.version>
