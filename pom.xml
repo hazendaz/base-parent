@@ -207,7 +207,7 @@
         <jsch.version>0.1.54</jsch.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.3.1</metro.version>
-        <plexus.version>3.0.24</plexus.version>
+        <plexus.version>3.1.0</plexus.version>
         <scm.version>1.9.5</scm.version>
         <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
         <wagon-ssh.version>2.12</wagon-ssh.version>
