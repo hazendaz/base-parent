@@ -150,7 +150,7 @@
         <signature.version>1.0</signature.version>
 
         <!-- plugin versions -->
-        <animal-sniffer.plugin>1.15</animal-sniffer.plugin>
+        <animal-sniffer.plugin>1.16</animal-sniffer.plugin>
         <antrun.plugin>1.8</antrun.plugin>
         <assembly.plugin>3.0.0</assembly.plugin>
         <build-helper.plugin>3.0.0</build-helper.plugin>
