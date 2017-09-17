@@ -164,7 +164,7 @@
         <dependency-check.plugin>2.1.1</dependency-check.plugin>
         <deploy.plugin>2.8.2</deploy.plugin>
         <enforcer.plugin>1.4.1</enforcer.plugin>
-        <findbugs.plugin>3.0.4</findbugs.plugin>
+        <findbugs.plugin>3.0.5</findbugs.plugin>
         <formatter.plugin>2.0.1</formatter.plugin>
         <git-commit.plugin>2.2.2</git-commit.plugin>
         <gpg.plugin>1.6</gpg.plugin>
