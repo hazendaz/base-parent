@@ -630,6 +630,7 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
                     <groupId>au.com.acegi</groupId>
                     <artifactId>xml-format-maven-plugin</artifactId>
