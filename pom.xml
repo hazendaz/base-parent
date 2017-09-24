@@ -187,6 +187,7 @@
         <site.plugin>3.6</site.plugin>
         <sonar.plugin>3.3.0.603</sonar.plugin>
         <source.plugin>3.0.1</source.plugin>
+        <spotbugs.plugin>3.1.0-SNAPSHOT</spotbugs.plugin> <!-- Bump to Releasable version once both findbugs and spotbugs can run independent -->
         <surefire.plugin>2.20</surefire.plugin>
         <taglist.plugin>2.4</taglist.plugin>
         <tidy.plugin>1.0.0</tidy.plugin>
@@ -200,6 +201,8 @@
         <build-tools.version>1.1.5</build-tools.version>
         <checkstyle.version>8.2</checkstyle.version>
         <doxia.version>1.7</doxia.version>
+        <fb-contrib.version>7.0.3</fb-contrib.version>
+        <findsecbugs.version>1.7.1</findsecbugs.version>
         <fluido.version>1.6</fluido.version>
         <htmlcompressor.version>1.6.3</htmlcompressor.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
@@ -507,6 +510,39 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
                     <version>${findbugs.plugin}</version>
+                    <configuration>
+                        <plugins>
+                            <plugin>
+                                <groupId>com.mebigfatguy.fb-contrib</groupId>
+                                <artifactId>fb-contrib</artifactId>
+                                <version>${fb-contrib.version}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>com.h3xstream.findsecbugs</groupId>
+                                <artifactId>findsecbugs-plugin</artifactId>
+                                <version>${findsecbugs.version}</version>
+                            </plugin>
+                        </plugins>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${spotbugs.plugin}</version>
+                    <configuration>
+                        <plugins>
+                            <plugin>
+                                <groupId>com.mebigfatguy.fb-contrib</groupId>
+                                <artifactId>fb-contrib</artifactId>
+                                <version>${fb-contrib.version}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>com.h3xstream.findsecbugs</groupId>
+                                <artifactId>findsecbugs-plugin</artifactId>
+                                <version>${findsecbugs.version}</version>
+                            </plugin>
+                        </plugins>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>com.tunyk.mvn.plugins.htmlcompressor</groupId>
@@ -943,6 +979,10 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
             </plugin>
             <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <reportSets>
@@ -1024,6 +1064,24 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>findbugs-maven-plugin</artifactId>
+                        <configuration>
+                            <findbugsXmlOutput>true</findbugsXmlOutput>
+                            <effort>max</effort>
+                            <includeTests>true</includeTests>
+                            <failOnError>false</failOnError>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
                         <configuration>
                             <findbugsXmlOutput>true</findbugsXmlOutput>
                             <effort>max</effort>
