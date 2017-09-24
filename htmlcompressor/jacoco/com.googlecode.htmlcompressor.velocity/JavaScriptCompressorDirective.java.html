@@ -1,52 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JavaScriptCompressorDirective.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.velocity</a> &gt; <span class="el_source">JavaScriptCompressorDirective.java</span></div><h1>JavaScriptCompressorDirective.java</h1><pre class="source lang-java linenums">/**
- * ====
- *     ====
- *         ====
- *                Copyright 2009-2016 the original author or authors.
- *
- *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *                you may not use this file except in compliance with the License.
- *                You may obtain a copy of the License at
- *
- *                   http://www.apache.org/licenses/LICENSE-2.0
- *
- *                Unless required by applicable law or agreed to in writing, software
- *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *                See the License for the specific language governing permissions and
- *                limitations under the License.
- *         ====
- *
- *            Copyright 2009-2017 the original author or authors.
- *
- *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *            you may not use this file except in compliance with the License.
- *            You may obtain a copy of the License at
- *
- *               http://www.apache.org/licenses/LICENSE-2.0
- *
- *            Unless required by applicable law or agreed to in writing, software
- *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *            See the License for the specific language governing permissions and
- *            limitations under the License.
- *     ====
- *
- *        Copyright 2009-2017 the original author or authors.
- *
- *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *        you may not use this file except in compliance with the License.
- *        You may obtain a copy of the License at
- *
- *           http://www.apache.org/licenses/LICENSE-2.0
- *
- *        Unless required by applicable law or agreed to in writing, software
- *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *        See the License for the specific language governing permissions and
- *        limitations under the License.
- * ====
- *
  *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -60,16 +12,16 @@
  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
-<span class="nc" id="L63"> */</span>
+ */
 package com.googlecode.htmlcompressor.velocity;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-<span class="nc" id="L69"></span>
+
 import org.apache.velocity.context.InternalContextAdapter;
 import org.apache.velocity.exception.MethodInvocationException;
-<span class="nc" id="L72">import org.apache.velocity.exception.TemplateInitException;</span>
+import org.apache.velocity.exception.TemplateInitException;
 import org.apache.velocity.runtime.RuntimeServices;
 import org.apache.velocity.runtime.directive.Directive;
 import org.apache.velocity.runtime.log.Log;
@@ -83,115 +35,115 @@ import com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor;
 /**
  * Velocity directive that compresses an JavaScript content within #compressJs ... #end block. All JavaScript-related
  * properties from {@link HtmlCompressor} are supported.
-<span class="nc" id="L86"> *</span>
+ *
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  * @see HtmlCompressor
- * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+<span class="nc" id="L41"> * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
  * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;
-<span class="nc" id="L91"> */</span>
+ */
 public class JavaScriptCompressorDirective extends Directive {
 
     /** The log. */
-<span class="nc" id="L95">    private Log     log;</span>
+<span class="nc" id="L47">    private Log     log;</span>
 
     /** The enabled. */
-    private boolean enabled         = true;
+<span class="nc" id="L50">    private boolean enabled         = true;</span>
 
-<span class="nc" id="L100">    /** The js compressor. */</span>
+    /** The js compressor. */
     private String  jsCompressor    = HtmlCompressor.JS_COMPRESSOR_YUI;
 
     // YUICompressor settings
 
-<span class="nc" id="L105">    /** The yui js no munge. */</span>
-<span class="nc" id="L106">    private boolean yuiJsNoMunge;</span>
+    /** The yui js no munge. */
+    private boolean yuiJsNoMunge;
 
     /** The yui js preserve all semi colons. */
-<span class="nc" id="L109">    private boolean yuiJsPreserveAllSemiColons;</span>
-<span class="nc" id="L110"></span>
-<span class="nc" id="L111">    /** The yui js disable optimizations. */</span>
-<span class="nc" id="L112">    private boolean yuiJsDisableOptimizations;</span>
-<span class="nc" id="L113"></span>
-<span class="nc" id="L114">    /** The yui js line break. */</span>
+    private boolean yuiJsPreserveAllSemiColons;
+
+    /** The yui js disable optimizations. */
+<span class="nc" id="L64">    private boolean yuiJsDisableOptimizations;</span>
+
+    /** The yui js line break. */
     private int     yuiJsLineBreak  = -1;
-<span class="nc" id="L116"></span>
-    // Closure compressor settings
+
+<span class="nc" id="L69">    // Closure compressor settings</span>
 
     /** The closure opt level. */
     private String  closureOptLevel = ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE;
-
+<span class="nc" id="L73"></span>
     @Override
-<span class="nc" id="L123">    public String getName() {</span>
-<span class="nc" id="L124">        return &quot;compressJs&quot;;</span>
+    public String getName() {
+        return &quot;compressJs&quot;;
     }
-
-<span class="nc bnc" id="L127" title="All 2 branches missed.">    @Override</span>
+<span class="nc" id="L78"></span>
+    @Override
     public int getType() {
-<span class="nc" id="L129">        return BLOCK;</span>
+        return BLOCK;
     }
-<span class="nc bnc" id="L131" title="All 2 branches missed."></span>
-    @Override
-<span class="nc" id="L133">    public void init(RuntimeServices rs, InternalContextAdapter context, Node node) throws TemplateInitException {</span>
-<span class="nc bnc" id="L134" title="All 2 branches missed.">        super.init(rs, context, node);</span>
-<span class="nc" id="L135">        log = rs.getLog();</span>
-<span class="nc" id="L136"></span>
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        // set compressor properties</span>
-<span class="nc" id="L138">        enabled = rs.getBoolean(&quot;userdirective.compressJs.enabled&quot;, true);</span>
-        jsCompressor = rs.getString(&quot;userdirective.compressHtml.jsCompressor&quot;, HtmlCompressor.JS_COMPRESSOR_YUI);
-<span class="nc" id="L140">        yuiJsNoMunge = rs.getBoolean(&quot;userdirective.compressJs.yuiJsNoMunge&quot;, false);</span>
+<span class="nc" id="L83"></span>
+<span class="nc" id="L84">    @Override</span>
+    public void init(RuntimeServices rs, InternalContextAdapter context, Node node) throws TemplateInitException {
+        super.init(rs, context, node);
+<span class="nc" id="L87">        log = rs.getLog();</span>
+<span class="nc" id="L88"></span>
+<span class="nc" id="L89">        // set compressor properties</span>
+<span class="nc" id="L90">        enabled = rs.getBoolean(&quot;userdirective.compressJs.enabled&quot;, true);</span>
+<span class="nc" id="L91">        jsCompressor = rs.getString(&quot;userdirective.compressHtml.jsCompressor&quot;, HtmlCompressor.JS_COMPRESSOR_YUI);</span>
+<span class="nc" id="L92">        yuiJsNoMunge = rs.getBoolean(&quot;userdirective.compressJs.yuiJsNoMunge&quot;, false);</span>
         yuiJsPreserveAllSemiColons = rs.getBoolean(&quot;userdirective.compressJs.yuiJsPreserveAllSemiColons&quot;, false);
-        yuiJsLineBreak = rs.getInt(&quot;userdirective.compressJs.yuiJsLineBreak&quot;, -1);
-<span class="nc" id="L143">        closureOptLevel = rs.getString(&quot;userdirective.compressHtml.closureOptLevel&quot;,</span>
+<span class="nc" id="L94">        yuiJsLineBreak = rs.getInt(&quot;userdirective.compressJs.yuiJsLineBreak&quot;, -1);</span>
+        closureOptLevel = rs.getString(&quot;userdirective.compressHtml.closureOptLevel&quot;,
                 ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE);
-<span class="nc" id="L145">    }</span>
+    }
 
-<span class="nc" id="L147">    @Override</span>
-<span class="nc" id="L148">    public boolean render(InternalContextAdapter context, Writer writer, Node node) throws IOException,</span>
-<span class="nc" id="L149">            MethodInvocationException {</span>
-<span class="nc" id="L150"></span>
-<span class="nc" id="L151">        // render content</span>
+    @Override
+    public boolean render(InternalContextAdapter context, Writer writer, Node node)
+<span class="nc" id="L101">            throws IOException, MethodInvocationException {</span>
+<span class="nc" id="L102"></span>
+        // render content
         StringWriter content = new StringWriter();
-<span class="nc" id="L153">        node.jjtGetChild(0).render(context, content);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        node.jjtGetChild(0).render(context, content);</span>
 
-        // compress
-<span class="nc" id="L156">        if (enabled) {</span>
-<span class="nc" id="L157">            try {</span>
-<span class="nc" id="L158">                String result = content.toString();</span>
-<span class="nc" id="L159"></span>
-<span class="nc" id="L160">                if (jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {</span>
-<span class="nc" id="L161">                    // call Closure compressor</span>
-                    ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();
-<span class="nc" id="L163">                    if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {</span>
-                        closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);
-<span class="nc" id="L165">                    } else if (closureOptLevel</span>
-                            .equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {
+<span class="nc" id="L107">        // compress</span>
+        if (enabled) {
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            try {</span>
+                String result = content.toString();
+<span class="nc" id="L111"></span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">                if (jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {</span>
+<span class="nc" id="L113">                    // call Closure compressor</span>
+<span class="nc" id="L114">                    ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">                    if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {</span>
+<span class="nc" id="L116">                        closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);</span>
+                    } else if (closureOptLevel
+<span class="nc" id="L118">                            .equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {</span>
                         closureCompressor.setCompilationLevel(CompilationLevel.WHITESPACE_ONLY);
-<span class="nc" id="L168">                    } else {</span>
-                        closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);
+                    } else {
+<span class="nc" id="L121">                        closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);</span>
                     }
-
+<span class="nc" id="L123"></span>
                     result = closureCompressor.compress(result);
-
-                } else {
-                    // call YUICompressor
-                    YuiJavaScriptCompressor yuiCompressor = new YuiJavaScriptCompressor();
-                    yuiCompressor.setDisableOptimizations(yuiJsDisableOptimizations);
+<span class="nc" id="L125"></span>
+<span class="nc" id="L126">                } else {</span>
+<span class="nc" id="L127">                    // call YUICompressor</span>
+<span class="nc" id="L128">                    YuiJavaScriptCompressor yuiCompressor = new YuiJavaScriptCompressor();</span>
+<span class="nc" id="L129">                    yuiCompressor.setDisableOptimizations(yuiJsDisableOptimizations);</span>
                     yuiCompressor.setLineBreak(yuiJsLineBreak);
-                    yuiCompressor.setNoMunge(yuiJsNoMunge);
+<span class="nc" id="L131">                    yuiCompressor.setNoMunge(yuiJsNoMunge);</span>
                     yuiCompressor.setPreserveAllSemiColons(yuiJsPreserveAllSemiColons);
 
-                    result = yuiCompressor.compress(result);
-                }
-
-                writer.write(result);
-            } catch (Exception e) {
-                writer.write(content.toString());
+<span class="nc" id="L134">                    result = yuiCompressor.compress(result);</span>
+<span class="nc" id="L135">                }</span>
+<span class="nc" id="L136"></span>
+<span class="nc" id="L137">                writer.write(result);</span>
+<span class="nc" id="L138">            } catch (Exception e) {</span>
+<span class="nc" id="L139">                writer.write(content.toString());</span>
                 String msg = &quot;Failed to compress content: &quot; + content.toString();
-                log.error(msg, e);
+<span class="nc" id="L141">                log.error(msg, e);</span>
                 throw new RuntimeException(msg, e);
-
+<span class="nc" id="L143"></span>
             }
         } else {
-            writer.write(content.toString());
+<span class="nc" id="L146">            writer.write(content.toString());</span>
         }
 
         return true;
@@ -199,4 +151,4 @@ public class JavaScriptCompressorDirective extends Directive {
     }
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

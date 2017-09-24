@@ -1,67 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CmdLineParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">jargs.gnu</a> &gt; <span class="el_source">CmdLineParser.java</span></div><h1>CmdLineParser.java</h1><pre class="source lang-java linenums">/**
- * ====
- *     ====
- *         ====
- *                Copyright 2009-2016 the original author or authors.
- *
- *                Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *                you may not use this file except in compliance with the License.
- *                You may obtain a copy of the License at
- *
- *                   http://www.apache.org/licenses/LICENSE-2.0
- *
- *                Unless required by applicable law or agreed to in writing, software
- *                distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *                WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *                See the License for the specific language governing permissions and
- *                limitations under the License.
- *         ====
- *
- *            Copyright 2009-2017 the original author or authors.
- *
- *            Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *            you may not use this file except in compliance with the License.
- *            You may obtain a copy of the License at
- *
- *               http://www.apache.org/licenses/LICENSE-2.0
- *
- *            Unless required by applicable law or agreed to in writing, software
- *            distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *            See the License for the specific language governing permissions and
- *            limitations under the License.
- *     ====
- *
- *        Copyright 2009-2017 the original author or authors.
- *
- *        Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
- *        you may not use this file except in compliance with the License.
- *        You may obtain a copy of the License at
- *
- *           http://www.apache.org/licenses/LICENSE-2.0
- *
- *        Unless required by applicable law or agreed to in writing, software
- *        distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
- *        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *        See the License for the specific language governing permissions and
- *        limitations under the License.
- * ====
- *
  *    Copyright 2009-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
  *    You may obtain a copy of the License at
-<span class="nc" id="L55"> *</span>
+ *
  *       http://www.apache.org/licenses/LICENSE-2.0
  *
  *    Unless required by applicable law or agreed to in writing, software
  *    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-<span class="nc" id="L61"> *    See the License for the specific language governing permissions and</span>
+ *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-<span class="nc" id="L64">package jargs.gnu;</span>
+package jargs.gnu;
 
 import java.io.Serializable;
 import java.text.NumberFormat;
@@ -78,16 +30,16 @@ import java.util.Locale;
  *
  * @author Steve Purcell
  * @version $Revision$
-<span class="nc" id="L81"> * @see &lt;a href=&quot;https://github.com/purcell/jargs/tree/master/src/examples/java/com/sanityinc/jargs/examples&quot;&gt;jargs</span>
-<span class="nc" id="L82"> *      examples&lt;/a&gt;</span>
+<span class="nc" id="L33"> * @see &lt;a href=&quot;https://github.com/purcell/jargs/tree/master/src/examples/java/com/sanityinc/jargs/examples&quot;&gt;jargs</span>
+ *      examples&lt;/a&gt;
  */
 public class CmdLineParser {
 
     /** The remaining args. */
-    private List&lt;String&gt;            remainingArgs;
+<span class="nc" id="L39">    private List&lt;String&gt;            remainingArgs;</span>
 
     /** The options. */
-    private HashMap&lt;Object, Option&gt; options = new HashMap&lt;&gt;(10);
+<span class="nc" id="L42">    private HashMap&lt;Object, Option&gt; options = new HashMap&lt;&gt;(10);</span>
 
     /** The values. */
     private HashMap&lt;String, Object&gt; values  = new HashMap&lt;&gt;(10);
@@ -101,11 +53,11 @@ public class CmdLineParser {
         private static final long serialVersionUID = 1L;
 
         /**
-<span class="nc" id="L104">         * Instantiates a new option exception.</span>
-<span class="nc" id="L105">         *</span>
+         * Instantiates a new option exception.
+         *
          * @param msg
-         *            the msg
-         */
+<span class="nc" id="L59">         *            the msg</span>
+<span class="nc" id="L60">         */</span>
         OptionException(String msg) {
             super(msg);
         }
@@ -113,9 +65,9 @@ public class CmdLineParser {
 
     /**
      * Thrown when the parsed command-line contains an option that is not recognised. &lt;code&gt;getMessage()&lt;/code&gt; returns
-<span class="nc" id="L116">     * an error string suitable for reporting the error to the user (in English).</span>
-<span class="nc" id="L117">     */</span>
-<span class="nc" id="L118">    public static class UnknownOptionException extends OptionException {</span>
+     * an error string suitable for reporting the error to the user (in English).
+     */
+    public static class UnknownOptionException extends OptionException {
 
         /** The Constant serialVersionUID. */
         private static final long serialVersionUID = 1L;
@@ -123,12 +75,12 @@ public class CmdLineParser {
         /** The option name. */
         private final String      optionName;
 
-<span class="nc" id="L126">        /**</span>
+        /**
          * Instantiates a new unknown option exception.
          *
          * @param optionName
-         *            the option name
-         */
+<span class="nc" id="L82">         *            the option name</span>
+<span class="nc" id="L83">         */</span>
         UnknownOptionException(String optionName) {
             this(optionName, &quot;Unknown option '&quot; + optionName + &quot;'&quot;);
         }
@@ -139,9 +91,9 @@ public class CmdLineParser {
          * @param optionName
          *            the option name
          * @param msg
-         *            the msg
-         */
-        UnknownOptionException(String optionName, String msg) {
+<span class="nc" id="L94">         *            the msg</span>
+<span class="nc" id="L95">         */</span>
+<span class="nc" id="L96">        UnknownOptionException(String optionName, String msg) {</span>
             super(msg);
             this.optionName = optionName;
         }
@@ -149,10 +101,10 @@ public class CmdLineParser {
         /**
          * Gets the option name.
          *
-         * @return the name of the option that was unknown (e.g. &quot;-u&quot;)
-<span class="nc" id="L153">         */</span>
-<span class="nc" id="L154">        public String getOptionName() {</span>
-<span class="nc" id="L155">            return this.optionName;</span>
+<span class="nc" id="L104">         * @return the name of the option that was unknown (e.g. &quot;-u&quot;)</span>
+         */
+        public String getOptionName() {
+            return this.optionName;
         }
     }
 
@@ -160,7 +112,7 @@ public class CmdLineParser {
      * Thrown when the parsed commandline contains multiple concatenated short options, such as -abcd, where one is
      * unknown. &lt;code&gt;getMessage()&lt;/code&gt; returns an english human-readable error string.
      * 
-<span class="nc" id="L163">     * @author Vidar Holen</span>
+     * @author Vidar Holen
      */
     public static class UnknownSuboptionException extends UnknownOptionException {
 
@@ -176,9 +128,9 @@ public class CmdLineParser {
          * @param option
          *            the option
          * @param suboption
-         *            the suboption
-         */
-        UnknownSuboptionException(String option, char suboption) {
+<span class="nc" id="L131">         *            the suboption</span>
+<span class="nc" id="L132">         */</span>
+<span class="nc" id="L133">        UnknownSuboptionException(String option, char suboption) {</span>
             super(option, &quot;Illegal option: '&quot; + suboption + &quot;' in '&quot; + option + &quot;'&quot;);
             this.suboption = suboption;
         }
@@ -186,10 +138,10 @@ public class CmdLineParser {
         /**
          * Gets the suboption.
          *
-         * @return the suboption
-<span class="nc" id="L190">         */</span>
-<span class="nc" id="L191">        public char getSuboption() {</span>
-<span class="nc" id="L192">            return suboption;</span>
+<span class="nc" id="L141">         * @return the suboption</span>
+         */
+        public char getSuboption() {
+            return suboption;
         }
     }
 
@@ -197,7 +149,7 @@ public class CmdLineParser {
      * Thrown when the parsed commandline contains multiple concatenated short options, such as -abcd, where one or more
      * requires a value. &lt;code&gt;getMessage()&lt;/code&gt; returns an english human-readable error string.
      * 
-<span class="nc" id="L200">     * @author Vidar Holen</span>
+     * @author Vidar Holen
      */
     public static class NotFlagException extends UnknownOptionException {
 
@@ -213,9 +165,9 @@ public class CmdLineParser {
          * @param option
          *            the option
          * @param unflaggish
-         *            the unflaggish
-         */
-        NotFlagException(String option, char unflaggish) {
+<span class="nc" id="L168">         *            the unflaggish</span>
+<span class="nc" id="L169">         */</span>
+<span class="nc" id="L170">        NotFlagException(String option, char unflaggish) {</span>
             super(option, &quot;Illegal option: '&quot; + option + &quot;', '&quot; + unflaggish + &quot;' requires a value&quot;);
             notflag = unflaggish;
         }
@@ -223,13 +175,13 @@ public class CmdLineParser {
         /**
          * Gets the option char.
          *
-         * @return the first character which wasn't a boolean (e.g 'c')
+<span class="nc" id="L178">         * @return the first character which wasn't a boolean (e.g 'c')</span>
          */
-<span class="nc" id="L228">        public char getOptionChar() {</span>
-<span class="nc bnc" id="L229" title="All 2 branches missed.">            return notflag;</span>
-<span class="nc" id="L230">        }</span>
-<span class="nc" id="L231">    }</span>
-<span class="nc" id="L232"></span>
+        public char getOptionChar() {
+            return notflag;
+        }
+    }
+
     /**
      * Thrown when an illegal or missing value is given by the user for an option that takes a value.
      * &lt;code&gt;getMessage()&lt;/code&gt; returns an error string suitable for reporting the error to the user (in English).
@@ -237,7 +189,7 @@ public class CmdLineParser {
     public static class IllegalOptionValueException extends OptionException {
 
         /** The Constant serialVersionUID. */
-<span class="nc" id="L240">        private static final long serialVersionUID = 1L;</span>
+        private static final long serialVersionUID = 1L;
 
         /** The option. */
         private final Option      option;
@@ -246,16 +198,16 @@ public class CmdLineParser {
         private final String      value;
 
         /**
-<span class="nc" id="L249">         * Instantiates a new illegal option value exception.</span>
+         * Instantiates a new illegal option value exception.
          *
          * @param opt
          *            the opt
          * @param value
-         *            the value
-         */
-        public IllegalOptionValueException(Option opt, String value) {
-            super(&quot;Illegal value '&quot; + value + &quot;' for option &quot;
-                    + (opt.shortForm() != null ? &quot;-&quot; + opt.shortForm() + &quot;/&quot; : &quot;&quot;) + &quot;--&quot; + opt.longForm());
+<span class="nc" id="L206">         *            the value</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">         */</span>
+<span class="nc" id="L208">        public IllegalOptionValueException(Option opt, String value) {</span>
+<span class="nc" id="L209">            super(&quot;Illegal value '&quot; + value + &quot;' for option &quot;</span>
+<span class="nc" id="L210">                    + (opt.shortForm() != null ? &quot;-&quot; + opt.shortForm() + &quot;/&quot; : &quot;&quot;) + &quot;--&quot; + opt.longForm());</span>
             this.option = opt;
             this.value = value;
         }
@@ -263,7 +215,7 @@ public class CmdLineParser {
         /**
          * Gets the option.
          *
-         * @return the name of the option whose value was illegal (e.g. &quot;-u&quot;)
+<span class="nc" id="L218">         * @return the name of the option whose value was illegal (e.g. &quot;-u&quot;)</span>
          */
         public Option getOption() {
             return this.option;
@@ -272,13 +224,13 @@ public class CmdLineParser {
         /**
          * Gets the value.
          *
-         * @return the illegal value
+<span class="nc" id="L227">         * @return the illegal value</span>
          */
         public String getValue() {
             return this.value;
         }
-<span class="nc" id="L280"></span>
-<span class="nc" id="L281">    }</span>
+
+    }
 
     /**
      * Representation of a command-line option.
@@ -291,8 +243,8 @@ public class CmdLineParser {
         /** The short form. */
         private String            shortForm;
 
-<span class="nc" id="L294">        /** The long form. */</span>
-<span class="nc" id="L295">        private String            longForm;</span>
+        /** The long form. */
+        private String            longForm;
 
         /** The wants value. */
         private boolean           wantsValue;
@@ -303,22 +255,22 @@ public class CmdLineParser {
          * @param longForm
          *            the long form
          * @param wantsValue
-         *            the wants value
-<span class="nc" id="L307">         */</span>
-<span class="nc bnc" id="L308" title="All 2 branches missed.">        protected Option(String longForm, boolean wantsValue) {</span>
-<span class="nc" id="L309">            this(null, longForm, wantsValue);</span>
-<span class="nc" id="L310">        }</span>
-<span class="nc" id="L311"></span>
-<span class="nc" id="L312">        /**</span>
-<span class="nc" id="L313">         * Instantiates a new option.</span>
+<span class="nc" id="L258">         *            the wants value</span>
+<span class="nc" id="L259">         */</span>
+        protected Option(String longForm, boolean wantsValue) {
+            this(null, longForm, wantsValue);
+        }
+
+        /**
+         * Instantiates a new option.
          *
          * @param shortForm
          *            the short form
          * @param longForm
          *            the long form
          * @param wantsValue
-         *            the wants value
-<span class="nc" id="L321">         */</span>
+<span class="nc" id="L272">         *            the wants value</span>
+<span class="nc" id="L273">         */</span>
         protected Option(char shortForm, String longForm, boolean wantsValue) {
             this(new String(new char[] { shortForm }), longForm, wantsValue);
         }
@@ -327,16 +279,16 @@ public class CmdLineParser {
          * Instantiates a new option.
          *
          * @param shortForm
-<span class="nc" id="L330">         *            the short form</span>
+         *            the short form
          * @param longForm
          *            the long form
-         * @param wantsValue
-         *            the wants value
-         */
-        private Option(String shortForm, String longForm, boolean wantsValue) {
-            if (longForm == null)
-                throw new IllegalArgumentException(&quot;Null longForm not allowed&quot;);
-<span class="nc" id="L339">            this.shortForm = shortForm;</span>
+<span class="nc" id="L285">         * @param wantsValue</span>
+<span class="nc bnc" id="L286" title="All 2 branches missed.">         *            the wants value</span>
+<span class="nc" id="L287">         */</span>
+<span class="nc" id="L288">        private Option(String shortForm, String longForm, boolean wantsValue) {</span>
+<span class="nc" id="L289">            if (longForm == null)</span>
+<span class="nc" id="L290">                throw new IllegalArgumentException(&quot;Null longForm not allowed&quot;);</span>
+<span class="nc" id="L291">            this.shortForm = shortForm;</span>
             this.longForm = longForm;
             this.wantsValue = wantsValue;
         }
@@ -344,25 +296,25 @@ public class CmdLineParser {
         /**
          * Short form.
          *
-         * @return the string
+<span class="nc" id="L299">         * @return the string</span>
          */
         public String shortForm() {
             return this.shortForm;
         }
 
         /**
-<span class="nc bnc" id="L354" title="All 2 branches missed.">         * Long form.</span>
-<span class="nc bnc" id="L355" title="All 2 branches missed.">         *</span>
-<span class="nc" id="L356">         * @return the string</span>
+         * Long form.
+         *
+<span class="nc" id="L308">         * @return the string</span>
          */
-<span class="nc" id="L358">        public String longForm() {</span>
+        public String longForm() {
             return this.longForm;
-<span class="nc" id="L360">        }</span>
+        }
 
         /**
          * Tells whether or not this option wants a value.
          *
-         * @return true, if successful
+<span class="nc" id="L317">         * @return true, if successful</span>
          */
         public boolean wantsValue() {
             return this.wantsValue;
@@ -373,17 +325,17 @@ public class CmdLineParser {
          *
          * @param arg
          *            the arg
-<span class="nc" id="L376">         * @param locale</span>
+         * @param locale
          *            the locale
          * @return the value
          * @throws IllegalOptionValueException
-         *             the illegal option value exception
-         */
-        public final Object getValue(String arg, Locale locale) throws IllegalOptionValueException {
+<span class="nc bnc" id="L332" title="All 2 branches missed.">         *             the illegal option value exception</span>
+<span class="nc bnc" id="L333" title="All 2 branches missed.">         */</span>
+<span class="nc" id="L334">        public final Object getValue(String arg, Locale locale) throws IllegalOptionValueException {</span>
             if (this.wantsValue) {
-                if (arg == null) {
+<span class="nc" id="L336">                if (arg == null) {</span>
                     throw new IllegalOptionValueException(this, &quot;&quot;);
-                }
+<span class="nc" id="L338">                }</span>
                 return this.parseValue(arg, locale);
             } else {
                 return Boolean.TRUE;
@@ -393,18 +345,18 @@ public class CmdLineParser {
         /**
          * Override to extract and convert an option value passed on the command-line.
          *
-<span class="nc" id="L396">         * @param arg</span>
-<span class="nc" id="L397">         *            the arg</span>
+         * @param arg
+         *            the arg
          * @param locale
          *            the locale
          * @return the object
          * @throws IllegalOptionValueException
-         *             the illegal option value exception
+<span class="nc" id="L354">         *             the illegal option value exception</span>
          */
         protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {
             return null;
-<span class="nc" id="L406">        }</span>
-<span class="nc" id="L407"></span>
+        }
+
         /**
          * The Class BooleanOption.
          */
@@ -419,30 +371,30 @@ public class CmdLineParser {
              * @param shortForm
              *            the short form
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L374">             *            the long form</span>
+<span class="nc" id="L375">             */</span>
             public BooleanOption(char shortForm, String longForm) {
                 super(shortForm, longForm, false);
             }
-<span class="nc" id="L427"></span>
-<span class="nc" id="L428">            /**</span>
+
+            /**
              * Instantiates a new boolean option.
              *
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L384">             *            the long form</span>
+<span class="nc" id="L385">             */</span>
             public BooleanOption(String longForm) {
                 super(longForm, false);
             }
-<span class="nc" id="L437">        }</span>
-<span class="nc" id="L438"></span>
+        }
+
         /**
          * An option that expects an integer value.
          */
         public static class IntegerOption extends Option {
-<span class="nc" id="L443"></span>
-<span class="nc" id="L444">            /** The Constant serialVersionUID. */</span>
-<span class="nc" id="L445">            private static final long serialVersionUID = 1L;</span>
+
+            /** The Constant serialVersionUID. */
+            private static final long serialVersionUID = 1L;
 
             /**
              * Instantiates a new integer option.
@@ -450,8 +402,8 @@ public class CmdLineParser {
              * @param shortForm
              *            the short form
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L405">             *            the long form</span>
+<span class="nc" id="L406">             */</span>
             public IntegerOption(char shortForm, String longForm) {
                 super(shortForm, longForm, true);
             }
@@ -460,29 +412,29 @@ public class CmdLineParser {
              * Instantiates a new integer option.
              *
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L415">             *            the long form</span>
+<span class="nc" id="L416">             */</span>
             public IntegerOption(String longForm) {
                 super(longForm, true);
-<span class="nc" id="L467">            }</span>
-<span class="nc" id="L468"></span>
-            @Override
-            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {
-                try {
+            }
+
+<span class="nc" id="L421">            @Override</span>
+<span class="nc" id="L422">            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {</span>
+<span class="nc" id="L423">                try {</span>
                     return new Integer(arg);
                 } catch (NumberFormatException e) {
                     throw new IllegalOptionValueException(this, arg);
                 }
             }
-<span class="nc" id="L477">        }</span>
-<span class="nc" id="L478"></span>
+        }
+
         /**
          * An option that expects a long integer value.
          */
         public static class LongOption extends Option {
-<span class="nc" id="L483"></span>
-<span class="nc" id="L484">            /** The Constant serialVersionUID. */</span>
-<span class="nc" id="L485">            private static final long serialVersionUID = 1L;</span>
+
+            /** The Constant serialVersionUID. */
+            private static final long serialVersionUID = 1L;
 
             /**
              * Instantiates a new long option.
@@ -490,8 +442,8 @@ public class CmdLineParser {
              * @param shortForm
              *            the short form
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L445">             *            the long form</span>
+<span class="nc" id="L446">             */</span>
             public LongOption(char shortForm, String longForm) {
                 super(shortForm, longForm, true);
             }
@@ -500,38 +452,38 @@ public class CmdLineParser {
              * Instantiates a new long option.
              *
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L455">             *            the long form</span>
+<span class="nc" id="L456">             */</span>
             public LongOption(String longForm) {
                 super(longForm, true);
-<span class="nc" id="L507">            }</span>
-<span class="nc" id="L508"></span>
-            @Override
-            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {
-                try {
+            }
+
+<span class="nc" id="L461">            @Override</span>
+<span class="nc" id="L462">            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {</span>
+<span class="nc" id="L463">                try {</span>
                     return new Long(arg);
                 } catch (NumberFormatException e) {
                     throw new IllegalOptionValueException(this, arg);
                 }
             }
-<span class="nc" id="L517">        }</span>
-<span class="nc" id="L518"></span>
+        }
+
         /**
          * An option that expects a floating-point value.
          */
         public static class DoubleOption extends Option {
-<span class="nc" id="L523"></span>
-<span class="nc" id="L524">            /** The Constant serialVersionUID. */</span>
-<span class="nc" id="L525">            private static final long serialVersionUID = 1L;</span>
-<span class="nc" id="L526"></span>
-<span class="nc" id="L527">            /**</span>
+
+            /** The Constant serialVersionUID. */
+            private static final long serialVersionUID = 1L;
+
+            /**
              * Instantiates a new double option.
              *
              * @param shortForm
              *            the short form
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L485">             *            the long form</span>
+<span class="nc" id="L486">             */</span>
             public DoubleOption(char shortForm, String longForm) {
                 super(shortForm, longForm, true);
             }
@@ -540,28 +492,28 @@ public class CmdLineParser {
              * Instantiates a new double option.
              *
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L495">             *            the long form</span>
+<span class="nc" id="L496">             */</span>
             public DoubleOption(String longForm) {
                 super(longForm, true);
             }
 
-<span class="nc" id="L549">            @Override</span>
-<span class="nc" id="L550">            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {</span>
-                try {
-                    NumberFormat format = NumberFormat.getNumberInstance(locale);
-                    Number num = format.parse(arg);
+<span class="nc" id="L501">            @Override</span>
+<span class="nc" id="L502">            protected Object parseValue(String arg, Locale locale) throws IllegalOptionValueException {</span>
+<span class="nc" id="L503">                try {</span>
+<span class="nc" id="L504">                    NumberFormat format = NumberFormat.getNumberInstance(locale);</span>
+<span class="nc" id="L505">                    Number num = format.parse(arg);</span>
                     return num.doubleValue();
                 } catch (ParseException e) {
                     throw new IllegalOptionValueException(this, arg);
                 }
             }
-<span class="nc" id="L559">        }</span>
-<span class="nc" id="L560"></span>
+        }
+
         /**
          * An option that expects a string value.
          */
-<span class="nc" id="L564">        public static class StringOption extends Option {</span>
+        public static class StringOption extends Option {
 
             /** The Constant serialVersionUID. */
             private static final long serialVersionUID = 1L;
@@ -572,26 +524,26 @@ public class CmdLineParser {
              * @param shortForm
              *            the short form
              * @param longForm
-             *            the long form
-             */
-<span class="nc bnc" id="L577" title="All 2 branches missed.">            public StringOption(char shortForm, String longForm) {</span>
-<span class="nc" id="L578">                super(shortForm, longForm, true);</span>
+<span class="nc" id="L527">             *            the long form</span>
+<span class="nc" id="L528">             */</span>
+            public StringOption(char shortForm, String longForm) {
+                super(shortForm, longForm, true);
             }
-<span class="nc" id="L580"></span>
-<span class="nc" id="L581">            /**</span>
+
+            /**
              * Instantiates a new string option.
              *
              * @param longForm
-             *            the long form
-             */
+<span class="nc" id="L537">             *            the long form</span>
+<span class="nc" id="L538">             */</span>
             public StringOption(String longForm) {
                 super(longForm, true);
             }
-
+<span class="nc" id="L542"></span>
             @Override
             protected Object parseValue(String arg, Locale locale) {
                 return arg;
-<span class="nc" id="L594">            }</span>
+            }
         }
     }
 
@@ -600,11 +552,11 @@ public class CmdLineParser {
      *
      * @param opt
      *            the opt
-     * @return the option
-     */
-<span class="nc" id="L605">    public final Option addOption(Option opt) {</span>
-        if (opt.shortForm() != null) {
-            this.options.put(&quot;-&quot; + opt.shortForm(), opt);
+<span class="nc bnc" id="L555" title="All 2 branches missed.">     * @return the option</span>
+<span class="nc" id="L556">     */</span>
+    public final Option addOption(Option opt) {
+<span class="nc" id="L558">        if (opt.shortForm() != null) {</span>
+<span class="nc" id="L559">            this.options.put(&quot;-&quot; + opt.shortForm(), opt);</span>
         }
         this.options.put(&quot;--&quot; + opt.longForm(), opt);
         return opt;
@@ -615,9 +567,9 @@ public class CmdLineParser {
      *
      * @param shortForm
      *            the short form
-<span class="nc" id="L618">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L572">     * @return the new Option</span>
      */
     public final Option addStringOption(char shortForm, String longForm) {
         return addOption(new Option.StringOption(shortForm, longForm));
@@ -626,9 +578,9 @@ public class CmdLineParser {
     /**
      * Convenience method for adding a string option.
      *
-<span class="nc" id="L629">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L583">     * @return the new Option</span>
      */
     public final Option addStringOption(String longForm) {
         return addOption(new Option.StringOption(longForm));
@@ -639,9 +591,9 @@ public class CmdLineParser {
      *
      * @param shortForm
      *            the short form
-<span class="nc" id="L642">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L596">     * @return the new Option</span>
      */
     public final Option addIntegerOption(char shortForm, String longForm) {
         return addOption(new Option.IntegerOption(shortForm, longForm));
@@ -650,9 +602,9 @@ public class CmdLineParser {
     /**
      * Convenience method for adding an integer option.
      *
-<span class="nc" id="L653">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L607">     * @return the new Option</span>
      */
     public final Option addIntegerOption(String longForm) {
         return addOption(new Option.IntegerOption(longForm));
@@ -663,9 +615,9 @@ public class CmdLineParser {
      *
      * @param shortForm
      *            the short form
-<span class="nc" id="L666">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L620">     * @return the new Option</span>
      */
     public final Option addLongOption(char shortForm, String longForm) {
         return addOption(new Option.LongOption(shortForm, longForm));
@@ -674,9 +626,9 @@ public class CmdLineParser {
     /**
      * Convenience method for adding a long integer option.
      *
-<span class="nc" id="L677">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L631">     * @return the new Option</span>
      */
     public final Option addLongOption(String longForm) {
         return addOption(new Option.LongOption(longForm));
@@ -687,9 +639,9 @@ public class CmdLineParser {
      *
      * @param shortForm
      *            the short form
-<span class="nc" id="L690">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L644">     * @return the new Option</span>
      */
     public final Option addDoubleOption(char shortForm, String longForm) {
         return addOption(new Option.DoubleOption(shortForm, longForm));
@@ -698,9 +650,9 @@ public class CmdLineParser {
     /**
      * Convenience method for adding a double option.
      *
-<span class="nc" id="L701">     * @param longForm</span>
+     * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L655">     * @return the new Option</span>
      */
     public final Option addDoubleOption(String longForm) {
         return addOption(new Option.DoubleOption(longForm));
@@ -709,11 +661,11 @@ public class CmdLineParser {
     /**
      * Convenience method for adding a boolean option.
      *
-<span class="nc" id="L712">     * @param shortForm</span>
+     * @param shortForm
      *            the short form
      * @param longForm
      *            the long form
-     * @return the new Option
+<span class="nc" id="L668">     * @return the new Option</span>
      */
     public final Option addBooleanOption(char shortForm, String longForm) {
         return addOption(new Option.BooleanOption(shortForm, longForm));
@@ -723,19 +675,19 @@ public class CmdLineParser {
      * Convenience method for adding a boolean option.
      *
      * @param longForm
-<span class="nc" id="L726">     *            the long form</span>
-     * @return the new Option
-<span class="nc bnc" id="L728" title="All 2 branches missed.">     */</span>
-<span class="nc" id="L729">    public final Option addBooleanOption(String longForm) {</span>
-<span class="nc bnc" id="L730" title="All 2 branches missed.">        return addOption(new Option.BooleanOption(longForm));</span>
-<span class="nc" id="L731">    }</span>
+     *            the long form
+<span class="nc" id="L679">     * @return the new Option</span>
+     */
+    public final Option addBooleanOption(String longForm) {
+        return addOption(new Option.BooleanOption(longForm));
+    }
 
-<span class="nc" id="L733">    /**</span>
-<span class="nc" id="L734">     * Equivalent to {@link #getOptionValue(Option, Object) getOptionValue(o, null)}.</span>
-<span class="nc" id="L735">     *</span>
+    /**
+     * Equivalent to {@link #getOptionValue(Option, Object) getOptionValue(o, null)}.
+     *
      * @param o
      *            the o
-     * @return the option value
+<span class="nc" id="L690">     * @return the option value</span>
      */
     public final Object getOptionValue(Option o) {
         return getOptionValue(o, null);
@@ -745,52 +697,52 @@ public class CmdLineParser {
      * Gets the option value.
      *
      * @param o
-<span class="nc" id="L748">     *            the o</span>
+     *            the o
      * @param def
      *            the def
-<span class="nc" id="L751">     * @return the parsed value of the given Option, or the given default 'def' if the option was not set</span>
-     */
-<span class="nc bnc" id="L753" title="All 2 branches missed.">    @SuppressWarnings(&quot;unchecked&quot;)</span>
-<span class="nc" id="L754">    public final Object getOptionValue(Option o, Object def) {</span>
-        List&lt;String&gt; v = (ArrayList&lt;String&gt;) values.get(o.longForm());
-<span class="nc" id="L756"></span>
-        if (v == null) {
-<span class="nc" id="L758">            return def;</span>
-        } else if (v.isEmpty()) {
-            return null;
-        } else {
+     * @return the parsed value of the given Option, or the given default 'def' if the option was not set
+<span class="nc" id="L704">     */</span>
+    @SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc bnc" id="L706" title="All 2 branches missed.">    public final Object getOptionValue(Option o, Object def) {</span>
+<span class="nc" id="L707">        List&lt;String&gt; v = (ArrayList&lt;String&gt;) values.get(o.longForm());</span>
+<span class="nc bnc" id="L708" title="All 2 branches missed."></span>
+<span class="nc" id="L709">        if (v == null) {</span>
+            return def;
+<span class="nc" id="L711">        } else if (v.isEmpty()) {</span>
+<span class="nc" id="L712">            return null;</span>
+<span class="nc" id="L713">        } else {</span>
             Object result = v.get(0);
             v.remove(0);
             return result;
         }
     }
-<span class="nc" id="L767"></span>
+
     /**
      * Gets the option values.
      *
      * @param option
      *            the option
      * @return A Vector giving the parsed values of all the occurrences of the given Option, or an empty Vector if the
-     *         option was not set.
+<span class="nc" id="L726">     *         option was not set.</span>
      */
     public final List&lt;String&gt; getOptionValues(Option option) {
-        List&lt;String&gt; result = new ArrayList&lt;&gt;();
+<span class="nc" id="L729">        List&lt;String&gt; result = new ArrayList&lt;&gt;();</span>
 
-        while (true) {
-            Object o = getOptionValue(option, null);
+<span class="nc bnc" id="L731" title="All 2 branches missed.">        while (true) {</span>
+<span class="nc" id="L732">            Object o = getOptionValue(option, null);</span>
 
-            if (o == null) {
+<span class="nc" id="L734">            if (o == null) {</span>
                 return result;
-            } else {
+<span class="nc" id="L736">            } else {</span>
                 result.add((String) o);
             }
-<span class="nc" id="L787">        }</span>
-<span class="nc" id="L788">    }</span>
+        }
+    }
 
     /**
      * Gets the remaining args.
      *
-     * @return the non-option arguments
+<span class="nc" id="L745">     * @return the non-option arguments</span>
      */
     public final List&lt;String&gt; getRemainingArgs() {
         return this.remainingArgs;
@@ -806,98 +758,98 @@ public class CmdLineParser {
      *             the illegal option value exception
      * @throws UnknownOptionException
      *             the unknown option exception
-<span class="nc" id="L809">     */</span>
-<span class="nc" id="L810">    public final void parse(String[] argv) throws IllegalOptionValueException, UnknownOptionException {</span>
-<span class="nc" id="L811"></span>
-<span class="nc bnc" id="L812" title="All 2 branches missed.">        // It would be best if this method only threw OptionException, but for</span>
-<span class="nc" id="L813">        // backwards compatibility with old user code we throw the two</span>
-<span class="nc bnc" id="L814" title="All 2 branches missed.">        // exceptions above instead.</span>
-<span class="nc bnc" id="L815" title="All 2 branches missed."></span>
+     */
+    public final void parse(String[] argv) throws IllegalOptionValueException, UnknownOptionException {
+
+        // It would be best if this method only threw OptionException, but for
+<span class="nc" id="L765">        // backwards compatibility with old user code we throw the two</span>
+<span class="nc" id="L766">        // exceptions above instead.</span>
+
         parse(argv, Locale.getDefault());
-<span class="nc" id="L817">    }</span>
-<span class="nc" id="L818"></span>
+    }
+
     /**
-<span class="nc" id="L820">     * Extract the options and non-option arguments from the given list of command-line arguments. The specified locale</span>
-<span class="nc bnc" id="L821" title="All 2 branches missed.">     * is used for parsing options whose values might be locale-specific.</span>
+     * Extract the options and non-option arguments from the given list of command-line arguments. The specified locale
+     * is used for parsing options whose values might be locale-specific.
      *
-<span class="nc" id="L823">     * @param argv</span>
-<span class="nc bnc" id="L824" title="All 2 branches missed.">     *            the argv</span>
-<span class="nc" id="L825">     * @param locale</span>
-<span class="nc" id="L826">     *            the locale</span>
+     * @param argv
+     *            the argv
+     * @param locale
+     *            the locale
      * @throws IllegalOptionValueException
-<span class="nc bnc" id="L828" title="All 2 branches missed.">     *             the illegal option value exception</span>
+     *             the illegal option value exception
      * @throws UnknownOptionException
-<span class="nc bnc" id="L830" title="All 2 branches missed.">     *             the unknown option exception</span>
-<span class="nc" id="L831">     */</span>
-<span class="nc bnc" id="L832" title="All 2 branches missed.">    public final void parse(String[] argv, Locale locale) throws IllegalOptionValueException, UnknownOptionException {</span>
-<span class="nc" id="L833"></span>
-<span class="nc bnc" id="L834" title="All 2 branches missed.">        // It would be best if this method only threw OptionException, but for</span>
-<span class="nc" id="L835">        // backwards compatibility with old user code we throw the two</span>
-<span class="nc" id="L836">        // exceptions above instead.</span>
+     *             the unknown option exception
+     */
+    public final void parse(String[] argv, Locale locale) throws IllegalOptionValueException, UnknownOptionException {
 
-        List&lt;String&gt; otherArgs = new ArrayList&lt;&gt;();
-<span class="nc" id="L839">        int position = 0;</span>
-<span class="nc" id="L840">        this.values = new HashMap&lt;&gt;(10);</span>
-        while (position &lt; argv.length) {
+        // It would be best if this method only threw OptionException, but for
+<span class="nc" id="L787">        // backwards compatibility with old user code we throw the two</span>
+<span class="nc" id="L788">        // exceptions above instead.</span>
+<span class="nc" id="L789"></span>
+<span class="nc bnc" id="L790" title="All 2 branches missed.">        List&lt;String&gt; otherArgs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L791">        int position = 0;</span>
+<span class="nc bnc" id="L792" title="All 2 branches missed.">        this.values = new HashMap&lt;&gt;(10);</span>
+<span class="nc bnc" id="L793" title="All 2 branches missed.">        while (position &lt; argv.length) {</span>
             String curArg = argv[position];
-<span class="nc" id="L843">            if (curArg.startsWith(&quot;-&quot;)) {</span>
-<span class="nc bnc" id="L844" title="All 2 branches missed.">                if (&quot;--&quot;.equals(curArg)) {</span>
-<span class="nc" id="L845">                    // end of options</span>
-                    position += 1;
-                    break;
-<span class="nc bnc" id="L848" title="All 2 branches missed.">                }</span>
-<span class="nc bnc" id="L849" title="All 2 branches missed.">                String valueArg = null;</span>
-<span class="nc" id="L850">                if (curArg.startsWith(&quot;--&quot;)) {</span>
-<span class="nc bnc" id="L851" title="All 2 branches missed.">                    // handle --arg=value</span>
-<span class="nc" id="L852">                    int equalsPos = curArg.indexOf('=');</span>
+<span class="nc" id="L795">            if (curArg.startsWith(&quot;-&quot;)) {</span>
+<span class="nc" id="L796">                if (&quot;--&quot;.equals(curArg)) {</span>
+                    // end of options
+<span class="nc" id="L798">                    position += 1;</span>
+<span class="nc bnc" id="L799" title="All 2 branches missed.">                    break;</span>
+                }
+<span class="nc" id="L801">                String valueArg = null;</span>
+<span class="nc bnc" id="L802" title="All 2 branches missed.">                if (curArg.startsWith(&quot;--&quot;)) {</span>
+<span class="nc" id="L803">                    // handle --arg=value</span>
+<span class="nc" id="L804">                    int equalsPos = curArg.indexOf('=');</span>
                     if (equalsPos != -1) {
-                        valueArg = curArg.substring(equalsPos + 1);
-<span class="nc" id="L855">                        curArg = curArg.substring(0, equalsPos);</span>
+<span class="nc bnc" id="L806" title="All 2 branches missed.">                        valueArg = curArg.substring(equalsPos + 1);</span>
+                        curArg = curArg.substring(0, equalsPos);
+<span class="nc bnc" id="L808" title="All 2 branches missed.">                    }</span>
+<span class="nc" id="L809">                } else if (curArg.length() &gt; 2) {</span>
+<span class="nc bnc" id="L810" title="All 2 branches missed.">                    // handle -abcd</span>
+<span class="nc" id="L811">                    for (int i = 1; i &lt; curArg.length(); i++) {</span>
+<span class="nc bnc" id="L812" title="All 2 branches missed.">                        Option opt = this.options.get(&quot;-&quot; + curArg.charAt(i));</span>
+<span class="nc" id="L813">                        if (opt == null)</span>
+<span class="nc" id="L814">                            throw new UnknownSuboptionException(curArg, curArg.charAt(i));</span>
+                        if (opt.wantsValue())
+                            throw new NotFlagException(curArg, curArg.charAt(i));
+<span class="nc" id="L817">                        addValue(opt, opt.getValue(null, locale));</span>
+<span class="nc" id="L818"></span>
                     }
-<span class="nc" id="L857">                } else if (curArg.length() &gt; 2) {</span>
-                    // handle -abcd
-                    for (int i = 1; i &lt; curArg.length(); i++) {
-<span class="nc" id="L860">                        Option opt = this.options.get(&quot;-&quot; + curArg.charAt(i));</span>
-                        if (opt == null)
-<span class="nc" id="L862">                            throw new UnknownSuboptionException(curArg, curArg.charAt(i));</span>
-<span class="nc" id="L863">                        if (opt.wantsValue())</span>
-<span class="nc" id="L864">                            throw new NotFlagException(curArg, curArg.charAt(i));</span>
-<span class="nc" id="L865">                        addValue(opt, opt.getValue(null, locale));</span>
-
-<span class="nc" id="L867">                    }</span>
-<span class="nc bnc" id="L868" title="All 2 branches missed.">                    position++;</span>
-<span class="nc" id="L869">                    continue;</span>
-                }
-
-<span class="nc" id="L872">                Option opt = this.options.get(curArg);</span>
-<span class="nc" id="L873">                if (opt == null) {</span>
-<span class="nc" id="L874">                    throw new UnknownOptionException(curArg);</span>
-                }
-                Object value;
-                if (opt.wantsValue()) {
-                    if (valueArg == null) {
+                    position++;
+<span class="nc" id="L821">                    continue;</span>
+<span class="nc bnc" id="L822" title="All 2 branches missed.">                }</span>
+<span class="nc" id="L823"></span>
+                Option opt = this.options.get(curArg);
+                if (opt == null) {
+<span class="nc bnc" id="L826" title="All 2 branches missed.">                    throw new UnknownOptionException(curArg);</span>
+<span class="nc bnc" id="L827" title="All 2 branches missed.">                }</span>
+<span class="nc" id="L828">                Object value;</span>
+<span class="nc bnc" id="L829" title="All 2 branches missed.">                if (opt.wantsValue()) {</span>
+<span class="nc" id="L830">                    if (valueArg == null) {</span>
                         position += 1;
                         if (position &lt; argv.length) {
-                            valueArg = argv[position];
+<span class="nc" id="L833">                            valueArg = argv[position];</span>
                         }
-                    }
+<span class="nc" id="L835">                    }</span>
                     value = opt.getValue(valueArg, locale);
                 } else {
-<span class="nc" id="L886">                    value = opt.getValue(null, locale);</span>
+<span class="nc" id="L838">                    value = opt.getValue(null, locale);</span>
                 }
-<span class="nc" id="L888"></span>
-                addValue(opt, value);
-<span class="nc bnc" id="L890" title="All 2 branches missed."></span>
-<span class="nc" id="L891">                position += 1;</span>
-<span class="nc" id="L892">            } else {</span>
-                otherArgs.add(curArg);
-                position += 1;
-<span class="nc" id="L895">            }</span>
-<span class="nc" id="L896">        }</span>
-        for (; position &lt; argv.length; ++position) {
-            otherArgs.add(argv[position]);
+<span class="nc" id="L840"></span>
+<span class="nc" id="L841">                addValue(opt, value);</span>
+<span class="nc" id="L842"></span>
+<span class="nc" id="L843">                position += 1;</span>
+            } else {
+<span class="nc" id="L845">                otherArgs.add(curArg);</span>
+<span class="nc bnc" id="L846" title="All 2 branches missed.">                position += 1;</span>
+<span class="nc" id="L847">            }</span>
         }
-
+        for (; position &lt; argv.length; ++position) {
+<span class="nc" id="L850">            otherArgs.add(argv[position]);</span>
+<span class="nc" id="L851">        }</span>
+<span class="nc" id="L852"></span>
         this.remainingArgs = new ArrayList&lt;&gt;(otherArgs.size());
         otherArgs.addAll(remainingArgs);
     }
@@ -909,20 +861,20 @@ public class CmdLineParser {
      *            the opt
      * @param value
      *            the value
-     */
+<span class="nc" id="L864">     */</span>
     @SuppressWarnings(&quot;unchecked&quot;)
-    private void addValue(Option opt, Object value) {
+<span class="nc" id="L866">    private void addValue(Option opt, Object value) {</span>
         String lf = opt.longForm();
-
-        List&lt;Object&gt; v = (ArrayList&lt;Object&gt;) values.get(lf);
-
+<span class="nc bnc" id="L868" title="All 2 branches missed."></span>
+<span class="nc" id="L869">        List&lt;Object&gt; v = (ArrayList&lt;Object&gt;) values.get(lf);</span>
+<span class="nc" id="L870"></span>
         if (v == null) {
             v = new ArrayList&lt;&gt;();
-            values.put(lf, v);
-        }
+<span class="nc" id="L873">            values.put(lf, v);</span>
+<span class="nc" id="L874">        }</span>
 
         v.add(value);
     }
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
