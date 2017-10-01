@@ -162,7 +162,7 @@
         <clean.plugin>3.0.0</clean.plugin>
         <compiler.plugin>3.7.0</compiler.plugin>
         <coveralls.plugin>4.3.0</coveralls.plugin>
-        <dependency.plugin>3.0.1</dependency.plugin>
+        <dependency.plugin>3.0.2</dependency.plugin>
         <dependency-check.plugin>2.1.1</dependency-check.plugin>
         <deploy.plugin>2.8.2</deploy.plugin>
         <enforcer.plugin>3.0.0-M1</enforcer.plugin>
@@ -190,20 +190,20 @@
         <sonar.plugin>3.3.0.603</sonar.plugin>
         <source.plugin>3.0.1</source.plugin>
         <spotbugs.plugin>3.1.0-SNAPSHOT</spotbugs.plugin> <!-- Bump to Releasable version once both findbugs and spotbugs can run independent -->
-        <surefire.plugin>2.20</surefire.plugin>
+        <surefire.plugin>2.20.1</surefire.plugin>
         <taglist.plugin>2.4</taglist.plugin>
         <tidy.plugin>1.0.0</tidy.plugin>
         <versions.plugin>2.4</versions.plugin>
         <wagon.plugin>1.0</wagon.plugin>
         <war.plugin>3.1.0</war.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
-        <xml-format.plugin>3.0.5</xml-format.plugin>
+        <xml-format.plugin>3.0.6</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
         <build-tools.version>1.1.5</build-tools.version>
         <checkstyle.version>8.2</checkstyle.version>
         <doxia.version>1.7</doxia.version>
-        <fb-contrib.version>7.0.3</fb-contrib.version>
+        <fb-contrib.version>7.0.4</fb-contrib.version>
         <findsecbugs.version>1.7.1</findsecbugs.version>
         <fluido.version>1.6</fluido.version>
         <htmlcompressor.version>1.6.3</htmlcompressor.version>
