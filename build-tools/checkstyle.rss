@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2014 - 2017 hazendaz</copyright>
     <item>
-      <title>File: 0,
-             Errors: 0,
+      <title>File: 3,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -44,6 +44,48 @@ under the License.
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/build-tools/checkstyle.html#html.properties">html.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/build-tools/checkstyle.html#css.properties">css.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/hazendaz/build-tools/checkstyle.html#xml.properties">xml.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
                       </tbody>
         </table>
         
