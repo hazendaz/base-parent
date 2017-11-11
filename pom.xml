@@ -201,7 +201,7 @@
         <xml-format.plugin>3.0.6</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
-        <build-tools.version>1.1.5</build-tools.version>
+        <build-tools.version>1.1.6</build-tools.version>
         <checkstyle.version>8.4</checkstyle.version>
         <doxia.version>1.7</doxia.version>
         <fb-contrib.version>7.0.5</fb-contrib.version>
