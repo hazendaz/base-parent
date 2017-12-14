@@ -141,7 +141,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Supported Versions -->
-        <error-prone.version>2.1.2</error-prone.version>
+        <error-prone.version>2.1.3</error-prone.version>
         <hibernate-validator.version>6.0.5.Final</hibernate-validator.version>
         <j2objc.version>1.3</j2objc.version>
         <jsr305.version>3.0.2</jsr305.version>
