@@ -202,7 +202,7 @@
 
         <!-- Dependencies for plugins -->
         <build-tools.version>1.1.6</build-tools.version>
-        <checkstyle.version>8.4</checkstyle.version>
+        <checkstyle.version>8.5</checkstyle.version>
         <doxia.version>1.7</doxia.version>
         <fb-contrib.version>7.0.5</fb-contrib.version>
         <findsecbugs.version>1.7.1</findsecbugs.version>
