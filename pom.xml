@@ -188,7 +188,7 @@
         <resources.plugin>3.0.2</resources.plugin>
         <scm.plugin>1.9.5</scm.plugin>
         <site.plugin>3.6</site.plugin>
-        <sonar.plugin>3.3.0.603</sonar.plugin>
+        <sonar.plugin>3.4.0.905</sonar.plugin>
         <source.plugin>3.0.1</source.plugin>
         <spotbugs.plugin>3.1.0-RC8</spotbugs.plugin>
         <surefire.plugin>2.20.1</surefire.plugin>
