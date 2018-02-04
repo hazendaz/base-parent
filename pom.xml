@@ -270,6 +270,9 @@
                         <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
                         <useIncrementalCompilation>false</useIncrementalCompilation>
 
+                        <!-- Lombok patch, see https://github.com/google/error-prone/issues/780 -->
+                        <compilerArgs>-Xep:ParameterName:OFF</compilerArgs>
+
                         <compilerId>javac-with-errorprone</compilerId>
                         <forceJavacCompilerUse>true</forceJavacCompilerUse>
                     </configuration>
