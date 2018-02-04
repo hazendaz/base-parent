@@ -205,7 +205,7 @@
         <doxia.version>1.8</doxia.version>
         <fb-contrib.version>7.0.5</fb-contrib.version>
         <findsecbugs.version>1.7.1</findsecbugs.version>
-        <fluido.version>1.6</fluido.version>
+        <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.4</htmlcompressor.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
         <jgit.version>4.10.0.201712302008-r</jgit.version>
