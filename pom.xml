@@ -163,7 +163,7 @@
         <compiler.plugin>3.7.0</compiler.plugin>
         <coveralls.plugin>4.3.0</coveralls.plugin>
         <dependency.plugin>3.0.2</dependency.plugin>
-        <dependency-check.plugin>3.0.2</dependency-check.plugin>
+        <dependency-check.plugin>3.1.1</dependency-check.plugin>
         <deploy.plugin>2.8.2</deploy.plugin>
         <enforcer.plugin>3.0.0-M1</enforcer.plugin>
         <findbugs.plugin>3.0.5</findbugs.plugin>
