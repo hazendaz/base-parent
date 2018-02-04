@@ -1088,7 +1088,7 @@
                         <groupId>com.github.spotbugs</groupId>
                         <artifactId>spotbugs-maven-plugin</artifactId>
                         <configuration>
-                            <findbugsXmlOutput>true</findbugsXmlOutput>
+                            <spotbugsXmlOutput>true</spotbugsXmlOutput>
                             <effort>max</effort>
                             <includeTests>true</includeTests>
                             <failOnError>false</failOnError>
