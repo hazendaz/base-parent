@@ -166,7 +166,6 @@
         <dependency-check.plugin>3.1.1</dependency-check.plugin>
         <deploy.plugin>2.8.2</deploy.plugin>
         <enforcer.plugin>3.0.0-M1</enforcer.plugin>
-        <findbugs.plugin>3.0.5</findbugs.plugin>
         <formatter.plugin>2.7.0</formatter.plugin>
         <git-commit.plugin>2.2.4</git-commit.plugin>
         <gpg.plugin>1.6</gpg.plugin>
@@ -540,25 +539,6 @@
                 </plugin>
 
                 <!-- External Tools -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>findbugs-maven-plugin</artifactId>
-                    <version>${findbugs.plugin}</version>
-                    <configuration>
-                        <plugins>
-                            <plugin>
-                                <groupId>com.mebigfatguy.fb-contrib</groupId>
-                                <artifactId>fb-contrib</artifactId>
-                                <version>${fb-contrib.version}</version>
-                            </plugin>
-                            <plugin>
-                                <groupId>com.h3xstream.findsecbugs</groupId>
-                                <artifactId>findsecbugs-plugin</artifactId>
-                                <version>${findsecbugs.version}</version>
-                            </plugin>
-                        </plugins>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
@@ -1022,10 +1002,6 @@
                 <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
             </plugin>
@@ -1108,24 +1084,6 @@
                         </configuration>
                     </plugin>
                     <!-- External Tools -->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>findbugs-maven-plugin</artifactId>
-                        <configuration>
-                            <findbugsXmlOutput>true</findbugsXmlOutput>
-                            <effort>max</effort>
-                            <includeTests>true</includeTests>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <plugin>
                         <groupId>com.github.spotbugs</groupId>
                         <artifactId>spotbugs-maven-plugin</artifactId>
