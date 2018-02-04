@@ -24,7 +24,7 @@ After running `mvn clean install` against this project, simply add the parent to
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>9</version>
+    <version>14</version>
 </parent>
 ```
 
@@ -58,7 +58,7 @@ And add parent to your pom.
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>8</version>
+    <version>14</version>
 </parent>
 ```
 
@@ -111,7 +111,6 @@ Majority of plugins will perform on their own.  All managed plugins are listed h
 - build-helper-maven-plugin
 - coveralls-maven-plugin
 - dependency-check-maven
-- findbugs-maven-plugin
 - formatter-maven-plugin (formally the maven-java-formatter-plugin)
 - git-commit-id-plugin
 - htmlcompressor-maven-plugin
@@ -146,6 +145,7 @@ Majority of plugins will perform on their own.  All managed plugins are listed h
 - maven-surefire-report-plugin
 - maven-war-plugin
 - site-maven-plugin
+- spotbugs-maven-plugin
 - sonar-maven-plugin
 - taglist-maven-plugin
 - tomcat7-maven-plugin
