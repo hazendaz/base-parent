@@ -399,6 +399,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${surefire.plugin}</version>
+                    <configuration>
+                        <argLine>-Djdk.attach.allowAttachSelf</argLine>
+                    </configuration>
                 </plugin>
 
                 <!-- Build Plugins -->
