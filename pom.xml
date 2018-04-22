@@ -159,7 +159,7 @@
         <changelog.plugin>2.3</changelog.plugin>
         <changes.plugin>2.12.1</changes.plugin>
         <checkstyle.plugin>3.0.0</checkstyle.plugin>
-        <clean.plugin>3.0.0</clean.plugin>
+        <clean.plugin>3.1.0</clean.plugin>
         <compiler.plugin>3.7.0</compiler.plugin>
         <coveralls.plugin>4.3.0</coveralls.plugin>
         <dependency.plugin>3.0.2</dependency.plugin>
