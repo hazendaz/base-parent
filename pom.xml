@@ -196,7 +196,7 @@
         <tidy.plugin>1.1.0</tidy.plugin>
         <versions.plugin>2.5</versions.plugin>
         <wagon.plugin>1.0</wagon.plugin>
-        <war.plugin>3.2.1</war.plugin>
+        <war.plugin>3.2.2</war.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
         <xml-format.plugin>3.0.7</xml-format.plugin>
 
