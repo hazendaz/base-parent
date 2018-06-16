@@ -147,6 +147,9 @@
         <jsr305.version>3.0.2</jsr305.version>
         <lombok.version>1.18.0</lombok.version>
 
+        <!-- Parent Tracking on site -->
+        <base-parent.version>17</base-parent.version>
+
         <!-- Signature Settings -->
         <signature.artifact>java18</signature.artifact>
         <signature.version>1.0</signature.version>
@@ -397,6 +400,12 @@
                             <groupId>org.apache.maven.skins</groupId>
                             <artifactId>maven-fluido-skin</artifactId>
                             <version>${fluido.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.github.hazendaz</groupId>
+                            <artifactId>base-parent</artifactId>
+                            <version>${base-parent.version}</version>
+                            <type>pom</type>
                         </dependency>
                     </dependencies>
                 </plugin>
