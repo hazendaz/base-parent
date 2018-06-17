@@ -150,6 +150,9 @@
         <!-- Parent Tracking on site -->
         <base-parent.version>17</base-parent.version>
 
+        <!-- Checkstyle -->
+        <checkstyle.config>checkstyle.xml</checkstyle.config>
+
         <!-- Signature Settings -->
         <signature.artifact>java18</signature.artifact>
         <signature.version>1.0</signature.version>
@@ -206,7 +209,7 @@
         <!-- Dependencies for plugins -->
         <bug-pattern.version>1.4.0</bug-pattern.version>
         <build-tools.version>1.1.7</build-tools.version>
-        <checkstyle.version>8.10</checkstyle.version>
+        <checkstyle.version>8.10.1</checkstyle.version>
         <doxia.version>1.8</doxia.version>
         <doxiaPlus1.version>1.8.1</doxiaPlus1.version>
         <fb-contrib.version>7.4.1.sb</fb-contrib.version>
@@ -1103,7 +1106,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <configuration>
-                    <configLocation>checkstyle.xml</configLocation>
+                    <configLocation>${checkstyle.config}</configLocation>
                 </configuration>
             </plugin>
             <plugin>
