@@ -212,7 +212,7 @@
         <checkstyle.version>8.10.1</checkstyle.version>
         <doxia.version>1.8</doxia.version>
         <doxiaPlus1.version>1.8.1</doxiaPlus1.version>
-        <fb-contrib.version>7.4.1.sb</fb-contrib.version>
+        <fb-contrib.version>7.4.2.sb</fb-contrib.version>
         <findsecbugs.version>1.7.1</findsecbugs.version>
         <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.4</htmlcompressor.version>
