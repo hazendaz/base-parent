@@ -222,7 +222,7 @@
         <junit-engine.version>5.2.0</junit-engine.version>
         <junit-platform.version>1.2.0</junit-platform.version>
         <license-git.version>3.0</license-git.version>
-        <metro.version>2.4.0</metro.version>
+        <metro.version>2.4.1</metro.version>
         <plexus.version>3.1.0</plexus.version>
         <plexus-compiler.version>2.8.4</plexus-compiler.version>
         <scm.version>1.10.0</scm.version>
