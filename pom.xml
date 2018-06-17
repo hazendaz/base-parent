@@ -148,7 +148,7 @@
         <lombok.version>1.18.0</lombok.version>
 
         <!-- Parent Tracking on site -->
-        <base-parent.version>17</base-parent.version>
+        <base-parent.version>18</base-parent.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
