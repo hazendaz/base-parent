@@ -852,7 +852,7 @@
                     <artifactId>modernizer-maven-plugin</artifactId>
                     <version>1.6.0</version>
                     <configuration>
-                            <javaVersion>${maven.compiler.target}</javaVersion>
+                        <javaVersion>${maven.compiler.target}</javaVersion>
                     </configuration>
                 </plugin>
             </plugins>
