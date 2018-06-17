@@ -208,7 +208,7 @@
 
         <!-- Dependencies for plugins -->
         <bug-pattern.version>1.4.0</bug-pattern.version>
-        <build-tools.version>1.1.7</build-tools.version>
+        <build-tools.version>1.1.8</build-tools.version>
         <checkstyle.version>8.10.1</checkstyle.version>
         <doxia.version>1.8</doxia.version>
         <doxiaPlus1.version>1.8.1</doxiaPlus1.version>
