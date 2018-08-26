@@ -217,7 +217,7 @@
         <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.4</htmlcompressor.version>
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
-        <jgit.version>4.11.0.201803080745-r</jgit.version>
+        <jgit.version>5.0.2.201807311906-r</jgit.version>
         <jsch.version>0.1.54</jsch.version>
         <junit-engine.version>5.2.0</junit-engine.version>
         <junit-platform.version>1.2.0</junit-platform.version>
