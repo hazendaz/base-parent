@@ -224,7 +224,7 @@
         <license-git.version>3.0</license-git.version>
         <metro.version>2.4.1</metro.version>
         <plexus.version>3.1.0</plexus.version>
-        <plexus-compiler.version>2.8.4</plexus-compiler.version>
+        <plexus-compiler.version>2.8.5</plexus-compiler.version>
         <scm.version>1.10.0</scm.version>
         <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
         <wagon-ssh.version>3.1.0</wagon-ssh.version>
