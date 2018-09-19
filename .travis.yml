@@ -28,7 +28,7 @@ before_install:
   - wget https://raw.githubusercontent.com/sormuras/bach/master/install-jdk.sh
   - ./mvnw install -q -DskipTests=true
 
-  install: true
+install: true
 
 script:
     ./mvnw install -B -V
