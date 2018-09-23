@@ -219,8 +219,6 @@
         <JavaEWAH.version>1.1.6</JavaEWAH.version>
         <jgit.version>5.1.1.201809181055-r</jgit.version>
         <jsch.version>0.1.54</jsch.version>
-        <junit-engine.version>5.3.1</junit-engine.version>
-        <junit-platform.version>1.3.1</junit-platform.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.4.1</metro.version>
         <plexus.version>3.1.0</plexus.version>
@@ -419,23 +417,6 @@
                     <configuration>
                         <argLine>${argLine} -Djdk.attach.allowAttachSelf</argLine>
                     </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>${junit-platform.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit-engine.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit-engine.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
 
                 <!-- Build Plugins -->
@@ -778,23 +759,6 @@
                     <configuration>
                         <argLine>${argLine} -Djdk.attach.allowAttachSelf</argLine>
                     </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>${junit-platform.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit-engine.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit-engine.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
