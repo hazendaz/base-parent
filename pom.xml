@@ -225,7 +225,7 @@
         <plexus.version>3.1.0</plexus.version>
         <scm.version>1.11.1</scm.version>
         <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
-        <wagon-ssh.version>3.1.0</wagon-ssh.version>
+        <wagon-ssh.version>3.2.0</wagon-ssh.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
     </properties>
 
