@@ -1325,6 +1325,47 @@
         </profile>
 
         <profile>
+            <id>endorsed</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <compilerArgs combine.children="append">
+                                <endorseddirs>${project.build.directory}</endorseddirs>
+                            </compilerArgs>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
+                                    <silent>true</silent>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.glassfish.metro</groupId>
+                                            <artifactId>webservices-api</artifactId>
+                                            <version>${metro.version}</version>
+                                            <type>jar</type>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
             <id>format</id>
             <activation>
                 <file>
@@ -1397,34 +1438,6 @@
         </profile>
 
         <profile>
-            <id>license-txt</id>
-            <activation>
-                <file>
-                    <exists>license.txt</exists>
-                </file>
-            </activation>
-            <properties>
-                <license.header>license.txt</license.header>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.mycila</groupId>
-                        <artifactId>license-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>compile</phase>
-                                <goals>
-                                    <goal>format</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
             <id>license-header</id>
             <activation>
                 <file>
@@ -1453,17 +1466,25 @@
         </profile>
 
         <profile>
-            <id>sort</id>
+            <id>license-txt</id>
+            <activation>
+                <file>
+                    <exists>license.txt</exists>
+                </file>
+            </activation>
+            <properties>
+                <license.header>license.txt</license.header>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>tidy-maven-plugin</artifactId>
+                        <groupId>com.mycila</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <phase>verify</phase>
+                                <phase>compile</phase>
                                 <goals>
-                                    <goal>pom</goal>
+                                    <goal>format</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -1494,39 +1515,18 @@
         </profile>
 
         <profile>
-            <id>endorsed</id>
+            <id>sort</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <compilerArguments>
-                                <endorseddirs>${project.build.directory}</endorseddirs>
-                            </compilerArguments>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-dependency-plugin</artifactId>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>tidy-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <phase>validate</phase>
+                                <phase>verify</phase>
                                 <goals>
-                                    <goal>copy</goal>
+                                    <goal>pom</goal>
                                 </goals>
-                                <configuration>
-                                    <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
-                                    <silent>true</silent>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.glassfish.metro</groupId>
-                                            <artifactId>webservices-api</artifactId>
-                                            <version>${metro.version}</version>
-                                            <type>jar</type>
-                                        </artifactItem>
-                                    </artifactItems>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
