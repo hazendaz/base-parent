@@ -184,7 +184,7 @@
         <javancss.plugin>2.1</javancss.plugin>
         <jaxws.plugin>2.3.8</jaxws.plugin>
         <jdepend.plugin>2.0</jdepend.plugin>
-        <jxr.plugin>2.5</jxr.plugin>
+        <jxr.plugin>3.0.0</jxr.plugin>
         <license.plugin>3.0</license.plugin>
         <modernizer.plugin>1.6.0</modernizer.plugin>
         <pdf.plugin>1.4</pdf.plugin>
