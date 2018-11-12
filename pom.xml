@@ -186,7 +186,7 @@
         <jdepend.plugin>2.0</jdepend.plugin>
         <jxr.plugin>3.0.0</jxr.plugin>
         <license.plugin>3.0</license.plugin>
-        <modernizer.plugin>1.6.0</modernizer.plugin>
+        <modernizer.plugin>1.7.0</modernizer.plugin>
         <pdf.plugin>1.4</pdf.plugin>
         <pmd.plugin>3.11.0</pmd.plugin>
         <project-info.plugin>3.0.0</project-info.plugin>
