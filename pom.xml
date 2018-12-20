@@ -209,7 +209,7 @@
         <!-- Dependencies for plugins -->
         <bug-pattern.version>1.4.2</bug-pattern.version>
         <build-tools.version>1.1.8</build-tools.version>
-        <checkstyle.version>8.14</checkstyle.version>
+        <checkstyle.version>8.15</checkstyle.version>
         <doxia.version>1.8</doxia.version>
         <doxiaPlus1.version>1.8.1</doxiaPlus1.version>
         <fb-contrib.version>7.4.3.sb</fb-contrib.version>
