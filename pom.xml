@@ -701,6 +701,8 @@
                             <exclude>.gitattributes</exclude>
                             <exclude>LICENSE</exclude>
                             <exclude>LICENSE_HEADER</exclude>
+                            <exclude>LICENSE.txt</exclude>
+                            <exclude>LICENSE.TXT</exclude>
                             <exclude>license.txt</exclude>
                             <exclude>mvnw</exclude>
                             <exclude>mvnw.cmd</exclude>
