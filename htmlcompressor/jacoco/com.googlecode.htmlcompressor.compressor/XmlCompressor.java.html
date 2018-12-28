@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>XmlCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">XmlCompressor.java</span></div><h1>XmlCompressor.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -24,52 +24,52 @@ import java.util.regex.Pattern;
 /**
  * Class that compresses given XML source by removing comments, extra spaces and line breaks while preserving content
  * within CDATA blocks.
-<span class="fc" id="L27"> * </span>
+ * 
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  */
 <span class="fc" id="L30">public class XmlCompressor implements Compressor {</span>
 
     /** The enabled. */
-    private boolean                enabled              = true;
-<span class="fc" id="L34"></span>
+<span class="fc" id="L33">    private boolean enabled = true;</span>
+
     /** The remove comments. */
     // default settings
-<span class="fc" id="L37">    private boolean                removeComments       = true;</span>
+<span class="fc" id="L37">    private boolean removeComments = true;</span>
 
     /** The remove intertag spaces. */
-    private boolean                removeIntertagSpaces = true;
+<span class="fc" id="L40">    private boolean removeIntertagSpaces = true;</span>
 
     /** The Constant tempCdataBlock. */
     // temp replacements for preserved blocks
-    protected static final String  TEMP_CD_DATA_BLOCK   = &quot;%%%COMPRESS~CDATA~{0,number,#}%%%&quot;;
-<span class="fc" id="L45"></span>
+    protected static final String TEMP_CD_DATA_BLOCK = &quot;%%%COMPRESS~CDATA~{0,number,#}%%%&quot;;
+
     /** The Constant cdataPattern. */
     // compiled regex patterns
-    protected static final Pattern cdataPattern         = Pattern.compile(&quot;&lt;!\\[CDATA\\[.*?\\]\\]&gt;&quot;,
-<span class="fc" id="L49">            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L48">    protected static final Pattern cdataPattern = Pattern.compile(&quot;&lt;!\\[CDATA\\[.*?\\]\\]&gt;&quot;,</span>
+            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /** The Constant commentPattern. */
-    protected static final Pattern commentPattern       = Pattern.compile(&quot;&lt;!--.*?--&gt;&quot;,
-<span class="fc" id="L53">            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L52">    protected static final Pattern commentPattern = Pattern.compile(&quot;&lt;!--.*?--&gt;&quot;,</span>
+            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /** The Constant intertagPattern. */
-    protected static final Pattern intertagPattern      = Pattern.compile(&quot;&gt;\\s+&lt;&quot;,
-<span class="fc" id="L57">            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L56">    protected static final Pattern intertagPattern = Pattern.compile(&quot;&gt;\\s+&lt;&quot;,</span>
+            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /** The Constant tagEndSpacePattern. */
-    protected static final Pattern tagEndSpacePattern   = Pattern.compile(&quot;(&lt;(?:[^&gt;]+?))(?:\\s+?)(/?&gt;)&quot;,
-<span class="fc" id="L61">            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L60">    protected static final Pattern tagEndSpacePattern = Pattern.compile(&quot;(&lt;(?:[^&gt;]+?))(?:\\s+?)(/?&gt;)&quot;,</span>
+            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /** The Constant multispacePattern. */
-    protected static final Pattern multispacePattern    = Pattern.compile(&quot;\\s+(?=[^&lt;]*?&gt;)&quot;,
-<span class="fc" id="L65">            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L64">    protected static final Pattern multispacePattern = Pattern.compile(&quot;\\s+(?=[^&lt;]*?&gt;)&quot;,</span>
+            Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /** The Constant tagPropertyPattern. */
-    protected static final Pattern tagPropertyPattern   = Pattern.compile(&quot;(\\s\\w+)\\s*=\\s*(?=[^&lt;]*?&gt;)&quot;,
-<span class="fc" id="L69">            Pattern.CASE_INSENSITIVE);</span>
+<span class="fc" id="L68">    protected static final Pattern tagPropertyPattern = Pattern.compile(&quot;(\\s\\w+)\\s*=\\s*(?=[^&lt;]*?&gt;)&quot;,</span>
+            Pattern.CASE_INSENSITIVE);
 
     /** The Constant tempCdataPattern. */
-    protected static final Pattern tempCdataPattern     = Pattern.compile(&quot;%%%COMPRESS~CDATA~(\\d+?)%%%&quot;,
+<span class="fc" id="L72">    protected static final Pattern tempCdataPattern = Pattern.compile(&quot;%%%COMPRESS~CDATA~(\\d+?)%%%&quot;,</span>
             Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
     /**
@@ -78,12 +78,12 @@ import java.util.regex.Pattern;
      * @param xml
      *            XML content to compress
      * @return compressed content.
-<span class="pc bpc" id="L81" title="2 of 6 branches missed.">     */</span>
-<span class="fc" id="L82">    @Override</span>
+     */
+    @Override
     public String compress(String xml) {
-        if (!enabled || xml == null || xml.length() == 0) {
-            return xml;
-<span class="fc" id="L86">        }</span>
+<span class="pc bpc" id="L84" title="2 of 6 branches missed.">        if (!enabled || xml == null || xml.length() == 0) {</span>
+<span class="fc" id="L85">            return xml;</span>
+        }
 
         // preserved block containers
 <span class="fc" id="L89">        List&lt;String&gt; cdataBlocks = new ArrayList&lt;&gt;();</span>
@@ -94,10 +94,10 @@ import java.util.regex.Pattern;
         // process pure xml
 <span class="fc" id="L95">        xml = processXml(xml);</span>
 
-<span class="fc" id="L97">        // return preserved blocks</span>
-        xml = returnBlocks(xml, cdataBlocks);
+        // return preserved blocks
+<span class="fc" id="L98">        xml = returnBlocks(xml, cdataBlocks);</span>
 
-        return xml.trim();
+<span class="fc" id="L100">        return xml.trim();</span>
     }
 
     /**
@@ -108,20 +108,20 @@ import java.util.regex.Pattern;
      * @param cdataBlocks
      *            the cdata blocks
      * @return the string
-<span class="fc" id="L111">     */</span>
-<span class="fc" id="L112">    protected String preserveBlocks(String xml, List&lt;String&gt; cdataBlocks) {</span>
-<span class="fc" id="L113">        // preserve CDATA blocks</span>
-<span class="fc bfc" id="L114" title="All 2 branches covered.">        Matcher matcher = cdataPattern.matcher(xml);</span>
+     */
+    protected String preserveBlocks(String xml, List&lt;String&gt; cdataBlocks) {
+        // preserve CDATA blocks
+<span class="fc" id="L114">        Matcher matcher = cdataPattern.matcher(xml);</span>
 <span class="fc" id="L115">        int index = 0;</span>
 <span class="fc" id="L116">        StringBuffer sb = new StringBuffer();</span>
-        while (matcher.find()) {
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        while (matcher.find()) {</span>
 <span class="fc" id="L118">            cdataBlocks.add(matcher.group(0));</span>
 <span class="fc" id="L119">            matcher.appendReplacement(sb, MessageFormat.format(TEMP_CD_DATA_BLOCK, index++));</span>
         }
 <span class="fc" id="L121">        matcher.appendTail(sb);</span>
-        xml = sb.toString();
+<span class="fc" id="L122">        xml = sb.toString();</span>
 
-        return xml;
+<span class="fc" id="L124">        return xml;</span>
     }
 
     /**
@@ -132,19 +132,19 @@ import java.util.regex.Pattern;
      * @param cdataBlocks
      *            the cdata blocks
      * @return the string
-<span class="fc" id="L135">     */</span>
-<span class="fc" id="L136">    protected String returnBlocks(String xml, List&lt;String&gt; cdataBlocks) {</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">        // put CDATA blocks back</span>
+     */
+    protected String returnBlocks(String xml, List&lt;String&gt; cdataBlocks) {
+        // put CDATA blocks back
 <span class="fc" id="L138">        Matcher matcher = tempCdataPattern.matcher(xml);</span>
 <span class="fc" id="L139">        StringBuffer sb = new StringBuffer();</span>
-        while (matcher.find()) {
+<span class="fc bfc" id="L140" title="All 2 branches covered.">        while (matcher.find()) {</span>
 <span class="fc" id="L141">            matcher.appendReplacement(sb,</span>
 <span class="fc" id="L142">                    Matcher.quoteReplacement(cdataBlocks.get(Integer.parseInt(matcher.group(1)))));</span>
         }
 <span class="fc" id="L144">        matcher.appendTail(sb);</span>
-        xml = sb.toString();
+<span class="fc" id="L145">        xml = sb.toString();</span>
 
-        return xml;
+<span class="fc" id="L147">        return xml;</span>
     }
 
     /**
@@ -153,7 +153,7 @@ import java.util.regex.Pattern;
      * @param xml
      *            the xml
      * @return the string
-<span class="fc" id="L156">     */</span>
+     */
     protected String processXml(String xml) {
         // remove comments
 <span class="fc" id="L159">        xml = removeComments(xml);</span>
@@ -161,10 +161,10 @@ import java.util.regex.Pattern;
         // remove inter-tag spaces
 <span class="fc" id="L162">        xml = removeIntertagSpaces(xml);</span>
 
-<span class="fc" id="L164">        // remove unneeded spaces inside tags</span>
-        xml = removeSpacesInsideTags(xml);
+        // remove unneeded spaces inside tags
+<span class="fc" id="L165">        xml = removeSpacesInsideTags(xml);</span>
 
-        return xml;
+<span class="fc" id="L167">        return xml;</span>
     }
 
     /**
@@ -173,17 +173,17 @@ import java.util.regex.Pattern;
      * @param xml
      *            the xml
      * @return the string
-<span class="fc" id="L176">     */</span>
+     */
     protected String removeSpacesInsideTags(String xml) {
         // replace miltiple spaces inside tags with single spaces
 <span class="fc" id="L179">        xml = multispacePattern.matcher(xml).replaceAll(&quot; &quot;);</span>
 
         // remove spaces around equal sign inside tags
 <span class="fc" id="L182">        xml = tagPropertyPattern.matcher(xml).replaceAll(&quot;$1=&quot;);</span>
-<span class="fc" id="L183"></span>
+
         // remove ending spaces inside tags
-        xml = tagEndSpacePattern.matcher(xml).replaceAll(&quot;$1$2&quot;);
-        return xml;
+<span class="fc" id="L185">        xml = tagEndSpacePattern.matcher(xml).replaceAll(&quot;$1$2&quot;);</span>
+<span class="fc" id="L186">        return xml;</span>
     }
 
     /**
@@ -192,13 +192,13 @@ import java.util.regex.Pattern;
      * @param xml
      *            the xml
      * @return the string
-<span class="pc bpc" id="L195" title="1 of 2 branches missed.">     */</span>
-<span class="fc" id="L196">    protected String removeIntertagSpaces(String xml) {</span>
+     */
+    protected String removeIntertagSpaces(String xml) {
         // remove inter-tag spaces
-<span class="fc" id="L198">        if (removeIntertagSpaces) {</span>
-            xml = intertagPattern.matcher(xml).replaceAll(&quot;&gt;&lt;&quot;);
+<span class="pc bpc" id="L198" title="1 of 2 branches missed.">        if (removeIntertagSpaces) {</span>
+<span class="fc" id="L199">            xml = intertagPattern.matcher(xml).replaceAll(&quot;&gt;&lt;&quot;);</span>
         }
-        return xml;
+<span class="fc" id="L201">        return xml;</span>
     }
 
     /**
@@ -207,22 +207,22 @@ import java.util.regex.Pattern;
      * @param xml
      *            the xml
      * @return the string
-<span class="pc bpc" id="L210" title="1 of 2 branches missed.">     */</span>
-<span class="fc" id="L211">    protected String removeComments(String xml) {</span>
+     */
+    protected String removeComments(String xml) {
         // remove comments
-<span class="fc" id="L213">        if (removeComments) {</span>
-            xml = commentPattern.matcher(xml).replaceAll(&quot;&quot;);
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">        if (removeComments) {</span>
+<span class="fc" id="L214">            xml = commentPattern.matcher(xml).replaceAll(&quot;&quot;);</span>
         }
-        return xml;
+<span class="fc" id="L216">        return xml;</span>
     }
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if compression is enabled.
      * 
-<span class="nc" id="L222">     * @return &lt;code&gt;true&lt;/code&gt; if compression is enabled.</span>
+     * @return &lt;code&gt;true&lt;/code&gt; if compression is enabled.
      */
     public boolean isEnabled() {
-        return enabled;
+<span class="nc" id="L225">        return enabled;</span>
     }
 
     /**
@@ -230,49 +230,49 @@ import java.util.regex.Pattern;
      * &lt;code&gt;true&lt;/code&gt;.
      * 
      * @param enabled
-<span class="fc" id="L233">     *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression</span>
-<span class="fc" id="L234">     */</span>
+     *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression
+     */
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+<span class="fc" id="L236">        this.enabled = enabled;</span>
+<span class="fc" id="L237">    }</span>
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all XML comments will be removed.
      * 
-<span class="nc" id="L242">     * @return &lt;code&gt;true&lt;/code&gt; if all XML comments will be removed</span>
+     * @return &lt;code&gt;true&lt;/code&gt; if all XML comments will be removed
      */
     public boolean isRemoveComments() {
-        return removeComments;
+<span class="nc" id="L245">        return removeComments;</span>
     }
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all XML comments will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
      * 
      * @param removeComments
-<span class="fc" id="L252">     *            set &lt;code&gt;true&lt;/code&gt; to remove all XML comments</span>
-<span class="fc" id="L253">     */</span>
+     *            set &lt;code&gt;true&lt;/code&gt; to remove all XML comments
+     */
     public void setRemoveComments(boolean removeComments) {
-        this.removeComments = removeComments;
-    }
+<span class="fc" id="L255">        this.removeComments = removeComments;</span>
+<span class="fc" id="L256">    }</span>
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
      * 
-<span class="nc" id="L261">     * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.</span>
+     * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
      */
     public boolean isRemoveIntertagSpaces() {
-        return removeIntertagSpaces;
+<span class="nc" id="L264">        return removeIntertagSpaces;</span>
     }
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all inter-tag whitespace characters will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
      * 
      * @param removeIntertagSpaces
-<span class="fc" id="L271">     *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters</span>
-<span class="fc" id="L272">     */</span>
+     *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters
+     */
     public void setRemoveIntertagSpaces(boolean removeIntertagSpaces) {
-        this.removeIntertagSpaces = removeIntertagSpaces;
-    }
+<span class="fc" id="L274">        this.removeIntertagSpaces = removeIntertagSpaces;</span>
+<span class="fc" id="L275">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

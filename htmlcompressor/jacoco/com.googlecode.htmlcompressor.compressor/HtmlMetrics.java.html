@@ -17,10 +17,10 @@ package com.googlecode.htmlcompressor.compressor;
 
 /**
  * Class that stores metrics about HTML documents.
-<span class="nc" id="L20"> * </span>
+ * 
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  */
-public class HtmlMetrics {
+<span class="nc" id="L23">public class HtmlMetrics {</span>
 
     /** The filesize. */
     private int filesize;
@@ -40,103 +40,103 @@ public class HtmlMetrics {
     /**
      * Returns total filesize of a document.
      *
-<span class="nc" id="L43">     * @return total filesize of a document, in bytes</span>
+     * @return total filesize of a document, in bytes
      */
     public int getFilesize() {
-        return filesize;
+<span class="nc" id="L46">        return filesize;</span>
     }
 
     /**
      * Sets the filesize.
      *
      * @param filesize
-<span class="nc" id="L53">     *            the filesize to set</span>
-<span class="nc" id="L54">     */</span>
+     *            the filesize to set
+     */
     public void setFilesize(int filesize) {
-        this.filesize = filesize;
-    }
+<span class="nc" id="L56">        this.filesize = filesize;</span>
+<span class="nc" id="L57">    }</span>
 
     /**
      * Returns number of empty characters (spaces, tabs, end of lines) in a document.
      *
-<span class="nc" id="L62">     * @return number of empty characters in a document</span>
+     * @return number of empty characters in a document
      */
     public int getEmptyChars() {
-        return emptyChars;
+<span class="nc" id="L65">        return emptyChars;</span>
     }
 
     /**
      * Sets the empty chars.
      *
      * @param emptyChars
-<span class="nc" id="L72">     *            the emptyChars to set</span>
-<span class="nc" id="L73">     */</span>
+     *            the emptyChars to set
+     */
     public void setEmptyChars(int emptyChars) {
-        this.emptyChars = emptyChars;
-    }
+<span class="nc" id="L75">        this.emptyChars = emptyChars;</span>
+<span class="nc" id="L76">    }</span>
 
     /**
      * Returns total size of inline &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags.
      *
-<span class="nc" id="L81">     * @return total size of inline &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags, in bytes</span>
+     * @return total size of inline &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags, in bytes
      */
     public int getInlineScriptSize() {
-        return inlineScriptSize;
+<span class="nc" id="L84">        return inlineScriptSize;</span>
     }
 
     /**
      * Sets the inline script size.
      *
      * @param inlineScriptSize
-<span class="nc" id="L91">     *            the inlineScriptSize to set</span>
-<span class="nc" id="L92">     */</span>
+     *            the inlineScriptSize to set
+     */
     public void setInlineScriptSize(int inlineScriptSize) {
-        this.inlineScriptSize = inlineScriptSize;
-    }
+<span class="nc" id="L94">        this.inlineScriptSize = inlineScriptSize;</span>
+<span class="nc" id="L95">    }</span>
 
     /**
      * Returns total size of inline &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags.
      *
-<span class="nc" id="L100">     * @return total size of inline &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags, in bytes</span>
+     * @return total size of inline &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags, in bytes
      */
     public int getInlineStyleSize() {
-        return inlineStyleSize;
+<span class="nc" id="L103">        return inlineStyleSize;</span>
     }
 
     /**
      * Sets the inline style size.
      *
      * @param inlineStyleSize
-<span class="nc" id="L110">     *            the inlineStyleSize to set</span>
-<span class="nc" id="L111">     */</span>
+     *            the inlineStyleSize to set
+     */
     public void setInlineStyleSize(int inlineStyleSize) {
-        this.inlineStyleSize = inlineStyleSize;
-    }
+<span class="nc" id="L113">        this.inlineStyleSize = inlineStyleSize;</span>
+<span class="nc" id="L114">    }</span>
 
     /**
      * Returns total size of inline event handlers (&lt;code&gt;onclick&lt;/code&gt;, etc).
      *
-<span class="nc" id="L119">     * @return total size of inline event handlers, in bytes</span>
+     * @return total size of inline event handlers, in bytes
      */
     public int getInlineEventSize() {
-        return inlineEventSize;
+<span class="nc" id="L122">        return inlineEventSize;</span>
     }
 
     /**
      * Sets the inline event size.
      *
      * @param inlineEventSize
-<span class="nc" id="L129">     *            the inlineEventSize to set</span>
-<span class="nc" id="L130">     */</span>
+     *            the inlineEventSize to set
+     */
     public void setInlineEventSize(int inlineEventSize) {
-        this.inlineEventSize = inlineEventSize;
-    }
-<span class="nc" id="L134"></span>
-<span class="nc" id="L135">    @Override</span>
+<span class="nc" id="L132">        this.inlineEventSize = inlineEventSize;</span>
+<span class="nc" id="L133">    }</span>
+
+    @Override
     public String toString() {
-        return String.format(&quot;Filesize=%d, Empty Chars=%d, Script Size=%d, Style Size=%d, Event Handler Size=%d&quot;,
-                filesize, emptyChars, inlineScriptSize, inlineStyleSize, inlineEventSize);
+<span class="nc" id="L137">        return String.format(&quot;Filesize=%d, Empty Chars=%d, Script Size=%d, Style Size=%d, Event Handler Size=%d&quot;,</span>
+<span class="nc" id="L138">                filesize, emptyChars, inlineScriptSize, inlineStyleSize, inlineEventSize);</span>
     }
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>YuiCssCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">YuiCssCompressor.java</span></div><h1>YuiCssCompressor.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 package com.googlecode.htmlcompressor.compressor;
 
+import com.yahoo.platform.yui.compressor.CssCompressor;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -22,38 +24,36 @@ import java.io.StringWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yahoo.platform.yui.compressor.CssCompressor;
-
 /**
  * Basic CSS compressor implementation using &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI
  * Compressor&lt;/a&gt; that could be used by {@link HtmlCompressor} for inline CSS compression.
  * 
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  * 
-<span class="fc" id="L33"> * @see HtmlCompressor#setCssCompressor(Compressor)</span>
+ * @see HtmlCompressor#setCssCompressor(Compressor)
  * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
  */
 <span class="fc" id="L36">public class YuiCssCompressor implements Compressor {</span>
 
     /** The Constant Logger. */
-<span class="fc" id="L39">    private static final Logger logger    = LoggerFactory.getLogger(YuiCssCompressor.class);</span>
+<span class="fc" id="L39">    private static final Logger logger = LoggerFactory.getLogger(YuiCssCompressor.class);</span>
 
     /** The line break. */
-    private int                 lineBreak = -1;
-<span class="fc" id="L43"></span>
+<span class="fc" id="L42">    private int lineBreak = -1;</span>
+
     @Override
     public String compress(String source) {
 <span class="fc" id="L46">        StringWriter result = new StringWriter();</span>
-<span class="fc" id="L47"></span>
-<span class="nc" id="L48">        try {</span>
-<span class="nc" id="L49">            CssCompressor compressor = new CssCompressor(new StringReader(source));</span>
-<span class="nc" id="L50">            compressor.compress(result, lineBreak);</span>
-<span class="fc" id="L51">        } catch (IOException e) {</span>
-            result.write(source);
-<span class="fc" id="L53">            logger.error(&quot;&quot;, e);</span>
-        }
 
-        return result.toString();
+        try {
+<span class="fc" id="L49">            CssCompressor compressor = new CssCompressor(new StringReader(source));</span>
+<span class="fc" id="L50">            compressor.compress(result, lineBreak);</span>
+<span class="nc" id="L51">        } catch (IOException e) {</span>
+<span class="nc" id="L52">            result.write(source);</span>
+<span class="nc" id="L53">            logger.error(&quot;&quot;, e);</span>
+<span class="fc" id="L54">        }</span>
+
+<span class="fc" id="L56">        return result.toString();</span>
     }
 
     /**
@@ -62,10 +62,10 @@ import com.yahoo.platform.yui.compressor.CssCompressor;
      * 
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for CSS compression.
      * 
-<span class="nc" id="L65">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public int getLineBreak() {
-        return lineBreak;
+<span class="nc" id="L68">        return lineBreak;</span>
     }
 
     /**
@@ -76,11 +76,11 @@ import com.yahoo.platform.yui.compressor.CssCompressor;
      * @param lineBreak
      *            set number of symbols per line
      * 
-<span class="fc" id="L79">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="fc" id="L80">     */</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
     public void setLineBreak(int lineBreak) {
-        this.lineBreak = lineBreak;
-    }
+<span class="fc" id="L82">        this.lineBreak = lineBreak;</span>
+<span class="fc" id="L83">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

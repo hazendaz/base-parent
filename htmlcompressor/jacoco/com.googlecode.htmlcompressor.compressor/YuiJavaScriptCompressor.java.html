@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>YuiJavaScriptCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">YuiJavaScriptCompressor.java</span></div><h1>YuiJavaScriptCompressor.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
  */
 package com.googlecode.htmlcompressor.compressor;
 
+import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
+
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -24,51 +26,49 @@ import org.mozilla.javascript.EvaluatorException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
-
 /**
  * Basic JavaScript compressor implementation using &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI
  * Compressor&lt;/a&gt; that could be used by {@link HtmlCompressor} for inline JavaScript compression.
  * 
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  * 
-<span class="fc" id="L35"> * @see HtmlCompressor#setJavaScriptCompressor(Compressor)</span>
+ * @see HtmlCompressor#setJavaScriptCompressor(Compressor)
  * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
  */
 <span class="fc" id="L38">public class YuiJavaScriptCompressor implements Compressor {</span>
 
     /** The Constant logger. */
-    private static final Logger logger        = LoggerFactory.getLogger(YuiJavaScriptCompressor.class);
+<span class="fc" id="L41">    private static final Logger logger = LoggerFactory.getLogger(YuiJavaScriptCompressor.class);</span>
 
     // YUICompressor default settings
 
     /** The no munge. */
-    private boolean             noMunge;
+    private boolean noMunge;
 
     /** The preserve all semi colons. */
-    private boolean             preserveAllSemiColons;
+    private boolean preserveAllSemiColons;
 
     /** The disable optimizations. */
-<span class="fc" id="L52">    private boolean             disableOptimizations;</span>
+    private boolean disableOptimizations;
 
     /** The line break. */
-<span class="fc" id="L55">    private int                 lineBreak     = -1;</span>
+<span class="fc" id="L55">    private int lineBreak = -1;</span>
 
     /** The error reporter. */
-    private ErrorReporter       errorReporter = new DefaultErrorReporter();
+<span class="fc" id="L58">    private ErrorReporter errorReporter = new DefaultErrorReporter();</span>
 
-<span class="fc" id="L60">    @Override</span>
+    @Override
     public String compress(String source) {
-<span class="fc" id="L62"></span>
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        StringWriter result = new StringWriter();</span>
-<span class="nc" id="L64">        try {</span>
-<span class="nc" id="L65">            JavaScriptCompressor compressor = new JavaScriptCompressor(new StringReader(source), errorReporter);</span>
-<span class="nc" id="L66">            compressor.compress(result, lineBreak, !noMunge, false, preserveAllSemiColons, disableOptimizations);</span>
-<span class="fc" id="L67">        } catch (IOException e) {</span>
-<span class="fc" id="L68">            result.write(source);</span>
-            logger.error(&quot;&quot;, e);
-        }
-        return result.toString();
+
+<span class="fc" id="L63">        StringWriter result = new StringWriter();</span>
+        try {
+<span class="fc" id="L65">            JavaScriptCompressor compressor = new JavaScriptCompressor(new StringReader(source), errorReporter);</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">            compressor.compress(result, lineBreak, !noMunge, false, preserveAllSemiColons, disableOptimizations);</span>
+<span class="nc" id="L67">        } catch (IOException e) {</span>
+<span class="nc" id="L68">            result.write(source);</span>
+<span class="nc" id="L69">            logger.error(&quot;&quot;, e);</span>
+<span class="fc" id="L70">        }</span>
+<span class="fc" id="L71">        return result.toString();</span>
 
     }
 
@@ -78,36 +78,36 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      *
      * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
-<span class="fc" id="L81">     * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;ErrorReporter</span>
+     * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;ErrorReporter
      *      Interface&lt;/a&gt;
      */
-    public static class DefaultErrorReporter implements ErrorReporter {
-<span class="nc bnc" id="L85" title="All 2 branches missed."></span>
-<span class="nc" id="L86">        @Override</span>
+<span class="fc" id="L84">    public static class DefaultErrorReporter implements ErrorReporter {</span>
+
+        @Override
         public void warning(String message, String sourceName, int line, String lineSource, int lineOffset) {
-<span class="nc" id="L88">            if (line &lt; 0) {</span>
-<span class="nc bnc" id="L89" title="All 2 branches missed.">                logger.error(&quot;[WARNING] HtmlCompressor: '{}' during JavaScript compression&quot;, message);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">            if (line &lt; 0) {</span>
+<span class="nc" id="L89">                logger.error(&quot;[WARNING] HtmlCompressor: '{}' during JavaScript compression&quot;, message);</span>
             } else {
 <span class="nc" id="L91">                logger.error(&quot;[WARNING] HtmlCompressor: '{}' at line [{}:{}] during JavaScript compression {}&quot;, message,</span>
-                        line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);
+<span class="nc bnc" id="L92" title="All 2 branches missed.">                        line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);</span>
             }
-        }
-<span class="nc bnc" id="L95" title="All 2 branches missed."></span>
-<span class="nc" id="L96">        @Override</span>
+<span class="nc" id="L94">        }</span>
+
+        @Override
         public void error(String message, String sourceName, int line, String lineSource, int lineOffset) {
-<span class="nc" id="L98">            if (line &lt; 0) {</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">                logger.error(&quot;[ERROR] HtmlCompressor: '{}' during JavaScript compression&quot;, message);</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            if (line &lt; 0) {</span>
+<span class="nc" id="L99">                logger.error(&quot;[ERROR] HtmlCompressor: '{}' during JavaScript compression&quot;, message);</span>
             } else {
 <span class="nc" id="L101">                logger.error(&quot;[ERROR] HtmlCompressor: '{}' at line [{}:{}] during JavaScript compression {}&quot;, message,</span>
-                        line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);
+<span class="nc bnc" id="L102" title="All 2 branches missed.">                        line, lineOffset, lineSource != null ? &quot;: &quot; + lineSource : &quot;&quot;);</span>
             }
-        }
+<span class="nc" id="L104">        }</span>
 
-<span class="nc" id="L106">        @Override</span>
-<span class="nc" id="L107">        public EvaluatorException runtimeError(String message, String sourceName, int line, String lineSource,</span>
+        @Override
+        public EvaluatorException runtimeError(String message, String sourceName, int line, String lineSource,
                 int lineOffset) {
-            error(message, sourceName, line, lineSource, lineOffset);
-            return new EvaluatorException(message);
+<span class="nc" id="L109">            error(message, sourceName, line, lineSource, lineOffset);</span>
+<span class="nc" id="L110">            return new EvaluatorException(message);</span>
         }
     }
 
@@ -117,10 +117,10 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * 
      * @return &lt;code&gt;nomunge&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L120">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isNoMunge() {
-        return noMunge;
+<span class="nc" id="L123">        return noMunge;</span>
     }
 
     /**
@@ -131,11 +131,11 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @param noMunge
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;nomunge&lt;/code&gt; mode
      * 
-<span class="fc" id="L134">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="fc" id="L135">     */</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
     public void setNoMunge(boolean noMunge) {
-        this.noMunge = noMunge;
-    }
+<span class="fc" id="L137">        this.noMunge = noMunge;</span>
+<span class="fc" id="L138">    }</span>
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will preserve unnecessary semicolons during JavaScript
@@ -143,10 +143,10 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * 
      * @return &lt;code&gt;preserve-semi&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L146">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isPreserveAllSemiColons() {
-        return preserveAllSemiColons;
+<span class="nc" id="L149">        return preserveAllSemiColons;</span>
     }
 
     /**
@@ -157,11 +157,11 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @param preserveAllSemiColons
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;preserve-semi&lt;/code&gt; mode
      * 
-<span class="fc" id="L160">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="fc" id="L161">     */</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
     public void setPreserveAllSemiColons(boolean preserveAllSemiColons) {
-        this.preserveAllSemiColons = preserveAllSemiColons;
-    }
+<span class="fc" id="L163">        this.preserveAllSemiColons = preserveAllSemiColons;</span>
+<span class="fc" id="L164">    }</span>
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will disable all the built-in micro optimizations during
@@ -169,10 +169,10 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * 
      * @return &lt;code&gt;disable-optimizations&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L172">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isDisableOptimizations() {
-        return disableOptimizations;
+<span class="nc" id="L175">        return disableOptimizations;</span>
     }
 
     /**
@@ -183,11 +183,11 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @param disableOptimizations
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;disable-optimizations&lt;/code&gt; mode
      * 
-<span class="fc" id="L186">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="fc" id="L187">     */</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
     public void setDisableOptimizations(boolean disableOptimizations) {
-        this.disableOptimizations = disableOptimizations;
-    }
+<span class="fc" id="L189">        this.disableOptimizations = disableOptimizations;</span>
+<span class="fc" id="L190">    }</span>
 
     /**
      * Returns number of symbols per line Yahoo YUI Compressor will use during JavaScript compression. This corresponds
@@ -195,10 +195,10 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * 
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for JavaScript compression.
      * 
-<span class="nc" id="L198">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public int getLineBreak() {
-        return lineBreak;
+<span class="nc" id="L201">        return lineBreak;</span>
     }
 
     /**
@@ -209,11 +209,11 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @param lineBreak
      *            set number of symbols per line
      * 
-<span class="fc" id="L212">     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;</span>
-<span class="fc" id="L213">     */</span>
+     * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
+     */
     public void setLineBreak(int lineBreak) {
-        this.lineBreak = lineBreak;
-    }
+<span class="fc" id="L215">        this.lineBreak = lineBreak;</span>
+<span class="fc" id="L216">    }</span>
 
     /**
      * Returns &lt;code&gt;ErrorReporter&lt;/code&gt; used by YUI Compressor to log error messages during JavasSript compression.
@@ -221,10 +221,10 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @return &lt;code&gt;ErrorReporter&lt;/code&gt; used by YUI Compressor to log error messages during JavasSript compression
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;Error Reporter
-<span class="nc" id="L224">     *      Interface&lt;/a&gt;</span>
+     *      Interface&lt;/a&gt;
      */
     public ErrorReporter getErrorReporter() {
-        return errorReporter;
+<span class="nc" id="L227">        return errorReporter;</span>
     }
 
     /**
@@ -238,11 +238,11 @@ import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
      * @see YuiJavaScriptCompressor.DefaultErrorReporter
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;ErrorReporter
-<span class="nc" id="L241">     *      Interface&lt;/a&gt;</span>
-<span class="nc" id="L242">     */</span>
+     *      Interface&lt;/a&gt;
+     */
     public void setErrorReporter(ErrorReporter errorReporter) {
-        this.errorReporter = errorReporter;
-    }
+<span class="nc" id="L244">        this.errorReporter = errorReporter;</span>
+<span class="nc" id="L245">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HtmlCompressorTag.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.taglib</a> &gt; <span class="el_source">HtmlCompressorTag.java</span></div><h1>HtmlCompressorTag.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2018 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -15,6 +15,11 @@
  */
 package com.googlecode.htmlcompressor.taglib;
 
+import com.google.javascript.jscomp.CompilationLevel;
+import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;
+import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
+import com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor;
+
 import java.io.IOException;
 
 import javax.servlet.jsp.JspException;
@@ -24,115 +29,110 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.javascript.jscomp.CompilationLevel;
-import com.googlecode.htmlcompressor.compressor.ClosureJavaScriptCompressor;
-import com.googlecode.htmlcompressor.compressor.HtmlCompressor;
-import com.googlecode.htmlcompressor.compressor.YuiJavaScriptCompressor;
-
 /**
  * JSP tag that compresses an HTML content within &amp;lt;compress:html&amp;gt;. Compression parameters are set by default (no
  * JavaScript and CSS compression).
  *
-<span class="nc" id="L36"> * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;</span>
+ * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  * @see HtmlCompressor
  */
-public class HtmlCompressorTag extends BodyTagSupport {
+<span class="nc" id="L39">public class HtmlCompressorTag extends BodyTagSupport {</span>
 
     /** The Constant serialVersionUID. */
-<span class="nc" id="L42">    private static final long   serialVersionUID  = 1L;</span>
+    private static final long serialVersionUID = 1L;
 
     /** The Constant logger. */
-<span class="nc" id="L45">    private static final Logger logger            = LoggerFactory.getLogger(HtmlCompressorTag.class);</span>
+<span class="nc" id="L45">    private static final Logger logger = LoggerFactory.getLogger(HtmlCompressorTag.class);</span>
 
     /** The enabled. */
-    private boolean             enabled           = true;
+<span class="nc" id="L48">    private boolean enabled = true;</span>
 
-<span class="nc" id="L50">    // default settings</span>
+    // default settings
 
     /** The remove comments. */
-<span class="nc" id="L53">    private boolean             removeComments    = true;</span>
+<span class="nc" id="L53">    private boolean removeComments = true;</span>
 
     /** The remove multi spaces. */
-    private boolean             removeMultiSpaces = true;
+<span class="nc" id="L56">    private boolean removeMultiSpaces = true;</span>
 
     // optional settings
 
     /** The remove intertag spaces. */
-    private boolean             removeIntertagSpaces;
+    private boolean removeIntertagSpaces;
 
     /** The remove quotes. */
-    private boolean             removeQuotes;
+    private boolean removeQuotes;
 
     /** The preserve line breaks. */
-    private boolean             preserveLineBreaks;
+    private boolean preserveLineBreaks;
 
     /** The simple doctype. */
-    private boolean             simpleDoctype;
+    private boolean simpleDoctype;
 
     /** The remove script attributes. */
-    private boolean             removeScriptAttributes;
+    private boolean removeScriptAttributes;
 
     /** The remove style attributes. */
-    private boolean             removeStyleAttributes;
+    private boolean removeStyleAttributes;
 
     /** The remove link attributes. */
-    private boolean             removeLinkAttributes;
+    private boolean removeLinkAttributes;
 
     /** The remove form attributes. */
-    private boolean             removeFormAttributes;
+    private boolean removeFormAttributes;
 
     /** The remove input attributes. */
-    private boolean             removeInputAttributes;
+    private boolean removeInputAttributes;
 
     /** The simple boolean attributes. */
-    private boolean             simpleBooleanAttributes;
+    private boolean simpleBooleanAttributes;
 
     /** The remove java script protocol. */
-    private boolean             removeJavaScriptProtocol;
+    private boolean removeJavaScriptProtocol;
 
     /** The remove http protocol. */
-    private boolean             removeHttpProtocol;
+    private boolean removeHttpProtocol;
 
     /** The remove https protocol. */
-    private boolean             removeHttpsProtocol;
+    private boolean removeHttpsProtocol;
 
     /** The compress java script. */
-    private boolean             compressJavaScript;
+    private boolean compressJavaScript;
 
     /** The compress css. */
-<span class="nc" id="L103">    private boolean             compressCss;</span>
+    private boolean compressCss;
 
     /** The js compressor. */
-    private String              jsCompressor      = HtmlCompressor.JS_COMPRESSOR_YUI;
+<span class="nc" id="L106">    private String jsCompressor = HtmlCompressor.JS_COMPRESSOR_YUI;</span>
 
     // YUICompressor settings
 
     /** The yui js no munge. */
-    private boolean             yuiJsNoMunge;
+    private boolean yuiJsNoMunge;
 
     /** The yui js preserve all semi colons. */
-    private boolean             yuiJsPreserveAllSemiColons;
+    private boolean yuiJsPreserveAllSemiColons;
 
     /** The yui js disable optimizations. */
-<span class="nc" id="L117">    private boolean             yuiJsDisableOptimizations;</span>
+    private boolean yuiJsDisableOptimizations;
 
     /** The yui js line break. */
-<span class="nc" id="L120">    private int                 yuiJsLineBreak    = -1;</span>
+<span class="nc" id="L120">    private int yuiJsLineBreak = -1;</span>
 
     /** The yui css line break. */
-    private int                 yuiCssLineBreak   = -1;
+<span class="nc" id="L123">    private int yuiCssLineBreak = -1;</span>
 
-<span class="nc" id="L125">    // Closure compressor settings</span>
+    // Closure compressor settings
 
     /** The closure opt level. */
-    private String              closureOptLevel   = ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE;
+<span class="nc" id="L128">    private String closureOptLevel = ClosureJavaScriptCompressor.COMPILATION_LEVEL_SIMPLE;</span>
 
-<span class="nc" id="L130">    @Override</span>
-<span class="nc" id="L131">    public int doEndTag() throws JspException {</span>
+    @Override
+    public int doEndTag() throws JspException {
 
 <span class="nc" id="L133">        BodyContent bodyContent = getBodyContent();</span>
 <span class="nc" id="L134">        String content = bodyContent.getString();</span>
-<span class="nc" id="L135"></span>
+
 <span class="nc" id="L136">        HtmlCompressor htmlCompressor = new HtmlCompressor();</span>
 <span class="nc" id="L137">        htmlCompressor.setEnabled(enabled);</span>
 <span class="nc" id="L138">        htmlCompressor.setRemoveComments(removeComments);</span>
@@ -144,10 +144,10 @@ public class HtmlCompressorTag extends BodyTagSupport {
 <span class="nc" id="L144">        htmlCompressor.setCompressCss(compressCss);</span>
 <span class="nc" id="L145">        htmlCompressor.setYuiJsNoMunge(yuiJsNoMunge);</span>
 <span class="nc" id="L146">        htmlCompressor.setYuiJsPreserveAllSemiColons(yuiJsPreserveAllSemiColons);</span>
-        htmlCompressor.setYuiJsDisableOptimizations(yuiJsDisableOptimizations);
+<span class="nc" id="L147">        htmlCompressor.setYuiJsDisableOptimizations(yuiJsDisableOptimizations);</span>
 <span class="nc" id="L148">        htmlCompressor.setYuiJsLineBreak(yuiJsLineBreak);</span>
 <span class="nc" id="L149">        htmlCompressor.setYuiCssLineBreak(yuiCssLineBreak);</span>
-<span class="nc" id="L150"></span>
+
 <span class="nc" id="L151">        htmlCompressor.setSimpleDoctype(simpleDoctype);</span>
 <span class="nc" id="L152">        htmlCompressor.setRemoveScriptAttributes(removeScriptAttributes);</span>
 <span class="nc" id="L153">        htmlCompressor.setRemoveStyleAttributes(removeStyleAttributes);</span>
@@ -155,31 +155,31 @@ public class HtmlCompressorTag extends BodyTagSupport {
 <span class="nc" id="L155">        htmlCompressor.setRemoveFormAttributes(removeFormAttributes);</span>
 <span class="nc" id="L156">        htmlCompressor.setRemoveInputAttributes(removeInputAttributes);</span>
 <span class="nc" id="L157">        htmlCompressor.setSimpleBooleanAttributes(simpleBooleanAttributes);</span>
-        htmlCompressor.setRemoveJavaScriptProtocol(removeJavaScriptProtocol);
-<span class="nc bnc" id="L159" title="All 4 branches missed.">        htmlCompressor.setRemoveHttpProtocol(removeHttpProtocol);</span>
+<span class="nc" id="L158">        htmlCompressor.setRemoveJavaScriptProtocol(removeJavaScriptProtocol);</span>
+<span class="nc" id="L159">        htmlCompressor.setRemoveHttpProtocol(removeHttpProtocol);</span>
 <span class="nc" id="L160">        htmlCompressor.setRemoveHttpsProtocol(removeHttpsProtocol);</span>
-<span class="nc bnc" id="L161" title="All 2 branches missed."></span>
-<span class="nc" id="L162">        if (compressJavaScript &amp;&amp; jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {</span>
-<span class="nc bnc" id="L163" title="All 2 branches missed.">            ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();</span>
-<span class="nc" id="L164">            if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {</span>
-                closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);
-<span class="nc" id="L166">            } else if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {</span>
-                closureCompressor.setCompilationLevel(CompilationLevel.WHITESPACE_ONLY);
-<span class="nc" id="L168">            } else {</span>
-                closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);
+
+<span class="nc bnc" id="L162" title="All 4 branches missed.">        if (compressJavaScript &amp;&amp; jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {</span>
+<span class="nc" id="L163">            ClosureJavaScriptCompressor closureCompressor = new ClosureJavaScriptCompressor();</span>
+<span class="nc bnc" id="L164" title="All 2 branches missed.">            if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {</span>
+<span class="nc" id="L165">                closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            } else if (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_WHITESPACE)) {</span>
+<span class="nc" id="L167">                closureCompressor.setCompilationLevel(CompilationLevel.WHITESPACE_ONLY);</span>
+            } else {
+<span class="nc" id="L169">                closureCompressor.setCompilationLevel(CompilationLevel.SIMPLE_OPTIMIZATIONS);</span>
             }
-            htmlCompressor.setJavaScriptCompressor(closureCompressor);
-<span class="nc" id="L172">        }</span>
-<span class="nc" id="L173"></span>
-<span class="nc" id="L174">        try {</span>
+<span class="nc" id="L171">            htmlCompressor.setJavaScriptCompressor(closureCompressor);</span>
+        }
+
+        try {
 <span class="nc" id="L175">            bodyContent.clear();</span>
 <span class="nc" id="L176">            bodyContent.append(htmlCompressor.compress(content));</span>
 <span class="nc" id="L177">            bodyContent.writeOut(pageContext.getOut());</span>
-        } catch (IOException e) {
+<span class="nc" id="L178">        } catch (IOException e) {</span>
 <span class="nc" id="L179">            logger.error(&quot;&quot;, e);</span>
-        }
+<span class="nc" id="L180">        }</span>
 
-        return super.doEndTag();
+<span class="nc" id="L182">        return super.doEndTag();</span>
     }
 
     /**
@@ -187,143 +187,143 @@ public class HtmlCompressorTag extends BodyTagSupport {
      *
      * @param compressJavaScript
      *            the new compress java script
-<span class="nc" id="L190">     * @see HtmlCompressor#setCompressJavaScript(boolean)</span>
-<span class="nc" id="L191">     */</span>
+     * @see HtmlCompressor#setCompressJavaScript(boolean)
+     */
     public void setCompressJavaScript(boolean compressJavaScript) {
-        this.compressJavaScript = compressJavaScript;
-    }
+<span class="nc" id="L193">        this.compressJavaScript = compressJavaScript;</span>
+<span class="nc" id="L194">    }</span>
 
     /**
      * Sets the compress css.
      *
      * @param compressCss
      *            the new compress css
-<span class="nc" id="L201">     * @see HtmlCompressor#setCompressCss(boolean)</span>
-<span class="nc" id="L202">     */</span>
+     * @see HtmlCompressor#setCompressCss(boolean)
+     */
     public void setCompressCss(boolean compressCss) {
-        this.compressCss = compressCss;
-    }
+<span class="nc" id="L204">        this.compressCss = compressCss;</span>
+<span class="nc" id="L205">    }</span>
 
     /**
      * Sets the yui js no munge.
      *
      * @param yuiJsNoMunge
      *            the new yui js no munge
-<span class="nc" id="L212">     * @see HtmlCompressor#setYuiJsNoMunge(boolean)</span>
-<span class="nc" id="L213">     */</span>
+     * @see HtmlCompressor#setYuiJsNoMunge(boolean)
+     */
     public void setYuiJsNoMunge(boolean yuiJsNoMunge) {
-        this.yuiJsNoMunge = yuiJsNoMunge;
-    }
+<span class="nc" id="L215">        this.yuiJsNoMunge = yuiJsNoMunge;</span>
+<span class="nc" id="L216">    }</span>
 
     /**
      * Sets the yui js preserve all semi colons.
      *
      * @param yuiJsPreserveAllSemiColons
      *            the new yui js preserve all semi colons
-<span class="nc" id="L223">     * @see HtmlCompressor#setYuiJsPreserveAllSemiColons(boolean)</span>
-<span class="nc" id="L224">     */</span>
+     * @see HtmlCompressor#setYuiJsPreserveAllSemiColons(boolean)
+     */
     public void setYuiJsPreserveAllSemiColons(boolean yuiJsPreserveAllSemiColons) {
-        this.yuiJsPreserveAllSemiColons = yuiJsPreserveAllSemiColons;
-    }
+<span class="nc" id="L226">        this.yuiJsPreserveAllSemiColons = yuiJsPreserveAllSemiColons;</span>
+<span class="nc" id="L227">    }</span>
 
     /**
      * Sets the yui js disable optimizations.
      *
      * @param yuiJsDisableOptimizations
      *            the new yui js disable optimizations
-<span class="nc" id="L234">     * @see HtmlCompressor#setYuiJsDisableOptimizations(boolean)</span>
-<span class="nc" id="L235">     */</span>
+     * @see HtmlCompressor#setYuiJsDisableOptimizations(boolean)
+     */
     public void setYuiJsDisableOptimizations(boolean yuiJsDisableOptimizations) {
-        this.yuiJsDisableOptimizations = yuiJsDisableOptimizations;
-    }
+<span class="nc" id="L237">        this.yuiJsDisableOptimizations = yuiJsDisableOptimizations;</span>
+<span class="nc" id="L238">    }</span>
 
     /**
      * Sets the yui js line break.
      *
      * @param yuiJsLineBreak
      *            the new yui js line break
-<span class="nc" id="L245">     * @see HtmlCompressor#setYuiJsLineBreak(int)</span>
-<span class="nc" id="L246">     */</span>
+     * @see HtmlCompressor#setYuiJsLineBreak(int)
+     */
     public void setYuiJsLineBreak(int yuiJsLineBreak) {
-        this.yuiJsLineBreak = yuiJsLineBreak;
-    }
+<span class="nc" id="L248">        this.yuiJsLineBreak = yuiJsLineBreak;</span>
+<span class="nc" id="L249">    }</span>
 
     /**
      * Sets the yui css line break.
      *
      * @param yuiCssLineBreak
      *            the new yui css line break
-<span class="nc" id="L256">     * @see HtmlCompressor#setYuiCssLineBreak(int)</span>
-<span class="nc" id="L257">     */</span>
+     * @see HtmlCompressor#setYuiCssLineBreak(int)
+     */
     public void setYuiCssLineBreak(int yuiCssLineBreak) {
-        this.yuiCssLineBreak = yuiCssLineBreak;
-    }
+<span class="nc" id="L259">        this.yuiCssLineBreak = yuiCssLineBreak;</span>
+<span class="nc" id="L260">    }</span>
 
     /**
      * Sets the removes the quotes.
      *
      * @param removeQuotes
      *            the new removes the quotes
-<span class="nc" id="L267">     * @see HtmlCompressor#setRemoveQuotes(boolean)</span>
-<span class="nc" id="L268">     */</span>
+     * @see HtmlCompressor#setRemoveQuotes(boolean)
+     */
     public void setRemoveQuotes(boolean removeQuotes) {
-        this.removeQuotes = removeQuotes;
-    }
+<span class="nc" id="L270">        this.removeQuotes = removeQuotes;</span>
+<span class="nc" id="L271">    }</span>
 
     /**
      * Sets the preserve line breaks.
      *
      * @param preserveLineBreaks
      *            the new preserve line breaks
-<span class="nc" id="L278">     * @see HtmlCompressor#setPreserveLineBreaks(boolean)</span>
-<span class="nc" id="L279">     */</span>
+     * @see HtmlCompressor#setPreserveLineBreaks(boolean)
+     */
     public void setPreserveLineBreaks(boolean preserveLineBreaks) {
-        this.preserveLineBreaks = preserveLineBreaks;
-    }
+<span class="nc" id="L281">        this.preserveLineBreaks = preserveLineBreaks;</span>
+<span class="nc" id="L282">    }</span>
 
     /**
      * Sets the enabled.
      *
      * @param enabled
      *            the new enabled
-<span class="nc" id="L289">     * @see HtmlCompressor#setEnabled(boolean)</span>
-<span class="nc" id="L290">     */</span>
+     * @see HtmlCompressor#setEnabled(boolean)
+     */
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+<span class="nc" id="L292">        this.enabled = enabled;</span>
+<span class="nc" id="L293">    }</span>
 
     /**
      * Sets the removes the comments.
      *
      * @param removeComments
      *            the new removes the comments
-<span class="nc" id="L300">     * @see HtmlCompressor#setRemoveComments(boolean)</span>
-<span class="nc" id="L301">     */</span>
+     * @see HtmlCompressor#setRemoveComments(boolean)
+     */
     public void setRemoveComments(boolean removeComments) {
-        this.removeComments = removeComments;
-    }
+<span class="nc" id="L303">        this.removeComments = removeComments;</span>
+<span class="nc" id="L304">    }</span>
 
     /**
      * Sets the removes the multi spaces.
      *
      * @param removeMultiSpaces
      *            the new removes the multi spaces
-<span class="nc" id="L311">     * @see HtmlCompressor#setRemoveMultiSpaces(boolean)</span>
-<span class="nc" id="L312">     */</span>
+     * @see HtmlCompressor#setRemoveMultiSpaces(boolean)
+     */
     public void setRemoveMultiSpaces(boolean removeMultiSpaces) {
-        this.removeMultiSpaces = removeMultiSpaces;
-    }
+<span class="nc" id="L314">        this.removeMultiSpaces = removeMultiSpaces;</span>
+<span class="nc" id="L315">    }</span>
 
     /**
      * Sets the removes the intertag spaces.
      *
      * @param removeIntertagSpaces
      *            the new removes the intertag spaces
-<span class="nc" id="L322">     * @see HtmlCompressor#setRemoveIntertagSpaces(boolean)</span>
-<span class="nc" id="L323">     */</span>
+     * @see HtmlCompressor#setRemoveIntertagSpaces(boolean)
+     */
     public void setRemoveIntertagSpaces(boolean removeIntertagSpaces) {
-        this.removeIntertagSpaces = removeIntertagSpaces;
-    }
+<span class="nc" id="L325">        this.removeIntertagSpaces = removeIntertagSpaces;</span>
+<span class="nc" id="L326">    }</span>
 
     /**
      * Sets JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.
@@ -335,11 +335,11 @@ public class HtmlCompressorTag extends BodyTagSupport {
      * @see YuiJavaScriptCompressor
      * @see ClosureJavaScriptCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
-<span class="nc" id="L338">     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;</span>
-<span class="nc" id="L339">     */</span>
+     * @see &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt;
+     */
     public void setJsCompressor(String jsCompressor) {
-        this.jsCompressor = jsCompressor;
-    }
+<span class="nc" id="L341">        this.jsCompressor = jsCompressor;</span>
+<span class="nc" id="L342">    }</span>
 
     /**
      * Sets level of optimization if &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt; is
@@ -349,121 +349,121 @@ public class HtmlCompressorTag extends BodyTagSupport {
      *            Could be either &lt;code&gt;&quot;simple&quot;&lt;/code&gt; (used by default), &lt;code&gt;&quot;whitespace&quot;&lt;/code&gt; or
      *            &lt;code&gt;&quot;advanced&quot;&lt;/code&gt;
      * 
-<span class="nc" id="L352">     * @see ClosureJavaScriptCompressor#setCompilationLevel(CompilationLevel)</span>
-<span class="nc" id="L353">     */</span>
+     * @see ClosureJavaScriptCompressor#setCompilationLevel(CompilationLevel)
+     */
     public void setClosureOptLevel(String closureOptLevel) {
-        this.closureOptLevel = closureOptLevel;
-    }
+<span class="nc" id="L355">        this.closureOptLevel = closureOptLevel;</span>
+<span class="nc" id="L356">    }</span>
 
     /**
      * Sets the simple doctype.
      *
      * @param simpleDoctype
      *            the new simple doctype
-<span class="nc" id="L363">     * @see HtmlCompressor#setSimpleDoctype(boolean)</span>
-<span class="nc" id="L364">     */</span>
+     * @see HtmlCompressor#setSimpleDoctype(boolean)
+     */
     public void setSimpleDoctype(boolean simpleDoctype) {
-        this.simpleDoctype = simpleDoctype;
-    }
+<span class="nc" id="L366">        this.simpleDoctype = simpleDoctype;</span>
+<span class="nc" id="L367">    }</span>
 
     /**
      * Sets the removes the script attributes.
      *
      * @param removeScriptAttributes
      *            the new removes the script attributes
-<span class="nc" id="L374">     * @see HtmlCompressor#setRemoveScriptAttributes(boolean)</span>
-<span class="nc" id="L375">     */</span>
+     * @see HtmlCompressor#setRemoveScriptAttributes(boolean)
+     */
     public void setRemoveScriptAttributes(boolean removeScriptAttributes) {
-        this.removeScriptAttributes = removeScriptAttributes;
-    }
+<span class="nc" id="L377">        this.removeScriptAttributes = removeScriptAttributes;</span>
+<span class="nc" id="L378">    }</span>
 
     /**
      * Sets the removes the style attributes.
      *
      * @param removeStyleAttributes
      *            the new removes the style attributes
-<span class="nc" id="L385">     * @see HtmlCompressor#setRemoveStyleAttributes(boolean)</span>
-<span class="nc" id="L386">     */</span>
+     * @see HtmlCompressor#setRemoveStyleAttributes(boolean)
+     */
     public void setRemoveStyleAttributes(boolean removeStyleAttributes) {
-        this.removeStyleAttributes = removeStyleAttributes;
-    }
+<span class="nc" id="L388">        this.removeStyleAttributes = removeStyleAttributes;</span>
+<span class="nc" id="L389">    }</span>
 
     /**
      * Sets the removes the link attributes.
      *
      * @param removeLinkAttributes
      *            the new removes the link attributes
-<span class="nc" id="L396">     * @see HtmlCompressor#setRemoveLinkAttributes(boolean)</span>
-<span class="nc" id="L397">     */</span>
+     * @see HtmlCompressor#setRemoveLinkAttributes(boolean)
+     */
     public void setRemoveLinkAttributes(boolean removeLinkAttributes) {
-        this.removeLinkAttributes = removeLinkAttributes;
-    }
+<span class="nc" id="L399">        this.removeLinkAttributes = removeLinkAttributes;</span>
+<span class="nc" id="L400">    }</span>
 
     /**
      * Sets the removes the form attributes.
      *
      * @param removeFormAttributes
      *            the new removes the form attributes
-<span class="nc" id="L407">     * @see HtmlCompressor#setRemoveFormAttributes(boolean)</span>
-<span class="nc" id="L408">     */</span>
+     * @see HtmlCompressor#setRemoveFormAttributes(boolean)
+     */
     public void setRemoveFormAttributes(boolean removeFormAttributes) {
-        this.removeFormAttributes = removeFormAttributes;
-    }
+<span class="nc" id="L410">        this.removeFormAttributes = removeFormAttributes;</span>
+<span class="nc" id="L411">    }</span>
 
     /**
      * Sets the removes the input attributes.
      *
      * @param removeInputAttributes
      *            the new removes the input attributes
-<span class="nc" id="L418">     * @see HtmlCompressor#setRemoveInputAttributes(boolean)</span>
-<span class="nc" id="L419">     */</span>
+     * @see HtmlCompressor#setRemoveInputAttributes(boolean)
+     */
     public void setRemoveInputAttributes(boolean removeInputAttributes) {
-        this.removeInputAttributes = removeInputAttributes;
-    }
+<span class="nc" id="L421">        this.removeInputAttributes = removeInputAttributes;</span>
+<span class="nc" id="L422">    }</span>
 
     /**
      * Sets the simple boolean attributes.
      *
      * @param simpleBooleanAttributes
      *            the new simple boolean attributes
-<span class="nc" id="L429">     * @see HtmlCompressor#setSimpleBooleanAttributes(boolean)</span>
-<span class="nc" id="L430">     */</span>
+     * @see HtmlCompressor#setSimpleBooleanAttributes(boolean)
+     */
     public void setSimpleBooleanAttributes(boolean simpleBooleanAttributes) {
-        this.simpleBooleanAttributes = simpleBooleanAttributes;
-    }
+<span class="nc" id="L432">        this.simpleBooleanAttributes = simpleBooleanAttributes;</span>
+<span class="nc" id="L433">    }</span>
 
     /**
      * Sets the removes the java script protocol.
      *
      * @param removeJavaScriptProtocol
      *            the new removes the java script protocol
-<span class="nc" id="L440">     * @see HtmlCompressor#setRemoveJavaScriptProtocol(boolean)</span>
-<span class="nc" id="L441">     */</span>
+     * @see HtmlCompressor#setRemoveJavaScriptProtocol(boolean)
+     */
     public void setRemoveJavaScriptProtocol(boolean removeJavaScriptProtocol) {
-        this.removeJavaScriptProtocol = removeJavaScriptProtocol;
-    }
+<span class="nc" id="L443">        this.removeJavaScriptProtocol = removeJavaScriptProtocol;</span>
+<span class="nc" id="L444">    }</span>
 
     /**
      * Sets the removes the http protocol.
      *
      * @param removeHttpProtocol
      *            the new removes the http protocol
-<span class="nc" id="L451">     * @see HtmlCompressor#setRemoveHttpProtocol(boolean)</span>
-<span class="nc" id="L452">     */</span>
+     * @see HtmlCompressor#setRemoveHttpProtocol(boolean)
+     */
     public void setRemoveHttpProtocol(boolean removeHttpProtocol) {
-        this.removeHttpProtocol = removeHttpProtocol;
-    }
+<span class="nc" id="L454">        this.removeHttpProtocol = removeHttpProtocol;</span>
+<span class="nc" id="L455">    }</span>
 
     /**
      * Sets the removes the https protocol.
      *
      * @param removeHttpsProtocol
      *            the new removes the https protocol
-<span class="nc" id="L462">     * @see HtmlCompressor#setRemoveHttpsProtocol(boolean)</span>
-<span class="nc" id="L463">     */</span>
+     * @see HtmlCompressor#setRemoveHttpsProtocol(boolean)
+     */
     public void setRemoveHttpsProtocol(boolean removeHttpsProtocol) {
-        this.removeHttpsProtocol = removeHttpsProtocol;
-    }
+<span class="nc" id="L465">        this.removeHttpsProtocol = removeHttpsProtocol;</span>
+<span class="nc" id="L466">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
