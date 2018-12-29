@@ -69,7 +69,7 @@
             </roles>
             <timezone>-5</timezone>
             <properties>
-                <picUrl>https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/1/000/128/174/30cff69.jpg</picUrl>
+                <picUrl>https://avatars0.githubusercontent.com/u/975267</picUrl>
             </properties>
         </contributor>
     </contributors>
@@ -117,25 +117,28 @@
     </distributionManagement>
 
     <properties>
-        <!-- Project Level -->
+        <!-- Copyright -->
         <copyright>2018</copyright>
 
-        <!-- Github Settings -->
+        <!-- Github Token -->
         <github.global.server>github</github.global.server>
 
-        <!-- Remember to adjust this up as you add unit tests -->
+        <!-- Jacoco minimum code coverage -->
         <jacoco.minimum.coverage>0.00</jacoco.minimum.coverage>
 
-        <!-- Maven Settings -->
+        <!-- Maven date configuration -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
+        <!-- Maven compiler options -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.testSource>1.8</maven.compiler.testSource>
         <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
 
+        <!-- Maven minimum version -->
         <maven.min-version>3.6.0</maven.min-version>
 
+        <!-- Project Encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
