@@ -230,7 +230,7 @@
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Surefire Argline -->
-        <argLine>-Djdk.attach.allowAttachSelf<</argLine>
+        <argLine>-Djdk.attach.allowAttachSelf</argLine>
     </properties>
 
     <dependencies>
