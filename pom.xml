@@ -219,7 +219,7 @@
         <fb-contrib.version>7.4.3.sb</fb-contrib.version>
         <findsecbugs.version>1.8.0</findsecbugs.version>
         <fluido.version>1.7</fluido.version>
-        <htmlcompressor.version>1.6.4</htmlcompressor.version>
+        <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.2.0.201812061821-r</jgit.version>
         <license-git.version>3.0</license-git.version>
