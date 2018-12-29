@@ -535,6 +535,7 @@
                     <version>${pmd.plugin}</version>
                     <configuration>
                         <analysisCache>true</analysisCache>
+                        <failOnViolation>false</failOnViolation>
                     </configuration>
                 </plugin>
 
@@ -593,6 +594,10 @@
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>${spotbugs.plugin}</version>
                     <configuration>
+                        <spotbugsXmlOutput>true</spotbugsXmlOutput>
+                        <effort>max</effort>
+                        <includeTests>true</includeTests>
+                        <failOnError>false</failOnError>
                         <plugins>
                             <plugin>
                                 <groupId>com.mebigfatguy.fb-contrib</groupId>
@@ -1024,6 +1029,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Checkstyle dependencies required here or they won't be used (per maven) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -1187,21 +1193,12 @@
                                 </goals>
                             </execution>
                         </executions>
-                        <configuration>
-                            <failOnViolation>false</failOnViolation>
-                        </configuration>
                     </plugin>
 
                     <!-- External Tools -->
                     <plugin>
                         <groupId>com.github.spotbugs</groupId>
                         <artifactId>spotbugs-maven-plugin</artifactId>
-                        <configuration>
-                            <spotbugsXmlOutput>true</spotbugsXmlOutput>
-                            <effort>max</effort>
-                            <includeTests>true</includeTests>
-                            <failOnError>false</failOnError>
-                        </configuration>
                         <executions>
                             <execution>
                                 <phase>verify</phase>
