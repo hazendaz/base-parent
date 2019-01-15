@@ -221,7 +221,7 @@
         <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
-        <jgit.version>5.2.0.201812061821-r</jgit.version>
+        <jgit.version>5.2.1.201812262042-r</jgit.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.4.1</metro.version> <!-- TODO: Waiting for 2.4.3 release -->
         <scm.version>1.11.1</scm.version>
