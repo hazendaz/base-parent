@@ -207,6 +207,7 @@
         <versions.plugin>2.7</versions.plugin>
         <wagon.plugin>2.0.0</wagon.plugin>
         <war.plugin>3.2.2</war.plugin>
+        <whitespace.plugin>1.0.4</whitespace.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
         <xml-format.plugin>3.0.7</xml-format.plugin>
 
@@ -682,6 +683,11 @@
                         <staticGroups>java,*</staticGroups>
                         <removeUnused>true</removeUnused>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                    <artifactId>whitespace-maven-plugin</artifactId>
+                    <version>${whitespace.plugin}</version>
                 </plugin>
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
@@ -1381,6 +1387,18 @@
                             <execution>
                                 <goals>
                                     <goal>sort</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>whitespace-maven-plugin</artifactId>
+                        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                        <executions>
+                            <execution>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>trim</goal>
                                 </goals>
                             </execution>
                         </executions>
