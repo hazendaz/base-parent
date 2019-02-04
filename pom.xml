@@ -185,7 +185,7 @@
         <jar.plugin>3.1.1</jar.plugin>
         <javadoc.plugin>3.0.1</javadoc.plugin>
         <javancss.plugin>2.1</javancss.plugin>
-        <jaxws.plugin>2.3.8</jaxws.plugin>
+        <jaxws.plugin>2.3.2</jaxws.plugin>
         <jdepend.plugin>2.0</jdepend.plugin>
         <jxr.plugin>3.0.0</jxr.plugin>
         <license.plugin>3.0</license.plugin>
@@ -733,7 +733,7 @@
 
                 <!-- Jaxws Plugin -->
                 <plugin>
-                    <groupId>net.trajano.mojo</groupId>
+                    <groupId>com.sun.xml.ws</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
                     <version>${jaxws.plugin}</version>
                 </plugin>
@@ -1563,7 +1563,7 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>net.trajano.mojo</groupId>
+                        <groupId>com.sun.xml.ws</groupId>
                         <artifactId>jaxws-maven-plugin</artifactId>
                         <executions>
                             <execution>
