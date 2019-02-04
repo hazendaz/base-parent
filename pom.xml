@@ -224,7 +224,7 @@
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.2.1.201812262042-r</jgit.version>
         <license-git.version>3.0</license-git.version>
-        <metro.version>2.4.1</metro.version> <!-- TODO: Waiting for 2.4.3 release -->
+        <metro.version>2.4.3</metro.version>
         <scm.version>1.11.1</scm.version>
         <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
         <wagon-ssh.version>3.3.1</wagon-ssh.version>
