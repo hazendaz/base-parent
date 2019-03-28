@@ -218,7 +218,7 @@
         <doxia.version>1.8</doxia.version>
         <doxiaPlus1.version>1.8.1</doxiaPlus1.version>
         <fb-contrib.version>7.4.3.sb</fb-contrib.version>
-        <findsecbugs.version>1.8.0</findsecbugs.version>
+        <findsecbugs.version>1.9.0</findsecbugs.version>
         <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
