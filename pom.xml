@@ -1679,6 +1679,22 @@
                                             </action>
                                         </pluginExecution>
                                         <pluginExecution>
+                                           <pluginExecutionFilter>
+                                                <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                                                <artifactId>whitespace-maven-plugin</artifactId>
+                                                <versionRange>[${whitespace.plugin},)</versionRange>
+                                                <goals>
+                                                     <goal>trim</goal>
+                                                </goals>
+                                           </pluginExecutionFilter>
+                                           <action>
+                                                <execute>
+                                                    <runOnConfiguration>true</runOnConfiguration>
+                                                    <runOnIncremental>true</runOnIncremental>
+                                                </execute>
+                                           </action>
+                                      </pluginExecution>
+                                        <pluginExecution>
                                             <pluginExecutionFilter>
                                                 <groupId>org.apache.maven.plugins</groupId>
                                                 <artifactId>maven-enforcer-plugin</artifactId>
