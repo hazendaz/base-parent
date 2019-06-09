@@ -209,6 +209,7 @@
         <versions.plugin>2.7</versions.plugin>
         <wagon.plugin>2.0.0</wagon.plugin>
         <war.plugin>3.2.3</war.plugin>
+        <wrapper.plugin>0.7.6</wrapper.plugin>
         <whitespace.plugin>1.0.4</whitespace.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
         <xml-format.plugin>3.0.7</xml-format.plugin>
@@ -701,6 +702,11 @@
                     <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
                     <artifactId>whitespace-maven-plugin</artifactId>
                     <version>${whitespace.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>io.takari</groupId>
+                    <artifactId>maven</artifactId>
+                    <version>${wrapper.plugin}</version>
                 </plugin>
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
