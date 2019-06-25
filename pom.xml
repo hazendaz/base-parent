@@ -219,7 +219,7 @@
         <build-tools.version>1.1.8</build-tools.version>
         <checkstyle.version>8.22</checkstyle.version>
         <doxia.version>1.9</doxia.version>
-        <doxiaPlus1.version>1.9</doxiaPlus1.version>
+        <doxiaPlus1.version>1.9.1</doxiaPlus1.version>
         <findsecbugs.version>1.9.0</findsecbugs.version>
         <fluido.version>1.7</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
