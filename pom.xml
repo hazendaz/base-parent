@@ -19,7 +19,7 @@
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>23-SNAPSHOT</version>
+    <version>23</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -78,7 +78,7 @@
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <url>https://github.com/hazendaz/base-parent</url>
-        <tag>HEAD</tag>
+        <tag>base-parent-23</tag>
     </scm>
     <issueManagement>
         <system>Github</system>
@@ -153,7 +153,7 @@
         <lombok.version>1.18.8</lombok.version>
 
         <!-- Parent Tracking on site -->
-        <base-parent.version>23-SNAPSHOT</base-parent.version>
+        <base-parent.version>23</base-parent.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
