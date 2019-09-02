@@ -131,6 +131,7 @@
 
         <!-- Maven compiler options -->
         <java.version>1.8</java.version>
+        <java-release.version>8</java-release.version>
         <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -1469,6 +1470,9 @@
             <activation>
                 <jdk>[9,)</jdk>
             </activation>
+            <properties>
+                <maven.compiler.release>${java-release.version}</maven.compiler.release>
+            </properties>
             <build>
                 <pluginManagement>
                     <plugins>
