@@ -225,7 +225,7 @@
         <fluido.version>1.8</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
-        <jgit.version>5.4.2.201908231537-r</jgit.version>
+        <jgit.version>5.4.3.201909031940-r</jgit.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.4.3</metro.version>
         <sb-contrib.version>7.4.6</sb-contrib.version>
