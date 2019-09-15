@@ -222,7 +222,7 @@
         <doxia.version>1.9</doxia.version>
         <doxiaPlus1.version>1.9.1</doxiaPlus1.version>
         <findsecbugs.version>1.9.0</findsecbugs.version>
-        <fluido.version>1.8</fluido.version>
+        <fluido.version note="Make sure to update in site.xml">1.8</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.5.0.201909110433-r</jgit.version>
@@ -1466,7 +1466,7 @@
         </profile>
 
         <profile>
-            <id>jdk9</id>
+            <id>jdk9on</id>
             <activation>
                 <jdk>[9,)</jdk>
             </activation>
