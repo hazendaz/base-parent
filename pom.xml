@@ -221,7 +221,7 @@
         <checkstyle.version>8.25</checkstyle.version>
         <doxia.version>1.9</doxia.version>
         <doxiaPlus1.version>1.9.1</doxiaPlus1.version>
-        <findsecbugs.version>1.9.0</findsecbugs.version>
+        <findsecbugs.version>1.10.0</findsecbugs.version>
         <fluido.version note="Make sure to update in site.xml">1.8</fluido.version>
         <htmlcompressor.version>1.6.5</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
