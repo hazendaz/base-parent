@@ -228,7 +228,7 @@
         <jgit.version>5.5.1.201910021850-r</jgit.version>
         <license-git.version>3.0</license-git.version>
         <metro.version>2.4.3</metro.version>
-        <sb-contrib.version>7.4.6</sb-contrib.version>
+        <sb-contrib.version>7.4.7</sb-contrib.version>
         <scm.version>1.11.2</scm.version>
         <wagon-git.version>2.0.3</wagon-git.version> <!-- Do not upgrade to 2.0.4 as it doesn't work -->
         <wagon-ssh.version>3.3.3</wagon-ssh.version>
