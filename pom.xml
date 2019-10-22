@@ -132,6 +132,7 @@
         <!-- Maven compiler options -->
         <java.version>1.8</java.version>
         <java-release.version>8</java-release.version>
+        <java-testRelease.version>${java-release.version}</java-testRelease.version>
         <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -1472,6 +1473,7 @@
             </activation>
             <properties>
                 <maven.compiler.release>${java-release.version}</maven.compiler.release>
+                <maven.compiler.testRelease>${java-testRelease.version}</maven.compiler.testRelease>
             </properties>
             <build>
                 <pluginManagement>
