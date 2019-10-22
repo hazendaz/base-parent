@@ -477,6 +477,7 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
@@ -501,6 +502,7 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
@@ -593,6 +595,7 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
