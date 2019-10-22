@@ -1485,6 +1485,61 @@
                                 <additionalOptions>-html5</additionalOptions>
                             </configuration>
                         </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jar-plugin</artifactId>
+                            <configuration>
+                                <archive>
+                                    <manifestEntries>
+                                        <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <configuration>
+                                <archive>
+                                    <manifestEntries>
+                                        <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-source-plugin</artifactId>
+                            <configuration>
+                                <archive>
+                                    <manifestEntries>
+                                        <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-site-plugin</artifactId>
+                            <configuration>
+                                <archive>
+                                    <manifestEntries>
+                                        <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-war-plugin</artifactId>
+                            <configuration>
+                                <archive>
+                                    <manifestEntries>
+                                        <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
                     </plugins>
                 </pluginManagement>
             </build>
