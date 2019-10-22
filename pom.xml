@@ -1480,13 +1480,6 @@
                     <plugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-javadoc-plugin</artifactId>
-                            <configuration>
-                                <additionalOptions>-html5</additionalOptions>
-                            </configuration>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-jar-plugin</artifactId>
                             <configuration>
                                 <archive>
@@ -1500,6 +1493,7 @@
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
                             <configuration>
+                                <additionalOptions>-html5</additionalOptions>
                                 <archive>
                                     <manifestEntries>
                                         <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
