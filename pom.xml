@@ -131,13 +131,15 @@
 
         <!-- Maven compiler options -->
         <java.version>1.8</java.version>
-        <java-release.version>8</java-release.version>
-        <java-testRelease.version>${java-release.version}</java-testRelease.version>
+        <java.release.version>8</java.release.version>
+        <java.test.version>${java.version}</java.test.version>
+        <java.test.release.version>${java.release.version}</java.test.release.version>
+
         <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.compiler.testSource>${java.version}</maven.compiler.testSource>
-        <maven.compiler.testTarget>${java.version}</maven.compiler.testTarget>
+        <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
+        <maven.compiler.testTarget>${java.test.version}</maven.compiler.testTarget>
 
         <!-- Maven minimum version -->
         <maven.min-version>3.6.1</maven.min-version>
@@ -1475,8 +1477,8 @@
                 <jdk>[9,)</jdk>
             </activation>
             <properties>
-                <maven.compiler.release>${java-release.version}</maven.compiler.release>
-                <maven.compiler.testRelease>${java-testRelease.version}</maven.compiler.testRelease>
+                <maven.compiler.release>${java.release.version}</maven.compiler.release>
+                <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
             </properties>
             <build>
                 <pluginManagement>
