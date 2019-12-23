@@ -205,7 +205,7 @@
         <scm.plugin>1.11.2</scm.plugin>
         <site.plugin>3.8.2</site.plugin>
         <sonar.plugin>3.7.0.1746</sonar.plugin>
-        <source.plugin>3.2.0</source.plugin>
+        <source.plugin>3.2.1</source.plugin>
         <spotbugs.plugin>3.1.12.2</spotbugs.plugin>
         <surefire.plugin>3.0.0-M4</surefire.plugin>
         <taglist.plugin>2.4</taglist.plugin>
