@@ -124,7 +124,7 @@
         <github.global.server>github</github.global.server>
 
         <!-- Jacoco minimum code coverage (used under checks only currently) -->
-        <jacoco.minimum.coverage>0.50</jacoco.minimum.coverage>
+        <jacoco.minimum.coverage>0.70</jacoco.minimum.coverage>
 
         <!-- Maven date configuration -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
