@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HtmlCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">HtmlCompressor.java</span></div><h1>HtmlCompressor.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2018 the original author or authors.
+ *    Copyright 2009-2020 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ import org.mozilla.javascript.ErrorReporter;
  * Content inside &amp;lt;script&amp;gt; or &amp;lt;style&amp;gt; tags could be optionally compressed using
  * &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; or
  * &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure Compiler&lt;/a&gt; libraries.
- * 
+ *
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
  */
 <span class="fc" id="L42">public class HtmlCompressor implements Compressor {</span>
@@ -403,7 +403,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * The main method that compresses given HTML source and returns compressed result.
-     * 
+     *
      * @param html
      *            HTML content to compress
      * @return compressed content.
@@ -1558,7 +1558,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if JavaScript compression is enabled.
-     * 
+     *
      * @return current state of JavaScript compression.
      */
     public boolean isCompressJavaScript() {
@@ -1569,18 +1569,18 @@ import org.mozilla.javascript.ErrorReporter;
      * Enables JavaScript compression within &amp;lt;script&amp;gt; tags using
      * &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; if set to &lt;code&gt;true&lt;/code&gt;.
      * Default is &lt;code&gt;false&lt;/code&gt; for performance reasons.
-     * 
+     *
      * &lt;p&gt;
      * &lt;b&gt;Note:&lt;/b&gt; Compressing JavaScript is not recommended if pages are compressed dynamically on-the-fly because of
      * performance impact. You should consider putting JavaScript into a separate file and compressing it using
      * standalone YUICompressor for example.
      * &lt;/p&gt;
-     * 
+     *
      * @param compressJavaScript
      *            set &lt;code&gt;true&lt;/code&gt; to enable JavaScript compression. Default is &lt;code&gt;false&lt;/code&gt;
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
-     * 
+     *
      */
     public void setCompressJavaScript(boolean compressJavaScript) {
 <span class="fc" id="L1586">        this.compressJavaScript = compressJavaScript;</span>
@@ -1588,7 +1588,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if CSS compression is enabled.
-     * 
+     *
      * @return current state of CSS compression.
      */
     public boolean isCompressCss() {
@@ -1599,18 +1599,18 @@ import org.mozilla.javascript.ErrorReporter;
      * Enables CSS compression within &amp;lt;style&amp;gt; tags using
      * &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; if set to &lt;code&gt;true&lt;/code&gt;.
      * Default is &lt;code&gt;false&lt;/code&gt; for performance reasons.
-     * 
+     *
      * &lt;p&gt;
      * &lt;b&gt;Note:&lt;/b&gt; Compressing CSS is not recommended if pages are compressed dynamically on-the-fly because of
      * performance impact. You should consider putting CSS into a separate file and compressing it using standalone
      * YUICompressor for example.
      * &lt;/p&gt;
-     * 
+     *
      * @param compressCss
      *            set &lt;code&gt;true&lt;/code&gt; to enable CSS compression. Default is &lt;code&gt;false&lt;/code&gt;
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
-     * 
+     *
      */
     public void setCompressCss(boolean compressCss) {
 <span class="fc" id="L1616">        this.compressCss = compressCss;</span>
@@ -1619,9 +1619,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will only minify javascript without obfuscating local symbols.
      * This corresponds to &lt;code&gt;--nomunge&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;nomunge&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isYuiJsNoMunge() {
@@ -1632,10 +1632,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Tells Yahoo YUI Compressor to only minify javascript without obfuscating local symbols. This corresponds to
      * &lt;code&gt;--nomunge&lt;/code&gt; command line option. This option has effect only if JavaScript compression is enabled.
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param yuiJsNoMunge
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;nomunge&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setYuiJsNoMunge(boolean yuiJsNoMunge) {
@@ -1645,9 +1645,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will preserve unnecessary semicolons during JavaScript
      * compression. This corresponds to &lt;code&gt;--preserve-semi&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;preserve-semi&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isYuiJsPreserveAllSemiColons() {
@@ -1658,10 +1658,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Tells Yahoo YUI Compressor to preserve unnecessary semicolons during JavaScript compression. This corresponds to
      * &lt;code&gt;--preserve-semi&lt;/code&gt; command line option. This option has effect only if JavaScript compression is
      * enabled. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param yuiJsPreserveAllSemiColons
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;preserve-semi&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setYuiJsPreserveAllSemiColons(boolean yuiJsPreserveAllSemiColons) {
@@ -1671,9 +1671,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will disable all the built-in micro optimizations during
      * JavaScript compression. This corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;disable-optimizations&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isYuiJsDisableOptimizations() {
@@ -1684,10 +1684,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Tells Yahoo YUI Compressor to disable all the built-in micro optimizations during JavaScript compression. This
      * corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option. This option has effect only if
      * JavaScript compression is enabled. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param yuiJsDisableOptimizations
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;disable-optimizations&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setYuiJsDisableOptimizations(boolean yuiJsDisableOptimizations) {
@@ -1697,9 +1697,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns number of symbols per line Yahoo YUI Compressor will use during JavaScript compression. This corresponds
      * to &lt;code&gt;--line-break&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public int getYuiJsLineBreak() {
@@ -1710,10 +1710,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during JavaScript compression.
      * This corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if JavaScript
      * compression is enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.
-     * 
+     *
      * @param yuiJsLineBreak
      *            set number of symbols per line
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setYuiJsLineBreak(int yuiJsLineBreak) {
@@ -1723,9 +1723,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns number of symbols per line Yahoo YUI Compressor will use during CSS compression. This corresponds to
      * &lt;code&gt;--line-break&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for CSS compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public int getYuiCssLineBreak() {
@@ -1736,10 +1736,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during CSS compression. This
      * corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if CSS compression is
      * enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.
-     * 
+     *
      * @param yuiCssLineBreak
      *            set number of symbols per line
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setYuiCssLineBreak(int yuiCssLineBreak) {
@@ -1758,12 +1758,12 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all unnecessary quotes will be removed from tag attributes. Default is
      * &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * &lt;p&gt;
      * &lt;b&gt;Note:&lt;/b&gt; Even though quotes are removed only when it is safe to do so, it still might break strict HTML
      * validation. Turn this option on only if a page validation is not very important or to squeeze the most out of the
      * compression. This option has no performance impact.
-     * 
+     *
      * @param removeQuotes
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary quotes from tag attributes
      */
@@ -1773,7 +1773,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if compression is enabled.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if compression is enabled.
      */
     public boolean isEnabled() {
@@ -1783,7 +1783,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;false&lt;/code&gt; all compression will be bypassed. Might be useful for testing purposes. Default is
      * &lt;code&gt;true&lt;/code&gt;.
-     * 
+     *
      * @param enabled
      *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression
      */
@@ -1793,7 +1793,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all HTML comments will be removed.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if all HTML comments will be removed
      */
     public boolean isRemoveComments() {
@@ -1802,7 +1802,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all HTML comments will be removed. Default is &lt;code&gt;true&lt;/code&gt;.
-     * 
+     *
      * @param removeComments
      *            set &lt;code&gt;true&lt;/code&gt; to remove all HTML comments
      */
@@ -1812,7 +1812,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all multiple whitespace characters will be replaced with single spaces.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if all multiple whitespace characters will be replaced with single spaces.
      */
     public boolean isRemoveMultiSpaces() {
@@ -1822,7 +1822,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all multiple whitespace characters will be replaced with single spaces. Default is
      * &lt;code&gt;true&lt;/code&gt;.
-     * 
+     *
      * @param removeMultiSpaces
      *            set &lt;code&gt;true&lt;/code&gt; to replace all multiple whitespace characters will single spaces.
      */
@@ -1832,7 +1832,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.
      */
     public boolean isRemoveIntertagSpaces() {
@@ -1841,11 +1841,11 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt; all inter-tag whitespace characters will be removed. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * &lt;p&gt;
      * &lt;b&gt;Note:&lt;/b&gt; It is fairly safe to turn this option on unless you rely on spaces for page formatting. Even if you
      * do, you can always preserve required spaces with &lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;. This option has no performance impact.
-     * 
+     *
      * @param removeIntertagSpaces
      *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters
      */
@@ -1865,16 +1865,16 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * This method allows setting custom block preservation rules defined by regular expression patterns. Blocks that
      * match provided patterns will be skipped during HTML compression.
-     * 
+     *
      * &lt;p&gt;
      * Custom preservation rules have higher priority than default rules. Priority between custom rules are defined by
      * their position in a list (beginning of a list has higher priority).
-     * 
+     *
      * &lt;p&gt;
      * Besides custom patterns, you can use 3 predefined patterns: {@link #PHP_TAG_PATTERN PHP_TAG_PATTERN},
      * {@link #SERVER_SCRIPT_TAG_PATTERN SERVER_SCRIPT_TAG_PATTERN}, {@link #SERVER_SIDE_INCLUDE_PATTERN
      * SERVER_SIDE_INCLUDE_PATTERN}.
-     * 
+     *
      * @param preservePatterns
      *            List of &lt;code&gt;Pattern&lt;/code&gt; objects that will be used to skip matched blocks during compression
      */
@@ -1898,10 +1898,10 @@ import org.mozilla.javascript.ErrorReporter;
      * Sets &lt;code&gt;ErrorReporter&lt;/code&gt; that YUI Compressor will use for reporting errors during JavaScript compression.
      * If no &lt;code&gt;ErrorReporter&lt;/code&gt; was provided {@link YuiJavaScriptCompressor.DefaultErrorReporter} will be used
      * which reports errors to &lt;code&gt;System.err&lt;/code&gt; stream.
-     * 
+     *
      * @param yuiErrorReporter
      *            &lt;code&gt;ErrorReporter&lt;/code&gt; that will be used by YUI Compressor
-     * 
+     *
      * @see YuiJavaScriptCompressor.DefaultErrorReporter
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;ErrorReporter
@@ -1913,9 +1913,9 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.
-     * 
+     *
      * @return &lt;code&gt;Compressor&lt;/code&gt; implementation that will be used to compress inline JavaScript in HTML.
-     * 
+     *
      * @see YuiJavaScriptCompressor
      * @see ClosureJavaScriptCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
@@ -1927,20 +1927,20 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Sets JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.
-     * 
+     *
      * &lt;p&gt;
      * HtmlCompressor currently comes with basic implementations for
      * &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; (called
      * {@link YuiJavaScriptCompressor}) and &lt;a href=&quot;http://code.google.com/closure/compiler/&quot;&gt;Google Closure
      * Compiler&lt;/a&gt; (called {@link ClosureJavaScriptCompressor}) that should be enough for most cases, but users can
      * also create their own JavaScript compressors for custom needs.
-     * 
+     *
      * &lt;p&gt;
      * If no compressor is set {@link YuiJavaScriptCompressor} will be used by default.
-     * 
+     *
      * @param javaScriptCompressor
      *            {@link Compressor} implementation that will be used for inline JavaScript compression
-     * 
+     *
      * @see YuiJavaScriptCompressor
      * @see ClosureJavaScriptCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
@@ -1952,9 +1952,9 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns CSS compressor implementation that will be used to compress inline CSS in HTML.
-     * 
+     *
      * @return &lt;code&gt;Compressor&lt;/code&gt; implementation that will be used to compress inline CSS in HTML.
-     * 
+     *
      * @see YuiCssCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
@@ -1964,18 +1964,18 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Sets CSS compressor implementation that will be used to compress inline CSS in HTML.
-     * 
+     *
      * &lt;p&gt;
      * HtmlCompressor currently comes with basic implementation for
      * &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt; (called {@link YuiCssCompressor}),
      * but users can also create their own CSS compressors for custom needs.
-     * 
+     *
      * &lt;p&gt;
      * If no compressor is set {@link YuiCssCompressor} will be used by default.
-     * 
+     *
      * @param cssCompressor
      *            {@link Compressor} implementation that will be used for inline CSS compression
-     * 
+     *
      * @see YuiCssCompressor
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
@@ -1986,7 +1986,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if existing DOCTYPE declaration will be replaced with simple
      * &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if existing DOCTYPE declaration will be replaced with simple
      *         &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration.
      */
@@ -1997,7 +1997,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, existing DOCTYPE declaration will be replaced with simple
      * &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param simpleDoctype
      *            set &lt;code&gt;true&lt;/code&gt; to replace existing DOCTYPE declaration with &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;
      */
@@ -2021,10 +2021,10 @@ import org.mozilla.javascript.ErrorReporter;
      * &lt;li&gt;type=&quot;application/javascript&quot;&lt;/li&gt;
      * &lt;li&gt;language=&quot;javascript&quot;&lt;/li&gt;
      * &lt;/ul&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeScriptAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags
      */
@@ -2046,7 +2046,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;type=&quot;text/style&quot;&lt;/code&gt; attributes will be removed from
      * &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeStyleAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;type=&quot;text/style&quot;&lt;/code&gt; attributes from
      *            &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags
@@ -2071,10 +2071,10 @@ import org.mozilla.javascript.ErrorReporter;
      * &lt;li&gt;type=&quot;text/css&quot;&lt;/li&gt;
      * &lt;li&gt;type=&quot;text/plain&quot;&lt;/li&gt;
      * &lt;/ul&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeLinkAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags
      */
@@ -2096,7 +2096,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
      * tags. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeFormAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;method=&quot;get&quot;&lt;/code&gt; attributes from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;
      *            tags
@@ -2119,7 +2119,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;type=&quot;text&quot;&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;
      * tags. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeInputAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;type=&quot;text&quot;&lt;/code&gt; attributes from &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;
      *            tags
@@ -2145,13 +2145,13 @@ import org.mozilla.javascript.ErrorReporter;
      * &lt;li&gt;disabled&lt;/li&gt;
      * &lt;li&gt;readonly&lt;/li&gt;
      * &lt;/ul&gt;
-     * 
+     *
      * &lt;p&gt;
      * For example, &lt;code&gt;&amp;lt;input readonly=&quot;readonly&quot;&amp;gt;&lt;/code&gt; would become &lt;code&gt;&amp;lt;input readonly&amp;gt;&lt;/code&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param simpleBooleanAttributes
      *            set &lt;code&gt;true&lt;/code&gt; to simplify boolean attributes
      */
@@ -2161,7 +2161,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.
      */
     public boolean isRemoveJavaScriptProtocol() {
@@ -2170,14 +2170,14 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.
-     * 
+     *
      * &lt;p&gt;
      * For example, &lt;code&gt;&amp;lt;a onclick=&quot;javascript:alert()&quot;&amp;gt;&lt;/code&gt; would become
      * &lt;code&gt;&amp;lt;a onclick=&quot;alert()&quot;&amp;gt;&lt;/code&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeJavaScriptProtocol
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol from inline event handlers.
      */
@@ -2188,7 +2188,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,
      * &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,
      *         &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
      */
@@ -2200,10 +2200,10 @@ import org.mozilla.javascript.ErrorReporter;
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,
      * &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes. URL without a protocol would make a browser use
      * document's current protocol instead.
-     * 
+     *
      * &lt;p&gt;
      * Tags marked with &lt;code&gt;rel=&quot;external&quot;&lt;/code&gt; will be skipped.
-     * 
+     *
      * &lt;p&gt;
      * For example:
      * &lt;p&gt;
@@ -2212,10 +2212,10 @@ import org.mozilla.javascript.ErrorReporter;
      * would become:
      * &lt;p&gt;
      * &lt;code&gt;&amp;lt;a href=&quot;//example.com&quot;&amp;gt; &amp;lt;script src=&quot;http://google.com/js.js&quot; rel=&quot;external&quot;&amp;gt;&lt;/code&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeHttpProtocol
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;HTTP&lt;/code&gt; protocol from tag attributes
      */
@@ -2226,7 +2226,7 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;
      * , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;
      *         , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.
      */
@@ -2238,10 +2238,10 @@ import org.mozilla.javascript.ErrorReporter;
      * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;
      * , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes. URL without a protocol would make a browser use
      * document's current protocol instead.
-     * 
+     *
      * &lt;p&gt;
      * Tags marked with &lt;code&gt;rel=&quot;external&quot;&lt;/code&gt; will be skipped.
-     * 
+     *
      * &lt;p&gt;
      * For example:
      * &lt;p&gt;
@@ -2250,10 +2250,10 @@ import org.mozilla.javascript.ErrorReporter;
      * would become:
      * &lt;p&gt;
      * &lt;code&gt;&amp;lt;a href=&quot;//example.com&quot;&amp;gt; &amp;lt;script src=&quot;https://google.com/js.js&quot; rel=&quot;external&quot;&amp;gt;&lt;/code&gt;
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param removeHttpsProtocol
      *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;HTTP&lt;/code&gt; protocol from tag attributes
      */
@@ -2272,16 +2272,16 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, HTML compression statistics will be generated.
-     * 
+     *
      * &lt;p&gt;
      * &lt;strong&gt;Important:&lt;/strong&gt; Enabling statistics makes HTML compressor not thread safe.
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param generateStatistics
      *            set &lt;code&gt;true&lt;/code&gt; to generate HTML compression statistics
-     * 
+     *
      * @see #getStatistics()
      */
     public void setGenerateStatistics(boolean generateStatistics) {
@@ -2291,9 +2291,9 @@ import org.mozilla.javascript.ErrorReporter;
     /**
      * Returns {@link HtmlCompressorStatistics} object containing statistics of the last HTML compression, if enabled.
      * Should be called after {@link #compress(String)}
-     * 
+     *
      * @return {@link HtmlCompressorStatistics} object containing last HTML compression statistics
-     * 
+     *
      * @see HtmlCompressorStatistics
      * @see #setGenerateStatistics(boolean)
      */
@@ -2303,7 +2303,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if line breaks will be preserved.
-     * 
+     *
      * @return &lt;code&gt;true&lt;/code&gt; if line breaks will be preserved.
      */
     public boolean isPreserveLineBreaks() {
@@ -2312,10 +2312,10 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * If set to &lt;code&gt;true&lt;/code&gt;, line breaks will be preserved.
-     * 
+     *
      * &lt;p&gt;
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param preserveLineBreaks
      *            set &lt;code&gt;true&lt;/code&gt; to preserve line breaks
      */
@@ -2325,7 +2325,7 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Returns a comma separated list of tags around which spaces will be removed.
-     * 
+     *
      * @return a comma separated list of tags around which spaces will be removed.
      */
     public String getRemoveSurroundingSpaces() {
@@ -2334,11 +2334,11 @@ import org.mozilla.javascript.ErrorReporter;
 
     /**
      * Enables surrounding spaces removal around provided comma separated list of tags.
-     * 
+     *
      * &lt;p&gt;
      * Besides custom defined lists, you can pass one of 3 predefined lists of tags: {@link #BLOCK_TAGS_MIN
      * BLOCK_TAGS_MIN}, {@link #BLOCK_TAGS_MAX BLOCK_TAGS_MAX}, {@link #ALL_TAGS ALL_TAGS}.
-     * 
+     *
      * @param tagList
      *            a comma separated list of tags around which spaces will be removed
      */
@@ -2350,4 +2350,4 @@ import org.mozilla.javascript.ErrorReporter;
 <span class="fc" id="L2350">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

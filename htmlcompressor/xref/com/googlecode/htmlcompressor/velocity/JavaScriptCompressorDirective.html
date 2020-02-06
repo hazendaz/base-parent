@@ -13,7 +13,7 @@
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> *    you may not use this file except in compliance with the License.</em>
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> *    You may obtain a copy of the License at</em>
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *       <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *       <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> *    Unless required by applicable law or agreed to in writing, software</em>
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *    distributed under the License is distributed on an "AS IS" BASIS,</em>
@@ -48,7 +48,7 @@
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> * @see &lt;a href="<a href="http://code.google.com/closure/compiler/" target="alexandria_uri">http://code.google.com/closure/compiler/</a>"&gt;Google Closure Compiler&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/googlecode/htmlcompressor/velocity/JavaScriptCompressorDirective.html">JavaScriptCompressorDirective</a> <strong class="jxr_keyword">extends</strong> Directive {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="JavaScriptCompressorDirective" href="../../../../com/googlecode/htmlcompressor/velocity/JavaScriptCompressorDirective.html#JavaScriptCompressorDirective">JavaScriptCompressorDirective</a> <strong class="jxr_keyword">extends</strong> Directive {
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      <em class="jxr_javadoccomment">/** The enabled. */</em>
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> enabled = <strong class="jxr_keyword">true</strong>;
@@ -115,7 +115,7 @@
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
 <a class="jxr_linenumber" name="L108" href="#L108">108</a>                 <strong class="jxr_keyword">if</strong> (jsCompressor.equalsIgnoreCase(HtmlCompressor.JS_COMPRESSOR_CLOSURE)) {
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>                     <em class="jxr_comment">// call Closure compressor</em>
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>                     <a href="../../../../com/googlecode/htmlcompressor/compressor/ClosureJavaScriptCompressor.html">ClosureJavaScriptCompressor</a> closureCompressor = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/ClosureJavaScriptCompressor.html">ClosureJavaScriptCompressor</a>();
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>                     <a name="ClosureJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/com<a name="ClosureJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/ClosureJavaScriptCompressor.html#ClosureJavaScriptCompressor">ClosureJavaScriptCompressor</a>mpressor.html#ClosureJavaScriptCompressor">ClosureJavaScriptCompressor</a> closureCompressor = <strong class="jxr_keyword">new</strong> <a name="ClosureJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/ClosureJavaScriptCompressor.html#ClosureJavaScriptCompressor">ClosureJavaScriptCompressor</a>();
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>                     <strong class="jxr_keyword">if</strong> (closureOptLevel.equalsIgnoreCase(ClosureJavaScriptCompressor.COMPILATION_LEVEL_ADVANCED)) {
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>                         closureCompressor.setCompilationLevel(CompilationLevel.ADVANCED_OPTIMIZATIONS);
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>                     } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (closureOptLevel
@@ -129,7 +129,7 @@
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>                 } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>                     <em class="jxr_comment">// call YUICompressor</em>
-<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html">YuiJavaScriptCompressor</a> yuiCompressor = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html">YuiJavaScriptCompressor</a>();
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     <a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor<a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a>ptCompressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a> yuiCompressor = <strong class="jxr_keyword">new</strong> <a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a>();
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>                     yuiCompressor.setDisableOptimizations(yuiJsDisableOptimizations);
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>                     yuiCompressor.setLineBreak(yuiJsLineBreak);
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>                     yuiCompressor.setNoMunge(yuiJsNoMunge);
@@ -157,6 +157,6 @@
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2009&#x2013;2018 <a href="https://github.com/hazendaz/htmlcompressor/">Jeremy Landis</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2009&#x2013;2020 <a href="https://github.com/hazendaz/htmlcompressor/">Jeremy Landis</a>. All rights reserved.</div>
 </body>
 </html>

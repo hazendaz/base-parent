@@ -7,13 +7,13 @@
 <body>
 <div id="overview"><a href="../../../../../apidocs/com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> *    Copyright 2009-2018 the original author or authors.</em>
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <em class="jxr_javadoccomment"> *    Copyright 2009-2020 the original author or authors.</em>
 <a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> *    Licensed under the Apache License, Version 2.0 (the "License");</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> *    you may not use this file except in compliance with the License.</em>
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> *    You may obtain a copy of the License at</em>
 <a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *       <a href="http://www.apache.org/licenses/LICENSE-2." target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.</a>0</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> *       <a href="http://www.apache.org/licenses/LICENSE-2.0" target="alexandria_uri">http://www.apache.org/licenses/LICENSE-2.0</a></em>
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> *    Unless required by applicable law or agreed to in writing, software</em>
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *    distributed under the License is distributed on an "AS IS" BASIS,</em>
@@ -44,10 +44,10 @@
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment"> * Content inside &amp;lt;script&amp;gt; or &amp;lt;style&amp;gt; tags could be optionally compressed using</em>
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment"> * &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt; or</em>
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment"> * &lt;a href="<a href="http://code.google.com/closure/compiler/" target="alexandria_uri">http://code.google.com/closure/compiler/</a>"&gt;Google Closure Compiler&lt;/a&gt; libraries.</em>
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> * </em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment"> * @author &lt;a href="<a href="mailto:serg472@gmail.com" target="alexandria_uri">mailto:serg472@gmail.com</a>"&gt;Sergiy Kovalchuk&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">HtmlCompressor</a> <strong class="jxr_keyword">implements</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a name="HtmlCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a> <strong class="jxr_keyword">implements</strong> <a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> {
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>      <em class="jxr_javadoccomment">/** The Constant JS_COMPRESSOR_YUI. */</em>
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String JS_COMPRESSOR_YUI = <span class="jxr_string">"yui"</span>;
@@ -100,10 +100,10 @@
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>      <em class="jxr_comment">// javascript and css compressor implementations</em>
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>      <em class="jxr_javadoccomment">/** The java script compressor. */</em>
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> javaScriptCompressor;
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>      <strong class="jxr_keyword">private</strong> <a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> javaScriptCompressor;
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>      <em class="jxr_javadoccomment">/** The css compressor. */</em>
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> cssCompressor;
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">private</strong> <a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> cssCompressor;
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  
 <a class="jxr_linenumber" name="L100" href="#L100">100</a>     <em class="jxr_comment">// default settings</em>
 <a class="jxr_linenumber" name="L101" href="#L101">101</a> 
@@ -172,7 +172,7 @@
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> generateStatistics;
 <a class="jxr_linenumber" name="L165" href="#L165">165</a> 
 <a class="jxr_linenumber" name="L166" href="#L166">166</a>     <em class="jxr_javadoccomment">/** The statistics. */</em>
-<a class="jxr_linenumber" name="L167" href="#L167">167</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html">HtmlCompressorStatistics</a> statistics;
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>     <strong class="jxr_keyword">private</strong> <a name="HtmlCompressorStatistics" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html#HtmlCompressorStatistics">HtmlCompressorStatistics</a> statistics;
 <a class="jxr_linenumber" name="L168" href="#L168">168</a> 
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>     <em class="jxr_comment">// YUICompressor settings</em>
 <a class="jxr_linenumber" name="L170" href="#L170">170</a> 
@@ -411,7 +411,7 @@
 <a class="jxr_linenumber" name="L403" href="#L403">403</a> 
 <a class="jxr_linenumber" name="L404" href="#L404">404</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L405" href="#L405">405</a> <em class="jxr_javadoccomment">     * The main method that compresses given HTML source and returns compressed result.</em>
-<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L407" href="#L407">407</a> <em class="jxr_javadoccomment">     * @param html</em>
 <a class="jxr_linenumber" name="L408" href="#L408">408</a> <em class="jxr_javadoccomment">     *            HTML content to compress</em>
 <a class="jxr_linenumber" name="L409" href="#L409">409</a> <em class="jxr_javadoccomment">     * @return compressed content.</em>
@@ -466,7 +466,7 @@
 <a class="jxr_linenumber" name="L458" href="#L458">458</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> initStatistics(String html) {
 <a class="jxr_linenumber" name="L459" href="#L459">459</a>         <em class="jxr_comment">// create stats</em>
 <a class="jxr_linenumber" name="L460" href="#L460">460</a>         <strong class="jxr_keyword">if</strong> (generateStatistics) {
-<a class="jxr_linenumber" name="L461" href="#L461">461</a>             statistics = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html">HtmlCompressorStatistics</a>();
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>             statistics = <strong class="jxr_keyword">new</strong> <a name="HtmlCompressorStatistics" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html#HtmlCompressorStatistics">HtmlCompressorStatistics</a>();
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>             statistics.setTime(System.currentTimeMillis());
 <a class="jxr_linenumber" name="L463" href="#L463">463</a>             statistics.getOriginalMetrics().setFilesize(html.length());
 <a class="jxr_linenumber" name="L464" href="#L464">464</a> 
@@ -564,7 +564,7 @@
 <a class="jxr_linenumber" name="L556" href="#L556">556</a>         html = sb.toString();
 <a class="jxr_linenumber" name="L557" href="#L557">557</a> 
 <a class="jxr_linenumber" name="L558" href="#L558">558</a>         <em class="jxr_comment">// preserve conditional comments</em>
-<a class="jxr_linenumber" name="L559" href="#L559">559</a>         <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">HtmlCompressor</a> condCommentCompressor = createCompressorClone();
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>         <a name="HtmlCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a> condCommentCompressor = createCompressorClone();
 <a class="jxr_linenumber" name="L560" href="#L560">560</a>         matcher = condCommentPattern.matcher(html);
 <a class="jxr_linenumber" name="L561" href="#L561">561</a>         <strong class="jxr_keyword">int</strong> index = 0;
 <a class="jxr_linenumber" name="L562" href="#L562">562</a>         sb = <strong class="jxr_keyword">new</strong> StringBuffer();
@@ -1461,7 +1461,7 @@
 <a class="jxr_linenumber" name="L1453" href="#L1453">1453</a> 
 <a class="jxr_linenumber" name="L1454" href="#L1454">1454</a>         <em class="jxr_comment">// set default javascript compressor</em>
 <a class="jxr_linenumber" name="L1455" href="#L1455">1455</a>         <strong class="jxr_keyword">if</strong> (javaScriptCompressor == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1456" href="#L1456">1456</a>             <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html">YuiJavaScriptCompressor</a> yuiJsCompressor = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html">YuiJavaScriptCompressor</a>();
+<a class="jxr_linenumber" name="L1456" href="#L1456">1456</a>             <a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/c<a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a>Compressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a> yuiJsCompressor = <strong class="jxr_keyword">new</strong> <a name="YuiJavaScriptCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiJavaScriptCompressor.html#YuiJavaScriptCompressor">YuiJavaScriptCompressor</a>();
 <a class="jxr_linenumber" name="L1457" href="#L1457">1457</a>             yuiJsCompressor.setNoMunge(yuiJsNoMunge);
 <a class="jxr_linenumber" name="L1458" href="#L1458">1458</a>             yuiJsCompressor.setPreserveAllSemiColons(yuiJsPreserveAllSemiColons);
 <a class="jxr_linenumber" name="L1459" href="#L1459">1459</a>             yuiJsCompressor.setDisableOptimizations(yuiJsDisableOptimizations);
@@ -1503,7 +1503,7 @@
 <a class="jxr_linenumber" name="L1495" href="#L1495">1495</a> 
 <a class="jxr_linenumber" name="L1496" href="#L1496">1496</a>         <em class="jxr_comment">// set default css compressor</em>
 <a class="jxr_linenumber" name="L1497" href="#L1497">1497</a>         <strong class="jxr_keyword">if</strong> (cssCompressor == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1498" href="#L1498">1498</a>             <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiCssCompressor.html">YuiCssCompressor</a> yuiCssCompressor = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/YuiCssCompressor.html">YuiCssCompressor</a>();
+<a class="jxr_linenumber" name="L1498" href="#L1498">1498</a>             <a name="YuiCssCompressor" href="../../../../com/googlecode/htmlcompressor/co<a name="YuiCssCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiCssCompressor.html#YuiCssCompressor">YuiCssCompressor</a>ompressor.html#YuiCssCompressor">YuiCssCompressor</a> yuiCssCompressor = <strong class="jxr_keyword">new</strong> <a name="YuiCssCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/YuiCssCompressor.html#YuiCssCompressor">YuiCssCompressor</a>();
 <a class="jxr_linenumber" name="L1499" href="#L1499">1499</a>             yuiCssCompressor.setLineBreak(yuiCssLineBreak);
 <a class="jxr_linenumber" name="L1500" href="#L1500">1500</a> 
 <a class="jxr_linenumber" name="L1501" href="#L1501">1501</a>             cssCompressor = yuiCssCompressor;
@@ -1532,8 +1532,8 @@
 <a class="jxr_linenumber" name="L1524" href="#L1524">1524</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1525" href="#L1525">1525</a> <em class="jxr_javadoccomment">     * @return the html compressor</em>
 <a class="jxr_linenumber" name="L1526" href="#L1526">1526</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1527" href="#L1527">1527</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">HtmlCompressor</a> createCompressorClone() {
-<a class="jxr_linenumber" name="L1528" href="#L1528">1528</a>         <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">HtmlCompressor</a> clone = <strong class="jxr_keyword">new</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html">HtmlCompressor</a>();
+<a class="jxr_linenumber" name="L1527" href="#L1527">1527</a>     <strong class="jxr_keyword">protected</strong> <a name="HtmlCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a> createCompressorClone() {
+<a class="jxr_linenumber" name="L1528" href="#L1528">1528</a>         <a name="HtmlCompressor" href="../../../../com/googlecode/htmlco<a name="HtmlCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a>essor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a> clone = <strong class="jxr_keyword">new</strong> <a name="HtmlCompressor" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressor.html#HtmlCompressor">HtmlCompressor</a>();
 <a class="jxr_linenumber" name="L1529" href="#L1529">1529</a>         clone.setJavaScriptCompressor(javaScriptCompressor);
 <a class="jxr_linenumber" name="L1530" href="#L1530">1530</a>         clone.setCssCompressor(cssCompressor);
 <a class="jxr_linenumber" name="L1531" href="#L1531">1531</a>         clone.setRemoveComments(removeComments);
@@ -1566,7 +1566,7 @@
 <a class="jxr_linenumber" name="L1558" href="#L1558">1558</a> 
 <a class="jxr_linenumber" name="L1559" href="#L1559">1559</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1560" href="#L1560">1560</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if JavaScript compression is enabled.</em>
-<a class="jxr_linenumber" name="L1561" href="#L1561">1561</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1561" href="#L1561">1561</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1562" href="#L1562">1562</a> <em class="jxr_javadoccomment">     * @return current state of JavaScript compression.</em>
 <a class="jxr_linenumber" name="L1563" href="#L1563">1563</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1564" href="#L1564">1564</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isCompressJavaScript() {
@@ -1577,18 +1577,18 @@
 <a class="jxr_linenumber" name="L1569" href="#L1569">1569</a> <em class="jxr_javadoccomment">     * Enables JavaScript compression within &amp;lt;script&amp;gt; tags using</em>
 <a class="jxr_linenumber" name="L1570" href="#L1570">1570</a> <em class="jxr_javadoccomment">     * &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt; if set to &lt;code&gt;true&lt;/code&gt;.</em>
 <a class="jxr_linenumber" name="L1571" href="#L1571">1571</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt; for performance reasons.</em>
-<a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1573" href="#L1573">1573</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1574" href="#L1574">1574</a> <em class="jxr_javadoccomment">     * &lt;b&gt;Note:&lt;/b&gt; Compressing JavaScript is not recommended if pages are compressed dynamically on-the-fly because of</em>
 <a class="jxr_linenumber" name="L1575" href="#L1575">1575</a> <em class="jxr_javadoccomment">     * performance impact. You should consider putting JavaScript into a separate file and compressing it using</em>
 <a class="jxr_linenumber" name="L1576" href="#L1576">1576</a> <em class="jxr_javadoccomment">     * standalone YUICompressor for example.</em>
 <a class="jxr_linenumber" name="L1577" href="#L1577">1577</a> <em class="jxr_javadoccomment">     * &lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L1578" href="#L1578">1578</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1578" href="#L1578">1578</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1579" href="#L1579">1579</a> <em class="jxr_javadoccomment">     * @param compressJavaScript</em>
 <a class="jxr_linenumber" name="L1580" href="#L1580">1580</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to enable JavaScript compression. Default is &lt;code&gt;false&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L1581" href="#L1581">1581</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1581" href="#L1581">1581</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1582" href="#L1582">1582</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
-<a class="jxr_linenumber" name="L1583" href="#L1583">1583</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1583" href="#L1583">1583</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1584" href="#L1584">1584</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1585" href="#L1585">1585</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setCompressJavaScript(<strong class="jxr_keyword">boolean</strong> compressJavaScript) {
 <a class="jxr_linenumber" name="L1586" href="#L1586">1586</a>         <strong class="jxr_keyword">this</strong>.compressJavaScript = compressJavaScript;
@@ -1596,7 +1596,7 @@
 <a class="jxr_linenumber" name="L1588" href="#L1588">1588</a> 
 <a class="jxr_linenumber" name="L1589" href="#L1589">1589</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1590" href="#L1590">1590</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if CSS compression is enabled.</em>
-<a class="jxr_linenumber" name="L1591" href="#L1591">1591</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1591" href="#L1591">1591</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1592" href="#L1592">1592</a> <em class="jxr_javadoccomment">     * @return current state of CSS compression.</em>
 <a class="jxr_linenumber" name="L1593" href="#L1593">1593</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1594" href="#L1594">1594</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isCompressCss() {
@@ -1607,18 +1607,18 @@
 <a class="jxr_linenumber" name="L1599" href="#L1599">1599</a> <em class="jxr_javadoccomment">     * Enables CSS compression within &amp;lt;style&amp;gt; tags using</em>
 <a class="jxr_linenumber" name="L1600" href="#L1600">1600</a> <em class="jxr_javadoccomment">     * &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt; if set to &lt;code&gt;true&lt;/code&gt;.</em>
 <a class="jxr_linenumber" name="L1601" href="#L1601">1601</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt; for performance reasons.</em>
-<a class="jxr_linenumber" name="L1602" href="#L1602">1602</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1602" href="#L1602">1602</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1603" href="#L1603">1603</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1604" href="#L1604">1604</a> <em class="jxr_javadoccomment">     * &lt;b&gt;Note:&lt;/b&gt; Compressing CSS is not recommended if pages are compressed dynamically on-the-fly because of</em>
 <a class="jxr_linenumber" name="L1605" href="#L1605">1605</a> <em class="jxr_javadoccomment">     * performance impact. You should consider putting CSS into a separate file and compressing it using standalone</em>
 <a class="jxr_linenumber" name="L1606" href="#L1606">1606</a> <em class="jxr_javadoccomment">     * YUICompressor for example.</em>
 <a class="jxr_linenumber" name="L1607" href="#L1607">1607</a> <em class="jxr_javadoccomment">     * &lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L1608" href="#L1608">1608</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1608" href="#L1608">1608</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1609" href="#L1609">1609</a> <em class="jxr_javadoccomment">     * @param compressCss</em>
 <a class="jxr_linenumber" name="L1610" href="#L1610">1610</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to enable CSS compression. Default is &lt;code&gt;false&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L1611" href="#L1611">1611</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1611" href="#L1611">1611</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1612" href="#L1612">1612</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
-<a class="jxr_linenumber" name="L1613" href="#L1613">1613</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1613" href="#L1613">1613</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1614" href="#L1614">1614</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1615" href="#L1615">1615</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setCompressCss(<strong class="jxr_keyword">boolean</strong> compressCss) {
 <a class="jxr_linenumber" name="L1616" href="#L1616">1616</a>         <strong class="jxr_keyword">this</strong>.compressCss = compressCss;
@@ -1627,9 +1627,9 @@
 <a class="jxr_linenumber" name="L1619" href="#L1619">1619</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1620" href="#L1620">1620</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will only minify javascript without obfuscating local symbols.</em>
 <a class="jxr_linenumber" name="L1621" href="#L1621">1621</a> <em class="jxr_javadoccomment">     * This corresponds to &lt;code&gt;--nomunge&lt;/code&gt; command line option.</em>
-<a class="jxr_linenumber" name="L1622" href="#L1622">1622</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1622" href="#L1622">1622</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1623" href="#L1623">1623</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;nomunge&lt;/code&gt; parameter value used for JavaScript compression.</em>
-<a class="jxr_linenumber" name="L1624" href="#L1624">1624</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1624" href="#L1624">1624</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1625" href="#L1625">1625</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1626" href="#L1626">1626</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1627" href="#L1627">1627</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isYuiJsNoMunge() {
@@ -1640,10 +1640,10 @@
 <a class="jxr_linenumber" name="L1632" href="#L1632">1632</a> <em class="jxr_javadoccomment">     * Tells Yahoo YUI Compressor to only minify javascript without obfuscating local symbols. This corresponds to</em>
 <a class="jxr_linenumber" name="L1633" href="#L1633">1633</a> <em class="jxr_javadoccomment">     * &lt;code&gt;--nomunge&lt;/code&gt; command line option. This option has effect only if JavaScript compression is enabled.</em>
 <a class="jxr_linenumber" name="L1634" href="#L1634">1634</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1635" href="#L1635">1635</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1635" href="#L1635">1635</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1636" href="#L1636">1636</a> <em class="jxr_javadoccomment">     * @param yuiJsNoMunge</em>
 <a class="jxr_linenumber" name="L1637" href="#L1637">1637</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;nomunge&lt;/code&gt; mode</em>
-<a class="jxr_linenumber" name="L1638" href="#L1638">1638</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1638" href="#L1638">1638</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1639" href="#L1639">1639</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1640" href="#L1640">1640</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1641" href="#L1641">1641</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setYuiJsNoMunge(<strong class="jxr_keyword">boolean</strong> yuiJsNoMunge) {
@@ -1653,9 +1653,9 @@
 <a class="jxr_linenumber" name="L1645" href="#L1645">1645</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1646" href="#L1646">1646</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will preserve unnecessary semicolons during JavaScript</em>
 <a class="jxr_linenumber" name="L1647" href="#L1647">1647</a> <em class="jxr_javadoccomment">     * compression. This corresponds to &lt;code&gt;--preserve-semi&lt;/code&gt; command line option.</em>
-<a class="jxr_linenumber" name="L1648" href="#L1648">1648</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1648" href="#L1648">1648</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1649" href="#L1649">1649</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;preserve-semi&lt;/code&gt; parameter value used for JavaScript compression.</em>
-<a class="jxr_linenumber" name="L1650" href="#L1650">1650</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1650" href="#L1650">1650</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1651" href="#L1651">1651</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1652" href="#L1652">1652</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1653" href="#L1653">1653</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isYuiJsPreserveAllSemiColons() {
@@ -1666,10 +1666,10 @@
 <a class="jxr_linenumber" name="L1658" href="#L1658">1658</a> <em class="jxr_javadoccomment">     * Tells Yahoo YUI Compressor to preserve unnecessary semicolons during JavaScript compression. This corresponds to</em>
 <a class="jxr_linenumber" name="L1659" href="#L1659">1659</a> <em class="jxr_javadoccomment">     * &lt;code&gt;--preserve-semi&lt;/code&gt; command line option. This option has effect only if JavaScript compression is</em>
 <a class="jxr_linenumber" name="L1660" href="#L1660">1660</a> <em class="jxr_javadoccomment">     * enabled. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1661" href="#L1661">1661</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1661" href="#L1661">1661</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1662" href="#L1662">1662</a> <em class="jxr_javadoccomment">     * @param yuiJsPreserveAllSemiColons</em>
 <a class="jxr_linenumber" name="L1663" href="#L1663">1663</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;preserve-semi&lt;/code&gt; mode</em>
-<a class="jxr_linenumber" name="L1664" href="#L1664">1664</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1664" href="#L1664">1664</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1665" href="#L1665">1665</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1666" href="#L1666">1666</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1667" href="#L1667">1667</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setYuiJsPreserveAllSemiColons(<strong class="jxr_keyword">boolean</strong> yuiJsPreserveAllSemiColons) {
@@ -1679,9 +1679,9 @@
 <a class="jxr_linenumber" name="L1671" href="#L1671">1671</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1672" href="#L1672">1672</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will disable all the built-in micro optimizations during</em>
 <a class="jxr_linenumber" name="L1673" href="#L1673">1673</a> <em class="jxr_javadoccomment">     * JavaScript compression. This corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option.</em>
-<a class="jxr_linenumber" name="L1674" href="#L1674">1674</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1674" href="#L1674">1674</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1675" href="#L1675">1675</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;disable-optimizations&lt;/code&gt; parameter value used for JavaScript compression.</em>
-<a class="jxr_linenumber" name="L1676" href="#L1676">1676</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1676" href="#L1676">1676</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1677" href="#L1677">1677</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1678" href="#L1678">1678</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1679" href="#L1679">1679</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isYuiJsDisableOptimizations() {
@@ -1692,10 +1692,10 @@
 <a class="jxr_linenumber" name="L1684" href="#L1684">1684</a> <em class="jxr_javadoccomment">     * Tells Yahoo YUI Compressor to disable all the built-in micro optimizations during JavaScript compression. This</em>
 <a class="jxr_linenumber" name="L1685" href="#L1685">1685</a> <em class="jxr_javadoccomment">     * corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option. This option has effect only if</em>
 <a class="jxr_linenumber" name="L1686" href="#L1686">1686</a> <em class="jxr_javadoccomment">     * JavaScript compression is enabled. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1687" href="#L1687">1687</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1687" href="#L1687">1687</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1688" href="#L1688">1688</a> <em class="jxr_javadoccomment">     * @param yuiJsDisableOptimizations</em>
 <a class="jxr_linenumber" name="L1689" href="#L1689">1689</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;disable-optimizations&lt;/code&gt; mode</em>
-<a class="jxr_linenumber" name="L1690" href="#L1690">1690</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1690" href="#L1690">1690</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1691" href="#L1691">1691</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1692" href="#L1692">1692</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1693" href="#L1693">1693</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setYuiJsDisableOptimizations(<strong class="jxr_keyword">boolean</strong> yuiJsDisableOptimizations) {
@@ -1705,9 +1705,9 @@
 <a class="jxr_linenumber" name="L1697" href="#L1697">1697</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1698" href="#L1698">1698</a> <em class="jxr_javadoccomment">     * Returns number of symbols per line Yahoo YUI Compressor will use during JavaScript compression. This corresponds</em>
 <a class="jxr_linenumber" name="L1699" href="#L1699">1699</a> <em class="jxr_javadoccomment">     * to &lt;code&gt;--line-break&lt;/code&gt; command line option.</em>
-<a class="jxr_linenumber" name="L1700" href="#L1700">1700</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1700" href="#L1700">1700</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1701" href="#L1701">1701</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for JavaScript compression.</em>
-<a class="jxr_linenumber" name="L1702" href="#L1702">1702</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1702" href="#L1702">1702</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1703" href="#L1703">1703</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1704" href="#L1704">1704</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1705" href="#L1705">1705</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getYuiJsLineBreak() {
@@ -1718,10 +1718,10 @@
 <a class="jxr_linenumber" name="L1710" href="#L1710">1710</a> <em class="jxr_javadoccomment">     * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during JavaScript compression.</em>
 <a class="jxr_linenumber" name="L1711" href="#L1711">1711</a> <em class="jxr_javadoccomment">     * This corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if JavaScript</em>
 <a class="jxr_linenumber" name="L1712" href="#L1712">1712</a> <em class="jxr_javadoccomment">     * compression is enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.</em>
-<a class="jxr_linenumber" name="L1713" href="#L1713">1713</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1713" href="#L1713">1713</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1714" href="#L1714">1714</a> <em class="jxr_javadoccomment">     * @param yuiJsLineBreak</em>
 <a class="jxr_linenumber" name="L1715" href="#L1715">1715</a> <em class="jxr_javadoccomment">     *            set number of symbols per line</em>
-<a class="jxr_linenumber" name="L1716" href="#L1716">1716</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1716" href="#L1716">1716</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1717" href="#L1717">1717</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1718" href="#L1718">1718</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1719" href="#L1719">1719</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setYuiJsLineBreak(<strong class="jxr_keyword">int</strong> yuiJsLineBreak) {
@@ -1731,9 +1731,9 @@
 <a class="jxr_linenumber" name="L1723" href="#L1723">1723</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1724" href="#L1724">1724</a> <em class="jxr_javadoccomment">     * Returns number of symbols per line Yahoo YUI Compressor will use during CSS compression. This corresponds to</em>
 <a class="jxr_linenumber" name="L1725" href="#L1725">1725</a> <em class="jxr_javadoccomment">     * &lt;code&gt;--line-break&lt;/code&gt; command line option.</em>
-<a class="jxr_linenumber" name="L1726" href="#L1726">1726</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1726" href="#L1726">1726</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1727" href="#L1727">1727</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for CSS compression.</em>
-<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1729" href="#L1729">1729</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1730" href="#L1730">1730</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1731" href="#L1731">1731</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getYuiCssLineBreak() {
@@ -1744,10 +1744,10 @@
 <a class="jxr_linenumber" name="L1736" href="#L1736">1736</a> <em class="jxr_javadoccomment">     * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during CSS compression. This</em>
 <a class="jxr_linenumber" name="L1737" href="#L1737">1737</a> <em class="jxr_javadoccomment">     * corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if CSS compression is</em>
 <a class="jxr_linenumber" name="L1738" href="#L1738">1738</a> <em class="jxr_javadoccomment">     * enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.</em>
-<a class="jxr_linenumber" name="L1739" href="#L1739">1739</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1739" href="#L1739">1739</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1740" href="#L1740">1740</a> <em class="jxr_javadoccomment">     * @param yuiCssLineBreak</em>
 <a class="jxr_linenumber" name="L1741" href="#L1741">1741</a> <em class="jxr_javadoccomment">     *            set number of symbols per line</em>
-<a class="jxr_linenumber" name="L1742" href="#L1742">1742</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1742" href="#L1742">1742</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1743" href="#L1743">1743</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1744" href="#L1744">1744</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1745" href="#L1745">1745</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setYuiCssLineBreak(<strong class="jxr_keyword">int</strong> yuiCssLineBreak) {
@@ -1766,12 +1766,12 @@
 <a class="jxr_linenumber" name="L1758" href="#L1758">1758</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1759" href="#L1759">1759</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt; all unnecessary quotes will be removed from tag attributes. Default is</em>
 <a class="jxr_linenumber" name="L1760" href="#L1760">1760</a> <em class="jxr_javadoccomment">     * &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1761" href="#L1761">1761</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1761" href="#L1761">1761</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1762" href="#L1762">1762</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1763" href="#L1763">1763</a> <em class="jxr_javadoccomment">     * &lt;b&gt;Note:&lt;/b&gt; Even though quotes are removed only when it is safe to do so, it still might break strict HTML</em>
 <a class="jxr_linenumber" name="L1764" href="#L1764">1764</a> <em class="jxr_javadoccomment">     * validation. Turn this option on only if a page validation is not very important or to squeeze the most out of the</em>
 <a class="jxr_linenumber" name="L1765" href="#L1765">1765</a> <em class="jxr_javadoccomment">     * compression. This option has no performance impact.</em>
-<a class="jxr_linenumber" name="L1766" href="#L1766">1766</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1766" href="#L1766">1766</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1767" href="#L1767">1767</a> <em class="jxr_javadoccomment">     * @param removeQuotes</em>
 <a class="jxr_linenumber" name="L1768" href="#L1768">1768</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary quotes from tag attributes</em>
 <a class="jxr_linenumber" name="L1769" href="#L1769">1769</a> <em class="jxr_javadoccomment">     */</em>
@@ -1781,7 +1781,7 @@
 <a class="jxr_linenumber" name="L1773" href="#L1773">1773</a> 
 <a class="jxr_linenumber" name="L1774" href="#L1774">1774</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1775" href="#L1775">1775</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if compression is enabled.</em>
-<a class="jxr_linenumber" name="L1776" href="#L1776">1776</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1776" href="#L1776">1776</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1777" href="#L1777">1777</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if compression is enabled.</em>
 <a class="jxr_linenumber" name="L1778" href="#L1778">1778</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1779" href="#L1779">1779</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isEnabled() {
@@ -1791,7 +1791,7 @@
 <a class="jxr_linenumber" name="L1783" href="#L1783">1783</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1784" href="#L1784">1784</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;false&lt;/code&gt; all compression will be bypassed. Might be useful for testing purposes. Default is</em>
 <a class="jxr_linenumber" name="L1785" href="#L1785">1785</a> <em class="jxr_javadoccomment">     * &lt;code&gt;true&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1786" href="#L1786">1786</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1786" href="#L1786">1786</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1787" href="#L1787">1787</a> <em class="jxr_javadoccomment">     * @param enabled</em>
 <a class="jxr_linenumber" name="L1788" href="#L1788">1788</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;false&lt;/code&gt; to bypass all compression</em>
 <a class="jxr_linenumber" name="L1789" href="#L1789">1789</a> <em class="jxr_javadoccomment">     */</em>
@@ -1801,7 +1801,7 @@
 <a class="jxr_linenumber" name="L1793" href="#L1793">1793</a> 
 <a class="jxr_linenumber" name="L1794" href="#L1794">1794</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1795" href="#L1795">1795</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if all HTML comments will be removed.</em>
-<a class="jxr_linenumber" name="L1796" href="#L1796">1796</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1796" href="#L1796">1796</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1797" href="#L1797">1797</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if all HTML comments will be removed</em>
 <a class="jxr_linenumber" name="L1798" href="#L1798">1798</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1799" href="#L1799">1799</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isRemoveComments() {
@@ -1810,7 +1810,7 @@
 <a class="jxr_linenumber" name="L1802" href="#L1802">1802</a> 
 <a class="jxr_linenumber" name="L1803" href="#L1803">1803</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1804" href="#L1804">1804</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt; all HTML comments will be removed. Default is &lt;code&gt;true&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1805" href="#L1805">1805</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1805" href="#L1805">1805</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1806" href="#L1806">1806</a> <em class="jxr_javadoccomment">     * @param removeComments</em>
 <a class="jxr_linenumber" name="L1807" href="#L1807">1807</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove all HTML comments</em>
 <a class="jxr_linenumber" name="L1808" href="#L1808">1808</a> <em class="jxr_javadoccomment">     */</em>
@@ -1820,7 +1820,7 @@
 <a class="jxr_linenumber" name="L1812" href="#L1812">1812</a> 
 <a class="jxr_linenumber" name="L1813" href="#L1813">1813</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1814" href="#L1814">1814</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if all multiple whitespace characters will be replaced with single spaces.</em>
-<a class="jxr_linenumber" name="L1815" href="#L1815">1815</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1815" href="#L1815">1815</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1816" href="#L1816">1816</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if all multiple whitespace characters will be replaced with single spaces.</em>
 <a class="jxr_linenumber" name="L1817" href="#L1817">1817</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1818" href="#L1818">1818</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isRemoveMultiSpaces() {
@@ -1830,7 +1830,7 @@
 <a class="jxr_linenumber" name="L1822" href="#L1822">1822</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1823" href="#L1823">1823</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt; all multiple whitespace characters will be replaced with single spaces. Default is</em>
 <a class="jxr_linenumber" name="L1824" href="#L1824">1824</a> <em class="jxr_javadoccomment">     * &lt;code&gt;true&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1825" href="#L1825">1825</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1825" href="#L1825">1825</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1826" href="#L1826">1826</a> <em class="jxr_javadoccomment">     * @param removeMultiSpaces</em>
 <a class="jxr_linenumber" name="L1827" href="#L1827">1827</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to replace all multiple whitespace characters will single spaces.</em>
 <a class="jxr_linenumber" name="L1828" href="#L1828">1828</a> <em class="jxr_javadoccomment">     */</em>
@@ -1840,7 +1840,7 @@
 <a class="jxr_linenumber" name="L1832" href="#L1832">1832</a> 
 <a class="jxr_linenumber" name="L1833" href="#L1833">1833</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1834" href="#L1834">1834</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.</em>
-<a class="jxr_linenumber" name="L1835" href="#L1835">1835</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1835" href="#L1835">1835</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1836" href="#L1836">1836</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if all inter-tag whitespace characters will be removed.</em>
 <a class="jxr_linenumber" name="L1837" href="#L1837">1837</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1838" href="#L1838">1838</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isRemoveIntertagSpaces() {
@@ -1849,11 +1849,11 @@
 <a class="jxr_linenumber" name="L1841" href="#L1841">1841</a> 
 <a class="jxr_linenumber" name="L1842" href="#L1842">1842</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1843" href="#L1843">1843</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt; all inter-tag whitespace characters will be removed. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L1844" href="#L1844">1844</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1844" href="#L1844">1844</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1845" href="#L1845">1845</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1846" href="#L1846">1846</a> <em class="jxr_javadoccomment">     * &lt;b&gt;Note:&lt;/b&gt; It is fairly safe to turn this option on unless you rely on spaces for page formatting. Even if you</em>
 <a class="jxr_linenumber" name="L1847" href="#L1847">1847</a> <em class="jxr_javadoccomment">     * do, you can always preserve required spaces with &lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;. This option has no performance impact.</em>
-<a class="jxr_linenumber" name="L1848" href="#L1848">1848</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1848" href="#L1848">1848</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1849" href="#L1849">1849</a> <em class="jxr_javadoccomment">     * @param removeIntertagSpaces</em>
 <a class="jxr_linenumber" name="L1850" href="#L1850">1850</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove all inter-tag whitespace characters</em>
 <a class="jxr_linenumber" name="L1851" href="#L1851">1851</a> <em class="jxr_javadoccomment">     */</em>
@@ -1873,16 +1873,16 @@
 <a class="jxr_linenumber" name="L1865" href="#L1865">1865</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1866" href="#L1866">1866</a> <em class="jxr_javadoccomment">     * This method allows setting custom block preservation rules defined by regular expression patterns. Blocks that</em>
 <a class="jxr_linenumber" name="L1867" href="#L1867">1867</a> <em class="jxr_javadoccomment">     * match provided patterns will be skipped during HTML compression.</em>
-<a class="jxr_linenumber" name="L1868" href="#L1868">1868</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1868" href="#L1868">1868</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1869" href="#L1869">1869</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1870" href="#L1870">1870</a> <em class="jxr_javadoccomment">     * Custom preservation rules have higher priority than default rules. Priority between custom rules are defined by</em>
 <a class="jxr_linenumber" name="L1871" href="#L1871">1871</a> <em class="jxr_javadoccomment">     * their position in a list (beginning of a list has higher priority).</em>
-<a class="jxr_linenumber" name="L1872" href="#L1872">1872</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1872" href="#L1872">1872</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1873" href="#L1873">1873</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1874" href="#L1874">1874</a> <em class="jxr_javadoccomment">     * Besides custom patterns, you can use 3 predefined patterns: {@link #PHP_TAG_PATTERN PHP_TAG_PATTERN},</em>
 <a class="jxr_linenumber" name="L1875" href="#L1875">1875</a> <em class="jxr_javadoccomment">     * {@link #SERVER_SCRIPT_TAG_PATTERN SERVER_SCRIPT_TAG_PATTERN}, {@link #SERVER_SIDE_INCLUDE_PATTERN</em>
 <a class="jxr_linenumber" name="L1876" href="#L1876">1876</a> <em class="jxr_javadoccomment">     * SERVER_SIDE_INCLUDE_PATTERN}.</em>
-<a class="jxr_linenumber" name="L1877" href="#L1877">1877</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1877" href="#L1877">1877</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1878" href="#L1878">1878</a> <em class="jxr_javadoccomment">     * @param preservePatterns</em>
 <a class="jxr_linenumber" name="L1879" href="#L1879">1879</a> <em class="jxr_javadoccomment">     *            List of &lt;code&gt;Pattern&lt;/code&gt; objects that will be used to skip matched blocks during compression</em>
 <a class="jxr_linenumber" name="L1880" href="#L1880">1880</a> <em class="jxr_javadoccomment">     */</em>
@@ -1906,10 +1906,10 @@
 <a class="jxr_linenumber" name="L1898" href="#L1898">1898</a> <em class="jxr_javadoccomment">     * Sets &lt;code&gt;ErrorReporter&lt;/code&gt; that YUI Compressor will use for reporting errors during JavaScript compression.</em>
 <a class="jxr_linenumber" name="L1899" href="#L1899">1899</a> <em class="jxr_javadoccomment">     * If no &lt;code&gt;ErrorReporter&lt;/code&gt; was provided {@link YuiJavaScriptCompressor.DefaultErrorReporter} will be used</em>
 <a class="jxr_linenumber" name="L1900" href="#L1900">1900</a> <em class="jxr_javadoccomment">     * which reports errors to &lt;code&gt;System.err&lt;/code&gt; stream.</em>
-<a class="jxr_linenumber" name="L1901" href="#L1901">1901</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1901" href="#L1901">1901</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1902" href="#L1902">1902</a> <em class="jxr_javadoccomment">     * @param yuiErrorReporter</em>
 <a class="jxr_linenumber" name="L1903" href="#L1903">1903</a> <em class="jxr_javadoccomment">     *            &lt;code&gt;ErrorReporter&lt;/code&gt; that will be used by YUI Compressor</em>
-<a class="jxr_linenumber" name="L1904" href="#L1904">1904</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1904" href="#L1904">1904</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1905" href="#L1905">1905</a> <em class="jxr_javadoccomment">     * @see YuiJavaScriptCompressor.DefaultErrorReporter</em>
 <a class="jxr_linenumber" name="L1906" href="#L1906">1906</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1907" href="#L1907">1907</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html" target="alexandria_uri">http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html</a>"&gt;ErrorReporter</em>
@@ -1921,80 +1921,80 @@
 <a class="jxr_linenumber" name="L1913" href="#L1913">1913</a> 
 <a class="jxr_linenumber" name="L1914" href="#L1914">1914</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1915" href="#L1915">1915</a> <em class="jxr_javadoccomment">     * Returns JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.</em>
-<a class="jxr_linenumber" name="L1916" href="#L1916">1916</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1916" href="#L1916">1916</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1917" href="#L1917">1917</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;Compressor&lt;/code&gt; implementation that will be used to compress inline JavaScript in HTML.</em>
-<a class="jxr_linenumber" name="L1918" href="#L1918">1918</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1918" href="#L1918">1918</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1919" href="#L1919">1919</a> <em class="jxr_javadoccomment">     * @see YuiJavaScriptCompressor</em>
 <a class="jxr_linenumber" name="L1920" href="#L1920">1920</a> <em class="jxr_javadoccomment">     * @see ClosureJavaScriptCompressor</em>
 <a class="jxr_linenumber" name="L1921" href="#L1921">1921</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1922" href="#L1922">1922</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://code.google.com/closure/compiler/" target="alexandria_uri">http://code.google.com/closure/compiler/</a>"&gt;Google Closure Compiler&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1923" href="#L1923">1923</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> getJavaScriptCompressor() {
+<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a>     <strong class="jxr_keyword">public</strong> <a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> getJavaScriptCompressor() {
 <a class="jxr_linenumber" name="L1925" href="#L1925">1925</a>         <strong class="jxr_keyword">return</strong> javaScriptCompressor;
 <a class="jxr_linenumber" name="L1926" href="#L1926">1926</a>     }
 <a class="jxr_linenumber" name="L1927" href="#L1927">1927</a> 
 <a class="jxr_linenumber" name="L1928" href="#L1928">1928</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1929" href="#L1929">1929</a> <em class="jxr_javadoccomment">     * Sets JavaScript compressor implementation that will be used to compress inline JavaScript in HTML.</em>
-<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1931" href="#L1931">1931</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1932" href="#L1932">1932</a> <em class="jxr_javadoccomment">     * HtmlCompressor currently comes with basic implementations for</em>
 <a class="jxr_linenumber" name="L1933" href="#L1933">1933</a> <em class="jxr_javadoccomment">     * &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt; (called</em>
 <a class="jxr_linenumber" name="L1934" href="#L1934">1934</a> <em class="jxr_javadoccomment">     * {@link YuiJavaScriptCompressor}) and &lt;a href="<a href="http://code.google.com/closure/compiler/" target="alexandria_uri">http://code.google.com/closure/compiler/</a>"&gt;Google Closure</em>
 <a class="jxr_linenumber" name="L1935" href="#L1935">1935</a> <em class="jxr_javadoccomment">     * Compiler&lt;/a&gt; (called {@link ClosureJavaScriptCompressor}) that should be enough for most cases, but users can</em>
 <a class="jxr_linenumber" name="L1936" href="#L1936">1936</a> <em class="jxr_javadoccomment">     * also create their own JavaScript compressors for custom needs.</em>
-<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1938" href="#L1938">1938</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1939" href="#L1939">1939</a> <em class="jxr_javadoccomment">     * If no compressor is set {@link YuiJavaScriptCompressor} will be used by default.</em>
-<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1941" href="#L1941">1941</a> <em class="jxr_javadoccomment">     * @param javaScriptCompressor</em>
 <a class="jxr_linenumber" name="L1942" href="#L1942">1942</a> <em class="jxr_javadoccomment">     *            {@link Compressor} implementation that will be used for inline JavaScript compression</em>
-<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1944" href="#L1944">1944</a> <em class="jxr_javadoccomment">     * @see YuiJavaScriptCompressor</em>
 <a class="jxr_linenumber" name="L1945" href="#L1945">1945</a> <em class="jxr_javadoccomment">     * @see ClosureJavaScriptCompressor</em>
 <a class="jxr_linenumber" name="L1946" href="#L1946">1946</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1947" href="#L1947">1947</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://code.google.com/closure/compiler/" target="alexandria_uri">http://code.google.com/closure/compiler/</a>"&gt;Google Closure Compiler&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1948" href="#L1948">1948</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setJavaScriptCompressor(<a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> javaScriptCompressor) {
+<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setJavaScriptCompressor(<a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> javaScriptCompressor) {
 <a class="jxr_linenumber" name="L1950" href="#L1950">1950</a>         <strong class="jxr_keyword">this</strong>.javaScriptCompressor = javaScriptCompressor;
 <a class="jxr_linenumber" name="L1951" href="#L1951">1951</a>     }
 <a class="jxr_linenumber" name="L1952" href="#L1952">1952</a> 
 <a class="jxr_linenumber" name="L1953" href="#L1953">1953</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1954" href="#L1954">1954</a> <em class="jxr_javadoccomment">     * Returns CSS compressor implementation that will be used to compress inline CSS in HTML.</em>
-<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1956" href="#L1956">1956</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;Compressor&lt;/code&gt; implementation that will be used to compress inline CSS in HTML.</em>
-<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1958" href="#L1958">1958</a> <em class="jxr_javadoccomment">     * @see YuiCssCompressor</em>
 <a class="jxr_linenumber" name="L1959" href="#L1959">1959</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1960" href="#L1960">1960</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> getCssCompressor() {
+<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a>     <strong class="jxr_keyword">public</strong> <a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> getCssCompressor() {
 <a class="jxr_linenumber" name="L1962" href="#L1962">1962</a>         <strong class="jxr_keyword">return</strong> cssCompressor;
 <a class="jxr_linenumber" name="L1963" href="#L1963">1963</a>     }
 <a class="jxr_linenumber" name="L1964" href="#L1964">1964</a> 
 <a class="jxr_linenumber" name="L1965" href="#L1965">1965</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1966" href="#L1966">1966</a> <em class="jxr_javadoccomment">     * Sets CSS compressor implementation that will be used to compress inline CSS in HTML.</em>
-<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1968" href="#L1968">1968</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1969" href="#L1969">1969</a> <em class="jxr_javadoccomment">     * HtmlCompressor currently comes with basic implementation for</em>
 <a class="jxr_linenumber" name="L1970" href="#L1970">1970</a> <em class="jxr_javadoccomment">     * &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt; (called {@link YuiCssCompressor}),</em>
 <a class="jxr_linenumber" name="L1971" href="#L1971">1971</a> <em class="jxr_javadoccomment">     * but users can also create their own CSS compressors for custom needs.</em>
-<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1973" href="#L1973">1973</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L1974" href="#L1974">1974</a> <em class="jxr_javadoccomment">     * If no compressor is set {@link YuiCssCompressor} will be used by default.</em>
-<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1976" href="#L1976">1976</a> <em class="jxr_javadoccomment">     * @param cssCompressor</em>
 <a class="jxr_linenumber" name="L1977" href="#L1977">1977</a> <em class="jxr_javadoccomment">     *            {@link Compressor} implementation that will be used for inline CSS compression</em>
-<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1979" href="#L1979">1979</a> <em class="jxr_javadoccomment">     * @see YuiCssCompressor</em>
 <a class="jxr_linenumber" name="L1980" href="#L1980">1980</a> <em class="jxr_javadoccomment">     * @see &lt;a href="<a href="http://developer.yahoo.com/yui/compressor/" target="alexandria_uri">http://developer.yahoo.com/yui/compressor/</a>"&gt;Yahoo YUI Compressor&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setCssCompressor(<a href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html">Compressor</a> cssCompressor) {
+<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setCssCompressor(<a name="Compressor" href="../../../../com/googlecode/htmlcompressor/compressor/Compressor.html#Compressor">Compressor</a> cssCompressor) {
 <a class="jxr_linenumber" name="L1983" href="#L1983">1983</a>         <strong class="jxr_keyword">this</strong>.cssCompressor = cssCompressor;
 <a class="jxr_linenumber" name="L1984" href="#L1984">1984</a>     }
 <a class="jxr_linenumber" name="L1985" href="#L1985">1985</a> 
 <a class="jxr_linenumber" name="L1986" href="#L1986">1986</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1987" href="#L1987">1987</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if existing DOCTYPE declaration will be replaced with simple</em>
 <a class="jxr_linenumber" name="L1988" href="#L1988">1988</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration.</em>
-<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L1990" href="#L1990">1990</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if existing DOCTYPE declaration will be replaced with simple</em>
 <a class="jxr_linenumber" name="L1991" href="#L1991">1991</a> <em class="jxr_javadoccomment">     *         &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration.</em>
 <a class="jxr_linenumber" name="L1992" href="#L1992">1992</a> <em class="jxr_javadoccomment">     */</em>
@@ -2005,7 +2005,7 @@
 <a class="jxr_linenumber" name="L1997" href="#L1997">1997</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1998" href="#L1998">1998</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, existing DOCTYPE declaration will be replaced with simple</em>
 <a class="jxr_linenumber" name="L1999" href="#L1999">1999</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt; declaration. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2001" href="#L2001">2001</a> <em class="jxr_javadoccomment">     * @param simpleDoctype</em>
 <a class="jxr_linenumber" name="L2002" href="#L2002">2002</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to replace existing DOCTYPE declaration with &lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2003" href="#L2003">2003</a> <em class="jxr_javadoccomment">     */</em>
@@ -2029,10 +2029,10 @@
 <a class="jxr_linenumber" name="L2021" href="#L2021">2021</a> <em class="jxr_javadoccomment">     * &lt;li&gt;type="application/javascript"&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> <em class="jxr_javadoccomment">     * &lt;li&gt;language="javascript"&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2023" href="#L2023">2023</a> <em class="jxr_javadoccomment">     * &lt;/ul&gt;</em>
-<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> <em class="jxr_javadoccomment">     * @param removeScriptAttributes</em>
 <a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags</em>
 <a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> <em class="jxr_javadoccomment">     */</em>
@@ -2054,7 +2054,7 @@
 <a class="jxr_linenumber" name="L2046" href="#L2046">2046</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2047" href="#L2047">2047</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;type="text/style"&lt;/code&gt; attributes will be removed from</em>
 <a class="jxr_linenumber" name="L2048" href="#L2048">2048</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> <em class="jxr_javadoccomment">     * @param removeStyleAttributes</em>
 <a class="jxr_linenumber" name="L2051" href="#L2051">2051</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;type="text/style"&lt;/code&gt; attributes from</em>
 <a class="jxr_linenumber" name="L2052" href="#L2052">2052</a> <em class="jxr_javadoccomment">     *            &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tags</em>
@@ -2079,10 +2079,10 @@
 <a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> <em class="jxr_javadoccomment">     * &lt;li&gt;type="text/css"&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> <em class="jxr_javadoccomment">     * &lt;li&gt;type="text/plain"&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> <em class="jxr_javadoccomment">     * &lt;/ul&gt;</em>
-<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> <em class="jxr_javadoccomment">     * @param removeLinkAttributes</em>
 <a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove unnecessary attributes from &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; tags</em>
 <a class="jxr_linenumber" name="L2080" href="#L2080">2080</a> <em class="jxr_javadoccomment">     */</em>
@@ -2104,7 +2104,7 @@
 <a class="jxr_linenumber" name="L2096" href="#L2096">2096</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2097" href="#L2097">2097</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;method="get"&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2098" href="#L2098">2098</a> <em class="jxr_javadoccomment">     * tags. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2100" href="#L2100">2100</a> <em class="jxr_javadoccomment">     * @param removeFormAttributes</em>
 <a class="jxr_linenumber" name="L2101" href="#L2101">2101</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;method="get"&lt;/code&gt; attributes from &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2102" href="#L2102">2102</a> <em class="jxr_javadoccomment">     *            tags</em>
@@ -2127,7 +2127,7 @@
 <a class="jxr_linenumber" name="L2119" href="#L2119">2119</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2120" href="#L2120">2120</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;type="text"&lt;/code&gt; attributes will be removed from &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2121" href="#L2121">2121</a> <em class="jxr_javadoccomment">     * tags. Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2123" href="#L2123">2123</a> <em class="jxr_javadoccomment">     * @param removeInputAttributes</em>
 <a class="jxr_linenumber" name="L2124" href="#L2124">2124</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;type="text"&lt;/code&gt; attributes from &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2125" href="#L2125">2125</a> <em class="jxr_javadoccomment">     *            tags</em>
@@ -2153,13 +2153,13 @@
 <a class="jxr_linenumber" name="L2145" href="#L2145">2145</a> <em class="jxr_javadoccomment">     * &lt;li&gt;disabled&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2146" href="#L2146">2146</a> <em class="jxr_javadoccomment">     * &lt;li&gt;readonly&lt;/li&gt;</em>
 <a class="jxr_linenumber" name="L2147" href="#L2147">2147</a> <em class="jxr_javadoccomment">     * &lt;/ul&gt;</em>
-<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2149" href="#L2149">2149</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2150" href="#L2150">2150</a> <em class="jxr_javadoccomment">     * For example, &lt;code&gt;&amp;lt;input readonly="readonly"&amp;gt;&lt;/code&gt; would become &lt;code&gt;&amp;lt;input readonly&amp;gt;&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L2151" href="#L2151">2151</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2151" href="#L2151">2151</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2152" href="#L2152">2152</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2153" href="#L2153">2153</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2155" href="#L2155">2155</a> <em class="jxr_javadoccomment">     * @param simpleBooleanAttributes</em>
 <a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to simplify boolean attributes</em>
 <a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> <em class="jxr_javadoccomment">     */</em>
@@ -2169,7 +2169,7 @@
 <a class="jxr_linenumber" name="L2161" href="#L2161">2161</a> 
 <a class="jxr_linenumber" name="L2162" href="#L2162">2162</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2163" href="#L2163">2163</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.</em>
-<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.</em>
 <a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L2167" href="#L2167">2167</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isRemoveJavaScriptProtocol() {
@@ -2178,14 +2178,14 @@
 <a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> 
 <a class="jxr_linenumber" name="L2171" href="#L2171">2171</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2172" href="#L2172">2172</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol will be removed from inline event handlers.</em>
-<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2174" href="#L2174">2174</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2175" href="#L2175">2175</a> <em class="jxr_javadoccomment">     * For example, &lt;code&gt;&amp;lt;a onclick="javascript:alert()"&amp;gt;&lt;/code&gt; would become</em>
 <a class="jxr_linenumber" name="L2176" href="#L2176">2176</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a onclick="alert()"&amp;gt;&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2178" href="#L2178">2178</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2179" href="#L2179">2179</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">     * @param removeJavaScriptProtocol</em>
 <a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;javascript:&lt;/code&gt; pseudo-protocol from inline event handlers.</em>
 <a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> <em class="jxr_javadoccomment">     */</em>
@@ -2196,7 +2196,7 @@
 <a class="jxr_linenumber" name="L2188" href="#L2188">2188</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2189" href="#L2189">2189</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,</em>
 <a class="jxr_linenumber" name="L2190" href="#L2190">2190</a> <em class="jxr_javadoccomment">     * &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.</em>
-<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2192" href="#L2192">2192</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,</em>
 <a class="jxr_linenumber" name="L2193" href="#L2193">2193</a> <em class="jxr_javadoccomment">     *         &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.</em>
 <a class="jxr_linenumber" name="L2194" href="#L2194">2194</a> <em class="jxr_javadoccomment">     */</em>
@@ -2208,10 +2208,10 @@
 <a class="jxr_linenumber" name="L2200" href="#L2200">2200</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;HTTP&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;,</em>
 <a class="jxr_linenumber" name="L2201" href="#L2201">2201</a> <em class="jxr_javadoccomment">     * &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes. URL without a protocol would make a browser use</em>
 <a class="jxr_linenumber" name="L2202" href="#L2202">2202</a> <em class="jxr_javadoccomment">     * document's current protocol instead.</em>
-<a class="jxr_linenumber" name="L2203" href="#L2203">2203</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2203" href="#L2203">2203</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2204" href="#L2204">2204</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2205" href="#L2205">2205</a> <em class="jxr_javadoccomment">     * Tags marked with &lt;code&gt;rel="external"&lt;/code&gt; will be skipped.</em>
-<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2208" href="#L2208">2208</a> <em class="jxr_javadoccomment">     * For example:</em>
 <a class="jxr_linenumber" name="L2209" href="#L2209">2209</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
@@ -2220,10 +2220,10 @@
 <a class="jxr_linenumber" name="L2212" href="#L2212">2212</a> <em class="jxr_javadoccomment">     * would become:</em>
 <a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2214" href="#L2214">2214</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a href="//example.com"&amp;gt; &amp;lt;script src="<a href="http://google.com/js.js" target="alexandria_uri">http://google.com/js.js</a>" rel="external"&amp;gt;&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2216" href="#L2216">2216</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2217" href="#L2217">2217</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2218" href="#L2218">2218</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2218" href="#L2218">2218</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2219" href="#L2219">2219</a> <em class="jxr_javadoccomment">     * @param removeHttpProtocol</em>
 <a class="jxr_linenumber" name="L2220" href="#L2220">2220</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;HTTP&lt;/code&gt; protocol from tag attributes</em>
 <a class="jxr_linenumber" name="L2221" href="#L2221">2221</a> <em class="jxr_javadoccomment">     */</em>
@@ -2234,7 +2234,7 @@
 <a class="jxr_linenumber" name="L2226" href="#L2226">2226</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2227" href="#L2227">2227</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2228" href="#L2228">2228</a> <em class="jxr_javadoccomment">     * , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.</em>
-<a class="jxr_linenumber" name="L2229" href="#L2229">2229</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2229" href="#L2229">2229</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2230" href="#L2230">2230</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2231" href="#L2231">2231</a> <em class="jxr_javadoccomment">     *         , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes.</em>
 <a class="jxr_linenumber" name="L2232" href="#L2232">2232</a> <em class="jxr_javadoccomment">     */</em>
@@ -2246,22 +2246,22 @@
 <a class="jxr_linenumber" name="L2238" href="#L2238">2238</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;HTTPS&lt;/code&gt; protocol will be removed from &lt;code&gt;href&lt;/code&gt;, &lt;code&gt;src&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2239" href="#L2239">2239</a> <em class="jxr_javadoccomment">     * , &lt;code&gt;cite&lt;/code&gt;, and &lt;code&gt;action&lt;/code&gt; tag attributes. URL without a protocol would make a browser use</em>
 <a class="jxr_linenumber" name="L2240" href="#L2240">2240</a> <em class="jxr_javadoccomment">     * document's current protocol instead.</em>
-<a class="jxr_linenumber" name="L2241" href="#L2241">2241</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2241" href="#L2241">2241</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2242" href="#L2242">2242</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2243" href="#L2243">2243</a> <em class="jxr_javadoccomment">     * Tags marked with &lt;code&gt;rel="external"&lt;/code&gt; will be skipped.</em>
-<a class="jxr_linenumber" name="L2244" href="#L2244">2244</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2244" href="#L2244">2244</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2245" href="#L2245">2245</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2246" href="#L2246">2246</a> <em class="jxr_javadoccomment">     * For example:</em>
 <a class="jxr_linenumber" name="L2247" href="#L2247">2247</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L2248" href="#L2248">2248</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a href="https://example.com"&amp;gt; &amp;lt;script src="https://google.com/js.js" rel="external"&amp;gt;&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L2248" href="#L2248">2248</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a href="<a href="https://example.com" target="alexandria_uri">https://example.com</a>"&amp;gt; &amp;lt;script src="https://google.com/js.js" rel="external"&amp;gt;&lt;/code&gt;</em>
 <a class="jxr_linenumber" name="L2249" href="#L2249">2249</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2250" href="#L2250">2250</a> <em class="jxr_javadoccomment">     * would become:</em>
 <a class="jxr_linenumber" name="L2251" href="#L2251">2251</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L2252" href="#L2252">2252</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a href="//example.com"&amp;gt; &amp;lt;script src="https://google.com/js.js" rel="external"&amp;gt;&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L2253" href="#L2253">2253</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2252" href="#L2252">2252</a> <em class="jxr_javadoccomment">     * &lt;code&gt;&amp;lt;a href="//example.com"&amp;gt; &amp;lt;script src="<a href="https://google.com/js.js" target="alexandria_uri">https://google.com/js.js</a>" rel="external"&amp;gt;&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L2253" href="#L2253">2253</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2254" href="#L2254">2254</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2255" href="#L2255">2255</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2256" href="#L2256">2256</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2256" href="#L2256">2256</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2257" href="#L2257">2257</a> <em class="jxr_javadoccomment">     * @param removeHttpsProtocol</em>
 <a class="jxr_linenumber" name="L2258" href="#L2258">2258</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to remove &lt;code&gt;HTTP&lt;/code&gt; protocol from tag attributes</em>
 <a class="jxr_linenumber" name="L2259" href="#L2259">2259</a> <em class="jxr_javadoccomment">     */</em>
@@ -2280,16 +2280,16 @@
 <a class="jxr_linenumber" name="L2272" href="#L2272">2272</a> 
 <a class="jxr_linenumber" name="L2273" href="#L2273">2273</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2274" href="#L2274">2274</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, HTML compression statistics will be generated.</em>
-<a class="jxr_linenumber" name="L2275" href="#L2275">2275</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2275" href="#L2275">2275</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2276" href="#L2276">2276</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2277" href="#L2277">2277</a> <em class="jxr_javadoccomment">     * &lt;strong&gt;Important:&lt;/strong&gt; Enabling statistics makes HTML compressor not thread safe.</em>
-<a class="jxr_linenumber" name="L2278" href="#L2278">2278</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2278" href="#L2278">2278</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2279" href="#L2279">2279</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2280" href="#L2280">2280</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2281" href="#L2281">2281</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2281" href="#L2281">2281</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2282" href="#L2282">2282</a> <em class="jxr_javadoccomment">     * @param generateStatistics</em>
 <a class="jxr_linenumber" name="L2283" href="#L2283">2283</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to generate HTML compression statistics</em>
-<a class="jxr_linenumber" name="L2284" href="#L2284">2284</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2284" href="#L2284">2284</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2285" href="#L2285">2285</a> <em class="jxr_javadoccomment">     * @see #getStatistics()</em>
 <a class="jxr_linenumber" name="L2286" href="#L2286">2286</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L2287" href="#L2287">2287</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setGenerateStatistics(<strong class="jxr_keyword">boolean</strong> generateStatistics) {
@@ -2299,19 +2299,19 @@
 <a class="jxr_linenumber" name="L2291" href="#L2291">2291</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2292" href="#L2292">2292</a> <em class="jxr_javadoccomment">     * Returns {@link HtmlCompressorStatistics} object containing statistics of the last HTML compression, if enabled.</em>
 <a class="jxr_linenumber" name="L2293" href="#L2293">2293</a> <em class="jxr_javadoccomment">     * Should be called after {@link #compress(String)}</em>
-<a class="jxr_linenumber" name="L2294" href="#L2294">2294</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2294" href="#L2294">2294</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2295" href="#L2295">2295</a> <em class="jxr_javadoccomment">     * @return {@link HtmlCompressorStatistics} object containing last HTML compression statistics</em>
-<a class="jxr_linenumber" name="L2296" href="#L2296">2296</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2296" href="#L2296">2296</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2297" href="#L2297">2297</a> <em class="jxr_javadoccomment">     * @see HtmlCompressorStatistics</em>
 <a class="jxr_linenumber" name="L2298" href="#L2298">2298</a> <em class="jxr_javadoccomment">     * @see #setGenerateStatistics(boolean)</em>
 <a class="jxr_linenumber" name="L2299" href="#L2299">2299</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2300" href="#L2300">2300</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html">HtmlCompressorStatistics</a> getStatistics() {
+<a class="jxr_linenumber" name="L2300" href="#L2300">2300</a>     <strong class="jxr_keyword">public</strong> <a name="HtmlCompressorStatistics" href="../../../../com/googlecode/htmlcompressor/compressor/HtmlCompressorStatistics.html#HtmlCompressorStatistics">HtmlCompressorStatistics</a> getStatistics() {
 <a class="jxr_linenumber" name="L2301" href="#L2301">2301</a>         <strong class="jxr_keyword">return</strong> statistics;
 <a class="jxr_linenumber" name="L2302" href="#L2302">2302</a>     }
 <a class="jxr_linenumber" name="L2303" href="#L2303">2303</a> 
 <a class="jxr_linenumber" name="L2304" href="#L2304">2304</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2305" href="#L2305">2305</a> <em class="jxr_javadoccomment">     * Returns &lt;code&gt;true&lt;/code&gt; if line breaks will be preserved.</em>
-<a class="jxr_linenumber" name="L2306" href="#L2306">2306</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2306" href="#L2306">2306</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2307" href="#L2307">2307</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if line breaks will be preserved.</em>
 <a class="jxr_linenumber" name="L2308" href="#L2308">2308</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L2309" href="#L2309">2309</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isPreserveLineBreaks() {
@@ -2320,10 +2320,10 @@
 <a class="jxr_linenumber" name="L2312" href="#L2312">2312</a> 
 <a class="jxr_linenumber" name="L2313" href="#L2313">2313</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2314" href="#L2314">2314</a> <em class="jxr_javadoccomment">     * If set to &lt;code&gt;true&lt;/code&gt;, line breaks will be preserved.</em>
-<a class="jxr_linenumber" name="L2315" href="#L2315">2315</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2315" href="#L2315">2315</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2316" href="#L2316">2316</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2317" href="#L2317">2317</a> <em class="jxr_javadoccomment">     * Default is &lt;code&gt;false&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2318" href="#L2318">2318</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2318" href="#L2318">2318</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2319" href="#L2319">2319</a> <em class="jxr_javadoccomment">     * @param preserveLineBreaks</em>
 <a class="jxr_linenumber" name="L2320" href="#L2320">2320</a> <em class="jxr_javadoccomment">     *            set &lt;code&gt;true&lt;/code&gt; to preserve line breaks</em>
 <a class="jxr_linenumber" name="L2321" href="#L2321">2321</a> <em class="jxr_javadoccomment">     */</em>
@@ -2333,7 +2333,7 @@
 <a class="jxr_linenumber" name="L2325" href="#L2325">2325</a> 
 <a class="jxr_linenumber" name="L2326" href="#L2326">2326</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2327" href="#L2327">2327</a> <em class="jxr_javadoccomment">     * Returns a comma separated list of tags around which spaces will be removed.</em>
-<a class="jxr_linenumber" name="L2328" href="#L2328">2328</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2328" href="#L2328">2328</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2329" href="#L2329">2329</a> <em class="jxr_javadoccomment">     * @return a comma separated list of tags around which spaces will be removed.</em>
 <a class="jxr_linenumber" name="L2330" href="#L2330">2330</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L2331" href="#L2331">2331</a>     <strong class="jxr_keyword">public</strong> String getRemoveSurroundingSpaces() {
@@ -2342,11 +2342,11 @@
 <a class="jxr_linenumber" name="L2334" href="#L2334">2334</a> 
 <a class="jxr_linenumber" name="L2335" href="#L2335">2335</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2336" href="#L2336">2336</a> <em class="jxr_javadoccomment">     * Enables surrounding spaces removal around provided comma separated list of tags.</em>
-<a class="jxr_linenumber" name="L2337" href="#L2337">2337</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2337" href="#L2337">2337</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2338" href="#L2338">2338</a> <em class="jxr_javadoccomment">     * &lt;p&gt;</em>
 <a class="jxr_linenumber" name="L2339" href="#L2339">2339</a> <em class="jxr_javadoccomment">     * Besides custom defined lists, you can pass one of 3 predefined lists of tags: {@link #BLOCK_TAGS_MIN</em>
 <a class="jxr_linenumber" name="L2340" href="#L2340">2340</a> <em class="jxr_javadoccomment">     * BLOCK_TAGS_MIN}, {@link #BLOCK_TAGS_MAX BLOCK_TAGS_MAX}, {@link #ALL_TAGS ALL_TAGS}.</em>
-<a class="jxr_linenumber" name="L2341" href="#L2341">2341</a> <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L2341" href="#L2341">2341</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L2342" href="#L2342">2342</a> <em class="jxr_javadoccomment">     * @param tagList</em>
 <a class="jxr_linenumber" name="L2343" href="#L2343">2343</a> <em class="jxr_javadoccomment">     *            a comma separated list of tags around which spaces will be removed</em>
 <a class="jxr_linenumber" name="L2344" href="#L2344">2344</a> <em class="jxr_javadoccomment">     */</em>
@@ -2360,6 +2360,6 @@
 <a class="jxr_linenumber" name="L2352" href="#L2352">2352</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2009&#x2013;2018 <a href="https://github.com/hazendaz/htmlcompressor/">Jeremy Landis</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2009&#x2013;2020 <a href="https://github.com/hazendaz/htmlcompressor/">Jeremy Landis</a>. All rights reserved.</div>
 </body>
 </html>

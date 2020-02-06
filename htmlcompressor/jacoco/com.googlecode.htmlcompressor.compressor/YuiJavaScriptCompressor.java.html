@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>YuiJavaScriptCompressor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HTML Compressor and Minifier</a> &gt; <a href="index.source.html" class="el_package">com.googlecode.htmlcompressor.compressor</a> &gt; <span class="el_source">YuiJavaScriptCompressor.java</span></div><h1>YuiJavaScriptCompressor.java</h1><pre class="source lang-java linenums">/**
- *    Copyright 2009-2018 the original author or authors.
+ *    Copyright 2009-2020 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  *    you may not use this file except in compliance with the License.
@@ -29,9 +29,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Basic JavaScript compressor implementation using &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI
  * Compressor&lt;/a&gt; that could be used by {@link HtmlCompressor} for inline JavaScript compression.
- * 
+ *
  * @author &lt;a href=&quot;mailto:serg472@gmail.com&quot;&gt;Sergiy Kovalchuk&lt;/a&gt;
- * 
+ *
  * @see HtmlCompressor#setJavaScriptCompressor(Compressor)
  * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
  */
@@ -114,9 +114,9 @@ import org.slf4j.LoggerFactory;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will only minify javascript without obfuscating local symbols.
      * This corresponds to &lt;code&gt;--nomunge&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;nomunge&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isNoMunge() {
@@ -127,10 +127,10 @@ import org.slf4j.LoggerFactory;
      * Tells Yahoo YUI Compressor to only minify javascript without obfuscating local symbols. This corresponds to
      * &lt;code&gt;--nomunge&lt;/code&gt; command line option. This option has effect only if JavaScript compression is enabled.
      * Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param noMunge
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;nomunge&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setNoMunge(boolean noMunge) {
@@ -140,9 +140,9 @@ import org.slf4j.LoggerFactory;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will preserve unnecessary semicolons during JavaScript
      * compression. This corresponds to &lt;code&gt;--preserve-semi&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;preserve-semi&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isPreserveAllSemiColons() {
@@ -153,10 +153,10 @@ import org.slf4j.LoggerFactory;
      * Tells Yahoo YUI Compressor to preserve unnecessary semicolons during JavaScript compression. This corresponds to
      * &lt;code&gt;--preserve-semi&lt;/code&gt; command line option. This option has effect only if JavaScript compression is
      * enabled. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param preserveAllSemiColons
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;preserve-semi&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setPreserveAllSemiColons(boolean preserveAllSemiColons) {
@@ -166,9 +166,9 @@ import org.slf4j.LoggerFactory;
     /**
      * Returns &lt;code&gt;true&lt;/code&gt; if Yahoo YUI Compressor will disable all the built-in micro optimizations during
      * JavaScript compression. This corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;disable-optimizations&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public boolean isDisableOptimizations() {
@@ -179,10 +179,10 @@ import org.slf4j.LoggerFactory;
      * Tells Yahoo YUI Compressor to disable all the built-in micro optimizations during JavaScript compression. This
      * corresponds to &lt;code&gt;--disable-optimizations&lt;/code&gt; command line option. This option has effect only if
      * JavaScript compression is enabled. Default is &lt;code&gt;false&lt;/code&gt;.
-     * 
+     *
      * @param disableOptimizations
      *            set &lt;code&gt;true&lt;/code&gt; to enable &lt;code&gt;disable-optimizations&lt;/code&gt; mode
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setDisableOptimizations(boolean disableOptimizations) {
@@ -192,9 +192,9 @@ import org.slf4j.LoggerFactory;
     /**
      * Returns number of symbols per line Yahoo YUI Compressor will use during JavaScript compression. This corresponds
      * to &lt;code&gt;--line-break&lt;/code&gt; command line option.
-     * 
+     *
      * @return &lt;code&gt;line-break&lt;/code&gt; parameter value used for JavaScript compression.
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public int getLineBreak() {
@@ -205,10 +205,10 @@ import org.slf4j.LoggerFactory;
      * Tells Yahoo YUI Compressor to break lines after the specified number of symbols during JavaScript compression.
      * This corresponds to &lt;code&gt;--line-break&lt;/code&gt; command line option. This option has effect only if JavaScript
      * compression is enabled. Default is &lt;code&gt;-1&lt;/code&gt; to disable line breaks.
-     * 
+     *
      * @param lineBreak
      *            set number of symbols per line
-     * 
+     *
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      */
     public void setLineBreak(int lineBreak) {
@@ -231,10 +231,10 @@ import org.slf4j.LoggerFactory;
      * Sets &lt;code&gt;ErrorReporter&lt;/code&gt; that YUI Compressor will use for reporting errors during JavaScript compression.
      * If no &lt;code&gt;ErrorReporter&lt;/code&gt; was provided {@link YuiJavaScriptCompressor.DefaultErrorReporter} will be used
      * which reports errors to &lt;code&gt;System.err&lt;/code&gt; stream.
-     * 
+     *
      * @param errorReporter
      *            &lt;code&gt;ErrorReporter&lt;/code&gt; that will be used by YUI Compressor
-     * 
+     *
      * @see YuiJavaScriptCompressor.DefaultErrorReporter
      * @see &lt;a href=&quot;http://developer.yahoo.com/yui/compressor/&quot;&gt;Yahoo YUI Compressor&lt;/a&gt;
      * @see &lt;a href=&quot;http://www.mozilla.org/rhino/apidocs/org/mozilla/javascript/ErrorReporter.html&quot;&gt;ErrorReporter
@@ -245,4 +245,4 @@ import org.slf4j.LoggerFactory;
 <span class="nc" id="L245">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
