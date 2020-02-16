@@ -219,6 +219,7 @@
         <xml-format.plugin>3.1.1</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
+        <asm.version>7.3.1</asm.version>
         <bug-pattern.version>1.5.0</bug-pattern.version>
         <build-tools.version>1.2.2</build-tools.version>
         <checkstyle.version>8.29</checkstyle.version>
@@ -919,6 +920,13 @@
                     <configuration>
                         <javaVersion>${maven.compiler.target}</javaVersion>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
