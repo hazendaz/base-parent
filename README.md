@@ -7,7 +7,7 @@
 
 ![hazendaz](src/site/resources/images/hazendaz-banner.jpg)
 
-See site page [here](http://hazendaz.github.io/base-parent/)
+See site page [here](https://hazendaz.github.io/base-parent/)
 
 ## Quick Start ##
 
