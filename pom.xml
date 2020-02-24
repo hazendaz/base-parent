@@ -224,7 +224,7 @@
         <build-tools.version>1.2.2</build-tools.version>
         <checkstyle.version>8.29</checkstyle.version>
         <doxia.version>1.9.1</doxia.version>
-        <doxiaPlus1.version>1.9.1</doxiaPlus1.version>
+        <doxiaPlus1.version>1.9.2</doxiaPlus1.version>
         <findsecbugs.version>1.10.1</findsecbugs.version>
         <fluido.version note="Make sure to update in site.xml">1.8</fluido.version>
         <htmlcompressor.version>1.7.0</htmlcompressor.version>
