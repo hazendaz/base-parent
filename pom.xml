@@ -189,7 +189,7 @@
         <install.plugin>3.0.0-M1</install.plugin>
         <jacoco.plugin>0.8.5</jacoco.plugin>
         <jar.plugin>3.2.0</jar.plugin>
-        <javadoc.plugin>3.1.1</javadoc.plugin>
+        <javadoc.plugin>3.2.0</javadoc.plugin>
         <javancss.plugin>2.1</javancss.plugin>
         <jaxws.plugin>2.3.2-1</jaxws.plugin>
         <jdepend.plugin>2.0</jdepend.plugin>
