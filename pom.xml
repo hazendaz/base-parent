@@ -240,6 +240,10 @@
 
         <!-- Surefire Argline -->
         <argLine>-Djdk.attach.allowAttachSelf</argLine>
+
+        <!-- Verification Checks -->
+        <error-prone.failOnViolations>-XepAllErrorsAsWarnings</error-prone.failOnViolations>
+        <error-prone.skipFinallyCheck>-Xep:Finally:OFF</error-prone.skipFinallyCheck>
     </properties>
 
     <dependencies>
@@ -321,7 +325,7 @@
 
                         <compilerArgs>
                             <arg>-XDcompilePolicy=simple</arg>
-                            <arg>-Xplugin:ErrorProne -Xep:Finally:OFF</arg>
+                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipFinallyCheck}</arg>
                         </compilerArgs>
 
                         <showDeprecation>true</showDeprecation>
