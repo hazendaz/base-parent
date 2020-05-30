@@ -152,7 +152,7 @@
         <timestamp>${maven.build.timestamp</timestamp>
 
         <!-- Supported Versions -->
-        <error-prone.version>2.3.4</error-prone.version>
+        <error-prone.version>2.4.0</error-prone.version>
         <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
         <j2objc.version>1.3</j2objc.version>
         <jsr305.version>3.0.2</jsr305.version>
@@ -245,7 +245,6 @@
 
         <!-- Verification Checks -->
         <error-prone.failOnViolations>-XepAllErrorsAsWarnings</error-prone.failOnViolations>
-        <error-prone.skipFinallyCheck>-Xep:Finally:OFF</error-prone.skipFinallyCheck>
     </properties>
 
     <dependencies>
@@ -327,7 +326,7 @@
 
                         <compilerArgs>
                             <arg>-XDcompilePolicy=simple</arg>
-                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipFinallyCheck}</arg>
+                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations}</arg>
                         </compilerArgs>
 
                         <showDeprecation>true</showDeprecation>
