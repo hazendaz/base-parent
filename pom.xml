@@ -205,7 +205,7 @@
         <release.plugin note="3.0.0-M1 has bugs">2.5.3</release.plugin>
         <resources.plugin>3.1.0</resources.plugin>
         <scm.plugin>1.11.2</scm.plugin>
-        <site.plugin>3.9.0</site.plugin>
+        <site.plugin>3.9.1</site.plugin>
         <sonar.plugin>3.7.0.1746</sonar.plugin>
         <source.plugin>3.2.1</source.plugin>
         <spotbugs.plugin>4.0.4</spotbugs.plugin>
