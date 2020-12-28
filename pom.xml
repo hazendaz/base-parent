@@ -237,7 +237,7 @@
         <metro.version>2.4.3</metro.version>
         <plexus-utils.version>3.3.0</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
-        <scm.version>1.11.2</scm.version>
+        <scm.version>${scm.plugin}</scm.version>
         <wagon.version>3.4.2</wagon.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
