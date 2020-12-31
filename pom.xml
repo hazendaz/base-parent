@@ -149,7 +149,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Due to maven bug, fix timestamp -->
-        <timestamp>${maven.build.timestamp</timestamp>
+        <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Supported Versions -->
         <error-prone.version>2.4.0</error-prone.version>
