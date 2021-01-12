@@ -213,7 +213,7 @@
         <taglist.plugin>2.4</taglist.plugin>
         <tidy.plugin>1.1.0</tidy.plugin>
         <versions.plugin>2.8.1</versions.plugin>
-        <wagon.plugin>2.0.0</wagon.plugin>
+        <wagon.plugin>2.0.1</wagon.plugin>
         <war.plugin>3.3.1</war.plugin>
         <wrapper.plugin>0.7.7</wrapper.plugin>
         <whitespace.plugin>1.0.4</whitespace.plugin>
