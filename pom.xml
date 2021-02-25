@@ -238,7 +238,7 @@
         <plexus-utils.version>3.3.0</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <scm.version>${scm.plugin}</scm.version>
-        <wagon.version>3.4.2</wagon.version>
+        <wagon.version>3.4.3</wagon.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Surefire Argline -->
