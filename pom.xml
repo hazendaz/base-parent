@@ -198,7 +198,7 @@
         <jaxws.plugin>2.3.3</jaxws.plugin>
         <jdepend.plugin>2.0</jdepend.plugin>
         <jxr.plugin>3.0.0</jxr.plugin>
-        <license.plugin>3.0</license.plugin>
+        <license.plugin>4.0.rc2</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <modernizer.plugin>2.2.0</modernizer.plugin>
         <pdf.plugin>1.4</pdf.plugin>
@@ -235,7 +235,7 @@
         <htmlcompressor.version>1.7.1</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.11.0.202103091610-r</jgit.version>
-        <license-git.version>4.0.rc1</license-git.version>
+        <license-git.version>4.0.rc2</license-git.version>
         <metro.version>2.4.3</metro.version>
         <plexus-utils.version>3.3.0</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
