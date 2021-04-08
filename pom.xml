@@ -185,7 +185,7 @@
         <dependency-check.plugin>6.1.5</dependency-check.plugin>
         <deploy.plugin>3.0.0-M1</deploy.plugin>
         <enforcer.plugin>3.0.0-M3</enforcer.plugin>
-        <formatter.plugin>2.14.0</formatter.plugin>
+        <formatter.plugin>2.15.0</formatter.plugin>
         <git-commit.plugin>4.0.4</git-commit.plugin>
         <gpg.plugin>1.6</gpg.plugin>
         <htmlcompressor.plugin>1.5.2</htmlcompressor.plugin>
