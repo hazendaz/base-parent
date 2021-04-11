@@ -14,12 +14,12 @@
         Hazendaz (Jeremy Landis).
 
 -->
-<project child.project.url.inherit.append.path="false" xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" child.project.url.inherit.append.path="false" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>28-SNAPSHOT</version>
+    <version>28</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -74,13 +74,11 @@
         </contributor>
     </contributors>
 
-    <scm child.scm.connection.inherit.append.path="false"
-       child.scm.developerConnection.inherit.append.path="false"
-       child.scm.url.inherit.append.path="false">
+    <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <url>https://github.com/hazendaz/base-parent</url>
-        <tag>HEAD</tag>
+        <tag>base-parent-28</tag>
     </scm>
     <issueManagement>
         <system>Github</system>
@@ -161,7 +159,7 @@
         <lombok.version>1.18.20</lombok.version>
 
         <!-- Parent Tracking on site -->
-        <base-parent.version>28-SNAPSHOT</base-parent.version>
+        <base-parent.version>28</base-parent.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
