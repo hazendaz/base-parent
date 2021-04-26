@@ -233,7 +233,7 @@
         <htmlcompressor.version>1.7.1</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.11.0.202103091610-r</jgit.version>
-        <license-git.version>4.0</license-git.version>
+        <license-git.version>4.1</license-git.version>
         <metro.version>2.4.3</metro.version>
         <plexus-utils.version>3.3.0</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
