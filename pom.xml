@@ -198,7 +198,7 @@
         <jxr.plugin>3.1.1</jxr.plugin>
         <license.plugin>4.1</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
-        <modernizer.plugin>2.2.0</modernizer.plugin>
+        <modernizer.plugin>2.3.0</modernizer.plugin>
         <pdf.plugin>1.4</pdf.plugin>
         <pmd.plugin>3.14.0</pmd.plugin>
         <project-info.plugin>3.1.2</project-info.plugin>
