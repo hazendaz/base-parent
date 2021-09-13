@@ -233,7 +233,7 @@
         <fluido.version note="Make sure to update in site.xml">1.9</fluido.version>
         <htmlcompressor.version>1.7.1</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
-        <jgit.version>5.12.0.202106070339-r</jgit.version>
+        <jgit.version>5.13.0.202109080827-r</jgit.version>
         <license-git.version>4.1</license-git.version>
         <metro.version>2.4.6</metro.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
