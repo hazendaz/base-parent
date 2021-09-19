@@ -13,8 +13,8 @@ See site page [here](https://hazendaz.github.io/base-parent/)
 If you quickly want to configure maven for most use cases, just download this project and run `mvn clean install`.
 
 Requires
-- Maven 3.2.5 or better
-- Java 7 or better
+- Maven 3.8.2 or better
+- Java 8 or better
 
 After running `mvn clean install` against this project, simply add the parent to your pom.
 
@@ -22,7 +22,7 @@ After running `mvn clean install` against this project, simply add the parent to
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>26</version>
+    <version>28</version>
 </parent>
 ```
 

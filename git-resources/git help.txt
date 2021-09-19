@@ -12,7 +12,7 @@
         Hazendaz (Jeremy Landis).
 ====
 
-# For updating maven wrapper for travis ci
+# For updating permissions in git for mvnw and shell files
 
 git add --chmod=+x mvnw
 git add --chmod=+x *.sh
