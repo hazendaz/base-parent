@@ -203,6 +203,7 @@
         <scm.plugin>1.12.0</scm.plugin>
         <site.plugin>3.9.1</site.plugin>
         <sonar.plugin>3.9.0.2155</sonar.plugin>
+        <sortpom.plugin>3.0.0</sortpom.plugin>
         <source.plugin>3.2.1</source.plugin>
         <spotbugs.plugin>4.4.1</spotbugs.plugin>
         <surefire.plugin>3.0.0-M5</surefire.plugin>
@@ -709,6 +710,11 @@
                             <version>${bind-api.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>${sortpom.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
