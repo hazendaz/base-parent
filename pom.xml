@@ -165,12 +165,7 @@
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
 
-        <!-- Signature Settings -->
-        <signature.artifact>java18</signature.artifact>
-        <signature.version>1.0</signature.version>
-
         <!-- plugin versions -->
-        <animal-sniffer.plugin>1.20</animal-sniffer.plugin>
         <antrun.plugin>3.0.0</antrun.plugin>
         <assembly.plugin>3.3.0</assembly.plugin>
         <build-helper.plugin>3.2.0</build-helper.plugin>
@@ -250,12 +245,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>animal-sniffer-annotations</artifactId>
-            <version>${animal-sniffer.plugin}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>com.google.errorprone</groupId>
             <artifactId>error_prone_annotations</artifactId>
@@ -935,19 +924,6 @@
                 </plugin>
 
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>animal-sniffer-maven-plugin</artifactId>
-                    <version>${animal-sniffer.plugin}</version>
-                    <configuration>
-                        <signature>
-                            <groupId>org.codehaus.mojo.signature</groupId>
-                            <artifactId>${signature.artifact}</artifactId>
-                            <version>${signature.version}</version>
-                        </signature>
-                    </configuration>
-                </plugin>
-
-                <plugin>
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
                     <version>${dependency-check.plugin}</version>
@@ -1488,6 +1464,23 @@
             <activation>
                 <jdk>1.8</jdk>
             </activation>
+            <properties>
+                <!-- Plugins -->
+                <animal-sniffer.version>1.20</animal-sniffer.version>
+                <animal-sniffer.plugin>1.20</animal-sniffer.plugin>
+
+                <!-- Signature Settings -->
+                <signature.artifact>java18</signature.artifact>
+                <signature.version>1.0</signature.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-annotations</artifactId>
+                    <version>${animal-sniffer.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <pluginManagement>
                     <plugins>
@@ -1499,6 +1492,18 @@
                                 <compilerArgs combine.children="append">
                                     <arg>-J-Xbootclasspath/p:${settings.localRepository}/com/google/errorprone/javac/${javac.version}/javac-${javac.version}.jar</arg>
                                 </compilerArgs>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>animal-sniffer-maven-plugin</artifactId>
+                            <version>${animal-sniffer.plugin}</version>
+                            <configuration>
+                                <signature>
+                                    <groupId>org.codehaus.mojo.signature</groupId>
+                                    <artifactId>${signature.artifact}</artifactId>
+                                    <version>${signature.version}</version>
+                                </signature>
                             </configuration>
                         </plugin>
                     </plugins>
