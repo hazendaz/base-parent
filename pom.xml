@@ -85,8 +85,8 @@
         <url>https://github.com/hazendaz/base-parent/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>travis-ci</system>
-        <url>https://travis-ci.org/hazendaz/base-parent</url>
+        <system>Github</system>
+        <url>https://github.com/hazendaz/base-parent/actions</url>
         <notifiers>
             <notifier>
                 <type>mail</type>
