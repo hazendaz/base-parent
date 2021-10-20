@@ -14,7 +14,7 @@
         Hazendaz (Jeremy Landis).
 
 -->
-<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" child.project.url.inherit.append.path="false" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.hazendaz</groupId>
@@ -74,7 +74,7 @@
         </contributor>
     </contributors>
 
-    <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false" child.scm.url.inherit.append.path="false">
+    <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <url>https://github.com/hazendaz/base-parent</url>
@@ -101,7 +101,7 @@
         </notifiers>
     </ciManagement>
     <distributionManagement>
-        <site child.site.url.inherit.append.path="false">
+        <site>
             <id>gh-pages-scm</id>
             <name>Base Parent GitHub Pages</name>
             <url>scm:git:ssh://git@github.com/hazendaz/base-parent.git</url>
