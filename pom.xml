@@ -19,7 +19,7 @@
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>30-SNAPSHOT</version>
+    <version>30</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -78,7 +78,7 @@
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
         <url>https://github.com/hazendaz/base-parent</url>
-        <tag>HEAD</tag>
+        <tag>base-parent-30</tag>
     </scm>
     <issueManagement>
         <system>Github</system>
@@ -160,7 +160,7 @@
         <spotbugs.version>4.4.2</spotbugs.version>
 
         <!-- Parent Tracking on site -->
-        <base-parent.version>30-SNAPSHOT</base-parent.version>
+        <base-parent.version>30</base-parent.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
