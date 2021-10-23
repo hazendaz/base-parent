@@ -205,7 +205,7 @@
         <sonar.plugin>3.9.0.2155</sonar.plugin>
         <sortpom.plugin>3.0.0</sortpom.plugin>
         <source.plugin>3.2.1</source.plugin>
-        <spotbugs.plugin>4.4.2.1</spotbugs.plugin>
+        <spotbugs.plugin>4.4.2.2</spotbugs.plugin>
         <surefire.plugin>3.0.0-M5</surefire.plugin>
         <taglist.plugin>2.4</taglist.plugin>
         <tidy.plugin>1.1.0</tidy.plugin>
