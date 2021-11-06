@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"com.googlecode.htmlcompressor.compressor","l":"HtmlCompressorTest"},{"p":"com.googlecode.htmlcompressor.compressor","l":"XmlCompressorTest"}]
