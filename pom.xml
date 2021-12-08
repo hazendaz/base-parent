@@ -157,7 +157,7 @@
         <j2objc.version>1.3</j2objc.version>
         <jsr305.version>3.0.2</jsr305.version>
         <lombok.version>1.18.22</lombok.version>
-        <spotbugs.version>4.5.0</spotbugs.version>
+        <spotbugs.version>4.5.1</spotbugs.version>
 
         <!-- Parent Tracking on site -->
         <base-parent.version>31-SNAPSHOT</base-parent.version>
