@@ -227,7 +227,7 @@
         <doxia-site-tools.version>1.11.1</doxia-site-tools.version>
         <findsecbugs.version>1.11.0</findsecbugs.version>
         <fluido.version note="Make sure to update in site.xml">1.10.0</fluido.version>
-        <htmlcompressor.version>1.7.2</htmlcompressor.version>
+        <htmlcompressor.version>1.7.3</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>5.13.0.202109080827-r</jgit.version>
         <license-git.version>4.2.rc2</license-git.version>
