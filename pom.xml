@@ -375,28 +375,6 @@
                         <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
                         <includeReports>false</includeReports>
                     </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.doxia</groupId>
-                            <artifactId>doxia-sink-api</artifactId>
-                            <version>${doxia.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.doxia</groupId>
-                            <artifactId>doxia-core</artifactId>
-                            <version>${doxia.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.doxia</groupId>
-                            <artifactId>doxia-decoration-model</artifactId>
-                            <version>${doxia-site-tools.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.doxia</groupId>
-                            <artifactId>doxia-site-renderer</artifactId>
-                            <version>${doxia-site-tools.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
