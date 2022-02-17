@@ -1106,14 +1106,6 @@
                 </executions>
             </plugin>
         </plugins>
-
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-scm</artifactId>
-                <version>${wagon.version}</version>
-            </extension>
-        </extensions>
     </build>
 
     <reporting>
