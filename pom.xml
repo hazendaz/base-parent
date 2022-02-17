@@ -373,7 +373,7 @@
                     <version>${pdf.plugin}</version>
                     <configuration>
                         <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
-                        <includeReports>false</includeReports>
+                        <includeReports>true</includeReports>
                     </configuration>
                 </plugin>
                 <plugin>
