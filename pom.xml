@@ -388,6 +388,7 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
@@ -533,6 +534,7 @@
                     <configuration>
                         <archive>
                             <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
                                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
@@ -543,6 +545,7 @@
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                             </manifestEntries>
                         </archive>
+                        <notimestamp>true</notimestamp>
                         <quiet>true</quiet>
                     </configuration>
                 </plugin>
