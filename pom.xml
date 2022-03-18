@@ -190,7 +190,6 @@
         <jacoco.plugin>0.8.7</jacoco.plugin>
         <jar.plugin>3.2.2</jar.plugin>
         <javadoc.plugin>3.3.2</javadoc.plugin>
-        <javancss.plugin>2.1</javancss.plugin>
         <jaxws.plugin>2.3.3</jaxws.plugin>
         <jxr.plugin>3.1.1</jxr.plugin>
         <license.plugin>4.2.rc2</license.plugin>
@@ -758,11 +757,6 @@
 
                 <!-- Report Only -->
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>javancss-maven-plugin</artifactId>
-                    <version>${javancss.plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changelog-plugin</artifactId>
                     <version>${changelog.plugin}</version>
@@ -1134,10 +1128,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>taglist-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>javancss-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.owasp</groupId>
