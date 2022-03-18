@@ -214,7 +214,7 @@
         <versions.plugin>2.10.0</versions.plugin>
         <wagon.plugin>2.0.2</wagon.plugin>
         <war.plugin>3.3.2</war.plugin>
-        <wrapper.plugin>0.7.7</wrapper.plugin>
+        <wrapper.plugin>3.1.0</wrapper.plugin>
         <whitespace.plugin>1.0.4</whitespace.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
         <xml-format.plugin>3.2.0</xml-format.plugin>
@@ -716,8 +716,8 @@
                     <version>${whitespace.plugin}</version>
                 </plugin>
                 <plugin>
-                    <groupId>io.takari</groupId>
-                    <artifactId>maven</artifactId>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-wrapper-plugin</artifactId>
                     <version>${wrapper.plugin}</version>
                 </plugin>
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
