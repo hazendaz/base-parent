@@ -200,7 +200,7 @@
         <project-info.plugin>3.2.2</project-info.plugin>
         <release.plugin>3.0.0-M5</release.plugin>
         <resources.plugin>3.2.0</resources.plugin>
-        <scm.plugin>1.12.2</scm.plugin>
+        <scm.plugin>2.0.0-M1</scm.plugin>
         <site.plugin>3.11.0</site.plugin>
         <sonar.plugin>3.9.1.2184</sonar.plugin>
         <sortpom.plugin>3.0.1</sortpom.plugin>
@@ -231,7 +231,7 @@
         <metro.version>2.4.8</metro.version>
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
-        <scm.version>1.12.2</scm.version>
+        <scm.version>2.0.0-M1</scm.version>
         <wagon.version>3.5.1</wagon.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
