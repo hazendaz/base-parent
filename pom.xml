@@ -191,7 +191,7 @@
         <jar.plugin>3.2.2</jar.plugin>
         <javadoc.plugin>3.3.2</javadoc.plugin>
         <jaxws.plugin>2.3.3</jaxws.plugin>
-        <jxr.plugin>3.1.1</jxr.plugin>
+        <jxr.plugin>3.2.0</jxr.plugin>
         <license.plugin>4.2.rc2</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <modernizer.plugin>2.4.0</modernizer.plugin>
