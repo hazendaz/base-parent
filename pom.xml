@@ -1560,10 +1560,10 @@
                         <executions>
                             <execution>
                                 <id>scm-publish</id>
-                                <phase>site-deploy</phase>
                                 <goals>
                                     <goal>publish-scm</goal>
                                 </goals>
+                                <phase>site-deploy</phase>
                             </execution>
                         </executions>
                     </plugin>
