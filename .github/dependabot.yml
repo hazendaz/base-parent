@@ -24,3 +24,13 @@ updates:
   directory: "/"
   schedule:
     interval: daily
+  ignore:
+  - dependency-name: com.sun.xml.ws:jaxws-maven-plugin
+    versions:
+    - ">= 3.0.0"
+  - dependency-name: org.hibernate.validator:hibernate-validator-annotation-processor
+    versions:
+    - ">= 7.0.0"
+  - dependency-name: jakarta.xml.bind:jakarta.xml.bind-api
+    versions:
+    - ">= 3.0.0"
