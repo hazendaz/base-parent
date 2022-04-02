@@ -201,6 +201,7 @@
         <release.plugin>3.0.0-M5</release.plugin>
         <resources.plugin>3.2.0</resources.plugin>
         <scm.plugin>2.0.0-M1</scm.plugin>
+        <scm-publish.plugin>3.1.0</scm-publish.plugin>
         <site.plugin>3.11.0</site.plugin>
         <sonar.plugin>3.9.1.2184</sonar.plugin>
         <sortpom.plugin>3.0.1</sortpom.plugin>
@@ -401,6 +402,8 @@
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                             </manifestEntries>
                         </archive>
+                        <!-- don't deploy site with maven-site-plugin (instead use scm publish during release) -->
+                        <skipDeploy>true</skipDeploy>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -864,6 +867,18 @@
                             <version>${scm.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>${scm-publish.plugin}</version>
+                    <configuration>
+                        <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
+                        <!-- no need for site:stage, use target/site -->
+                        <content>${project.reporting.outputDirectory}</content>
+                        <scmBranch>gh-pages</scmBranch>
+                        <tryUpdate>true</tryUpdate>
+                    </configuration>
                 </plugin>
 
                 <!-- Sonar -->
@@ -1551,6 +1566,20 @@
                         <configuration>
                             <skip>true</skip>
                         </configuration>
+                    </plugin>
+                    <!-- deploy site with maven-scm-publish-plugin -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-publish-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>scm-publish</id>
+                                <phase>site-deploy</phase>
+                                <goals>
+                                    <goal>publish-scm</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
