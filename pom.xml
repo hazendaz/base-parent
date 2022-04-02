@@ -210,7 +210,6 @@
         <surefire.plugin>3.0.0-M5</surefire.plugin>
         <taglist.plugin>3.0.0</taglist.plugin>
         <versions.plugin>2.10.0</versions.plugin>
-        <wagon.plugin>2.0.2</wagon.plugin>
         <war.plugin>3.3.2</war.plugin>
         <wrapper.plugin>3.1.0</wrapper.plugin>
         <whitespace.plugin>1.0.4</whitespace.plugin>
@@ -233,7 +232,6 @@
         <plexus-utils.version>3.4.1</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <scm.version>2.0.0-M1</scm.version>
-        <wagon.version>3.5.1</wagon.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Surefire Argline -->
@@ -406,11 +404,6 @@
                         <skipDeploy>true</skipDeploy>
                     </configuration>
                     <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-scm</artifactId>
-                            <version>${wagon.version}</version>
-                        </dependency>
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-api</artifactId>
@@ -886,13 +879,6 @@
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>${sonar.plugin}</version>
-                </plugin>
-
-                <!-- Wagon -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>wagon-maven-plugin</artifactId>
-                    <version>${wagon.plugin}</version>
                 </plugin>
 
                 <plugin>
