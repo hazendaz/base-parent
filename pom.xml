@@ -200,7 +200,6 @@
         <project-info.plugin>3.2.2</project-info.plugin>
         <release.plugin>3.0.0-M5</release.plugin>
         <resources.plugin>3.2.0</resources.plugin>
-        <scm.plugin>2.0.0-M1</scm.plugin>
         <scm-publish.plugin>3.1.0</scm-publish.plugin>
         <site.plugin>3.11.0</site.plugin>
         <sonar.plugin>3.9.1.2184</sonar.plugin>
@@ -229,9 +228,7 @@
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>6.1.0.202203080745-r</jgit.version>
         <license-git.version>4.2.rc2</license-git.version>
-        <plexus-utils.version>3.4.1</plexus-utils.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
-        <scm.version>2.0.0-M1</scm.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Surefire Argline -->
@@ -404,26 +401,6 @@
                         <skipDeploy>true</skipDeploy>
                     </configuration>
                     <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-api</artifactId>
-                            <version>${scm.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-gitexe</artifactId>
-                            <version>${scm.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-manager-plexus</artifactId>
-                            <version>${scm.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-utils</artifactId>
-                            <version>${plexus-utils.version}</version>
-                        </dependency>
                         <!-- For reporting only of versions -->
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
@@ -844,23 +821,6 @@
                 </plugin>
 
                 <!-- SCM -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-plugin</artifactId>
-                    <version>${scm.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.eclipse.jgit</groupId>
-                            <artifactId>org.eclipse.jgit</artifactId>
-                            <version>${jgit.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>${scm.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-publish-plugin</artifactId>
