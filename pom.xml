@@ -190,7 +190,7 @@
         <jacoco.plugin>0.8.7</jacoco.plugin>
         <jar.plugin>3.2.2</jar.plugin>
         <javadoc.plugin>3.3.2</javadoc.plugin>
-        <jaxws.plugin>2.3.3</jaxws.plugin>
+        <jaxws.plugin>2.3.5</jaxws.plugin>
         <jxr.plugin>3.2.0</jxr.plugin>
         <license.plugin>4.2.rc2</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
