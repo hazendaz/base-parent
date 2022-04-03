@@ -282,6 +282,67 @@
             <plugins>
                 <!-- Github Provided Plugins -->
                 <plugin>
+                    <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                    <artifactId>whitespace-maven-plugin</artifactId>
+                    <version>${whitespace.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.ekryd.sortpom</groupId>
+                    <artifactId>sortpom-maven-plugin</artifactId>
+                    <version>${sortpom.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>htmlcompressor-maven-plugin</artifactId>
+                    <version>${htmlcompressor.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.hazendaz</groupId>
+                            <artifactId>htmlcompressor</artifactId>
+                            <version>${htmlcompressor.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.yahoo.platform.yui</groupId>
+                            <artifactId>yuicompressor</artifactId>
+                            <version>${yuicompressor.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${spotbugs.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.spotbugs</groupId>
+                            <artifactId>spotbugs</artifactId>
+                            <version>${spotbugs.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <effort>Max</effort>
+                        <includeTests>true</includeTests>
+                        <failOnError>false</failOnError>
+                        <plugins>
+                            <plugin>
+                                <groupId>com.mebigfatguy.sb-contrib</groupId>
+                                <artifactId>sb-contrib</artifactId>
+                                <version>${sb-contrib.version}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>com.h3xstream.findsecbugs</groupId>
+                                <artifactId>findsecbugs-plugin</artifactId>
+                                <version>${findsecbugs.version}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>jp.skypencil.findbugs.slf4j</groupId>
+                                <artifactId>bug-pattern</artifactId>
+                                <version>${bug-pattern.version}</version>
+                            </plugin>
+                        </plugins>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>io.github.git-commit-id</groupId>
                     <artifactId>git-commit-id-maven-plugin</artifactId>
                     <version>${git-commit.plugin}</version>
@@ -613,57 +674,6 @@
 
                 <!-- External Tools -->
                 <plugin>
-                    <groupId>com.github.spotbugs</groupId>
-                    <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>${spotbugs.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.github.spotbugs</groupId>
-                            <artifactId>spotbugs</artifactId>
-                            <version>${spotbugs.version}</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <effort>Max</effort>
-                        <includeTests>true</includeTests>
-                        <failOnError>false</failOnError>
-                        <plugins>
-                            <plugin>
-                                <groupId>com.mebigfatguy.sb-contrib</groupId>
-                                <artifactId>sb-contrib</artifactId>
-                                <version>${sb-contrib.version}</version>
-                            </plugin>
-                            <plugin>
-                                <groupId>com.h3xstream.findsecbugs</groupId>
-                                <artifactId>findsecbugs-plugin</artifactId>
-                                <version>${findsecbugs.version}</version>
-                            </plugin>
-                            <plugin>
-                                <groupId>jp.skypencil.findbugs.slf4j</groupId>
-                                <artifactId>bug-pattern</artifactId>
-                                <version>${bug-pattern.version}</version>
-                            </plugin>
-                        </plugins>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.hazendaz.maven</groupId>
-                    <artifactId>htmlcompressor-maven-plugin</artifactId>
-                    <version>${htmlcompressor.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.github.hazendaz</groupId>
-                            <artifactId>htmlcompressor</artifactId>
-                            <version>${htmlcompressor.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.yahoo.platform.yui</groupId>
-                            <artifactId>yuicompressor</artifactId>
-                            <version>${yuicompressor.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacoco.plugin}</version>
@@ -679,11 +689,6 @@
                             <version>${bind-api.version}</version>
                         </dependency>
                     </dependencies>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.ekryd.sortpom</groupId>
-                    <artifactId>sortpom-maven-plugin</artifactId>
-                    <version>${sortpom.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
@@ -718,11 +723,6 @@
                         <staticGroups>java,*</staticGroups>
                         <removeUnused>true</removeUnused>
                     </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
-                    <artifactId>whitespace-maven-plugin</artifactId>
-                    <version>${whitespace.plugin}</version>
                 </plugin>
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
