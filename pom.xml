@@ -292,6 +292,7 @@
                     <version>${sortpom.plugin}</version>
                     <configuration>
                         <createBackupFile>false</createBackupFile>
+                        <expandEmptyElements>false</expandEmptyElements>
                         <nrOfIndentSpace>4</nrOfIndentSpace>
                     </configuration>
                 </plugin>
