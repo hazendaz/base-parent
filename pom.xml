@@ -782,17 +782,6 @@
                     </dependencies>
                 </plugin>
 
-                <!-- Most likely remove ones formatter-maven-plugin handles it all -->
-                <plugin>
-                    <groupId>au.com.acegi</groupId>
-                    <artifactId>xml-format-maven-plugin</artifactId>
-                    <version>${xml-format.plugin}</version>
-                    <configuration>
-                        <indentSize>4</indentSize>
-                        <lineLength>120</lineLength>
-                        <skip>true</skip> <!-- TODO: Skip this for now until some adjustments are made -->
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
@@ -1304,17 +1293,6 @@
                                 <phase>process-sources</phase>
                                 <goals>
                                     <goal>trim</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>au.com.acegi</groupId>
-                        <artifactId>xml-format-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>xml-format</goal>
                                 </goals>
                             </execution>
                         </executions>
