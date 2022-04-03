@@ -671,6 +671,57 @@
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${build-helper.plugin}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>taglist-maven-plugin</artifactId>
+                    <version>${taglist.plugin}</version>
+                    <configuration>
+                        <tagListOptions>
+                            <tagClasses>
+                                <tagClass>
+                                    <displayName>FIXME Work</displayName>
+                                    <tags>
+                                        <tag>
+                                            <matchString>fixme</matchString>
+                                            <matchType>ignoreCase</matchType>
+                                        </tag>
+                                        <tag>
+                                            <matchString>@fixme</matchString>
+                                            <matchType>ignoreCase</matchType>
+                                        </tag>
+                                    </tags>
+                                </tagClass>
+                                <tagClass>
+                                    <displayName>Todo Work</displayName>
+                                    <tags>
+                                        <tag>
+                                            <matchString>todo</matchString>
+                                            <matchType>ignoreCase</matchType>
+                                        </tag>
+                                        <tag>
+                                            <matchString>@todo</matchString>
+                                            <matchType>ignoreCase</matchType>
+                                        </tag>
+                                    </tags>
+                                </tagClass>
+                                <tagClass>
+                                    <displayName>Deprecated Work</displayName>
+                                    <tags>
+                                        <tag>
+                                            <matchString>@deprecated</matchString>
+                                            <matchType>ignoreCase</matchType>
+                                        </tag>
+                                    </tags>
+                                </tagClass>
+                           </tagClasses>
+                        </tagListOptions>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${versions.plugin}</version>
+                </plugin>
 
                 <!-- External Tools -->
                 <plugin>
@@ -771,59 +822,6 @@
                     <groupId>com.sun.xml.ws</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
                     <version>${jaxws.plugin}</version>
-                </plugin>
-
-                <!-- Report Only -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>taglist-maven-plugin</artifactId>
-                    <version>${taglist.plugin}</version>
-                    <configuration>
-                        <tagListOptions>
-                            <tagClasses>
-                                <tagClass>
-                                    <displayName>FIXME Work</displayName>
-                                    <tags>
-                                        <tag>
-                                            <matchString>fixme</matchString>
-                                            <matchType>ignoreCase</matchType>
-                                        </tag>
-                                        <tag>
-                                            <matchString>@fixme</matchString>
-                                            <matchType>ignoreCase</matchType>
-                                        </tag>
-                                    </tags>
-                                </tagClass>
-                                <tagClass>
-                                    <displayName>Todo Work</displayName>
-                                    <tags>
-                                        <tag>
-                                            <matchString>todo</matchString>
-                                            <matchType>ignoreCase</matchType>
-                                        </tag>
-                                        <tag>
-                                            <matchString>@todo</matchString>
-                                            <matchType>ignoreCase</matchType>
-                                        </tag>
-                                    </tags>
-                                </tagClass>
-                                <tagClass>
-                                    <displayName>Deprecated Work</displayName>
-                                    <tags>
-                                        <tag>
-                                            <matchString>@deprecated</matchString>
-                                            <matchType>ignoreCase</matchType>
-                                        </tag>
-                                    </tags>
-                                </tagClass>
-                           </tagClasses>
-                        </tagListOptions>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>${versions.plugin}</version>
                 </plugin>
 
                 <!-- Sonar -->
