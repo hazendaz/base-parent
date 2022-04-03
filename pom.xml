@@ -1502,6 +1502,9 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-scm-publish-plugin</artifactId>
+                        <configuration>
+                            <content>${project.build.directory}/checkout/target/site</content>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>scm-publish</id>
