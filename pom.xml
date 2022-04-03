@@ -342,6 +342,40 @@
                         </plugins>
                     </configuration>
                 </plugin>
+
+                <!-- Mycila Provided Plugins -->
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${license.plugin}</version>
+                    <configuration>
+                        <header>${license.header}</header>
+                        <excludes>
+                            <exclude>**/*.lck</exclude>
+                            <exclude>**/*.log</exclude>
+                            <exclude>**/*maven-wrapper.properties</exclude>
+                            <exclude>**/*MavenWrapperDownloader.java</exclude>
+                            <exclude>.factorypath</exclude>
+                            <exclude>.gitattributes</exclude>
+                            <exclude>LICENSE</exclude>
+                            <exclude>LICENSE_HEADER</exclude>
+                            <exclude>LICENSE.txt</exclude>
+                            <exclude>LICENSE.TXT</exclude>
+                            <exclude>license.txt</exclude>
+                            <exclude>mvnw</exclude>
+                            <exclude>mvnw.cmd</exclude>
+                        </excludes>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.mycila</groupId>
+                            <artifactId>license-maven-plugin-git</artifactId>
+                            <version>${license-git.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <!-- Github IO Provided Plugins -->
                 <plugin>
                     <groupId>io.github.git-commit-id</groupId>
                     <artifactId>git-commit-id-maven-plugin</artifactId>
@@ -778,37 +812,6 @@
                             <groupId>com.github.hazendaz</groupId>
                             <artifactId>build-tools</artifactId>
                             <version>${build-tools.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.mycila</groupId>
-                    <artifactId>license-maven-plugin</artifactId>
-                    <version>${license.plugin}</version>
-                    <configuration>
-                        <header>${license.header}</header>
-                        <excludes>
-                            <exclude>**/*.lck</exclude>
-                            <exclude>**/*.log</exclude>
-                            <exclude>**/*maven-wrapper.properties</exclude>
-                            <exclude>**/*MavenWrapperDownloader.java</exclude>
-                            <exclude>.factorypath</exclude>
-                            <exclude>.gitattributes</exclude>
-                            <exclude>LICENSE</exclude>
-                            <exclude>LICENSE_HEADER</exclude>
-                            <exclude>LICENSE.txt</exclude>
-                            <exclude>LICENSE.TXT</exclude>
-                            <exclude>license.txt</exclude>
-                            <exclude>mvnw</exclude>
-                            <exclude>mvnw.cmd</exclude>
-                        </excludes>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.mycila</groupId>
-                            <artifactId>license-maven-plugin-git</artifactId>
-                            <version>${license-git.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
