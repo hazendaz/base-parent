@@ -19,7 +19,7 @@
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>32</version>
+    <version>33-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -77,7 +77,7 @@
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
-        <tag>base-parent-32</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/hazendaz/base-parent</url>
     </scm>
     <issueManagement>
@@ -149,7 +149,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Reproducible Builds -->
-        <project.build.outputTimestamp>1649025295</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1649025310</project.build.outputTimestamp>
 
         <!-- Due to maven bug, fix timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
@@ -162,7 +162,7 @@
         <spotbugs.version>4.6.0</spotbugs.version>
 
         <!-- Parent Tracking on site -->
-        <base-parent.version>32</base-parent.version>
+        <base-parent.version>33-SNAPSHOT</base-parent.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
