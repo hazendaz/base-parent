@@ -723,12 +723,14 @@
                     <version>${versions.plugin}</version>
                 </plugin>
 
-                <!-- External Tools -->
+                <!-- Jacoco Provided Plugins -->
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacoco.plugin}</version>
                 </plugin>
+
+                <!-- Jsonwebtoken Provided Plugins -->
                 <plugin>
                     <groupId>io.jsonwebtoken.coveralls</groupId>
                     <artifactId>coveralls-maven-plugin</artifactId>
@@ -741,6 +743,8 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+
+                <!-- Alchim31 Provided Plugins -->
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
@@ -752,6 +756,18 @@
                             <version>${yuicompressor.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+
+                <!-- Revelc Provided Plugins -->
+                <plugin>
+                    <groupId>net.revelc.code</groupId>
+                    <artifactId>impsort-maven-plugin</artifactId>
+                    <version>${impsort.plugin}</version>
+                    <configuration>
+                        <groups>au,com,de,io,jakarta,java,javax,lombok,mockit,net,org</groups>
+                        <staticGroups>java,*</staticGroups>
+                        <removeUnused>true</removeUnused>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>net.revelc.code.formatter</groupId>
@@ -765,16 +781,7 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-                <plugin>
-                    <groupId>net.revelc.code</groupId>
-                    <artifactId>impsort-maven-plugin</artifactId>
-                    <version>${impsort.plugin}</version>
-                    <configuration>
-                        <groups>au,com,de,io,jakarta,java,javax,lombok,mockit,net,org</groups>
-                        <staticGroups>java,*</staticGroups>
-                        <removeUnused>true</removeUnused>
-                    </configuration>
-                </plugin>
+
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
                     <groupId>au.com.acegi</groupId>
