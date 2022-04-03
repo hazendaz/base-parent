@@ -1503,7 +1503,8 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-scm-publish-plugin</artifactId>
                         <configuration>
-                            <content>${project.build.directory}/site</content>
+                            <!-- no need for site:stage, use target/site or target/checkout/target/site on release -->
+                            <content>${project.reporting.outputDirectory}</content>
                         </configuration>
                         <executions>
                             <execution>
