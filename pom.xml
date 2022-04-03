@@ -280,7 +280,54 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- Core plugins -->
+                <!-- Github Provided Plugins -->
+                <plugin>
+                    <groupId>io.github.git-commit-id</groupId>
+                    <artifactId>git-commit-id-maven-plugin</artifactId>
+                    <version>${git-commit.plugin}</version>
+                    <configuration>
+                        <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                        <!-- Fixes occassional issue in commit id plugin - see 
+                            https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                        <gitDescribe>
+                            <always>true</always>
+                        </gitDescribe>
+                    </configuration>
+                </plugin>
+
+                <!-- Maven Provided Plugins -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${antrun.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${assembly.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>${changelog.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-changes-plugin</artifactId>
+                    <version>${changes.plugin}</version>
+                    <configuration>
+                        <githubAPIScheme>https</githubAPIScheme>
+                        <githubAPIPort>443</githubAPIPort>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${checkstyle.plugin}</version>
+                    <configuration>
+                        <failOnViolation>false</failOnViolation>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -328,6 +375,11 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${dependency.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${enforcer.plugin}</version>
                     <configuration>
@@ -363,6 +415,54 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar.plugin}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                        <skipIfEmpty>true</skipIfEmpty>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${javadoc.plugin}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Copyright>${copyright}</Copyright>
+                                <Git-Revision>${git.commit.id}</Git-Revision>
+                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+                            </manifestEntries>
+                        </archive>
+                        <notimestamp>true</notimestamp>
+                        <quiet>true</quiet>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>${jxr.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pdf-plugin</artifactId>
                     <version>${pdf.plugin}</version>
                     <configuration>
@@ -372,8 +472,41 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>${pmd.plugin}</version>
+                    <configuration>
+                        <analysisCache>true</analysisCache>
+                        <failOnViolation>false</failOnViolation>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${project-info.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${release.plugin}</version>
+                    <configuration>
+                        <addSchema>false</addSchema>
+                        <releaseProfiles>release</releaseProfiles>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${resources.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>${scm-publish.plugin}</version>
+                    <configuration>
+                        <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
+                        <scmBranch>gh-pages</scmBranch>
+                        <tryUpdate>true</tryUpdate>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -417,35 +550,8 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${surefire.plugin}</version>
-                </plugin>
-
-                <!-- Build Plugins -->
-                <plugin>
-                    <groupId>io.github.git-commit-id</groupId>
-                    <artifactId>git-commit-id-maven-plugin</artifactId>
-                    <version>${git-commit.plugin}</version>
-                    <configuration>
-                        <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                        <!-- Fixes occassional issue in commit id plugin - see 
-                            https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
-                        <gitDescribe>
-                            <always>true</always>
-                        </gitDescribe>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>${build-helper.plugin}</version>
-                </plugin>
-
-                <!-- Packaging types / tools -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${jar.plugin}</version>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${source.plugin}</version>
                     <configuration>
                         <archive>
                             <manifest>
@@ -460,8 +566,17 @@
                                 <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                             </manifestEntries>
                         </archive>
-                        <skipIfEmpty>true</skipIfEmpty>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${surefire.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -483,92 +598,17 @@
                         </archive>
                     </configuration>
                 </plugin>
-
-                <!-- Reporting plugins -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${checkstyle.plugin}</version>
-                    <configuration>
-                        <failOnViolation>false</failOnViolation>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${javadoc.plugin}</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Copyright>${copyright}</Copyright>
-                                <Git-Revision>${git.commit.id}</Git-Revision>
-                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                            </manifestEntries>
-                        </archive>
-                        <notimestamp>true</notimestamp>
-                        <quiet>true</quiet>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${pmd.plugin}</version>
-                    <configuration>
-                        <analysisCache>true</analysisCache>
-                        <failOnViolation>false</failOnViolation>
-                    </configuration>
+                    <artifactId>maven-wrapper-plugin</artifactId>
+                    <version>${wrapper.plugin}</version>
                 </plugin>
 
-                <!-- Tools -->
+                <!-- Codehaus Provided Plugins -->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${antrun.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${assembly.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${dependency.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>${release.plugin}</version>
-                    <configuration>
-                        <addSchema>false</addSchema>
-                        <releaseProfiles>release</releaseProfiles>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${source.plugin}</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            </manifest>
-                            <manifestEntries>
-                                <Copyright>${copyright}</Copyright>
-                                <Git-Revision>${git.commit.id}</Git-Revision>
-                                <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
-                                <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper.plugin}</version>
                 </plugin>
 
                 <!-- External Tools -->
@@ -684,11 +724,6 @@
                     <artifactId>whitespace-maven-plugin</artifactId>
                     <version>${whitespace.plugin}</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-wrapper-plugin</artifactId>
-                    <version>${wrapper.plugin}</version>
-                </plugin>
                 <!-- Most likely remove ones formatter-maven-plugin handles it all -->
                 <plugin>
                     <groupId>au.com.acegi</groupId>
@@ -740,35 +775,6 @@
 
                 <!-- Report Only -->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-changelog-plugin</artifactId>
-                    <version>${changelog.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-changes-plugin</artifactId>
-                    <version>${changes.plugin}</version>
-                    <configuration>
-                        <githubAPIScheme>https</githubAPIScheme>
-                        <githubAPIPort>443</githubAPIPort>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jxr-plugin</artifactId>
-                    <version>${jxr.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>${project-info.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>${surefire.plugin}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>taglist-maven-plugin</artifactId>
                     <version>${taglist.plugin}</version>
@@ -818,18 +824,6 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>${versions.plugin}</version>
-                </plugin>
-
-                <!-- SCM -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-publish-plugin</artifactId>
-                    <version>${scm-publish.plugin}</version>
-                    <configuration>
-                        <checkoutDirectory>${user.home}/maven-sites/${project.name}</checkoutDirectory>
-                        <scmBranch>gh-pages</scmBranch>
-                        <tryUpdate>true</tryUpdate>
-                    </configuration>
                 </plugin>
 
                 <!-- Sonar -->
