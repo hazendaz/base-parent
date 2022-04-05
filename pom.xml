@@ -227,7 +227,7 @@
         <htmlcompressor.version>1.7.3</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
         <jgit.version>6.1.0.202203080745-r</jgit.version>
-        <license-git.version>4.2.rc2</license-git.version>
+        <license-git.version>4.2.rc3</license-git.version>
         <sb-contrib.version>7.4.7</sb-contrib.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
