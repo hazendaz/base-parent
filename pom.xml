@@ -154,6 +154,9 @@
         <!-- Due to maven bug, fix timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
 
+        <!-- Enforcer Jdks Allowed -->
+        <allowed.build.jdks>11,17,18,19</allowed.build.jdks>
+
         <!-- Supported Versions -->
         <error-prone.version>2.13.1</error-prone.version>
         <hibernate-validator.version>6.2.3.Final</hibernate-validator.version>
@@ -547,7 +550,7 @@
                                 <maxJdkVersion>${java.version}</maxJdkVersion>
                             </enforceBytecodeVersion>
                             <requireJavaVersion>
-                                <version>11,17,18,19</version>
+                                <version>${allowed.build.jdks}</version>
                             </requireJavaVersion>
                             <requireMavenVersion>
                                 <version>[${maven.min-version},)</version>
