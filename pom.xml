@@ -126,6 +126,9 @@
         <!-- Jacoco minimum code coverage (used under checks only currently) -->
         <jacoco.minimum.coverage>1.00</jacoco.minimum.coverage>
 
+        <!-- Automatic Module Name -->
+        <module.name>com.github.hazendaz.parent</module.name>
+
         <!-- Maven date configuration -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
@@ -596,6 +599,7 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <Copyright>${copyright}</Copyright>
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
@@ -619,6 +623,7 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <Copyright>${copyright}</Copyright>
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
@@ -696,6 +701,7 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <Copyright>${copyright}</Copyright>
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
@@ -733,6 +739,7 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <Copyright>${copyright}</Copyright>
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
@@ -764,6 +771,7 @@
                                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                             </manifest>
                             <manifestEntries>
+                                <Automatic-Module-Name>${module.name}</Automatic-Module-Name>
                                 <Copyright>${copyright}</Copyright>
                                 <Git-Revision>${git.commit.id}</Git-Revision>
                                 <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
