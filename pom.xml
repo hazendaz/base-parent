@@ -845,6 +845,12 @@
                     <version>${versions.plugin}</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>${lifecycle.plugin}</version>
+                </plugin>
+
                 <!-- Gaul Provided Plugins -->
                 <plugin>
                     <groupId>org.gaul</groupId>
@@ -1494,7 +1500,6 @@
                         <plugin>
                             <groupId>org.eclipse.m2e</groupId>
                             <artifactId>lifecycle-mapping</artifactId>
-                            <version>${lifecycle.plugin}</version>
                             <configuration>
                                 <lifecycleMappingMetadata>
                                     <pluginExecutions>
