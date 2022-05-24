@@ -299,9 +299,12 @@
                     <artifactId>sortpom-maven-plugin</artifactId>
                     <version>${sortpom.plugin}</version>
                     <configuration>
+                        <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
                         <createBackupFile>false</createBackupFile>
                         <expandEmptyElements>false</expandEmptyElements>
+                        <keepBlankLines>true</keepBlankLines>
                         <nrOfIndentSpace>4</nrOfIndentSpace>
+                        <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
                     </configuration>
                 </plugin>
                 <plugin>
