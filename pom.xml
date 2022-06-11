@@ -618,7 +618,9 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${javadoc.plugin}</version>
                     <configuration>
-                        <additionalOptions>-html5</additionalOptions>
+                        <additionalOptions>
+                            <options>-html5</options>
+                        </additionalOptions>
                         <archive>
                             <manifest>
                                 <addBuildEnvironmentEntries>false</addBuildEnvironmentEntries>
