@@ -619,7 +619,7 @@
                     <version>${javadoc.plugin}</version>
                     <configuration>
                         <additionalOptions>
-                            <options>-html5</options>
+                            <option>-html5</option>
                         </additionalOptions>
                         <archive>
                             <manifest>
