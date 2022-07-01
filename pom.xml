@@ -696,6 +696,8 @@
                         </archive>
                         <notimestamp>true</notimestamp>
                         <quiet>true</quiet>
+                        <release>${javadoc.java.release.version}</release>
+                        <source>${javadoc.java.release.version}</release>
                     </configuration>
                 </plugin>
                 <plugin>
