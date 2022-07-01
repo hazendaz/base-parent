@@ -532,6 +532,7 @@
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${checkstyle.plugin}</version>
                     <configuration>
+                        <configLocation>${checkstyle.config}</configLocation>
                         <failOnViolation>false</failOnViolation>
                     </configuration>
                 </plugin>
@@ -1132,9 +1133,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <configuration>
-                    <configLocation>${checkstyle.config}</configLocation>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
