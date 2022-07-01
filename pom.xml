@@ -15,6 +15,7 @@
 
 -->
 <project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.hazendaz</groupId>
@@ -138,6 +139,33 @@
         <java.test.version>${java.version}</java.test.version>
         <java.test.release.version>${java.release.version}</java.test.release.version>
 
+        <!-- Javadoc Release is strict and needs extra help, see examples -->
+        <javadoc.java.release.version>8</javadoc.java.release.version>
+
+        <!-- Javadoc help examples
+
+        Additional modules need added if build notes to do so, following is an example
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <additionalOptions cobmine.children="append">
+                                <option>--add-modules</option>
+                                <option>java.sql</option>
+                                <option>java.naming</option>
+                                <option>...others...</option>
+                             </additionalOptions>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+        --> 
+
+        <!-- Legacy compiler options source/target not really needed now -->
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
