@@ -153,7 +153,7 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
                             <additionalOptions combine.children="append">
-                                <option>--add-modules</option>
+                                <option>\-\-add-modules</option>
                                 <option>java.sql</option>
                                 <option>java.naming</option>
                                 <option>...others...</option>
