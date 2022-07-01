@@ -634,7 +634,7 @@
                         <dependency>
                             <groupId>de.skuzzle.enforcer</groupId>
                             <artifactId>restrict-imports-enforcer-rule</artifactId>
-                            <version>${restrict-imports-enforcer-rule.version</version>
+                            <version>${restrict-imports-enforcer-rule.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
