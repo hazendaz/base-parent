@@ -621,7 +621,17 @@
                                 <phases>clean,deploy,site</phases>
                             </requirePluginVersions>
                             <restrictImports>
-                                <!-- TODO: Add some restrictions -->
+                                <includeTestCode>true</includeTestCode>
+                                <groups>
+                                    <group>
+                                        <reason>Don't allow obsolete logging</reason>
+                                        <bannedImports>
+                                            <bannedImport>java.util.logging.**</bannedImport>
+                                            <bannedImport>org.apache.commons.logging.**</bannedImport>
+                                            <bannedImport>org.apache.log4j.**</bannedImport>
+                                        </bannedImports>
+                                    </group>
+                                </groups>
                             </restrictImports>
                         </rules>
                     </configuration>
