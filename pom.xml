@@ -281,7 +281,7 @@
         <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>
-            <version>${checker-qual.version</version>
+            <version>${checker-qual.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
