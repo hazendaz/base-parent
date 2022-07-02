@@ -139,12 +139,12 @@
         <java.test.version>${java.version}</java.test.version>
         <java.test.release.version>${java.release.version}</java.test.release.version>
 
-        <!-- Javadoc Release is strict and needs extra help, see examples -->
+        <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
         <javadoc.java.release.version>8</javadoc.java.release.version>
 
         <!-- Javadoc help examples
 
-        Additional modules need added if build notes to do so, following is an example
+        Additional modules need added if build notes to do so, following is an example (note errors are not very clear)
         <build>
             <pluginManagement>
                 <plugins>
@@ -155,6 +155,7 @@
                             <additionalOptions combine.children="append">
                                 <option>\-\-add-modules</option>
                                 <option>java.sql</option>
+                                <option>\-\-add-modules</option>
                                 <option>java.naming</option>
                                 <option>...others...</option>
                              </additionalOptions>
