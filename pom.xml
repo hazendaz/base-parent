@@ -175,6 +175,9 @@
         <maven.compiler.release>${java.release.version}</maven.compiler.release>
         <maven.compiler.testRelease>${java.test.release.version}</maven.compiler.testRelease>
 
+        <!-- Get method parameter names via reflection -->
+        <maven.compiler.parameters>true</maven.compiler.parameters>
+
         <!-- Maven minimum version -->
         <maven.min-version>3.8.6</maven.min-version>
 
