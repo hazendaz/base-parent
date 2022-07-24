@@ -249,6 +249,7 @@
         <sortpom.plugin>3.2.0</sortpom.plugin>
         <source.plugin>3.2.1</source.plugin>
         <spotbugs.plugin>4.7.1.0</spotbugs.plugin>
+        <spotless.version>2.22.8</spotless.version>
         <surefire.plugin>3.0.0-M7</surefire.plugin>
         <taglist.plugin>3.0.0</taglist.plugin>
         <versions.plugin>2.11.0</versions.plugin>
@@ -330,6 +331,44 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- Diff Plug Maven Plugins -->
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${spotless-plugin.version}</version>
+                    <configuration>
+                        <formats>
+                            <format>
+                                <includes>
+                                    <include>**/*.sh</include>
+                                    <include>**/*.yml</include>
+                                    <include>**/*.yaml</include>
+                                </includes>
+                                <excludes>
+                                    <excude>**/target/**</exclude>
+                                </excludes>
+                                <trimTrailingWhitespace />
+                                <endWithNewLine />
+                                <indent>
+                                    <spaces>true</spaces>
+                                    <spacesPerTab>2</spacesPerTab>
+                                </indent>
+                            </format>
+                            <format>
+                                <includes>
+                                    <include>**/*.xml</include>
+                                </includes>
+                                <trimTrailingWhitespace />
+                                <endWithNewLine />
+                                <indent>
+                                    <spaces>true</spaces>
+                                    <spacesPerTab>4</spacesPerTab>
+                                </indent>
+                            </format>
+                        </formats>
+                    </configuration>
+                </plugin>
+
                 <!-- Github Provided Plugins -->
                 <plugin>
                     <groupId>cn.yusiwen</groupId>
@@ -1390,6 +1429,18 @@
                         </executions>
                     </plugin>
                     <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>apply</goal>
+                                </goals>
+                                <phase>process-sources</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>cn.yusiwen</groupId>
                         <artifactId>whitespace-maven-plugin</artifactId>
                         <executions>
@@ -1666,6 +1717,20 @@
                                                 <ignore />
                                             </action>
                                         </pluginExecution>
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>com.diffplug.spotless</groupId>
+                                                <artifactId>spotless-maven-plugin</artifactId>
+                                                <versionRange>[${spotless.plugin},)</versionRange>
+                                                <goals>
+                                                    <goal>apply</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <ignore />
+                                            </action>
+                                        </pluginExecution>
+
                                     </pluginExecutions>
                                 </lifecycleMappingMetadata>
                             </configuration>
