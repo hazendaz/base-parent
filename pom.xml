@@ -254,7 +254,7 @@
         <versions.plugin>2.11.0</versions.plugin>
         <war.plugin>3.3.2</war.plugin>
         <wrapper.plugin>3.1.1</wrapper.plugin>
-        <whitespace.plugin>1.0.4</whitespace.plugin>
+        <whitespace.plugin>1.0.5</whitespace.plugin>
         <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
         <xml-format.plugin>3.2.0</xml-format.plugin>
 
@@ -332,7 +332,7 @@
             <plugins>
                 <!-- Github Provided Plugins -->
                 <plugin>
-                    <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                    <groupId>cn.yusiwen</groupId>
                     <artifactId>whitespace-maven-plugin</artifactId>
                     <version>${whitespace.plugin}</version>
                 </plugin>
@@ -1390,7 +1390,7 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                        <groupId>cn.yusiwen</groupId>
                         <artifactId>whitespace-maven-plugin</artifactId>
                         <executions>
                             <execution>
@@ -1639,7 +1639,7 @@
                                         </pluginExecution>
                                         <pluginExecution>
                                             <pluginExecutionFilter>
-                                                <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+                                                <groupId>cn.yusiwen</groupId>
                                                 <artifactId>whitespace-maven-plugin</artifactId>
                                                 <versionRange>[${whitespace.plugin},)</versionRange>
                                                 <goals>
