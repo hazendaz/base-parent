@@ -1670,6 +1670,17 @@
                                 </lifecycleMappingMetadata>
                             </configuration>
                         </plugin>
+
+                        <!-- Make m2e use java at test revision level -->
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-compiler-plugin</artifactId>
+                            <configuration>
+                                <!-- TODO: m2e still requires source/target -->
+                                <source>${java.test.version}</source>
+                                <target>${java.test.version}</target>
+                            </configuration>
+                        </plugin>
                     </plugins>
                 </pluginManagement>
             </build>
