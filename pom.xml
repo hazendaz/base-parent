@@ -345,7 +345,7 @@
                                     <include>**/*.yaml</include>
                                 </includes>
                                 <excludes>
-                                    <excude>**/target/**</exclude>
+                                    <exclude>**/target/**</exclude>
                                 </excludes>
                                 <trimTrailingWhitespace />
                                 <endWithNewLine />
