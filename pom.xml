@@ -501,14 +501,12 @@
                     <version>${jaxws.plugin}</version>
                 </plugin>
 
-                <!-- Github IO Maven Plugins -->
+                <!-- Github IO Provided Plugins -->
                 <plugin>
                     <groupId>io.github.floverfelt</groupId>
                     <artifactId>find-and-replace-maven-plugin</artifactId>
                     <version>${find-and-replace-plugin.version}</version>
                 </plugin>
-
-                <!-- Github IO Provided Plugins -->
                 <plugin>
                     <groupId>io.github.git-commit-id</groupId>
                     <artifactId>git-commit-id-maven-plugin</artifactId>
