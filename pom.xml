@@ -251,6 +251,7 @@
         <project-info.plugin>3.4.0</project-info.plugin>
         <release.plugin>3.0.0-M6</release.plugin>
         <resources.plugin>3.3.0</resources.plugin>
+        <rewrite.plugin>4.30.0</rewrite.plugin>
         <smartsprites.plugin>2.1.1</smartsprites.plugin>
         <scm-publish.plugin>3.1.0</scm-publish.plugin>
         <site.plugin>3.12.0</site.plugin>
@@ -1166,6 +1167,13 @@
                     <groupId>org.joinfaces</groupId>
                     <artifactId>joinfaces-maven-plugin</artifactId>
                     <version>${joinfaces.plugin}</version>
+                </plugin>
+
+                <!-- OPenwrite Maven Plugins -->
+                <plugin>
+                    <groupId>org.oopenrewrite.maven</groupId>
+                    <artifactId>rewrite-maven-plugin</artifactId>
+                    <version>${rewrite.plugin}</version>
                 </plugin>
 
                 <!-- Sonar Provided Plugins -->
