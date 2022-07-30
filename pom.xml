@@ -1359,14 +1359,19 @@
                             <compressCss>true</compressCss>
                             <compressJavaScript>true</compressJavaScript>
                             <javascriptHtmlSprite>false</javascriptHtmlSprite>
-                            <yuiJsNoMunge>true</yuiJsNoMunge>
                             <removeIntertagSpaces>true</removeIntertagSpaces>
                             <srcFolder>${project.basedir}/src/main/resources</srcFolder>
                             <targetFolder>${project.basedir}/target/classes</targetFolder>
+                            <yuiJsNoMunge>true</yuiJsNoMunge>
                             <fileExt>
                                 <fileExt>html</fileExt>
+                                <fileExt>jsp</fileExt>
+                                <fileExt>jspx</fileExt>
                                 <fileExt>xhtml</fileExt>
                                 <fileExt>xml</fileExt>
+                                <fileExt>xsd</fileExt>
+                                <fileExt>xslt</fileExt>
+                                <fileExt>wsdl</fileExt>
                             </fileExt>
                         </configuration>
                         <executions>
