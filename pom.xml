@@ -654,13 +654,24 @@
                     <version>${enforcer.plugin}</version>
                     <configuration>
                         <rules>
+                            <bannedDependencies>
+                                <message>Do not use obsolete logging libraries.  Prefer slf4j/logback and override slf4j libraries for replacements</message>
+                                <exclude>
+                                    <exclude>commons-logging:commons-logging</exclude>
+                                    <exclude>log4j:log4j</exclude>
+                                    <exclude>org.slf4j:slf4j-log4j12</exclude>
+                                </exclude>
+                            </bannedDependencies>
+                            <banDuplicatePomDependencyVersions />
                             <enforceBytecodeVersion>
                                 <maxJdkVersion>${java.version}</maxJdkVersion>
                             </enforceBytecodeVersion>
+                            <reactorModuleConvergence />
                             <requireJavaVersion>
                                 <version>${allowed.build.jdks}</version>
                             </requireJavaVersion>
                             <requireMavenVersion>
+                                <message>Please upgrade maven and configure 'M2_HOME'.</message>
                                 <version>[${maven.min-version},)</version>
                             </requireMavenVersion>
                             <requirePluginVersions>
