@@ -335,6 +335,13 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- Yusiwen Maven Plugins -->
+                <plugin>
+                    <groupId>cn.yusiwen</groupId>
+                    <artifactId>whitespace-maven-plugin</artifactId>
+                    <version>${whitespace.plugin}</version>
+                </plugin>
+
                 <!-- Diff Plug Maven Plugins -->
                 <plugin>
                     <groupId>com.diffplug.spotless</groupId>
@@ -374,11 +381,6 @@
                 </plugin>
 
                 <!-- Github Provided Plugins -->
-                <plugin>
-                    <groupId>cn.yusiwen</groupId>
-                    <artifactId>whitespace-maven-plugin</artifactId>
-                    <version>${whitespace.plugin}</version>
-                </plugin>
                 <plugin>
                     <groupId>com.github.eirslett</groupId>
                     <artifactId>frontend-maven-plugin</artifactId>
