@@ -401,20 +401,6 @@
                 </plugin>
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
-                    <artifactId>makeself-maven-plugin</artifactId>
-                    <version>${makeself.plugin}</version>
-                    <configuration>
-                        <keepUmask>true</keepUmask>
-                        <sha256>true</sha256>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.hazendaz.maven</groupId>
-                    <artifactId>smartsprites-maven-plugin</artifactId>
-                    <version>${smartsprites.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>com.github.hazendaz.maven</groupId>
                     <artifactId>htmlcompressor-maven-plugin</artifactId>
                     <version>${htmlcompressor.plugin}</version>
                     <dependencies>
@@ -429,6 +415,20 @@
                             <version>${yuicompressor.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>makeself-maven-plugin</artifactId>
+                    <version>${makeself.plugin}</version>
+                    <configuration>
+                        <keepUmask>true</keepUmask>
+                        <sha256>true</sha256>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>smartsprites-maven-plugin</artifactId>
+                    <version>${smartsprites.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
