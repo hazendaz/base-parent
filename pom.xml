@@ -591,6 +591,9 @@
                     <groupId>net.revelc.code.formatter</groupId>
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>${formatter.plugin}</version>
+                    <configuration>
+                        <configFile>eclipse-formatter-config-4space.xml</configFile>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
@@ -1453,9 +1456,6 @@
                     <plugin>
                         <groupId>net.revelc.code.formatter</groupId>
                         <artifactId>formatter-maven-plugin</artifactId>
-                        <configuration>
-                            <configFile>eclipse-formatter-config-4space.xml</configFile>
-                        </configuration>
                         <executions>
                             <execution>
                                 <goals>
