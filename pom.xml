@@ -404,6 +404,25 @@
                     <groupId>com.github.hazendaz.maven</groupId>
                     <artifactId>htmlcompressor-maven-plugin</artifactId>
                     <version>${htmlcompressor.plugin}</version>
+                    <configuration>
+                        <compressCss>true</compressCss>
+                        <compressJavaScript>true</compressJavaScript>
+                        <javascriptHtmlSprite>false</javascriptHtmlSprite>
+                        <removeIntertagSpaces>true</removeIntertagSpaces>
+                        <srcFolder>${project.basedir}/src/main/resources</srcFolder>
+                        <targetFolder>${project.basedir}/target/classes</targetFolder>
+                        <yuiJsNoMunge>true</yuiJsNoMunge>
+                        <fileExt>
+                            <fileExt>html</fileExt>
+                            <fileExt>jsp</fileExt>
+                            <fileExt>jspx</fileExt>
+                            <fileExt>xhtml</fileExt>
+                            <fileExt>xml</fileExt>
+                            <fileExt>xsd</fileExt>
+                            <fileExt>xslt</fileExt>
+                            <fileExt>wsdl</fileExt>
+                        </fileExt>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>com.github.hazendaz</groupId>
@@ -540,6 +559,14 @@
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
                     <version>${yuicompressor.plugin}</version>
+                    <configuration>
+                        <nomunge>true</nomunge>
+                        <nosuffix>true</nosuffix>
+                        <excludes>
+                            <exclude>**/*.min.js</exclude>
+                            <exclude>**/*.min.css</exclude>
+                        </excludes>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>com.yahoo.platform.yui</groupId>
@@ -1387,25 +1414,6 @@
                     <plugin>
                         <groupId>com.github.hazendaz.maven</groupId>
                         <artifactId>htmlcompressor-maven-plugin</artifactId>
-                        <configuration>
-                            <compressCss>true</compressCss>
-                            <compressJavaScript>true</compressJavaScript>
-                            <javascriptHtmlSprite>false</javascriptHtmlSprite>
-                            <removeIntertagSpaces>true</removeIntertagSpaces>
-                            <srcFolder>${project.basedir}/src/main/resources</srcFolder>
-                            <targetFolder>${project.basedir}/target/classes</targetFolder>
-                            <yuiJsNoMunge>true</yuiJsNoMunge>
-                            <fileExt>
-                                <fileExt>html</fileExt>
-                                <fileExt>jsp</fileExt>
-                                <fileExt>jspx</fileExt>
-                                <fileExt>xhtml</fileExt>
-                                <fileExt>xml</fileExt>
-                                <fileExt>xsd</fileExt>
-                                <fileExt>xslt</fileExt>
-                                <fileExt>wsdl</fileExt>
-                            </fileExt>
-                        </configuration>
                         <executions>
                             <execution>
                                 <id>default-compile</id>
@@ -1419,14 +1427,6 @@
                     <plugin>
                         <groupId>net.alchim31.maven</groupId>
                         <artifactId>yuicompressor-maven-plugin</artifactId>
-                        <configuration>
-                            <nomunge>true</nomunge>
-                            <nosuffix>true</nosuffix>
-                            <excludes>
-                                <exclude>**/*.min.js</exclude>
-                                <exclude>**/*.min.css</exclude>
-                            </excludes>
-                        </configuration>
                         <executions>
                             <execution>
                                 <id>default-compile</id>
