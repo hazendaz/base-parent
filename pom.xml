@@ -239,6 +239,7 @@
         <jar.plugin>3.2.2</jar.plugin>
         <javadoc.plugin>3.4.0</javadoc.plugin>
         <jaxws.plugin>2.3.5</jaxws.plugin>
+        <joinfaces.plugin>4.7.2</joinfaces.plugin>
         <jxr.plugin>3.2.0</jxr.plugin>
         <kotlin.plugin>1.7.10</kotlin.plugin>
         <license.plugin>4.2.rc3</license.plugin>
@@ -1158,6 +1159,13 @@
                         <jvmTarget>${java.release.version</jvmTarget>
                         <javaParameters>true</javaParameters>
                     </configuration>
+                </plugin>
+
+                <!-- Joinfaces Maven Plugins -->
+                <plugin>
+                    <groupId>org.joinfaces</groupId>
+                    <artifactId>joinfaces-maven-plugin</artifactId>
+                    <version>${joinfaces.plugin}</version>
                 </plugin>
 
                 <!-- Sonar Provided Plugins -->
