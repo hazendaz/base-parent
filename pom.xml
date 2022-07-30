@@ -239,6 +239,7 @@
         <javadoc.plugin>3.4.0</javadoc.plugin>
         <jaxws.plugin>2.3.5</jaxws.plugin>
         <jxr.plugin>3.2.0</jxr.plugin>
+        <kotlin.plugin>1.7.10</kotlin.plugin>
         <license.plugin>4.2.rc3</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <makeself.plugin>1.4.1</makeself.plugin>
@@ -1135,6 +1136,17 @@
                     <groupId>org.jboss.jandex</groupId>
                     <artifactId>jandex-maven-plugin</artifactId>
                     <version>${jandex-plugin.version}</version>
+                </plugin>
+
+                <!-- Jetbrains Maven Plugins -->
+                <plugin>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-maven-plugin</artifactId>
+                    <version>${kotlin-plugin.version}</version>
+                    <configuration>
+                        <jvmTarget>${java.release.version</jvmTarget>
+                        <javaParameters>true</javaParameters>
+                    </configuration>
                 </plugin>
 
                 <!-- Sonar Provided Plugins -->
