@@ -239,6 +239,7 @@
         <jxr.plugin>3.2.0</jxr.plugin>
         <license.plugin>4.2.rc3</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
+        <makeself.plugin>1.4.1</makeself.plugin>
         <modernizer.plugin>2.4.0</modernizer.plugin>
         <pdf.plugin>1.6.0</pdf.plugin>
         <pmd.plugin>3.17.0</pmd.plugin>
@@ -393,6 +394,15 @@
                         <keepBlankLines>true</keepBlankLines>
                         <nrOfIndentSpace>4</nrOfIndentSpace>
                         <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>makeself-maven-plugin</artifactId>
+                    <version>${makeself.plugin}</version>
+                    <configuration>
+                        <keepUmask>true</keepUmask>
+                        <sha256>true</sha256>
                     </configuration>
                 </plugin>
                 <plugin>
