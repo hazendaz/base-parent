@@ -244,6 +244,7 @@
         <kotlin.plugin>1.7.10</kotlin.plugin>
         <license.plugin>4.2.rc3</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
+        <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.4.1</makeself.plugin>
         <modernizer.plugin>2.4.0</modernizer.plugin>
         <pdf.plugin>1.6.0</pdf.plugin>
@@ -1181,6 +1182,23 @@
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
                     <version>${dependency-check.plugin}</version>
+                </plugin>
+
+                <!-- Project Lombok Maven Plugins -->
+                <plugin>
+                    <groupId>org.porjectlombok</groupId>
+                    <artifactId>lombok-maven-plugin</artifactId>
+                    <version>${lombok.plugin}</version>
+                    <configuration>
+                        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <!-- Sonar Provided Plugins -->
