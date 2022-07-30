@@ -904,6 +904,8 @@
                     <version>${release.plugin}</version>
                     <configuration>
                         <addSchema>false</addSchema>
+                        <arguments>-Daether.checksums.algorithms=SHA-512,SHA-256,SHA-1,MD5</arguments>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
                         <releaseProfiles>release</releaseProfiles>
                     </configuration>
                 </plugin>
