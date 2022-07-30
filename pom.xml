@@ -221,6 +221,7 @@
         <clean.plugin>3.2.0</clean.plugin>
         <compiler.plugin>3.10.1</compiler.plugin>
         <coveralls.plugin>4.4.1</coveralls.plugin>
+        <cyclonedx.plugin>2.7.1</cyclonedx.plugin>
         <dependency.plugin>3.3.0</dependency.plugin>
         <dependency-check.plugin>7.1.1</dependency-check.plugin>
         <deploy.plugin>3.0.0</deploy.plugin>
@@ -1091,6 +1092,16 @@
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>${versions.plugin}</version>
+                </plugin>
+
+                <!-- Cyclonedx Maven Plugins -->
+                <plugin>
+                    <groupId>org.cyclonedx</groupId>
+                    <artifactId>cyclonedx-maven-plugin</artifactId>
+                    <version>${cyclonedex.plugin}</version>
+                    <configuration>
+                        <verbose>false</verbose>
+                    </configuration>
                 </plugin>
 
                 <!-- Gaul Provided Plugins -->
