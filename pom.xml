@@ -1187,7 +1187,7 @@
 
                 <!-- Project Lombok Maven Plugins -->
                 <plugin>
-                    <groupId>org.porjectlombok</groupId>
+                    <groupId>org.projectlombok</groupId>
                     <artifactId>lombok-maven-plugin</artifactId>
                     <version>${lombok.plugin}</version>
                     <configuration>
