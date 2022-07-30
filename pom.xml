@@ -234,6 +234,7 @@
         <impsort.plugin>1.7.0</impsort.plugin>
         <install.plugin>3.0.1</install.plugin>
         <jacoco.plugin>0.8.8</jacoco.plugin>
+        <jandex.plugin>1.2.3</jandex.plugin
         <jar.plugin>3.2.2</jar.plugin>
         <javadoc.plugin>3.4.0</javadoc.plugin>
         <jaxws.plugin>2.3.5</jaxws.plugin>
@@ -1127,6 +1128,13 @@
                             </rule>
                         </rules>
                     </configuration>
+                </plugin>
+
+                <!-- Jboss Maven Plugins -->
+                <plugin>
+                    <groupId>org.jboss.jandex</groupId>
+                    <artifactId>jandex-maven-plugin</artifactId>
+                    <version>${jandex-plugin.version}</version>
                 </plugin>
 
                 <!-- Sonar Provided Plugins -->
