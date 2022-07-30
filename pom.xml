@@ -225,6 +225,7 @@
         <deploy.plugin>3.0.0</deploy.plugin>
         <enforcer.plugin>3.1.0</enforcer.plugin>
         <formatter.plugin>2.20.0</formatter.plugin>
+        <frontend.plugin>1.12.1</frontend.plugin>
         <git-commit.plugin>5.0.0</git-commit.plugin>
         <gpg.plugin>3.0.1</gpg.plugin>
         <htmlcompressor.plugin>1.7.3</htmlcompressor.plugin>
@@ -374,6 +375,11 @@
                     <groupId>cn.yusiwen</groupId>
                     <artifactId>whitespace-maven-plugin</artifactId>
                     <version>${whitespace.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.eirslett</groupId>
+                    <artifactId>frontend-maven-plugin</artifactId>
+                    <version>${frontend-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.ekryd.sortpom</groupId>
