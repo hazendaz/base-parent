@@ -166,7 +166,7 @@
         </build>
         --> 
 
-        <!-- Legacy compiler options source/target not really needed now -->
+        <!-- Legacy compiler options source/target not really needed now (but still used by things like sonar, m2e) -->
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.testSource>${java.test.version}</maven.compiler.testSource>
