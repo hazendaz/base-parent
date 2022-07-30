@@ -246,6 +246,7 @@
         <project-info.plugin>3.4.0</project-info.plugin>
         <release.plugin>3.0.0-M6</release.plugin>
         <resources.plugin>3.3.0</resources.plugin>
+        <smartsprites.plugin>2.1.1</smartsprites.plugin>
         <scm-publish.plugin>3.1.0</scm-publish.plugin>
         <site.plugin>3.12.0</site.plugin>
         <sonar.plugin>3.9.1.2184</sonar.plugin>
@@ -404,6 +405,11 @@
                         <keepUmask>true</keepUmask>
                         <sha256>true</sha256>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>smartsprites-maven-plugin</artifactId>
+                    <version>${smartsprites.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
