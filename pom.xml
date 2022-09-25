@@ -1797,6 +1797,7 @@
                             <configuration>
                                 <lifecycleMappingMetadata>
                                     <pluginExecutions>
+                                        <!-- TODO: Remove htmlcompressor definition after next release -->
                                         <pluginExecution>
                                             <pluginExecutionFilter>
                                                 <groupId>com.github.hazendaz.maven</groupId>
