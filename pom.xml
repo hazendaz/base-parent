@@ -196,7 +196,7 @@
         <allowed.build.jdks>11,17,18,19,20</allowed.build.jdks>
 
         <!-- Supported Versions -->
-        <checker-qual.version>3.25.0</checker-qual.version>
+        <checker-qual.version>3.26.0</checker-qual.version>
         <error-prone.version>2.15.0</error-prone.version>
         <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
         <j2objc.version>1.3</j2objc.version>
