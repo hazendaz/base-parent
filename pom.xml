@@ -245,7 +245,7 @@
         <license.plugin>4.2.rc3</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
-        <makeself.plugin>1.4.1</makeself.plugin>
+        <makeself.plugin>1.4.2</makeself.plugin>
         <modernizer.plugin>2.4.0</modernizer.plugin>
         <pdf.plugin>1.6.1</pdf.plugin>
         <pmd.plugin>3.19.0</pmd.plugin>
