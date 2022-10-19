@@ -223,7 +223,7 @@
         <coveralls.plugin>4.4.1</coveralls.plugin>
         <cyclonedx.plugin>2.7.1</cyclonedx.plugin>
         <dependency.plugin>3.3.0</dependency.plugin>
-        <dependency-check.plugin>7.2.1</dependency-check.plugin>
+        <dependency-check.plugin>7.3.0</dependency-check.plugin>
         <deploy.plugin>3.0.0</deploy.plugin>
         <enforcer.plugin>3.1.0</enforcer.plugin>
         <find-and-replace.plugin>1.1.0</find-and-replace.plugin>
