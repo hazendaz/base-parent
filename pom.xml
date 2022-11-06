@@ -590,7 +590,7 @@
                     <artifactId>impsort-maven-plugin</artifactId>
                     <version>${impsort.plugin}</version>
                     <configuration>
-                        <groups>au,com,de,io,jakarta,java,javax,lombok,mockit,net,org</groups>
+                        <groups>au,com,de,io,jakarta,java,javax,lombok,mockit,net,nl,org</groups>
                         <staticGroups>java,*</staticGroups>
                         <removeUnused>true</removeUnused>
                     </configuration>
