@@ -1803,6 +1803,7 @@
                             <configuration>
                                 <lifecycleMappingMetadata>
                                     <pluginExecutions>
+                                        <!-- whitespace m2e not in plugin, add processing for it -->
                                         <pluginExecution>
                                             <pluginExecutionFilter>
                                                 <groupId>cn.yusiwen</groupId>
@@ -1819,6 +1820,7 @@
                                                 </execute>
                                             </action>
                                         </pluginExecution>
+                                        <!-- spotless m2e not in plugin, add ignore for it -->
                                         <pluginExecution>
                                             <pluginExecutionFilter>
                                                 <groupId>com.diffplug.spotless</groupId>
