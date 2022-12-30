@@ -1805,19 +1805,6 @@
                                     <pluginExecutions>
                                         <pluginExecution>
                                             <pluginExecutionFilter>
-                                                <groupId>net.alchim31.maven</groupId>
-                                                <artifactId>yuicompressor-maven-plugin</artifactId>
-                                                <versionRange>[${yuicompressor.plugin},)</versionRange>
-                                                <goals>
-                                                    <goal>compress</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore />
-                                            </action>
-                                        </pluginExecution>
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
                                                 <groupId>cn.yusiwen</groupId>
                                                 <artifactId>whitespace-maven-plugin</artifactId>
                                                 <versionRange>[${whitespace.plugin},)</versionRange>
