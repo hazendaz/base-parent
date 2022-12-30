@@ -1803,20 +1803,6 @@
                             <configuration>
                                 <lifecycleMappingMetadata>
                                     <pluginExecutions>
-                                        <!-- TODO: Remove htmlcompressor definition after next release -->
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>com.github.hazendaz.maven</groupId>
-                                                <artifactId>htmlcompressor-maven-plugin</artifactId>
-                                                <versionRange>[${htmlcompressor.plugin},)</versionRange>
-                                                <goals>
-                                                    <goal>html</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore />
-                                            </action>
-                                        </pluginExecution>
                                         <pluginExecution>
                                             <pluginExecutionFilter>
                                                 <groupId>net.alchim31.maven</groupId>
@@ -1859,7 +1845,6 @@
                                                 <ignore />
                                             </action>
                                         </pluginExecution>
-
                                     </pluginExecutions>
                                 </lifecycleMappingMetadata>
                             </configuration>
