@@ -368,7 +368,7 @@
                                     <exclude>**/target/**</exclude>
                                 </excludes>
                                 <trimTrailingWhitespace />
-                                <endWithNewLine />
+                                <endWithNewline />
                                 <indent>
                                     <spaces>true</spaces>
                                     <spacesPerTab>2</spacesPerTab>
@@ -379,7 +379,7 @@
                                     <include>**/*.xml</include>
                                 </includes>
                                 <trimTrailingWhitespace />
-                                <endWithNewLine />
+                                <endWithNewline />
                                 <indent>
                                     <spaces>true</spaces>
                                     <spacesPerTab>4</spacesPerTab>
