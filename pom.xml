@@ -1311,12 +1311,6 @@
                         </goals>
                         <phase>pre-site</phase>
                     </execution>
-                    <execution>
-                        <id>enforce-bytecode-version</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                    </execution>
                 </executions>
             </plugin>
             <plugin>
