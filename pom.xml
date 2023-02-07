@@ -238,7 +238,7 @@
         <jandex.plugin>1.2.3</jandex.plugin>
         <jar.plugin>3.3.0</jar.plugin>
         <javadoc.plugin>3.4.1</javadoc.plugin>
-        <jaxws.plugin>2.3.5</jaxws.plugin>
+        <jaxws.plugin>2.3.6</jaxws.plugin>
         <joinfaces.plugin>4.7.8</joinfaces.plugin>
         <jxr.plugin>3.3.0</jxr.plugin>
         <kotlin.plugin>1.8.10</kotlin.plugin>
