@@ -136,8 +136,8 @@
         <!-- Maven compiler options -->
         <java.version>8</java.version>
         <java.release.version>8</java.release.version>
-        <java.test.version>${java.version}</java.test.version>
-        <java.test.release.version>${java.release.version}</java.test.release.version>
+        <java.test.version>8</java.test.version>
+        <java.test.release.version>8</java.test.release.version>
 
         <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
         <javadoc.java.release.version>8</javadoc.java.release.version>
