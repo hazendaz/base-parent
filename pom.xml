@@ -164,7 +164,7 @@
                 </plugins>
             </pluginManagement>
         </build>
-        --> 
+        -->
 
         <!-- Legacy compiler options source/target not really needed now (but still used by things like sonar, m2e) -->
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -538,7 +538,7 @@
                     <version>${git-commit.plugin}</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                        <!-- Fixes occassional issue in commit id plugin - see 
+                        <!-- Fixes occassional issue in commit id plugin - see
                             https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                         <gitDescribe>
                             <always>true</always>
@@ -1420,9 +1420,9 @@
                     </reportSet>
                 </reportSets>
             </plugin>
-            <!-- This plugin will fail if any POM is marked as Byte Order 
-                Mark is UTF-8 (BOM). If this occurs, create a new POM and move the contents 
-                in order to fix. For reference, this was a problem with mybatis/mybatis-spring 
+            <!-- This plugin will fail if any POM is marked as Byte Order
+                Mark is UTF-8 (BOM). If this occurs, create a new POM and move the contents
+                in order to fix. For reference, this was a problem with mybatis/mybatis-spring
                 poms. -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

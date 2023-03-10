@@ -21,7 +21,7 @@
     <artifactId>clean-target</artifactId>
     <version>1-SNAPSHOT</version>
     <packaging>pom</packaging>
- 
+
     <build>
         <plugins>
             <plugin>
