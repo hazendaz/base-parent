@@ -497,18 +497,22 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${license.plugin}</version>
                     <configuration>
-                        <header>${license.header}</header>
-                        <excludes>
-                            <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
+                        <licenseSets>
+                            <licenseSet>
+                                <header>LICENSE_HEADER</header>
+                                <excludes>
+                                    <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
 
-                            <!-- Exclude old license types I used in the past -->
-                            <exclude>LICENSE.txt</exclude>
-                            <exclude>LICENSE.TXT</exclude>
-                            <exclude>license.txt</exclude>
+                                    <!-- Exclude old license types I used in the past -->
+                                    <exclude>LICENSE.txt</exclude>
+                                    <exclude>LICENSE.TXT</exclude>
+                                    <exclude>license.txt</exclude>
 
-                            <!-- Exclude special folder to ignore license -->
-                            <exclude>**/unlicensed/**</exclude>
-                        </excludes>
+                                    <!-- Exclude special folder to ignore license -->
+                                    <exclude>**/unlicensed/**</exclude>
+                                </excludes>
+                            </licenseSet>
+                        </licenseSets>
                     </configuration>
                     <dependencies>
                         <dependency>
@@ -1665,9 +1669,6 @@
                     <exists>LICENSE_HEADER</exists>
                 </file>
             </activation>
-            <properties>
-                <license.header>LICENSE_HEADER</license.header>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
