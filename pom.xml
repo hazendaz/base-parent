@@ -201,7 +201,7 @@
         <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
         <j2objc.version>2.8</j2objc.version>
         <lombok.version>1.18.26</lombok.version>
-        <modernizer.version>2.5.0</modernizer.version>
+        <modernizer.version>2.6.0</modernizer.version>
         <spotbugs.version>4.7.3</spotbugs.version>
 
         <!-- Parent Tracking on site -->
