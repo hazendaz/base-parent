@@ -239,7 +239,7 @@
         <jar.plugin>3.3.0</jar.plugin>
         <javadoc.plugin>3.5.0</javadoc.plugin>
         <jaxws.plugin>2.3.6</jaxws.plugin>
-        <joinfaces.plugin>4.7.9</joinfaces.plugin>
+        <joinfaces.plugin>4.7.10</joinfaces.plugin>
         <jxr.plugin>3.3.0</jxr.plugin>
         <kotlin.plugin>1.8.10</kotlin.plugin>
         <license.plugin>4.2.rc3</license.plugin>
