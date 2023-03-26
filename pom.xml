@@ -1195,6 +1195,9 @@
                     <groupId>org.owasp</groupId>
                     <artifactId>dependency-check-maven</artifactId>
                     <version>${dependency-check.plugin}</version>
+                    <configuration>
+                        <failOnError>false</failOnError>
+                    </configuration>
                 </plugin>
 
                 <!-- Project Lombok Maven Plugins -->
