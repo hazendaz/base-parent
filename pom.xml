@@ -285,7 +285,7 @@
         <jgit.version>6.1.0.202203080745-r</jgit.version>
         <license-git.version>4.2</license-git.version>
         <pmd.version>6.55.0</pmd.version>
-        <restrict-imports-enforcer-rule.version>2.1.0</restrict-imports-enforcer-rule.version>
+        <restrict-imports-enforcer-rule.version>2.2.0</restrict-imports-enforcer-rule.version>
         <sb-contrib.version>7.6.0</sb-contrib.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
