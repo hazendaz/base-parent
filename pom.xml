@@ -229,7 +229,7 @@
         <find-and-replace.plugin>1.1.0</find-and-replace.plugin>
         <formatter.plugin>2.22.0</formatter.plugin>
         <frontend.plugin>1.12.1</frontend.plugin>
-        <git-commit.plugin>5.0.0</git-commit.plugin>
+        <git-commit.plugin>6.0.0</git-commit.plugin>
         <gpg.plugin>3.1.0</gpg.plugin>
         <htmlcompressor.plugin>1.9.1.1</htmlcompressor.plugin>
         <impsort.plugin>1.9.0</impsort.plugin>
