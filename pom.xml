@@ -282,11 +282,12 @@
         <fluido.version note="Make sure to update in site.xml">1.11.2</fluido.version>
         <htmlcompressor.version>1.9.1</htmlcompressor.version>
         <javac.version>9+181-r4173-1</javac.version>
-        <jgit.version>6.1.0.202203080745-r</jgit.version>
+        <jgit.version>6.5.0.202303070854-r</jgit.version>
         <license-git.version>4.2</license-git.version>
         <pmd.version>6.55.0</pmd.version>
         <restrict-imports-enforcer-rule.version>2.2.0</restrict-imports-enforcer-rule.version>
         <sb-contrib.version>7.6.0</sb-contrib.version>
+        <scm.version>2.0.1</scm.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Verification Checks -->
@@ -634,6 +635,18 @@
                         <githubAPIScheme>https</githubAPIScheme>
                         <githubAPIPort>443</githubAPIPort>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.eclipse.jgit</groupId>
+                            <artifactId>org.eclipse.jgit</artifactId>
+                            <version>${jgit.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-jgit</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
