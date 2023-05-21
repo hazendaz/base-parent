@@ -369,6 +369,9 @@
                                 <includes>
                                     <include>**/*.xml</include>
                                 </includes>
+                                <excludes>
+                                    <exclude>**/target/**</exclude>
+                                </excludes>
                                 <trimTrailingWhitespace />
                                 <endWithNewline />
                                 <indent>
