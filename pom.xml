@@ -356,6 +356,7 @@
                                     <include>**/*.yaml</include>
                                 </includes>
                                 <excludes>
+                                    <exclude>**/node_modules/**</exclude>
                                     <exclude>**/target/**</exclude>
                                 </excludes>
                                 <trimTrailingWhitespace />
@@ -370,6 +371,7 @@
                                     <include>**/*.xml</include>
                                 </includes>
                                 <excludes>
+                                    <exclude>**/node_modules/**</exclude>
                                     <exclude>**/target/**</exclude>
                                 </excludes>
                                 <trimTrailingWhitespace />
