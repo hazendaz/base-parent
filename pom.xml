@@ -153,11 +153,11 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <configuration>
                             <additionalOptions combine.children="append">
-                                <option>\-\-add-modules</option>
-                                <option>java.sql</option>
-                                <option>\-\-add-modules</option>
-                                <option>java.naming</option>
-                                <option>...others...</option>
+                                <additionalOption>\-\-add-modules</additionalOption>
+                                <additionalOption>java.sql</additionalOption>
+                                <additionalOption>\-\-add-modules</additionalOption>
+                                <additionalOption>java.naming</additionalOption>
+                                <additionalOption>...others...</additionalOption>
                              </additionalOptions>
                         </configuration>
                     </plugin>
@@ -824,7 +824,7 @@
                     <version>${javadoc.plugin}</version>
                     <configuration>
                         <additionalOptions>
-                            <option>-html5</option>
+                            <additionalOption>-html5</additionalOption>
                         </additionalOptions>
                         <archive>
                             <manifest>
@@ -1651,27 +1651,27 @@
                                 <fork>true</fork>
                                 <compilerArgs combine.children="append">
                                     <!-- Error Prone Configuration -->
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
-                                    <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</compilerArg>
 
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
 
                                     <!-- Lombok Configuration (not needed since 1.18.20)-->
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
-                                    <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.jvm=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</compilerArg>
+                                    <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</compilerArg>
                                 </compilerArgs>
                             </configuration>
                         </plugin>
