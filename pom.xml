@@ -228,7 +228,7 @@
         <enforcer.plugin>3.3.0</enforcer.plugin>
         <find-and-replace.plugin>1.1.0</find-and-replace.plugin>
         <formatter.plugin>2.23.0</formatter.plugin>
-        <frontend.plugin>1.12.1</frontend.plugin>
+        <frontend.plugin>1.13.3</frontend.plugin>
         <git-commit.plugin>6.0.0</git-commit.plugin>
         <gpg.plugin>3.1.0</gpg.plugin>
         <htmlcompressor.plugin>1.9.1.1</htmlcompressor.plugin>
