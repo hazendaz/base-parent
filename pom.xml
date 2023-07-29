@@ -291,7 +291,7 @@
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Verification Checks -->
-        <error-prone.failOnViolations>-XepAllErrorsAsWarnings</error-prone.failOnViolations>
+        <error-prone.failOnViolations>-XepAllErrorsAsWarnings -XepDisableWarningsInGeneratedCode</error-prone.failOnViolations>
     </properties>
 
     <dependencies>
