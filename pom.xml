@@ -291,7 +291,8 @@
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Verification Checks -->
-        <error-prone.failOnViolations>-XepAllErrorsAsWarnings -XepDisableWarningsInGeneratedCode</error-prone.failOnViolations>
+        <error-prone.failOnViolations>-XepAllErrorsAsWarnings</error-prone.failOnViolations>
+        <error-prone.skipGeneratedCode>-XepDisableWarningsInGeneratedCode</error-prone.skipGeneratedCode>
     </properties>
 
     <dependencies>
@@ -704,7 +705,7 @@
 
                         <compilerArgs>
                             <arg>-XDcompilePolicy=simple</arg>
-                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations}</arg>
+                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</arg>
                         </compilerArgs>
 
                         <showDeprecation>true</showDeprecation>
