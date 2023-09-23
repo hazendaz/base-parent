@@ -141,6 +141,7 @@
 
         <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples -->
         <javadoc.java.release.version>8</javadoc.java.release.version>
+        <javadoc.legacy.mode>true</javadoc.legacy.mode>
 
         <!-- Javadoc help examples
 
