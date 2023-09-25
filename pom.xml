@@ -244,7 +244,6 @@
         <jxr.plugin>3.3.0</jxr.plugin>
         <kotlin.plugin>1.9.10</kotlin.plugin>
         <license.plugin>4.2</license.plugin>
-        <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.5.2</makeself.plugin>
         <modernizer.plugin>2.7.0</modernizer.plugin>
@@ -1853,40 +1852,6 @@
                 <maven.compiler.target>${java.test.release.version}</maven.compiler.target>
                 <maven.compiler.release>${java.test.release.version}</maven.compiler.release>
             </properties>
-            <build>
-                <pluginManagement>
-                    <plugins>
-                        <!--This plugin's configuration is used to store Eclipse m2e settings only. It
-                            has no influence on the Maven build itself. -->
-                        <plugin>
-                            <groupId>org.eclipse.m2e</groupId>
-                            <artifactId>lifecycle-mapping</artifactId>
-                            <!-- Keep version here as fake version and maven report info has problems defining it in dependency management -->
-                            <version>${lifecycle.plugin}</version>
-                            <configuration>
-                                <lifecycleMappingMetadata>
-                                    <pluginExecutions>
-                                        <!-- spotless m2e not in plugin, add ignore for it -->
-                                        <pluginExecution>
-                                            <pluginExecutionFilter>
-                                                <groupId>com.diffplug.spotless</groupId>
-                                                <artifactId>spotless-maven-plugin</artifactId>
-                                                <versionRange>[${spotless.plugin},)</versionRange>
-                                                <goals>
-                                                    <goal>apply</goal>
-                                                </goals>
-                                            </pluginExecutionFilter>
-                                            <action>
-                                                <ignore />
-                                            </action>
-                                        </pluginExecution>
-                                    </pluginExecutions>
-                                </lifecycleMappingMetadata>
-                            </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
         </profile>
     </profiles>
 </project>
