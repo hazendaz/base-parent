@@ -243,7 +243,7 @@
         <joinfaces.plugin>4.7.16</joinfaces.plugin>
         <jxr.plugin>3.3.0</jxr.plugin>
         <kotlin.plugin>1.9.10</kotlin.plugin>
-        <license.plugin>4.2</license.plugin>
+        <license.plugin>4.3</license.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.5.2</makeself.plugin>
         <modernizer.plugin>2.7.0</modernizer.plugin>
