@@ -517,6 +517,7 @@
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
+                        <prohibitLegacyUse>true</prohibitLegacyUse>
                     </configuration>
                     <dependencies>
                         <dependency>
