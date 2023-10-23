@@ -241,7 +241,7 @@
         <javadoc.plugin>3.6.0</javadoc.plugin>
         <jaxws.plugin>2.3.7</jaxws.plugin>
         <joinfaces.plugin>4.7.17</joinfaces.plugin>
-        <jxr.plugin>3.3.0</jxr.plugin>
+        <jxr.plugin>3.3.1</jxr.plugin>
         <kotlin.plugin>1.9.10</kotlin.plugin>
         <license.plugin>4.3</license.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
