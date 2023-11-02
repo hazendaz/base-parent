@@ -23,7 +23,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
         java: [11, 17, 21, 22-ea]
-        distribution: ['Temurin']
+        distribution: ['temurin']
       fail-fast: false
       max-parallel: 4
     name: Test JDK ${{ matrix.java }}, ${{ matrix.os }}
