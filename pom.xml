@@ -1545,7 +1545,7 @@
             <id>compression</id>
             <activation>
                 <file>
-                    <exists>compression.xml</exists>
+                    <exists>${project.basedir}/compression.xml</exists>
                 </file>
             </activation>
             <build>
@@ -1584,7 +1584,7 @@
             <id>format</id>
             <activation>
                 <file>
-                    <exists>format.xml</exists>
+                    <exists>${project.basedir}/format.xml</exists>
                 </file>
             </activation>
             <build>
@@ -1704,7 +1704,7 @@
             <id>license-header</id>
             <activation>
                 <file>
-                    <exists>LICENSE_HEADER</exists>
+                    <exists>${project.basedir}/LICENSE_HEADER</exists>
                 </file>
             </activation>
             <build>
