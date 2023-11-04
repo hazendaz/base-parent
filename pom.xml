@@ -244,6 +244,7 @@
         <jxr.plugin>3.3.1</jxr.plugin>
         <kotlin.plugin>1.9.20</kotlin.plugin>
         <license.plugin>4.3</license.plugin>
+        <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.6.0</makeself.plugin>
         <modernizer.plugin>2.7.0</modernizer.plugin>
@@ -1853,6 +1854,42 @@
                 <maven.compiler.target>${java.test.release.version}</maven.compiler.target>
                 <maven.compiler.release>${java.test.release.version}</maven.compiler.release>
             </properties>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                        <plugin>
+                            <groupId>org.eclipse.m2e</groupId>
+                            <artifactId>lifecycle-mapping</artifactId>
+                            <!-- Keep version here as fake version and maven report info has problems defining it in dependency management -->
+                            <version>${lifecycle.plugin}</version>
+                            <configuration>
+                                <lifecycleMappingMetadata>
+                                    <pluginExecutions>
+                                        <!-- impsort m2e in plugin states to ignore, we will process -->
+                                        <pluginExecution>
+                                            <pluginExecutionFilter>
+                                                <groupId>net.revelc.code</groupId>
+                                                <artifactId>impsort-maven-plugin</artifactId>
+                                                <versionRange>[${impsort.plugin},)</versionRange>
+                                                <goals>
+                                                    <goal>sort</goal>
+                                                </goals>
+                                            </pluginExecutionFilter>
+                                            <action>
+                                                <execute>
+                                                    <runOnConfiguration>true</runOnConfiguration>
+                                                    <runOnIncremental>true</runOnIncremental>
+                                                </execute>
+                                            </action>
+                                        </pluginExecution>
+                                    </pluginExecutions>
+                                </lifecycleMappingMetadata>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
         </profile>
     </profiles>
 </project>
