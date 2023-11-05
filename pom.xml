@@ -744,6 +744,7 @@
                             <banDuplicatePomDependencyVersions />
                             <enforceBytecodeVersion>
                                 <maxJdkVersion>${java.version}</maxJdkVersion>
+                                <ignoredScopes>test</ignoredScopes>
                             </enforceBytecodeVersion>
                             <reactorModuleConvergence />
                             <requireJavaVersion>
