@@ -220,7 +220,7 @@
         <clean.plugin>3.3.2</clean.plugin>
         <compiler.plugin>3.11.0</compiler.plugin>
         <coveralls.plugin>4.4.1</coveralls.plugin>
-        <cyclonedx.plugin>2.7.1</cyclonedx.plugin>
+        <cyclonedx.plugin>2.7.10</cyclonedx.plugin>
         <dependency.plugin>3.6.1</dependency.plugin>
         <dependency-check.plugin>9.0.1</dependency-check.plugin>
         <deploy.plugin>3.1.1</deploy.plugin>
