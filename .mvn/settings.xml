@@ -40,6 +40,12 @@
       <username>${env.CI_DEPLOY_USERNAME}</username>
       <password>${env.GITHUB_TOKEN}</password>
     </server>
+
+    <!-- NVD API Access (dependency-check-plugin) -->
+    <server>
+      <id>nvd</id>
+      <password>${env.NVD_API_KEY}</password>
+    </server>
   </servers>
 
 </settings>
