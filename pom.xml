@@ -219,7 +219,7 @@
         <checkstyle.plugin>3.3.1</checkstyle.plugin>
         <clean.plugin>3.3.2</clean.plugin>
         <compiler.plugin>3.12.0</compiler.plugin>
-        <coveralls.plugin>4.4.1</coveralls.plugin>
+        <coveralls.plugin>4.5.0-M2</coveralls.plugin>
         <cyclonedx.plugin>2.7.10</cyclonedx.plugin>
         <dependency.plugin>3.6.1</dependency.plugin>
         <dependency-check.plugin>9.0.7</dependency-check.plugin>
@@ -406,6 +406,11 @@
                 </plugin>
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>coveralls-maven-plugin</artifactId>
+                    <version>${coveralls.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
                     <artifactId>htmlcompressor-maven-plugin</artifactId>
                     <version>${htmlcompressor.plugin}</version>
                     <configuration>
@@ -552,20 +557,6 @@
                             <always>true</always>
                         </gitDescribe>
                     </configuration>
-                </plugin>
-
-                <!-- Jsonwebtoken Provided Plugins -->
-                <plugin>
-                    <groupId>io.jsonwebtoken.coveralls</groupId>
-                    <artifactId>coveralls-maven-plugin</artifactId>
-                    <version>${coveralls.plugin}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>jakarta.xml.bind</groupId>
-                            <artifactId>jakarta.xml.bind-api</artifactId>
-                            <version>${bind-api.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
 
                 <!-- Alchim31 Provided Plugins -->
