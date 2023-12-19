@@ -651,26 +651,26 @@
                     <version>${compiler.plugin}</version>
                     <configuration>
                         <annotationProcessorPaths>
-                            <path>
+                            <annotationProcessorPath>
                                 <groupId>com.google.errorprone</groupId>
                                 <artifactId>error_prone_core</artifactId>
                                 <version>${error-prone.version}</version>
-                            </path>
-                            <path>
+                            </annotationProcessorPath>
+                            <annotationProcessorPath>
                                 <groupId>org.projectlombok</groupId>
                                 <artifactId>lombok</artifactId>
                                 <version>${lombok.version}</version>
-                            </path>
-                            <path>
+                            </annotationProcessorPath>
+                            <annotationProcessorPath>
                                 <groupId>org.hibernate.validator</groupId>
                                 <artifactId>hibernate-validator-annotation-processor</artifactId>
                                 <version>${hibernate-validator.version}</version>
-                            </path>
+                            </annotationProcessorPath>
                         </annotationProcessorPaths>
 
                         <compilerArgs>
-                            <arg>-XDcompilePolicy=simple</arg>
-                            <arg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</arg>
+                            <compilerArg>-XDcompilePolicy=simple</compilerArg>
+                            <compilerArg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</compilerArg>
                         </compilerArgs>
 
                         <showDeprecation>true</showDeprecation>
