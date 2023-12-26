@@ -518,9 +518,6 @@
                                     <exclude>LICENSE.txt</exclude>
                                     <exclude>LICENSE.TXT</exclude>
                                     <exclude>license.txt</exclude>
-
-                                    <!-- Exclude special folder to ignore license -->
-                                    <exclude>**/unlicensed/**</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
