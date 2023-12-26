@@ -408,7 +408,7 @@
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
                     <artifactId>coveralls-maven-plugin</artifactId>
-                    <version>${coveralls.version}</version>
+                    <version>${coveralls.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
