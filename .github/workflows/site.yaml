@@ -39,4 +39,3 @@ jobs:
           branch: gh-pages
           folder: target/staging
           ssh-key: ${{ secrets.DEPLOY_KEY }}
-
