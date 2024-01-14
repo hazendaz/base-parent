@@ -622,6 +622,8 @@
                     <configuration>
                         <configLocation>${checkstyle.config}</configLocation>
                         <failOnViolation>false</failOnViolation>
+                        <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                        <violationSeverity>info</violationSeverity>
                     </configuration>
                 </plugin>
                 <plugin>
