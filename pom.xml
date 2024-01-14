@@ -848,6 +848,7 @@
                     <configuration>
                         <analysisCache>true</analysisCache>
                         <failOnViolation>false</failOnViolation>
+                        <printFailingErrors>true</printFailingErrors>
                     </configuration>
                     <dependencies>
                         <dependency>
