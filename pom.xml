@@ -1169,7 +1169,7 @@
                     <version>${joinfaces.plugin}</version>
                 </plugin>
 
-                <!-- OPenwrite Maven Plugins -->
+                <!-- Openwrite Maven Plugins -->
                 <plugin>
                     <groupId>org.openrewrite.maven</groupId>
                     <artifactId>rewrite-maven-plugin</artifactId>
