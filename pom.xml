@@ -280,7 +280,7 @@
         <htmlcompressor.version>1.9.2</htmlcompressor.version>
         <license-git.version>4.3</license-git.version>
         <pmd.version>6.55.0</pmd.version>
-        <restrict-imports-enforcer-rule.version>2.4.0</restrict-imports-enforcer-rule.version>
+        <restrict-imports-enforcer-rule.version>2.5.0</restrict-imports-enforcer-rule.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
         <!-- Spotbugs Extensions -->
