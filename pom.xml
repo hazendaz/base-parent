@@ -198,7 +198,7 @@
 
         <!-- Supported Versions -->
         <checker-qual.version>3.42.0</checker-qual.version>
-        <error-prone.version>2.25.0</error-prone.version>
+        <error-prone.version>2.26.0</error-prone.version>
         <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
         <j2objc.version>3.0.0</j2objc.version>
         <lombok.version>1.18.30</lombok.version>
