@@ -215,7 +215,7 @@
         <buildplan.plugin>2.2.2</buildplan.plugin>
         <checkstyle.plugin>3.3.1</checkstyle.plugin>
         <clean.plugin>3.3.2</clean.plugin>
-        <compiler.plugin>3.12.1</compiler.plugin>
+        <compiler.plugin>3.13.0</compiler.plugin>
         <coveralls.plugin>4.5.0-M3</coveralls.plugin>
         <cyclonedx.plugin>2.7.11</cyclonedx.plugin>
         <dependency.plugin>3.6.1</dependency.plugin>
