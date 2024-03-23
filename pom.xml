@@ -411,16 +411,16 @@
                         <srcFolder>${project.basedir}/src/main/resources</srcFolder>
                         <targetFolder>${project.basedir}/target/classes</targetFolder>
                         <yuiJsNoMunge>true</yuiJsNoMunge>
-                        <fileExt>
-                            <fileExt>html</fileExt>
-                            <fileExt>jsp</fileExt>
-                            <fileExt>jspx</fileExt>
-                            <fileExt>xhtml</fileExt>
-                            <fileExt>xml</fileExt>
-                            <fileExt>xsd</fileExt>
-                            <fileExt>xslt</fileExt>
-                            <fileExt>wsdl</fileExt>
-                        </fileExt>
+                        <fileExtenions>
+                            <fileExtension>html</fileExtension>
+                            <fileExtension>jsp</fileExtension>
+                            <fileExtension>jspx</fileExtension>
+                            <fileExtension>xhtml</fileExtension>
+                            <fileExtension>xml</fileExtension>
+                            <fileExtension>xsd</fileExtension>
+                            <fileExtension>xslt</fileExtension>
+                            <fileExtension>wsdl</fileExtension>
+                        </fileExtensions>
                     </configuration>
                     <dependencies>
                         <dependency>
