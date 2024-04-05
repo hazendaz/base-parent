@@ -500,11 +500,6 @@
                                 <header>LICENSE_HEADER</header>
                                 <excludes>
                                     <!-- Default excludes located at https://github.com/mathieucarbou/license-maven-plugin/blob/master/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/Default.java -->
-
-                                    <!-- Exclude old license types I used in the past -->
-                                    <exclude>LICENSE.txt</exclude>
-                                    <exclude>LICENSE.TXT</exclude>
-                                    <exclude>license.txt</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
