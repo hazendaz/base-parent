@@ -227,7 +227,7 @@
         <formatter.plugin>2.23.0</formatter.plugin>
         <frontend.plugin>1.15.0</frontend.plugin>
         <git-commit.plugin>8.0.2</git-commit.plugin>
-        <gpg.plugin>3.2.2</gpg.plugin>
+        <gpg.plugin>3.2.3</gpg.plugin>
         <htmlcompressor.plugin>1.9.3</htmlcompressor.plugin>
         <impsort.plugin>1.9.0</impsort.plugin>
         <install.plugin>3.1.1</install.plugin>
