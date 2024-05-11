@@ -275,7 +275,7 @@
         <extra-enforcer-rules.version>1.8.0</extra-enforcer-rules.version>
         <fluido.version note="Make sure to update in site.xml">2.0.0-M8</fluido.version>
         <htmlcompressor.version>1.9.3</htmlcompressor.version>
-        <license-git.version>4.4</license-git.version>
+        <license-git.version>4.5</license-git.version>
         <pmd.version note="PMD is broken at 7 until maven releases updated plugin">7.1.0</pmd.version>
         <restrict-imports-enforcer-rule.version>2.5.0</restrict-imports-enforcer-rule.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
