@@ -273,7 +273,7 @@
         <build-tools.version>1.3.1</build-tools.version>
         <checkstyle.version>10.16.0</checkstyle.version>
         <extra-enforcer-rules.version>1.8.0</extra-enforcer-rules.version>
-        <fluido.version note="Make sure to update in site.xml">2.0.0-M8</fluido.version>
+        <fluido.version note="Make sure to update in site.xml">2.0.0-M9</fluido.version>
         <htmlcompressor.version>1.9.3</htmlcompressor.version>
         <license-git.version>4.5</license-git.version>
         <pmd.version note="PMD is broken at 7 until maven releases updated plugin">7.1.0</pmd.version>
