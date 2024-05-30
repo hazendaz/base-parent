@@ -221,7 +221,7 @@
         <dependency.plugin>3.6.1</dependency.plugin>
         <dependency-check.plugin>9.2.0</dependency-check.plugin>
         <deploy.plugin>3.1.2</deploy.plugin>
-        <enforcer.plugin>3.4.1</enforcer.plugin>
+        <enforcer.plugin>3.5.0</enforcer.plugin>
         <failsafe.plugin>3.2.5</failsafe.plugin>
         <find-and-replace.plugin>1.1.0</find-and-replace.plugin>
         <formatter.plugin>2.24.0</formatter.plugin>
