@@ -214,7 +214,7 @@
         <build-helper.plugin>3.6.0</build-helper.plugin>
         <buildplan.plugin>2.2.2</buildplan.plugin>
         <checkstyle.plugin>3.4.0</checkstyle.plugin>
-        <clean.plugin>3.3.2</clean.plugin>
+        <clean.plugin>3.4.0</clean.plugin>
         <compiler.plugin>3.13.0</compiler.plugin>
         <coveralls.plugin>4.5.0-M3</coveralls.plugin>
         <cyclonedx.plugin>2.8.0</cyclonedx.plugin>
