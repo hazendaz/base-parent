@@ -219,7 +219,7 @@
         <coveralls.plugin>4.5.0-M3</coveralls.plugin>
         <cyclonedx.plugin>2.8.0</cyclonedx.plugin>
         <dependency.plugin>3.7.1</dependency.plugin>
-        <dependency-check.plugin>10.0.0</dependency-check.plugin>
+        <dependency-check.plugin>10.0.1</dependency-check.plugin>
         <deploy.plugin>3.1.2</deploy.plugin>
         <enforcer.plugin>3.5.0</enforcer.plugin>
         <failsafe.plugin>3.3.0</failsafe.plugin>
