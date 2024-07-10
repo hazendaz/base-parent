@@ -222,7 +222,7 @@
         <dependency-check.plugin>10.0.2</dependency-check.plugin>
         <deploy.plugin>3.1.2</deploy.plugin>
         <enforcer.plugin>3.5.0</enforcer.plugin>
-        <failsafe.plugin>3.3.0</failsafe.plugin>
+        <failsafe.plugin>3.3.1</failsafe.plugin>
         <find-and-replace.plugin>1.2.0</find-and-replace.plugin>
         <formatter.plugin>2.24.1</formatter.plugin>
         <frontend.plugin>1.15.0</frontend.plugin>
