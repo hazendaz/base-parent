@@ -234,7 +234,7 @@
         <jacoco.plugin>0.8.12</jacoco.plugin>
         <jandex.plugin>1.2.3</jandex.plugin>
         <jar.plugin>3.4.2</jar.plugin>
-        <javadoc.plugin>3.7.0</javadoc.plugin>
+        <javadoc.plugin>3.8.0</javadoc.plugin>
         <jaxws.plugin>2.3.7</jaxws.plugin>
         <joinfaces.plugin>4.7.18</joinfaces.plugin>
         <jxr.plugin>3.4.0</jxr.plugin>
