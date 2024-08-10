@@ -199,7 +199,7 @@
         <!-- Supported Versions -->
         <checker-qual.version>3.46.0</checker-qual.version>
         <error-prone.version>2.29.2</error-prone.version>
-        <hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
+        <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
         <j2objc.version>3.0.0</j2objc.version>
         <lombok.version>1.18.34</lombok.version>
         <modernizer.version>2.9.0</modernizer.version>
