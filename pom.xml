@@ -252,7 +252,7 @@
         <rewrite.plugin>5.39.0</rewrite.plugin>
         <smartsprites.plugin>2.2.0</smartsprites.plugin>
         <scm-publish.plugin>3.3.0</scm-publish.plugin>
-        <site.plugin>4.0.0-M16</site.plugin>
+        <site.plugin>3.20.0</site.plugin>
         <sonar.plugin>4.0.0.4121</sonar.plugin>
         <sortpom.plugin>4.0.0</sortpom.plugin>
         <source.plugin>3.3.1</source.plugin>
