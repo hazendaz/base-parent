@@ -228,7 +228,7 @@
         <frontend.plugin>1.15.0</frontend.plugin>
         <git-commit.plugin>9.0.1</git-commit.plugin>
         <gpg.plugin>3.2.5</gpg.plugin>
-        <htmlcompressor.plugin>2.0.1</htmlcompressor.plugin>
+        <htmlcompressor.plugin>2.0.2</htmlcompressor.plugin>
         <impsort.plugin>1.11.0</impsort.plugin>
         <install.plugin>3.1.2</install.plugin>
         <jacoco.plugin>0.8.12</jacoco.plugin>
