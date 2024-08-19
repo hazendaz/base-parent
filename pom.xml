@@ -230,7 +230,7 @@
         <gpg.plugin>3.2.5</gpg.plugin>
         <htmlcompressor.plugin>2.0.2</htmlcompressor.plugin>
         <impsort.plugin>1.11.0</impsort.plugin>
-        <install.plugin>3.1.2</install.plugin>
+        <install.plugin>3.1.3</install.plugin>
         <jacoco.plugin>0.8.12</jacoco.plugin>
         <jandex.plugin>1.2.3</jandex.plugin>
         <jar.plugin>3.4.2</jar.plugin>
