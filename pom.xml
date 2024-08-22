@@ -238,7 +238,7 @@
         <jaxws.plugin>4.0.3</jaxws.plugin>
         <joinfaces.plugin>5.1.12</joinfaces.plugin>
         <jxr.plugin>3.4.0</jxr.plugin>
-        <kotlin.plugin>2.0.10</kotlin.plugin>
+        <kotlin.plugin>2.0.20</kotlin.plugin>
         <license.plugin>4.5</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
