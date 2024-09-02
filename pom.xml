@@ -242,7 +242,7 @@
         <license.plugin>4.5</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
-        <makeself.plugin>1.8.0</makeself.plugin>
+        <makeself.plugin>1.8.1</makeself.plugin>
         <modernizer.plugin>2.9.0</modernizer.plugin>
         <pdf.plugin>1.6.1</pdf.plugin>
         <pmd.plugin>3.25.0</pmd.plugin>
