@@ -225,7 +225,7 @@
         <failsafe.plugin>3.5.0</failsafe.plugin>
         <find-and-replace.plugin>1.2.0</find-and-replace.plugin>
         <formatter.plugin>2.24.1</formatter.plugin>
-        <frontend.plugin>1.15.0</frontend.plugin>
+        <frontend.plugin>1.15.1</frontend.plugin>
         <git-commit.plugin>9.0.1</git-commit.plugin>
         <gpg.plugin>3.2.6</gpg.plugin>
         <htmlcompressor.plugin>2.1.0</htmlcompressor.plugin>
