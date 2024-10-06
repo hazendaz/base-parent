@@ -269,7 +269,7 @@
         <xml-format.plugin>3.2.0</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
-        <asm.version>9.7</asm.version>
+        <asm.version>9.7.1</asm.version>
         <build-tools.version>1.4.0</build-tools.version>
         <checkstyle.version>10.18.2</checkstyle.version>
         <extra-enforcer-rules.version>1.9.0</extra-enforcer-rules.version>
