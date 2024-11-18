@@ -1807,7 +1807,7 @@
                                 <activeRecipe>org.openrewrite.java.testing.jmockit.JMockitToMockito</activeRecipe>
                                 <activeRecipe>org.openrewrite.java.testing.mockito.ReplacePowerMockito</activeRecipe>
                                 <activeRecipe>org.openrewrite.java.testing.junit5.JUnit5BestPractices</activeRecipe>
-                                <activeRecipe>org.openrewrite.java.testing.mockito.MockitoBestPractives</activeRecipe>
+                                <activeRecipe>org.openrewrite.java.testing.mockito.MockitoBestPractices</activeRecipe>
                                 <activeRecipe>org.openrewrite.java.RemoveUnusedImports</activeRecipe>
                             </activeRecipes>
                         </configuration>
