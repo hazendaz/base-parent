@@ -202,7 +202,7 @@
         <hibernate-validator.version>8.0.2.Final</hibernate-validator.version>
         <j2objc.version>3.0.0</j2objc.version>
         <lombok.version>1.18.36</lombok.version>
-        <modernizer.version>2.9.0</modernizer.version>
+        <modernizer.version>3.0.0</modernizer.version>
         <spotbugs.version>4.8.6</spotbugs.version>
 
         <!-- Checkstyle -->
