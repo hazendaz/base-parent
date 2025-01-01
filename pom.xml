@@ -701,6 +701,7 @@
                             </enforceBytecodeVersion>
                             <reactorModuleConvergence />
                             <requireJavaVersion>
+                                <message>Please upgrade java and configure 'JAVA_HOME'.</message>
                                 <version>${allowed.build.jdks}</version>
                             </requireJavaVersion>
                             <requireMavenVersion>
