@@ -539,8 +539,7 @@
                     <version>${git-commit.plugin}</version>
                     <configuration>
                         <failOnNoGitDirectory>false</failOnNoGitDirectory>
-                        <!-- Fixes occassional issue in commit id plugin - see
-                            https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
+                        <!-- Fixes issues, see https://github.com/ktoso/maven-git-commit-id-plugin/issues/61 -->
                         <gitDescribe>
                             <always>true</always>
                         </gitDescribe>
