@@ -368,6 +368,7 @@
                                 <excludes>
                                     <exclude>**/node_modules/**</exclude>
                                     <exclude>**/target/**</exclude>
+                                    <exclude>**/.pmdruleset.xml</exclude>
                                 </excludes>
                                 <trimTrailingWhitespace />
                                 <endWithNewline />
