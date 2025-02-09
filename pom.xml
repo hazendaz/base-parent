@@ -266,7 +266,7 @@
         <war.plugin>3.4.0</war.plugin>
         <wrapper.plugin>3.3.2</wrapper.plugin>
         <whitespace.plugin>1.4.0</whitespace.plugin>
-        <yuicompressor.plugin>1.5.1</yuicompressor.plugin>
+        <yuicompressor.plugin>2.1.0</yuicompressor.plugin>
         <xml-format.plugin>3.2.0</xml-format.plugin>
 
         <!-- Dependencies for plugins -->
@@ -494,6 +494,27 @@
                     <artifactId>whitespace-maven-plugin</artifactId>
                     <version>${whitespace.plugin}</version>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>yuicompressor-maven-plugin</artifactId>
+                    <version>${yuicompressor.plugin}</version>
+                    <configuration>
+                        <nomunge>true</nomunge>
+                        <nosuffix>true</nosuffix>
+                        <excludes>
+                            <exclude>**/*.min.js</exclude>
+                            <exclude>**/*.min.css</exclude>
+                        </excludes>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.yahoo.platform.yui</groupId>
+                            <artifactId>yuicompressor</artifactId>
+                            <version>${yuicompressor.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
 
                 <!-- Mycila Provided Plugins -->
                 <plugin>
@@ -544,28 +565,6 @@
                             <always>true</always>
                         </gitDescribe>
                     </configuration>
-                </plugin>
-
-                <!-- Alchim31 Provided Plugins -->
-                <plugin>
-                    <groupId>net.alchim31.maven</groupId>
-                    <artifactId>yuicompressor-maven-plugin</artifactId>
-                    <version>${yuicompressor.plugin}</version>
-                    <configuration>
-                        <nomunge>true</nomunge>
-                        <nosuffix>true</nosuffix>
-                        <excludes>
-                            <exclude>**/*.min.js</exclude>
-                            <exclude>**/*.min.css</exclude>
-                        </excludes>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.yahoo.platform.yui</groupId>
-                            <artifactId>yuicompressor</artifactId>
-                            <version>${yuicompressor.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
 
                 <!-- Revelc Provided Plugins -->
