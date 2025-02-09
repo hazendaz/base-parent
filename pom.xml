@@ -1564,7 +1564,7 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>net.alchim31.maven</groupId>
+                        <groupId>com.github.hazendaz.maven</groupId>
                         <artifactId>yuicompressor-maven-plugin</artifactId>
                         <executions>
                             <execution>
