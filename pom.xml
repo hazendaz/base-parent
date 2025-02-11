@@ -252,7 +252,7 @@
         <project-info.plugin>3.8.0</project-info.plugin>
         <release.plugin>3.1.1</release.plugin>
         <resources.plugin>3.3.1</resources.plugin>
-        <rewrite.plugin>6.1.0</rewrite.plugin>
+        <rewrite.plugin>6.1.1</rewrite.plugin>
         <smartsprites.plugin>2.3.0</smartsprites.plugin>
         <scm-publish.plugin>3.3.0</scm-publish.plugin>
         <site.plugin>3.21.0</site.plugin>
