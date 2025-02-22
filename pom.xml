@@ -217,7 +217,7 @@
         <changes.plugin>3.0.0-M2</changes.plugin>
         <checkstyle.plugin>3.6.0</checkstyle.plugin>
         <clean.plugin>3.4.1</clean.plugin>
-        <compiler.plugin>3.13.0</compiler.plugin>
+        <compiler.plugin>3.14.0</compiler.plugin>
         <coveralls.plugin>4.5.0-M6</coveralls.plugin>
         <cyclonedx.plugin>2.9.1</cyclonedx.plugin>
         <dependency.plugin>3.8.1</dependency.plugin>
