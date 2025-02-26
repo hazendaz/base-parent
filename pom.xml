@@ -247,7 +247,6 @@
         <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.9.0</makeself.plugin>
         <modernizer.plugin>3.1.0</modernizer.plugin>
-        <pdf.plugin>1.6.1</pdf.plugin>
         <pmd.plugin>3.26.0</pmd.plugin>
         <project-info.plugin>3.8.0</project-info.plugin>
         <release.plugin>3.1.1</release.plugin>
@@ -826,25 +825,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jxr-plugin</artifactId>
                     <version>${jxr.plugin}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pdf-plugin</artifactId>
-                    <version>${pdf.plugin}</version>
-                    <configuration>
-                        <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
-                        <includeReports>false</includeReports>
-                    </configuration>
-                    <!-- Execution such as this in plugin management requires plugin definition in build to work -->
-                    <executions>
-                        <execution>
-                            <id>pdf</id>
-                            <goals>
-                                <goal>pdf</goal>
-                            </goals>
-                            <phase>prepare-package</phase>
-                        </execution>
-                    </executions>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
