@@ -248,7 +248,7 @@
         <makeself.plugin>1.9.0</makeself.plugin>
         <modernizer.plugin>3.1.0</modernizer.plugin>
         <pmd.plugin>3.26.0</pmd.plugin>
-        <project-info.plugin>3.8.0</project-info.plugin>
+        <project-info.plugin>3.9.0</project-info.plugin>
         <release.plugin>3.1.1</release.plugin>
         <resources.plugin>3.3.1</resources.plugin>
         <rewrite.plugin>6.2.1</rewrite.plugin>
