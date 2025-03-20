@@ -277,7 +277,7 @@
         <extra-enforcer-rules.version>1.9.0</extra-enforcer-rules.version>
         <fluido.version note="Make sure to update in site.xml">2.1.0</fluido.version>
         <htmlcompressor.version>2.0.2</htmlcompressor.version>
-        <license-git.version>4.6</license-git.version>
+        <license-git.version>5.0.0</license-git.version>
         <pmd.version>7.11.0</pmd.version>
         <restrict-imports-enforcer-rule.version>2.6.0</restrict-imports-enforcer-rule.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
