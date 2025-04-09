@@ -20,7 +20,7 @@
 
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>52</version>
+    <version>53-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>base-parent</name>
@@ -184,7 +184,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Reproducible Builds -->
-        <project.build.outputTimestamp>1744165716</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1744166297</project.build.outputTimestamp>
 
         <!-- Due to maven bug, fix timestamp -->
         <timestamp>${maven.build.timestamp}</timestamp>
