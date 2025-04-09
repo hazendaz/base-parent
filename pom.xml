@@ -1185,6 +1185,17 @@
                     <version>${sonar.plugin}</version>
                 </plugin>
 
+                <!-- Sonatype Provided Plugins -->
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.7.0</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <publishingServerId>central</publishingServerId>
+                    </configuration>
+                </plugin>
+
                 <!-- Springboot Maven Plugins -->
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
