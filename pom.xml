@@ -1072,6 +1072,7 @@
                     <artifactId>cyclonedx-maven-plugin</artifactId>
                     <version>${cyclonedx.plugin}</version>
                     <configuration>
+                        <skipNotDeployed>false</skipNotDeployed>
                         <verbose>false</verbose>
                     </configuration>
                 </plugin>
