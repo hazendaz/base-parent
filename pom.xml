@@ -219,7 +219,7 @@
         <dependency.plugin>3.8.1</dependency.plugin>
         <dependency-check.plugin>12.1.1</dependency-check.plugin>
         <deploy.plugin>3.1.4</deploy.plugin>
-        <directory.plugin>1.2.0</directory.plugin>
+        <directory.plugin>1.2.1</directory.plugin>
         <enforcer.plugin>3.5.0</enforcer.plugin>
         <failsafe.plugin>3.5.3</failsafe.plugin>
         <find-and-replace.plugin>1.2.0</find-and-replace.plugin>
