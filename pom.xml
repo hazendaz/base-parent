@@ -617,6 +617,7 @@
                     <version>${checkstyle.plugin}</version>
                     <configuration>
                         <configLocation>${checkstyle.config}</configLocation>
+                        <excludeGeneratedSources>true</excludeGeneratedSources>
                         <failOnViolation>false</failOnViolation>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         <violationSeverity>info</violationSeverity>
