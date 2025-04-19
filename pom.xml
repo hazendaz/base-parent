@@ -812,6 +812,7 @@
                                 <X-Compile-Release-JDK>${maven.compiler.release}</X-Compile-Release-JDK>
                             </manifestEntries>
                         </archive>
+                        <legacyMode>javadoc.legacy.mode</legacyMode>
                         <notimestamp>true</notimestamp>
                         <quiet>true</quiet>
                         <release>${javadoc.java.release.version}</release>
