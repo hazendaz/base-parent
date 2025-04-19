@@ -136,7 +136,7 @@
         <java.test.release.version>${java.release.version}</java.test.release.version>
 
         <!-- Javadoc Release is strict due to maven bug and automatic module naming; it needs extra help, see examples, later fixed by legacy.mode flag -->
-        <javadoc.java.release.version>11</javadoc.java.release.version>
+        <javadoc.java.release.version>${java.release.version}</javadoc.java.release.version>
         <javadoc.legacy.mode>true</javadoc.legacy.mode>
 
         <!-- Javadoc help examples
