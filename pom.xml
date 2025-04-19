@@ -272,7 +272,7 @@
         <checkstyle.version>10.23.0</checkstyle.version>
         <extra-enforcer-rules.version>1.10.0</extra-enforcer-rules.version>
         <fluido.version note="Make sure to update in site.xml">2.1.0</fluido.version>
-        <htmlcompressor.version>2.0.2</htmlcompressor.version>
+        <htmlcompressor.version>2.1.0</htmlcompressor.version>
         <license-git.version>5.0.0</license-git.version>
         <pmd.version>7.12.0</pmd.version>
         <restrict-imports-enforcer-rule.version>2.6.1</restrict-imports-enforcer-rule.version>
