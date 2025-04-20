@@ -693,7 +693,7 @@
                     <configuration>
                         <rules>
                             <bannedDependencies>
-                                <message>Do not use obsolete logging libraries.  Prefer slf4j/logback and override slf4j libraries for replacements</message>
+                                <message>Do not use obsolete logging libraries.  Prefer slf4j/logback and override slf4j libraries for replacements.  Use only commons-logging when needed and no overrides from any of the major logging providers.</message>
                                 <excludes>
                                     <exclude>log4j:log4j</exclude>
                                     <exclude>org.apache.logging.log4j:log4j-jcl</exclude>
