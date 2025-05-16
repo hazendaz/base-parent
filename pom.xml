@@ -210,7 +210,7 @@
         <build-helper.plugin>3.6.0</build-helper.plugin>
         <buildplan.plugin>2.2.2</buildplan.plugin>
         <changelog.plugin>3.0.0-M1</changelog.plugin>
-        <changes.plugin>3.0.0-M2</changes.plugin>
+        <changes.plugin>3.0.0-M3</changes.plugin>
         <checkstyle.plugin>3.6.0</checkstyle.plugin>
         <clean.plugin>3.4.1</clean.plugin>
         <compiler.plugin>3.14.0</compiler.plugin>
