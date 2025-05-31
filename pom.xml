@@ -209,6 +209,7 @@
         <assembly.plugin>3.7.1</assembly.plugin>
         <build-helper.plugin>3.6.0</build-helper.plugin>
         <buildplan.plugin>2.2.2</buildplan.plugin>
+        <central-publishing.plugin>0.7.0</central-publishing.plugin>
         <changelog.plugin>3.0.0-M1</changelog.plugin>
         <changes.plugin>3.0.0-M3</changes.plugin>
         <checkstyle.plugin>3.6.0</checkstyle.plugin>
@@ -1189,7 +1190,7 @@
                 <plugin>
                     <groupId>org.sonatype.central</groupId>
                     <artifactId>central-publishing-maven-plugin</artifactId>
-                    <version>0.7.0</version>
+                    <version>${central-publishing.plugin}</version>
                     <extensions>true</extensions>
                     <configuration>
                         <publishingServerId>central</publishingServerId>
