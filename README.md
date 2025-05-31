@@ -23,7 +23,7 @@ After running `mvn clean install` against this project, simply add the parent to
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>52</version>
+    <version>53</version>
 </parent>
 ```
 
@@ -57,7 +57,7 @@ And add parent to your pom.
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>52</version>
+    <version>53</version>
 </parent>
 ```
 
