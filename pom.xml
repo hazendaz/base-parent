@@ -638,6 +638,7 @@
                                 </includes>
                             </fileset>
                         </filesets>
+                        <force>true</force>
                     </configuration>
                 </plugin>
                 <plugin>

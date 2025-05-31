@@ -46,6 +46,7 @@
                             </excludes>
                         </fileset>
                     </filesets>
+                    <force>true</force>
                 </configuration>
             </plugin>
         </plugins>
