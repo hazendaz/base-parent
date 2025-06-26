@@ -244,7 +244,7 @@
         <lombok.plugin>1.18.20.0</lombok.plugin>
         <makeself.plugin>1.9.1</makeself.plugin>
         <modernizer.plugin>3.1.0</modernizer.plugin>
-        <pmd.plugin>3.26.0</pmd.plugin>
+        <pmd.plugin>3.27.0</pmd.plugin>
         <project-info.plugin>3.9.0</project-info.plugin>
         <release.plugin>3.1.1</release.plugin>
         <resources.plugin>3.3.1</resources.plugin>
