@@ -78,7 +78,7 @@
     <scm>
         <connection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/hazendaz/base-parent.git</developerConnection>
-        <tag>base-parent-52</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/hazendaz/base-parent</url>
     </scm>
     <issueManagement>
