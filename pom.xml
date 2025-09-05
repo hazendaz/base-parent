@@ -197,7 +197,7 @@
         <error-prone.version>2.41.0</error-prone.version>
         <hibernate-validator.version>9.0.1.Final</hibernate-validator.version>
         <j2objc.version>3.1</j2objc.version>
-        <lombok.version>1.18.38</lombok.version>
+        <lombok.version>1.18.40</lombok.version>
         <modernizer.version>3.2.0</modernizer.version>
         <spotbugs.version>4.9.4</spotbugs.version>
 
