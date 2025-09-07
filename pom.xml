@@ -618,6 +618,10 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-changelog-plugin</artifactId>
                     <version>${changelog.plugin}</version>
+                    <configuration>
+                        <!-- TODO: Does not work with newer git versions until maven fixes its usage! -->
+                        <skip>true</skip>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
