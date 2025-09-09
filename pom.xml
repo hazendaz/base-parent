@@ -190,7 +190,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Enforcer Jdks Allowed -->
-        <allowed.build.jdks note="Allow any 17, 21, 24, 25">[17,18),[21,22),[24,25),[25,26)</allowed.build.jdks>
+        <allowed.build.jdks note="Allow any 17, 21, 24, 25, 26">[17,18),[21,22),[24,25),[25,26),[26,27)</allowed.build.jdks>
 
         <!-- Supported Versions -->
         <checker-qual.version>3.50.0</checker-qual.version>
@@ -727,11 +727,11 @@
                             </enforceBytecodeVersion>
                             <reactorModuleConvergence />
                             <requireJavaVersion>
-                                <message>Please upgrade java and configure 'JAVA_HOME'.</message>
+                                <message>Allowed jdks ${allowd.build.jdks}. Please upgrade java and configure 'JAVA_HOME'.</message>
                                 <version>${allowed.build.jdks}</version>
                             </requireJavaVersion>
                             <requireMavenVersion>
-                                <message>Please upgrade maven and configure 'M2_HOME'.</message>
+                                <message>Minimum mave ${maven.min-version}. Please upgrade maven and configure 'M2_HOME'.</message>
                                 <version>[${maven.min-version},)</version>
                             </requireMavenVersion>
                             <requirePluginVersions>
