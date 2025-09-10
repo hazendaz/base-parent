@@ -193,7 +193,7 @@
         <allowed.build.jdks note="Allow any 17, 21, 24, 25, 26">[17,18),[21,22),[24,25),[25,26),[26,27)</allowed.build.jdks>
 
         <!-- Supported Versions -->
-        <checker-qual.version>3.50.0</checker-qual.version>
+        <checker-qual.version>3.51.0</checker-qual.version>
         <error-prone.version>2.41.0</error-prone.version>
         <hibernate-validator.version>9.0.1.Final</hibernate-validator.version>
         <j2objc.version>3.1</j2objc.version>
