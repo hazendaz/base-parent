@@ -199,7 +199,7 @@
         <j2objc.version>3.1</j2objc.version>
         <lombok.version>1.18.40</lombok.version>
         <modernizer.version>3.2.0</modernizer.version>
-        <spotbugs.version>4.9.4</spotbugs.version>
+        <spotbugs.version>4.9.5</spotbugs.version>
 
         <!-- Checkstyle -->
         <checkstyle.config>checkstyle.xml</checkstyle.config>
