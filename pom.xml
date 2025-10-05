@@ -215,7 +215,7 @@
         <checkstyle.plugin>3.6.0</checkstyle.plugin>
         <clean.plugin>3.5.0</clean.plugin>
         <compiler.plugin>3.14.1</compiler.plugin>
-        <coveralls.plugin>4.7.0</coveralls.plugin>
+        <coveralls.plugin>5.0.0</coveralls.plugin>
         <cyclonedx.plugin>2.9.1</cyclonedx.plugin>
         <dependency.plugin>3.9.0</dependency.plugin>
         <dependency-check.plugin>12.1.6</dependency-check.plugin>
