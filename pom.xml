@@ -249,7 +249,7 @@
         <release.plugin>3.3.0</release.plugin>
         <resources.plugin>3.4.0</resources.plugin>
         <rewrite.plugin>6.25.0</rewrite.plugin>
-        <smartsprites.plugin>2.4.0</smartsprites.plugin>
+        <smartsprites.plugin>2.4.1</smartsprites.plugin>
         <scm-publish.plugin>3.3.0</scm-publish.plugin>
         <site.plugin>3.21.0</site.plugin>
         <sonar.plugin>5.5.0.6356</sonar.plugin>
