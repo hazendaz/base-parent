@@ -747,7 +747,7 @@
                                 <version>${allowed.build.jdks}</version>
                             </requireJavaVersion>
                             <requireMavenVersion>
-                                <message>Minimum mave ${maven.min-version}. Please upgrade maven and configure 'M2_HOME'.</message>
+                                <message>Minimum maven ${maven.min-version}. Please upgrade maven and configure 'M2_HOME'.</message>
                                 <version>[${maven.min-version},)</version>
                             </requireMavenVersion>
                             <requirePluginVersions>
