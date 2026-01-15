@@ -190,7 +190,7 @@
         <timestamp>${maven.build.timestamp}</timestamp>
 
         <!-- Enforcer Jdks Allowed -->
-        <allowed.build.jdks note="Allow any 21, 25, 26">[21,22),[25,26),[26,27)</allowed.build.jdks>
+        <allowed.build.jdks note="Allow any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
 
         <!-- Supported Versions -->
         <checker-qual.version>3.53.0</checker-qual.version>
