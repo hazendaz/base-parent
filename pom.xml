@@ -1104,9 +1104,17 @@
                     <artifactId>cyclonedx-maven-plugin</artifactId>
                     <version>${cyclonedx.plugin}</version>
                     <configuration>
+                        <schemaLocation>classpath:/cyclonedx/custom-schema.json</schemaLocation>
                         <skipNotDeployed>false</skipNotDeployed>
                         <verbose>false</verbose>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.hazendaz</groupId>
+                            <artifactId>build-tools</artifactId>
+                            <version>${build-tools.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <!-- Gaul Provided Plugins -->
