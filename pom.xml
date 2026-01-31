@@ -185,6 +185,7 @@
         <allowed.build.jdks note="Allow any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
 
         <!-- Supported Versions -->
+        <caffeine.version>3.2.3</caffeine.version>
         <checker-qual.version>3.53.0</checker-qual.version>
         <error-prone.version>2.46.0</error-prone.version>
         <hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
@@ -1174,6 +1175,13 @@
                     <groupId>org.openrewrite.maven</groupId>
                     <artifactId>rewrite-maven-plugin</artifactId>
                     <version>${rewrite.plugin}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.ben-manes.caffeine</groupId>
+                            <artifactId>caffeine</artifactId>
+                            <version>${caffeine.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
 
                 <!-- Owasp Provided Plugins -->
