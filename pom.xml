@@ -7,7 +7,7 @@
     Copyright 2011-2026 Hazendaz
 
 -->
-<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -1788,6 +1788,23 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+
+        <profile>
+            <id>maven4</id>
+            <activation>
+                <property>
+                    <name>maven.version</name>
+                    <value>4.0.0-rc-5</value>
+                </property>
+            </activation>
+            <properties>
+                <!-- overrides for Maven 4 -->
+                <clean.plugin>4.0.0-beta-2</clean.plugin>
+                <compiler.plugin>4.0.0-beta-4</compiler.plugin>
+                <deploy.plugin>4.0.0-beta-2</deploy.plugin>
+                <install.plugin>4.0.0-beta-2</install.plugin>
+            </properties>
         </profile>
 
         <profile>
