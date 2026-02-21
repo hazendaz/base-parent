@@ -215,7 +215,7 @@
         <deploy.plugin>3.1.4</deploy.plugin>
         <directory.plugin>1.2.2</directory.plugin>
         <enforcer.plugin>3.6.2</enforcer.plugin>
-        <failsafe.plugin>3.5.4</failsafe.plugin>
+        <failsafe.plugin>3.5.5</failsafe.plugin>
         <find-and-replace.plugin>1.2.0</find-and-replace.plugin>
         <formatter.plugin>2.29.0</formatter.plugin>
         <frontend.plugin>2.0.0</frontend.plugin>
