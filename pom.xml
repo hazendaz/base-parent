@@ -251,7 +251,7 @@
         <spotbugs.plugin>4.9.8.2</spotbugs.plugin>
         <spotless.plugin>3.2.1</spotless.plugin>
         <springboot.plugin>4.0.3</springboot.plugin>
-        <surefire.plugin>3.5.4</surefire.plugin>
+        <surefire.plugin>3.5.5</surefire.plugin>
         <taglist.plugin>3.2.2</taglist.plugin>
         <versions.plugin>2.21.0</versions.plugin>
         <war.plugin>3.5.1</war.plugin>
