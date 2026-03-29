@@ -735,15 +735,16 @@
 
                             <banDuplicatePomDependencyVersions />
 
+                            <!-- Ensure clean tree -->
+                            <dependencyConvergence />
+
                             <enforceBytecodeVersion>
                                 <maxJdkVersion>${java.version}</maxJdkVersion>
                                 <ignoredScopes>provided,test</ignoredScopes>
                             </enforceBytecodeVersion>
 
+                            <!-- Ensure same build version -->
                             <reactorModuleConvergence />
-
-                            <!-- Ensure clean tree -->
-                            <requireDependencyConvergence />
 
                             <requireJavaVersion>
                                 <message>Allowed jdks ${allowed.build.jdks}. Please upgrade java and configure 'JAVA_HOME'.</message>
@@ -764,9 +765,7 @@
                             </requirePluginVersions>
 
                             <!-- Ensure highest versions win -->
-                            <requireUpperBoundDeps>
-                                <verbose>true</verbose>
-                            </requireUpperBoundDeps>
+                            <requireUpperBoundDeps />
 
                             <restrictImports>
                                 <includeTestCode>true</includeTestCode>
