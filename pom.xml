@@ -1821,6 +1821,21 @@
                 <deploy.plugin>4.0.0-beta-2</deploy.plugin>
                 <install.plugin>4.0.0-beta-2</install.plugin>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <!-- Maven 4 compiler plugin 4.x requires release only; source/target conflict with release -->
+                            <source />
+                            <target />
+                            <!-- Maven 4: useIncrementalCompilation=false replaced by incrementalCompilation=classes (recompile changed classes only, no incremental dependency tracking) -->
+                            <incrementalCompilation>classes</incrementalCompilation>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
 
         <profile>
