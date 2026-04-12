@@ -32,3 +32,27 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Test with Maven
         run: ./mvnw test --batch-mode --no-transfer-progress --show-version -D"license.skip=true"
+
+  integration-test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        cache: [maven]
+        distribution: [temurin]
+        java: [25, 26-ea, 27-ea]
+        os: [macos-latest, ubuntu-latest, windows-latest]
+      fail-fast: false
+      max-parallel: 6
+    name: Integration Test JDK ${{ matrix.java }}, ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - name: Setup Java ${{ matrix.java }} ${{ matrix.distribution }}
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
+        with:
+          cache: ${{ matrix.cache }}
+          distribution: ${{ matrix.distribution }}
+          java-version: ${{ matrix.java }}
+      - name: Integration Test with Maven
+        run: ./mvnw verify --batch-mode --no-transfer-progress --show-version -D"license.skip=true" -P"run-it"

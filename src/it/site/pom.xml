@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    SPDX-License-Identifier: Apache-2.0
+    See LICENSE file for details.
+
+    Copyright 2011-2026 Hazendaz
+
+-->
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.github.hazendaz</groupId>
+        <artifactId>base-parent</artifactId>
+        <version>@project.version@</version>
+    </parent>
+
+    <groupId>com.github.hazendaz.it</groupId>
+    <artifactId>site</artifactId>
+    <packaging>pom</packaging>
+
+    <name>site</name>
+    <description>Integration test: site generation inheriting base-parent.</description>
+    <url>https://github.com/hazendaz/base-parent</url>
+
+</project>

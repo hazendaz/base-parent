@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    SPDX-License-Identifier: Apache-2.0
+    See LICENSE file for details.
+
+    Copyright 2011-2026 Hazendaz
+
+-->
+<settings>
+    <localRepository>${invoker.localRepositoryPath}</localRepository>
+</settings>
