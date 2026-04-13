@@ -1964,7 +1964,6 @@
                             <showErrors>true</showErrors>
                             <streamLogs>true</streamLogs>
                             <projectsDirectory>src/it</projectsDirectory>
-
                         </configuration>
                         <executions>
                             <execution>
