@@ -1964,7 +1964,7 @@
                             <showErrors>true</showErrors>
                             <streamLogs>true</streamLogs>
                             <projectsDirectory>src/it</projectsDirectory>
-                            <postBuildHookScript>verify</postBuildHookScript>
+
                         </configuration>
                         <executions>
                             <execution>
