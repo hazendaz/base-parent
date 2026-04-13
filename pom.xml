@@ -1968,11 +1968,40 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <id>integration-test</id>
+                                <id>invoker-install</id>
                                 <goals>
                                     <goal>install</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                            </execution>
+                            <execution>
+                                <id>invoker-run</id>
+                                <goals>
                                     <goal>run</goal>
                                 </goals>
+                                <phase>integration-test</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-site-descriptor</id>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                                <configuration>
+                                    <file>${project.basedir}/src/site/site.xml</file>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>xml</packaging>
+                                    <classifier>site</classifier>
+                                    <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
