@@ -224,6 +224,7 @@
         <htmlcompressor.plugin>2.4.0</htmlcompressor.plugin>
         <impsort.plugin>1.13.0</impsort.plugin>
         <install.plugin>3.1.4</install.plugin>
+        <invoker.plugin>3.9.1</invoker.plugin>
         <jacoco.plugin>0.8.14</jacoco.plugin>
         <jandex.plugin>1.2.3</jandex.plugin>
         <jar.plugin>3.5.0</jar.plugin>
@@ -1258,6 +1259,12 @@
                     <artifactId>directory-maven-plugin</artifactId>
                     <version>${directory.plugin}</version>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-invoker-plugin</artifactId>
+                    <version>${invoker.plugin}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -1823,10 +1830,10 @@
 
                 <!-- Maven 4 compiler plugin 4.x rejects javac source/target when release is also set.
                      Clear the user properties so only release is forwarded to javac. -->
-                <maven.compiler.source/>
-                <maven.compiler.target/>
-                <maven.compiler.testSource/>
-                <maven.compiler.testTarget/>
+                <maven.compiler.source />
+                <maven.compiler.target />
+                <maven.compiler.testSource />
+                <maven.compiler.testTarget />
             </properties>
             <build>
                 <plugins>
@@ -1936,6 +1943,64 @@
                                 <goals>
                                     <goal>wsimport</goal>
                                 </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>run-it</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-invoker-plugin</artifactId>
+                        <configuration>
+                            <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                            <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                            <settingsFile>src/it/settings.xml</settingsFile>
+                            <showErrors>true</showErrors>
+                            <streamLogs>true</streamLogs>
+                            <projectsDirectory>src/it</projectsDirectory>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>invoker-install</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                            </execution>
+                            <execution>
+                                <id>invoker-run</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <phase>integration-test</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-install-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-site-descriptor</id>
+                                <goals>
+                                    <goal>install-file</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                                <configuration>
+                                    <file>${project.basedir}/src/site/site.xml</file>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>xml</packaging>
+                                    <classifier>site</classifier>
+                                    <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
