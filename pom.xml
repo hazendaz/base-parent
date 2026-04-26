@@ -224,7 +224,7 @@
         <htmlcompressor.plugin>2.4.0</htmlcompressor.plugin>
         <impsort.plugin>1.13.0</impsort.plugin>
         <install.plugin>3.1.4</install.plugin>
-        <invoker.plugin>3.9.1</invoker.plugin>
+        <invoker.plugin>3.10.0</invoker.plugin>
         <jacoco.plugin>0.8.14</jacoco.plugin>
         <jandex.plugin>1.2.3</jandex.plugin>
         <jar.plugin>3.5.0</jar.plugin>
