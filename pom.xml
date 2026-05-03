@@ -185,7 +185,7 @@
         <allowed.build.jdks note="Allow any 21, 25, 26, 27">[21,22),[25,26),[26,27),[27,28)</allowed.build.jdks>
 
         <!-- Supported Versions -->
-        <caffeine.version>3.2.3</caffeine.version>
+        <caffeine.version>3.2.4</caffeine.version>
         <checker-qual.version>4.1.0</checker-qual.version>
         <error-prone.version>2.49.0</error-prone.version>
         <hibernate-validator.version>9.1.0.Final</hibernate-validator.version>
