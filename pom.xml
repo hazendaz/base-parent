@@ -2004,6 +2004,8 @@
                                     <packaging>xml</packaging>
                                     <classifier>site</classifier>
                                     <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                                    <!-- Prevent generating a POM with packaging=xml that would overwrite the already-installed pom-packaged POM -->
+                                    <generatePom>false</generatePom>
                                 </configuration>
                             </execution>
                         </executions>
