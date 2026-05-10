@@ -675,21 +675,12 @@
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
 
-                        <compilerArgs>
+                        <compilerArgs combine.children="append">
                             <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>--should-stop=ifError=FLOW</compilerArg>
                             <compilerArg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</compilerArg>
-                        </compilerArgs>
 
-                        <showDeprecation>true</showDeprecation>
-                        <showWarnings>true</showWarnings>
-
-                        <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
-                        <useIncrementalCompilation>false</useIncrementalCompilation>
-
-                        <fork>true</fork>
-                        <compilerArgs combine.children="append">
                             <!-- Error Prone Needs -->
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
                             <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
@@ -703,6 +694,14 @@
                             <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</compilerArg>
                             <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
                         </compilerArgs>
+
+                        <showDeprecation>true</showDeprecation>
+                        <showWarnings>true</showWarnings>
+
+                        <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
+                        <useIncrementalCompilation>false</useIncrementalCompilation>
+
+                        <fork>true</fork>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -1845,25 +1844,6 @@
                             <incrementalCompilation>classes</incrementalCompilation>
                             <!-- Maven 4: compiler plugin 4.x does not support the annotationProcessorPaths from 3.x -->
                             <annotationProcessorPaths combine.self="override"/>
-                            <compilerArgs combine.self="override">
-                                <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
-                                <compilerArg>-XDcompilePolicy=simple</compilerArg>
-                                <compilerArg>--should-stop=ifError=FLOW</compilerArg>
-                                <compilerArg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</compilerArg>
-
-                                <!-- Error Prone needs access to javac internals -->
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</compilerArg>
-
-                                <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</compilerArg>
-                                <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
-                            </compilerArgs>
                         </configuration>
                         <dependencies>
                             <dependency>
