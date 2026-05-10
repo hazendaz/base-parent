@@ -1843,7 +1843,7 @@
                             <!-- Maven 4: useIncrementalCompilation=false replaced by incrementalCompilation=classes (recompile changed classes only, no incremental dependency tracking) -->
                             <incrementalCompilation>classes</incrementalCompilation>
                             <!-- Maven 4: compiler plugin 4.x does not support the annotationProcessorPaths from 3.x -->
-                            <annotationProcessorPaths combine.self="override"/>
+                            <annotationProcessorPaths combine.self="override" />
                         </configuration>
                         <dependencies>
                             <dependency>
