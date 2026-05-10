@@ -1813,6 +1813,38 @@
         </profile>
 
         <profile>
+            <!-- git-commit-id-maven-plugin 10.x requires Maven 3.9.0+. When testing with Maven 3.6.3,
+                 override to 9.0.2 which supports Maven 3.6.3+ (requiredMavenVersion=[3.6.3,)).
+                 NOTE: Activation mirrors the Maven 3.6.3 CI workflow exactly. -->
+            <id>maven363</id>
+            <activation>
+                <property>
+                    <name>maven.version</name>
+                    <value>3.6.3</value>
+                </property>
+            </activation>
+            <properties>
+                <git-commit.plugin>9.0.2</git-commit.plugin>
+            </properties>
+        </profile>
+
+        <profile>
+            <!-- git-commit-id-maven-plugin 10.x requires Maven 3.9.0+. When testing with Maven 3.8.9,
+                 override to 9.0.2 which supports Maven 3.8.9+ (requiredMavenVersion=[3.8.9,)).
+                 NOTE: Activation mirrors the Maven 3.8.9 CI workflow exactly. -->
+            <id>maven389</id>
+            <activation>
+                <property>
+                    <name>maven.version</name>
+                    <value>3.8.9</value>
+                </property>
+            </activation>
+            <properties>
+                <git-commit.plugin>9.0.2</git-commit.plugin>
+            </properties>
+        </profile>
+
+        <profile>
             <id>maven4</id>
             <activation>
                 <property>
