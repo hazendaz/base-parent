@@ -675,7 +675,7 @@
                             </annotationProcessorPath>
                         </annotationProcessorPaths>
 
-                        <compilerArgs combine.children="append">
+                        <compilerArgs>
                             <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
                             <compilerArg>-XDcompilePolicy=simple</compilerArg>
                             <compilerArg>--should-stop=ifError=FLOW</compilerArg>
@@ -695,13 +695,13 @@
                             <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
                         </compilerArgs>
 
+                        <fork>true</fork>
+
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
 
                         <!-- Slightly faster builds, see https://issues.apache.org/jira/browse/MCOMPILER-209 -->
                         <useIncrementalCompilation>false</useIncrementalCompilation>
-
-                        <fork>true</fork>
                     </configuration>
                 </plugin>
                 <plugin>
