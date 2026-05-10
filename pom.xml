@@ -1843,11 +1843,48 @@
                         <configuration>
                             <!-- Maven 4: useIncrementalCompilation=false replaced by incrementalCompilation=classes (recompile changed classes only, no incremental dependency tracking) -->
                             <incrementalCompilation>classes</incrementalCompilation>
-                            <!-- Maven 4: compiler plugin 4.x does not support the annotationProcessorPaths from 3.x; wipe and re-add via plugin dependencies instead -->
+                            <!-- Maven 4: compiler plugin 4.x does not support the annotationProcessorPaths from 3.x -->
                             <annotationProcessorPaths combine.self="override"/>
-                            <!-- Maven 4: clear Error Prone compilerArgs that require the annotation processor paths above -->
-                            <compilerArgs combine.self="override"/>
+                            <compilerArgs combine.self="override">
+                                <compilerArg>-XDaddTypeAnnotationsToSymbol=true</compilerArg>
+                                <compilerArg>-XDcompilePolicy=simple</compilerArg>
+                                <compilerArg>--should-stop=ifError=FLOW</compilerArg>
+                                <compilerArg>-Xplugin:ErrorProne ${error-prone.failOnViolations} ${error-prone.skipGeneratedCode}</compilerArg>
+
+                                <!-- Error Prone needs access to javac internals -->
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</compilerArg>
+
+                                <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</compilerArg>
+                                <compilerArg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</compilerArg>
+                            </compilerArgs>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.google.errorprone</groupId>
+                                <artifactId>error_prone_core</artifactId>
+                                <version>${error-prone.version}</version>
+                                <type>classpath-processor</type>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                                <type>classpath-processor</type>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.hibernate.validator</groupId>
+                                <artifactId>hibernate-validator-annotation-processor</artifactId>
+                                <version>${hibernate-validator.version}</version>
+                                <type>classpath-processor</type>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
