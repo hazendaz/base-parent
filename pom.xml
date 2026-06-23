@@ -209,7 +209,7 @@
         <clean.plugin>3.5.0</clean.plugin>
         <compiler.plugin>3.15.0</compiler.plugin>
         <coveralls.plugin>5.1.0</coveralls.plugin>
-        <cyclonedx.plugin>2.9.1</cyclonedx.plugin>
+        <cyclonedx.plugin>2.9.2</cyclonedx.plugin>
         <dependency.plugin>3.11.0</dependency.plugin>
         <dependency-check.plugin>12.2.2</dependency-check.plugin>
         <deploy.plugin>3.1.4</deploy.plugin>
