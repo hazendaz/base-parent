@@ -1,7 +1,7 @@
 ﻿# base-parent #
 
 [![Java CI](https://github.com/hazendaz/base-parent/actions/workflows/ci.yaml/badge.svg)](https://github.com/hazendaz/base-parent/actions/workflows/ci.yaml)
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.hazendaz/base-parent)](https://central.sonatype.com/artifact/com.github.hazendaz/base-parent)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.hazendaz/base-parent?logo=apache-maven&label=maven%20central)](https://central.sonatype.com/artifact/com.github.hazendaz/base-parent)
 [![License](https://img.shields.io/github/license/hazendaz/base-parent)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ![hazendaz](src/site/resources/images/hazendaz-banner.jpg)
