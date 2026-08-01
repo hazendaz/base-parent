@@ -14,7 +14,7 @@ If you quickly want to configure maven for most use cases, just download this pr
 
 Requires
 - Maven 3.9.16 or better
-- Java 21 or better (only supported versions such as 21, 25, 26, or 27-ea)
+- Java 21 or better (only supported versions such as 21, 25, 26, 27-ea, or 28-ea)
 - Default target is java 11 but can be modified as needed by overriding it
 
 After running `mvn clean install` against this project, simply add the parent to your pom.
