@@ -70,11 +70,13 @@ base-parent/
 | `compression` | Presence of `compression.xml` | Compresses HTML/CSS/JS resources |
 | `eclipse` | `m2e.version` property present | Eclipse m2e lifecycle mapping exclusions |
 | `format` | Presence of `format.xml` | Eclipse code formatter (120-char lines, spaces) |
-| `jdk17on` | JDK ≥ 17 | Adds `--add-exports`/`--add-opens` compiler args |
 | `license-header` | Presence of `license.txt` | Stamps Java files with license headers |
+| `maven363` | Maven version = 3.6.3 | Support when using Maven 3.6 |
+| `maven389` | Maven version = 3.8.9 | Support when using Maven 3.8 |
+| `maven4` | Maven version = 4.0.0-rc-5 | Support when using Maven 4 |
 | `release` | Manual (`-Prelease`) | GPG-signs artifacts during deploy |
 | `rewrite-junit` | Manual | OpenRewrite recipe: JUnit 4 → JUnit 5 migration |
-| `run-it` | Manual (`-Prun-it`) | Runs Maven Invoker integration tests |
+| `run-it` | Manual (`-Prun-it`) | Runs integration tests |
 | `wsimport` | Manual | Runs `wsimport` for WSDL/JAX-WS code generation |
 
 ## CI Workflows
