@@ -1984,26 +1984,6 @@
         </profile>
 
         <profile>
-            <id>wsimport</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.sun.xml.ws</groupId>
-                        <artifactId>jaxws-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>wsimport</id>
-                                <goals>
-                                    <goal>wsimport</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
             <id>run-it</id>
             <build>
                 <plugins>
@@ -2056,6 +2036,26 @@
                                     <!-- Prevent generating a POM with packaging=xml that would overwrite the already-installed pom-packaged POM -->
                                     <generatePom>false</generatePom>
                                 </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>wsimport</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.sun.xml.ws</groupId>
+                        <artifactId>jaxws-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>wsimport</id>
+                                <goals>
+                                    <goal>wsimport</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>

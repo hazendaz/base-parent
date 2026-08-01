@@ -75,13 +75,19 @@ file to activate.
 `format` - Runs eclipse formatting using spaces rather than tabs and 120 rather than 80 character lines.  Requires
 existence of format.xml file to activate.
 
-`jdk17on` - Adds compiler args to various add-exports and add-opens
-
 `license-header` - Runs license java file tagging.  Requires existence of license.txt file to activate.
+
+`maven363` - Support when using maven 3.6
+
+`maven389` - Support when using maven 3.8
+
+`maven4` - Support when using maven 4
 
 `release` - Runs gpg against deliverables when releasing not via release plugin such as during deploy.
 
 `rewrite-junit` - Open rewrite recipe to rewrite from junit4 to junit5
+
+`run-it` - Runs integration tests
 
 `wsimport` - Runs wsimport goal.  This is mainly for example as additional configuration is required.
 
