@@ -57,7 +57,7 @@ And add parent to your pom.
 <parent>
     <groupId>com.github.hazendaz</groupId>
     <artifactId>base-parent</artifactId>
-    <version>56</version>
+    <version>60</version>
 </parent>
 ```
 
