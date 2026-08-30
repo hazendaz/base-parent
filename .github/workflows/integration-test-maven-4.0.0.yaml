@@ -1,4 +1,4 @@
-name: Java IT Maven 4.0.0-rc-5
+name: Java IT Maven 4.0.0-rc-6
 
 on: [workflow_dispatch, push, pull_request]
 
@@ -9,13 +9,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  maven-version: 4.0.0-rc-5
+  maven-version: 4.0.0-rc-6
 
 jobs:
   integration-test:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    name: Integration Test Maven 4.0.0-rc-5 with Java 25
+    name: Integration Test Maven 4.0.0-rc-6 with Java 25
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
