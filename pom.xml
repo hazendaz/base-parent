@@ -1849,8 +1849,8 @@
                 <!-- overrides for Maven 4 -->
                 <clean.plugin>4.0.0-beta-2</clean.plugin>
                 <compiler.plugin>4.0.0-beta-5</compiler.plugin>
-                <deploy.plugin>4.0.0-beta-2</deploy.plugin>
-                <install.plugin>4.0.0-beta-2</install.plugin>
+                <deploy.plugin>4.0.0-beta-3</deploy.plugin>
+                <install.plugin>4.0.0-beta-3</install.plugin>
 
                 <!-- Maven 4 compiler plugin 4.x rejects javac source/target when release is also set.
                      Clear the user properties so only release is forwarded to javac. -->
