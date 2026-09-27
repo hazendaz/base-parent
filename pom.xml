@@ -112,7 +112,7 @@
         <!-- Github Token -->
         <github.global.server>github</github.global.server>
 
-        <!-- Jacoco minimum code coverage (used under checks only currently) -->
+        <!-- Jacoco minimum code coverage -->
         <jacoco.minimum.coverage>1.00</jacoco.minimum.coverage>
 
         <!-- Automatic Module Name -->
