@@ -861,6 +861,7 @@
                         <notimestamp>true</notimestamp>
                         <quiet>true</quiet>
                         <release>${javadoc.java.release.version}</release>
+                        <show>private</show>
                         <source>${javadoc.java.release.version}</source>
                     </configuration>
                 </plugin>
