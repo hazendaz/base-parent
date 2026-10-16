@@ -48,6 +48,14 @@
     "optional" : false,
     "integrity" : "sha512:WOB6rb4lU7gJ24p2FMWTKu2Su25e4OiRVEgdA8fnsm1xxuJqF5KBzMVKiZjJlqInqsEfjErgyvhKrgdyRjuw2w=="
   }, {
+    "groupId" : "org.jspecify",
+    "artifactId" : "jspecify",
+    "version" : "1.0.1",
+    "scope" : "provided",
+    "type" : "jar",
+    "optional" : false,
+    "integrity" : "sha512:j1ym9cJe41O/vj5eXNmEezs+0elUoUpSyaoBbGc+Ar+8Lg+TCK1XbCpYcg+L8hOa2Yg8eogQUP6Wovh+LmI3EQ=="
+  }, {
     "groupId" : "org.projectlombok",
     "artifactId" : "lombok",
     "version" : "1.18.48",
