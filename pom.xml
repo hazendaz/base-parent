@@ -341,7 +341,7 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-            <id>central-snapshots</id>
+            <id>central</id>
             <url>https://central.sonatype.com/repository/maven-snapshots/</url>
         </repository>
     </repositories>
