@@ -187,7 +187,7 @@
         <!-- Supported Versions -->
         <caffeine.version>3.3.1</caffeine.version>
         <checker-qual.version>4.3.1</checker-qual.version>
-        <error-prone.version>2.50.0</error-prone.version>
+        <error-prone.version>2.51.0</error-prone.version>
         <hibernate-validator.version>9.1.5.Final</hibernate-validator.version>
         <j2objc.version>3.1</j2objc.version>
         <jspecify.version>1.0.1</jspecify.version>
