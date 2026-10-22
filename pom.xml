@@ -269,6 +269,7 @@
         <checkstyle.version>14.3.0</checkstyle.version>
         <extra-enforcer-rules.version>1.12.1</extra-enforcer-rules.version>
         <fluido.version note="Make sure to update in site.xml">2.1.0</fluido.version>
+        <groovy.version>6.0.0</groovy.version>
         <htmlcompressor.version>2.4.1</htmlcompressor.version>
         <license-git.version>5.1.2</license-git.version>
         <pmd.version>7.28.0</pmd.version>
@@ -1281,6 +1282,29 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
                     <version>${invoker.plugin}</version>
+                    <dependencies>
+                        <!-- Keep groovy at same version we are using -->
+                        <dependency>
+                            <groupId>org.apache.groovy</groupId>
+                            <artifactId>groovy</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.groovy</groupId>
+                            <artifactId>groovy-json</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.groovy</groupId>
+                            <artifactId>groovy-nio</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.groovy</groupId>
+                            <artifactId>groovy-xml</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
