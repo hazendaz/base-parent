@@ -237,6 +237,7 @@
         <license.plugin>5.1.2</license.plugin>
         <lifecycle.plugin>1.0.0</lifecycle.plugin>
         <lombok.plugin>1.18.20.0</lombok.plugin>
+        <jautodoc.plugin>0.1.0</jautodoc.plugin>
         <makeself.plugin>1.12.0</makeself.plugin>
         <modernizer.plugin>3.5.0</modernizer.plugin>
         <plugin-plugin.version>3.16.0</plugin-plugin.version>
@@ -453,6 +454,11 @@
                             <version>${yuicompressor.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>com.github.hazendaz.maven</groupId>
+                    <artifactId>jautodoc-maven-plugin</artifactId>
+                    <version>${jautodoc.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.hazendaz.maven</groupId>
