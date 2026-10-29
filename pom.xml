@@ -1233,6 +1233,7 @@
                     <configuration>
                         <failOnError>false</failOnError>
                         <nvdApiServerId>nvd</nvdApiServerId>
+                        <ossIndexServerId>ossindex</ossIndexServerId>
                     </configuration>
                 </plugin>
 
