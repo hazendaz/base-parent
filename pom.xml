@@ -273,7 +273,7 @@
         <groovy.version>6.0.0</groovy.version>
         <htmlcompressor.version>2.4.1</htmlcompressor.version>
         <license-git.version>5.1.2</license-git.version>
-        <pmd.version>7.28.0</pmd.version>
+        <pmd.version>7.29.0</pmd.version>
         <restrict-imports-enforcer-rule.version>3.0.2</restrict-imports-enforcer-rule.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
 
